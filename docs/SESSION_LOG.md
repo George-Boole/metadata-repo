@@ -99,3 +99,18 @@
 ### Status at End
 - Dev server running on http://localhost:3000 for user review
 - All prior work intact, no issues found
+
+## Session 4 — 2026-02-11
+**Focus**: Fix broken Tailwind CSS rendering
+
+### Accomplished
+- Diagnosed styling issue: stale `.next` build cache was preventing Tailwind CSS from loading in dev mode, causing unstyled pages and oversized SVGs (the giant black circle)
+- Cleared `.next` cache and verified CSS loads correctly (Tailwind v4.1.18 with all 18 custom DAF theme variables)
+- Updated `start-dev.bat` to automatically delete `.next` cache before every startup — prevents this from recurring
+- Verified build passes clean (39 pages, zero errors)
+- Committed and pushed fix to GitHub
+
+### Status at End
+- All styling rendering correctly
+- `start-dev.bat` now cleans cache on startup for reliable launches
+- Pushed to GitHub (George-Boole/metadata-repo)

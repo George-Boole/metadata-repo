@@ -1,18 +1,16 @@
-# Checkpoint — 2026-02-11 (Session 3)
+# Checkpoint — 2026-02-11 (Session 4)
 
 ## Current State
-All 8 user stories implemented. Prototype fully functional. Pushed to GitHub.
-Dev server startup files added for convenience.
+All 8 user stories implemented. Prototype fully functional. Tailwind CSS rendering fix applied. Pushed to GitHub.
 
 ## What's Done
-- Everything from Sessions 1-2 (all 8 user stories, 39 pages, build/lint clean)
-- `start-dev.bat` — double-click to launch dev server + auto-open browser
-- `HOW-TO-START.txt` — manual instructions, page URLs, prerequisites, troubleshooting
-- GitHub repo up to date (George-Boole/metadata-repo)
+- Everything from Sessions 1-3 (all 8 user stories, 39 pages, build/lint clean)
+- `start-dev.bat` now clears `.next` cache on startup to prevent stale CSS issues
+- Verified CSS loads correctly with all custom DAF theme variables
 
 ## What's NOT Done Yet
 - Tier 2B domain profiles are fictional placeholders — user to provide real ones
-- Visual polish pass (user currently reviewing)
+- Visual polish pass (user reviewing)
 - US-005 comprehensive testing of all cross-tier links
 - No automated tests
 
