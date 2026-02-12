@@ -85,3 +85,17 @@
 - All 8 user stories implemented (US-001 through US-008)
 - Initial git commit created
 - Ready for visual review and polish
+
+## Session 3 — 2026-02-11
+**Focus**: Developer experience — startup docs and quick-launch script
+
+### Accomplished
+- Reviewed project status after unexpected CLI exit — confirmed all work intact, clean git state
+- Started dev server for user review
+- Created `start-dev.bat` — double-click batch file that launches the dev server and auto-opens browser
+- Created `HOW-TO-START.txt` — plain-text reference with manual steps, page URLs, prerequisites, and troubleshooting
+- Updated state files and committed
+
+### Status at End
+- Dev server running on http://localhost:3000 for user review
+- All prior work intact, no issues found

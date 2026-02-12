@@ -1,0 +1,61 @@
+DAF Metadata Repository — How to Start the Dev Server
+======================================================
+
+QUICK START (Double-Click)
+--------------------------
+Double-click "start-dev.bat" in this folder. It will open a terminal,
+start the server, and automatically open your browser to the site.
+
+
+MANUAL START
+------------
+1. Open a terminal (Command Prompt, PowerShell, or Windows Terminal).
+
+2. Navigate to this project folder:
+
+       cd "C:\Users\greg\OneDrive\Dev\DAF Prototypes\metadata-repo"
+
+3. Start the development server:
+
+       npm run dev
+
+4. Open your browser and go to:
+
+       http://localhost:3000
+
+5. To stop the server, go back to the terminal and press Ctrl+C.
+
+
+PREREQUISITES
+-------------
+- Node.js must be installed (https://nodejs.org)
+- npm packages must be installed. If you see errors about missing modules,
+  run this once from the project folder:
+
+       npm install
+
+
+SITE PAGES
+----------
+  Home / Dashboard    http://localhost:3000
+  Guidance (Tier 1)   http://localhost:3000/guidance
+  Specs (Tier 2A)     http://localhost:3000/specs
+  Profiles (Tier 2B)  http://localhost:3000/profiles
+  Tools (Tier 3)      http://localhost:3000/tools
+  Search              http://localhost:3000/search
+  API Explorer        http://localhost:3000/api-explorer
+
+
+TROUBLESHOOTING
+---------------
+- "npm is not recognized" — Node.js is not installed or not on your PATH.
+  Download it from https://nodejs.org and restart your terminal.
+
+- "ENOENT" or missing module errors — Run "npm install" first.
+
+- Port 3000 already in use — Another process is using that port. Either
+  stop it, or start with a different port:
+
+       npx next dev -p 3001
+
+  Then open http://localhost:3001 instead.
