@@ -1,0 +1,201 @@
+[
+  {
+    "id": "profile-af-isr",
+    "title": "AF ISR Metadata Profile",
+    "description": "A comprehensive metadata profile for Air Force Intelligence, Surveillance, and Reconnaissance (ISR) data products. Defines required metadata elements for ISR collection reports, imagery products, signals intelligence summaries, and multi-INT fusion products. Ensures ISR data can be discovered, shared, and properly secured across the Air Force Distributed Common Ground System (DCGS) and partner systems.",
+    "status": "active",
+    "hostingType": "stored",
+    "keywords": ["ISR", "intelligence", "surveillance", "reconnaissance", "DCGS", "imagery", "SIGINT", "Air Force"],
+    "tier": "2B",
+    "owningOrganization": "AF/A2 (Deputy Chief of Staff for Intelligence, Surveillance, Reconnaissance, and Cyber Effects Operations)",
+    "domain": "Intelligence & Surveillance",
+    "version": "3.2",
+    "incorporatedSpecs": [
+      {
+        "specId": "spec-niem",
+        "specName": "NIEM",
+        "elementsUsed": ["Person", "Organization", "Location", "Activity"]
+      },
+      {
+        "specId": "spec-niem-core",
+        "specName": "NIEM Core",
+        "elementsUsed": ["nc:PersonType", "nc:LocationType", "nc:ActivityType", "nc:DateType"]
+      },
+      {
+        "specId": "spec-ic-ism",
+        "specName": "IC-ISM",
+        "elementsUsed": ["classification", "ownerProducer", "SCIcontrols", "disseminationControls", "releasableTo"]
+      },
+      {
+        "specId": "spec-ic-edh",
+        "specName": "IC-EDH",
+        "elementsUsed": ["DataItemCreateDateTime", "ResponsibleEntity", "AuthRef"]
+      },
+      {
+        "specId": "spec-ddms",
+        "specName": "DDMS",
+        "elementsUsed": ["ddms:Resource", "ddms:Security", "ddms:GeospatialCoverage", "ddms:TemporalCoverage"]
+      }
+    ]
+  },
+  {
+    "id": "profile-afmc-logistics",
+    "title": "AFMC Logistics Data Profile",
+    "description": "Metadata profile governing data standards for Air Force Materiel Command logistics operations. Covers supply chain metadata, maintenance records, parts cataloging, and depot-level repair tracking. Ensures logistics data interoperability across AFMC depots, Defense Logistics Agency (DLA) interfaces, and weapon system sustainment databases.",
+    "status": "active",
+    "hostingType": "stored",
+    "keywords": ["logistics", "supply chain", "maintenance", "AFMC", "sustainment", "parts catalog", "depot"],
+    "tier": "2B",
+    "owningOrganization": "Air Force Materiel Command (AFMC)",
+    "domain": "Logistics & Sustainment",
+    "version": "2.1",
+    "incorporatedSpecs": [
+      {
+        "specId": "spec-niem",
+        "specName": "NIEM",
+        "elementsUsed": ["Organization", "Item", "Activity", "Document"]
+      },
+      {
+        "specId": "spec-niem-core",
+        "specName": "NIEM Core",
+        "elementsUsed": ["nc:OrganizationType", "nc:ItemType", "nc:IdentificationType", "nc:StatusType"]
+      },
+      {
+        "specId": "spec-dublin-core",
+        "specName": "Dublin Core",
+        "elementsUsed": ["dc:title", "dc:identifier", "dc:date", "dc:description", "dc:subject"]
+      }
+    ]
+  },
+  {
+    "id": "profile-sf-c2",
+    "title": "Space Force C2 Metadata Standard",
+    "description": "Defines metadata requirements for United States Space Force command and control (C2) data systems. Covers satellite operations metadata, space domain awareness data, orbital tracking information, and space-based communications metadata. Designed to support the Space Force's digital engineering ecosystem and integration with Joint All-Domain Command and Control (JADC2).",
+    "status": "active",
+    "hostingType": "stored",
+    "keywords": ["Space Force", "USSF", "command and control", "C2", "JADC2", "satellite", "space domain awareness"],
+    "tier": "2B",
+    "owningOrganization": "United States Space Force (USSF) / Space Systems Command",
+    "domain": "Space Operations & C2",
+    "version": "1.0",
+    "incorporatedSpecs": [
+      {
+        "specId": "spec-niem",
+        "specName": "NIEM",
+        "elementsUsed": ["Organization", "Location", "Activity"]
+      },
+      {
+        "specId": "spec-niem-core",
+        "specName": "NIEM Core",
+        "elementsUsed": ["nc:LocationType", "nc:ActivityType", "nc:DateType", "nc:IdentificationType"]
+      },
+      {
+        "specId": "spec-niem-mil-ops",
+        "specName": "NIEM Military Operations",
+        "elementsUsed": ["mo:UnitType", "mo:MissionType", "mo:PositionType", "mo:OrderType"]
+      },
+      {
+        "specId": "spec-ddms",
+        "specName": "DDMS",
+        "elementsUsed": ["ddms:Resource", "ddms:GeospatialCoverage", "ddms:TemporalCoverage", "ddms:Identifier"]
+      }
+    ]
+  },
+  {
+    "id": "profile-afsoc-ops",
+    "title": "AFSOC Operations Data Profile",
+    "description": "Metadata profile for Air Force Special Operations Command operational data. Covers mission planning metadata, after-action report standards, special operations forces (SOF) activity tracking, and partner nation engagement records. Emphasizes security marking requirements for sensitive special operations data and interoperability with Joint SOF enterprise systems.",
+    "status": "active",
+    "hostingType": "stored",
+    "keywords": ["AFSOC", "special operations", "SOF", "mission planning", "after-action", "partner engagement"],
+    "tier": "2B",
+    "owningOrganization": "Air Force Special Operations Command (AFSOC)",
+    "domain": "Special Operations",
+    "version": "2.4",
+    "incorporatedSpecs": [
+      {
+        "specId": "spec-niem",
+        "specName": "NIEM",
+        "elementsUsed": ["Person", "Organization", "Location", "Activity"]
+      },
+      {
+        "specId": "spec-niem-core",
+        "specName": "NIEM Core",
+        "elementsUsed": ["nc:PersonType", "nc:OrganizationType", "nc:LocationType", "nc:ActivityType"]
+      },
+      {
+        "specId": "spec-niem-mil-ops",
+        "specName": "NIEM Military Operations",
+        "elementsUsed": ["mo:MissionType", "mo:OperationType", "mo:TacticalTaskType", "mo:ObjectiveType"]
+      },
+      {
+        "specId": "spec-ic-ism",
+        "specName": "IC-ISM",
+        "elementsUsed": ["classification", "ownerProducer", "disseminationControls", "releasableTo"]
+      }
+    ]
+  },
+  {
+    "id": "profile-daf-acquisition",
+    "title": "DAF Acquisition Metadata Framework",
+    "description": "Enterprise metadata framework for Department of the Air Force acquisition programs. Standardizes metadata for program documentation, contract deliverables, test and evaluation data, and cost estimates. Supports the DAF digital transformation initiative by ensuring acquisition data is discoverable, traceable, and interoperable across the acquisition lifecycle.",
+    "status": "draft",
+    "hostingType": "stored",
+    "keywords": ["acquisition", "DAF", "program management", "contracts", "test and evaluation", "LCMP", "digital transformation"],
+    "tier": "2B",
+    "owningOrganization": "SAF/AQ (Assistant Secretary of the Air Force for Acquisition, Technology & Logistics)",
+    "domain": "Acquisition & Procurement",
+    "version": "0.9",
+    "incorporatedSpecs": [
+      {
+        "specId": "spec-niem",
+        "specName": "NIEM",
+        "elementsUsed": ["Organization", "Document", "Activity"]
+      },
+      {
+        "specId": "spec-dublin-core",
+        "specName": "Dublin Core",
+        "elementsUsed": ["dc:title", "dc:creator", "dc:date", "dc:identifier", "dc:description", "dc:publisher", "dc:rights"]
+      },
+      {
+        "specId": "spec-dcat",
+        "specName": "W3C DCAT",
+        "elementsUsed": ["dcat:Dataset", "dcat:Distribution", "dcat:CatalogRecord", "dcat:keyword"]
+      },
+      {
+        "specId": "spec-iso-11179",
+        "specName": "ISO/IEC 11179",
+        "elementsUsed": ["Data Element", "Value Domain", "Conceptual Domain", "Object Class"]
+      }
+    ]
+  },
+  {
+    "id": "profile-af-medical",
+    "title": "AF Medical Service Metadata Profile",
+    "description": "Metadata profile for Air Force Medical Service (AFMS) health data systems. Standardizes metadata for patient records interoperability, medical logistics, and public health surveillance data shared across the Military Health System (MHS). Ensures compliance with DoD health data standards while enabling integration with VA and civilian health systems.",
+    "status": "active",
+    "hostingType": "stored",
+    "keywords": ["medical", "AFMS", "health data", "MHS", "patient records", "public health", "medical logistics"],
+    "tier": "2B",
+    "owningOrganization": "Air Force Medical Service (AFMS) / SG",
+    "domain": "Military Health",
+    "version": "4.0",
+    "incorporatedSpecs": [
+      {
+        "specId": "spec-niem",
+        "specName": "NIEM",
+        "elementsUsed": ["Person", "Organization", "Location"]
+      },
+      {
+        "specId": "spec-niem-core",
+        "specName": "NIEM Core",
+        "elementsUsed": ["nc:PersonType", "nc:OrganizationType", "nc:DateType", "nc:IdentificationType"]
+      },
+      {
+        "specId": "spec-dublin-core",
+        "specName": "Dublin Core",
+        "elementsUsed": ["dc:title", "dc:creator", "dc:date", "dc:identifier", "dc:subject"]
+      }
+    ]
+  }
+]

@@ -1,0 +1,139 @@
+[
+  {
+    "id": "tool-dcamps-c",
+    "title": "DCAMPS-C (Data-Centric Automated Metadata & Policy System - Cloud)",
+    "description": "DCAMPS-C by Mundo Systems is a DoD-focused metadata tagging and policy enforcement platform designed for classified and controlled unclassified environments. It automates the application of IC-ISM and IC-EDH security markings to data objects and validates metadata compliance against DoD security policies. DCAMPS-C integrates with DoD data-sharing platforms and is certified for use in classified networks.",
+    "status": "active",
+    "hostingType": "stored",
+    "keywords": ["DCAMPS-C", "Mundo Systems", "security marking", "automated tagging", "IC-ISM", "policy enforcement", "classified"],
+    "tier": "3",
+    "vendor": "Mundo Systems",
+    "capabilities": [
+      "Automated IC-ISM security marking application",
+      "IC-EDH header generation and validation",
+      "Policy-driven metadata tagging workflows",
+      "Bulk data object classification marking",
+      "Security marking validation and compliance checking",
+      "Integration with DoD data-sharing fabric"
+    ],
+    "supportedSpecIds": ["spec-ic-ism", "spec-ic-edh", "spec-ddms"],
+    "licenseType": "Government/Commercial (GSA Schedule)",
+    "maturityLevel": "production",
+    "integrationNotes": "DCAMPS-C provides REST APIs for integration into DevSecOps pipelines. Supports automated classification marking as part of CI/CD workflows for data products destined for classified networks. IL4/IL5 certified."
+  },
+  {
+    "id": "tool-purview",
+    "title": "Microsoft Purview Information Protection",
+    "description": "Microsoft Purview Information Protection provides automated data classification, sensitivity labeling, and protection capabilities. It applies metadata labels to documents, emails, and data assets based on content analysis and organizational policies. In DoD environments, Purview is used to apply CUI markings and sensitivity labels that map to IC-ISM classification levels.",
+    "status": "active",
+    "hostingType": "linked",
+    "externalUrl": "https://learn.microsoft.com/en-us/purview/information-protection",
+    "keywords": ["Microsoft Purview", "sensitivity labels", "data classification", "CUI", "DLP", "information protection"],
+    "tier": "3",
+    "vendor": "Microsoft",
+    "capabilities": [
+      "Automated content-based data classification",
+      "Sensitivity label application and enforcement",
+      "CUI marking and handling policies",
+      "Data loss prevention (DLP) integration",
+      "Cross-platform labeling (Office 365, SharePoint, Teams)",
+      "Label analytics and reporting dashboards"
+    ],
+    "supportedSpecIds": ["spec-ic-ism", "spec-dublin-core"],
+    "licenseType": "Commercial (Microsoft 365 E5 / GCC High)",
+    "maturityLevel": "production",
+    "integrationNotes": "Available in Microsoft 365 GCC High for DoD IL5 environments. Integrates natively with SharePoint, Teams, and Exchange. Sensitivity labels can be mapped to IC-ISM classification values for consistent security marking across the Microsoft ecosystem."
+  },
+  {
+    "id": "tool-varonis",
+    "title": "Varonis Data Classification Engine",
+    "description": "Varonis Data Classification Engine automatically discovers and classifies sensitive data across file shares, NAS, SharePoint, and cloud storage. It applies metadata tags based on content patterns, regex rules, and machine learning models to identify PII, PHI, CUI, and classified data markers. Varonis provides classification-based access governance and remediation workflows.",
+    "status": "active",
+    "hostingType": "linked",
+    "externalUrl": "https://www.varonis.com/products/data-classification-engine",
+    "keywords": ["Varonis", "data classification", "sensitive data discovery", "PII", "CUI", "access governance"],
+    "tier": "3",
+    "vendor": "Varonis Systems",
+    "capabilities": [
+      "Automated sensitive data discovery and classification",
+      "Pattern-based and ML-driven content analysis",
+      "CUI and PII identification and tagging",
+      "File-level metadata labeling and enrichment",
+      "Classification-based access policy recommendations",
+      "Compliance reporting for NIST 800-171 and CMMC"
+    ],
+    "supportedSpecIds": ["spec-ic-ism", "spec-niem-core"],
+    "licenseType": "Commercial (Subscription)",
+    "maturityLevel": "production",
+    "integrationNotes": "Varonis deploys as an on-premises appliance or SaaS platform. Integrates with Active Directory for access governance. Classification results can be exported as metadata tags compatible with IC-ISM marking schemas."
+  },
+  {
+    "id": "tool-collibra",
+    "title": "Collibra Data Intelligence Platform",
+    "description": "Collibra's data classification and tagging capabilities within its Data Intelligence Platform enable organizations to apply standardized metadata labels to data assets at enterprise scale. Collibra supports automated and manual classification workflows that tag data according to organizational metadata schemas, including NIEM-aligned data elements and Dublin Core descriptive metadata.",
+    "status": "active",
+    "hostingType": "linked",
+    "externalUrl": "https://www.collibra.com/platform/data-classification",
+    "keywords": ["Collibra", "data classification", "data intelligence", "metadata tagging", "data governance", "enterprise"],
+    "tier": "3",
+    "vendor": "Collibra",
+    "capabilities": [
+      "Automated and manual metadata tagging workflows",
+      "Standards-based data classification schemas",
+      "Business glossary-driven metadata application",
+      "Data lineage and impact analysis for tagged assets",
+      "Stewardship workflows for classification review",
+      "API-driven metadata integration"
+    ],
+    "supportedSpecIds": ["spec-niem", "spec-dublin-core", "spec-iso-11179"],
+    "licenseType": "Commercial (Subscription)",
+    "maturityLevel": "production",
+    "integrationNotes": "Collibra provides REST APIs and integration connectors for common data platforms. Metadata schemas can be configured to align with NIEM, Dublin Core, and ISO 11179 standards. Supports FedRAMP-authorized deployment options for government use."
+  },
+  {
+    "id": "tool-titus",
+    "title": "Titus Classification Suite",
+    "description": "Titus Classification Suite (now part of HelpSystems/Fortra) provides user-driven and automated data classification and labeling for documents, emails, and files. It enforces security classification policies by prompting users to apply appropriate metadata markings at the point of creation. Widely deployed in defense and intelligence environments for security marking compliance.",
+    "status": "active",
+    "hostingType": "linked",
+    "externalUrl": "https://www.fortra.com/products/data-classification",
+    "keywords": ["Titus", "Fortra", "data classification", "security marking", "document labeling", "user-driven"],
+    "tier": "3",
+    "vendor": "Fortra (formerly HelpSystems / Titus)",
+    "capabilities": [
+      "User-prompted classification at point of creation",
+      "Automated classification policy enforcement",
+      "Visual marking and header/footer labeling",
+      "Outlook and Office integration for email/document marking",
+      "Classification metadata embedding in file properties",
+      "Policy-based classification validation"
+    ],
+    "supportedSpecIds": ["spec-ic-ism", "spec-ic-edh"],
+    "licenseType": "Commercial (Per-seat license)",
+    "maturityLevel": "production",
+    "integrationNotes": "Titus integrates with Microsoft Office, Outlook, and Windows Explorer for seamless user-driven classification. Metadata markings are stored as document properties and can be mapped to IC-ISM attributes. Supports SOAP and REST APIs for automated classification workflows."
+  },
+  {
+    "id": "tool-boldon-james",
+    "title": "Boldon James Classifier",
+    "description": "Boldon James Classifier (now part of OPSWAT) is a data classification platform that enables organizations to apply visual and metadata markings to emails, documents, and files. It supports government and military classification schemas, including NATO and national security markings. Provides both user-driven and automated classification capabilities with strong integration into Microsoft environments.",
+    "status": "active",
+    "hostingType": "linked",
+    "externalUrl": "https://www.opswat.com/products/data-classification",
+    "keywords": ["Boldon James", "OPSWAT", "data classification", "NATO markings", "visual marking", "email classification"],
+    "tier": "3",
+    "vendor": "OPSWAT (formerly Boldon James)",
+    "capabilities": [
+      "Visual and metadata classification marking",
+      "NATO and national security marking schemas",
+      "Email classification for Outlook and mobile clients",
+      "Document classification for Microsoft Office suite",
+      "Cross-domain labeling for multi-network environments",
+      "Classification inheritance for attached files"
+    ],
+    "supportedSpecIds": ["spec-ic-ism", "spec-ic-edh", "spec-ddms"],
+    "licenseType": "Commercial (Per-seat / Enterprise license)",
+    "maturityLevel": "production",
+    "integrationNotes": "Boldon James integrates with Microsoft Office, Outlook, SharePoint, and Windows File Explorer. Supports both cloud and on-premises deployment models. Classification metadata can be configured to generate IC-ISM and IC-EDH compliant markings. Used by NATO and Five Eyes partners."
+  }
+]

@@ -1,0 +1,6 @@
+I need to make a good description of product that I'd like to build that is essentially a mock-up/wire-frame/demo of a metadata repository. I just want it to have a good interface. The metadata repository would include three tiers of artifacts:
+
+1. Being able to put in high-level requirements, like instructions and authoritative guidance from the DoD
+2A. Having access to or containing many of the technical specs used for metadata like NIEM or the IC standards, such as IC-ISM
+2B. Profiles for specific data domains that are built using the pieces from approved specs in 2A
+3. Having a catalog of tools that can be used for metadata tagging and classification

@@ -1,0 +1,190 @@
+[
+  {
+    "id": "spec-niem",
+    "title": "National Information Exchange Model (NIEM)",
+    "description": "NIEM is a common vocabulary and framework for exchanging information across government agencies. It provides a standards-based approach to building interoperable data exchange packages, defining reusable data components, and enabling cross-domain information sharing. NIEM is managed as a joint program between the Department of Justice and the Department of Homeland Security with active DoD participation.",
+    "status": "active",
+    "hostingType": "stored",
+    "keywords": ["NIEM", "information exchange", "data exchange", "interoperability", "government standards", "XML", "JSON-LD"],
+    "tier": "2A",
+    "version": "6.0",
+    "managingOrganization": "NIEM Management Office (NMO)",
+    "category": "Data Exchange",
+    "elements": [
+      "Person", "Organization", "Location", "Activity", "Item",
+      "Document", "Case", "Incident", "Obligation", "Assessment"
+    ],
+    "relatedGuidanceIds": ["guid-8320-02", "guid-8320-07", "guid-8310-01", "guid-8330-01", "guid-8000-01"],
+    "relatedProfileIds": ["profile-af-isr", "profile-afmc-logistics", "profile-sf-c2", "profile-afsoc-ops", "profile-daf-acquisition", "profile-af-medical"]
+  },
+  {
+    "id": "spec-niem-core",
+    "title": "NIEM Core",
+    "description": "The foundational component of NIEM containing universally reusable data elements that span all domains. NIEM Core defines common types such as Person, Organization, Location, and Activity that are referenced by all domain-specific NIEM models. Core elements ensure consistent representation of fundamental concepts across all information exchanges.",
+    "status": "active",
+    "hostingType": "stored",
+    "keywords": ["NIEM Core", "core data elements", "universal types", "person", "organization", "location"],
+    "tier": "2A",
+    "version": "6.0",
+    "managingOrganization": "NIEM Management Office (NMO)",
+    "category": "Data Exchange",
+    "elements": [
+      "nc:PersonType", "nc:OrganizationType", "nc:LocationType",
+      "nc:ActivityType", "nc:ItemType", "nc:DocumentType",
+      "nc:DateType", "nc:TextType", "nc:IdentificationType", "nc:StatusType"
+    ],
+    "relatedGuidanceIds": ["guid-8320-02", "guid-8320-07"],
+    "relatedProfileIds": ["profile-af-isr", "profile-afmc-logistics", "profile-sf-c2", "profile-afsoc-ops", "profile-af-medical"],
+    "parentSpecId": "spec-niem"
+  },
+  {
+    "id": "spec-niem-justice",
+    "title": "NIEM Justice Domain",
+    "description": "The NIEM Justice domain provides data components for justice and public safety information exchange. Includes types for law enforcement, courts, corrections, and related justice operations. Used by DoD for military justice, law enforcement, and security cooperation data exchanges with civilian agencies.",
+    "status": "active",
+    "hostingType": "stored",
+    "keywords": ["NIEM Justice", "law enforcement", "public safety", "military justice", "courts"],
+    "tier": "2A",
+    "version": "6.0",
+    "managingOrganization": "NIEM Management Office (NMO) / DOJ",
+    "category": "Data Exchange",
+    "elements": [
+      "j:ArrestType", "j:ChargeType", "j:CourtType",
+      "j:OffenseType", "j:SubjectType", "j:SentenceType",
+      "j:EvidenceType", "j:WarrantType"
+    ],
+    "relatedGuidanceIds": ["guid-8320-07"],
+    "relatedProfileIds": [],
+    "parentSpecId": "spec-niem"
+  },
+  {
+    "id": "spec-niem-mil-ops",
+    "title": "NIEM Military Operations Domain",
+    "description": "The NIEM Military Operations domain provides data components for military operational information exchange. Covers operational planning, force tracking, mission reporting, and tactical data sharing. Enables interoperability between DoD systems and coalition partner information exchanges.",
+    "status": "active",
+    "hostingType": "stored",
+    "keywords": ["NIEM MilOps", "military operations", "operational planning", "force tracking", "mission reporting"],
+    "tier": "2A",
+    "version": "6.0",
+    "managingOrganization": "NIEM Management Office (NMO) / DoD",
+    "category": "Data Exchange",
+    "elements": [
+      "mo:UnitType", "mo:MissionType", "mo:OperationType",
+      "mo:ForceType", "mo:ObjectiveType", "mo:OrderType",
+      "mo:TacticalTaskType", "mo:PositionType"
+    ],
+    "relatedGuidanceIds": ["guid-8320-07", "guid-8330-01"],
+    "relatedProfileIds": ["profile-sf-c2", "profile-afsoc-ops"],
+    "parentSpecId": "spec-niem"
+  },
+  {
+    "id": "spec-ic-ism",
+    "title": "Intelligence Community Information Security Marking (IC-ISM)",
+    "description": "IC-ISM is the Intelligence Community standard for XML-based security marking metadata. It defines the attributes and values used to mark classified and controlled unclassified information, enabling automated processing of security policies. IC-ISM markings are required on all IC information products and are widely adopted across DoD for security classification marking of shared data.",
+    "status": "active",
+    "hostingType": "linked",
+    "externalUrl": "https://www.dni.gov/index.php/who-we-are/organizations/ic-cio/ic-cio-related-menus/ic-cio-related-links/ic-technical-specifications/information-security-marking-metadata",
+    "keywords": ["IC-ISM", "security marking", "classification", "intelligence community", "security metadata", "CUI"],
+    "tier": "2A",
+    "version": "13.0",
+    "managingOrganization": "Office of the Director of National Intelligence (ODNI)",
+    "category": "Information Security Marking",
+    "elements": [
+      "classification", "ownerProducer", "SCIcontrols",
+      "SARIdentifier", "disseminationControls", "FGIsourceOpen",
+      "releasableTo", "declassDate", "classifiedBy", "derivedFrom"
+    ],
+    "relatedGuidanceIds": ["guid-8330-01", "guid-8500-01"],
+    "relatedProfileIds": ["profile-af-isr", "profile-afsoc-ops"]
+  },
+  {
+    "id": "spec-ic-edh",
+    "title": "Intelligence Community Enterprise Data Header (IC-EDH)",
+    "description": "IC-EDH defines the standard header metadata for data objects shared across the Intelligence Community enterprise. It provides a common envelope for data exchange that includes provenance, access control, and routing metadata. IC-EDH works in conjunction with IC-ISM to provide complete security and handling metadata for intelligence data products.",
+    "status": "active",
+    "hostingType": "linked",
+    "externalUrl": "https://www.dni.gov/index.php/who-we-are/organizations/ic-cio/ic-cio-related-menus/ic-cio-related-links/ic-technical-specifications/enterprise-data-header",
+    "keywords": ["IC-EDH", "enterprise data header", "data provenance", "access control", "intelligence community"],
+    "tier": "2A",
+    "version": "4.0",
+    "managingOrganization": "Office of the Director of National Intelligence (ODNI)",
+    "category": "Information Security Marking",
+    "relatedGuidanceIds": ["guid-8330-01", "guid-8500-01"],
+    "relatedProfileIds": ["profile-af-isr"]
+  },
+  {
+    "id": "spec-dublin-core",
+    "title": "Dublin Core Metadata Element Set",
+    "description": "Dublin Core is an ISO standard (ISO 15836) providing a simple and universal set of 15 core metadata elements for describing digital and physical resources. Widely used in government, library, and academic contexts for resource discovery. DoD uses Dublin Core as the foundation for descriptive metadata in records management and data catalogs.",
+    "status": "active",
+    "hostingType": "stored",
+    "keywords": ["Dublin Core", "DCMI", "descriptive metadata", "resource discovery", "ISO 15836", "records management"],
+    "tier": "2A",
+    "version": "1.1",
+    "managingOrganization": "Dublin Core Metadata Initiative (DCMI)",
+    "category": "Descriptive Metadata",
+    "elements": [
+      "dc:title", "dc:creator", "dc:subject", "dc:description",
+      "dc:publisher", "dc:contributor", "dc:date", "dc:type",
+      "dc:format", "dc:identifier", "dc:source", "dc:language",
+      "dc:relation", "dc:coverage", "dc:rights"
+    ],
+    "relatedGuidanceIds": ["guid-8320-02", "guid-8310-01", "guid-5015-02", "guid-8000-01"],
+    "relatedProfileIds": ["profile-afmc-logistics", "profile-daf-acquisition", "profile-af-medical"]
+  },
+  {
+    "id": "spec-dcat",
+    "title": "W3C Data Catalog Vocabulary (DCAT)",
+    "description": "DCAT is a W3C Recommendation for describing data catalogs and datasets. It provides an RDF vocabulary for expressing metadata about datasets, data services, and catalog records, enabling interoperability between data catalogs. DoD leverages DCAT for describing open data assets and structuring metadata in enterprise data catalogs.",
+    "status": "active",
+    "hostingType": "linked",
+    "externalUrl": "https://www.w3.org/TR/vocab-dcat-3/",
+    "keywords": ["DCAT", "W3C", "data catalog", "RDF", "open data", "dataset metadata", "linked data"],
+    "tier": "2A",
+    "version": "3.0",
+    "managingOrganization": "World Wide Web Consortium (W3C)",
+    "category": "Data Catalog & Discovery",
+    "elements": [
+      "dcat:Catalog", "dcat:Dataset", "dcat:Distribution",
+      "dcat:DataService", "dcat:Resource", "dcat:CatalogRecord",
+      "dcat:keyword", "dcat:theme", "dcat:contactPoint"
+    ],
+    "relatedGuidanceIds": ["guid-8310-01", "guid-5015-02"],
+    "relatedProfileIds": ["profile-daf-acquisition"]
+  },
+  {
+    "id": "spec-iso-11179",
+    "title": "ISO/IEC 11179 Metadata Registries",
+    "description": "ISO/IEC 11179 is the international standard for metadata registries, defining how data elements and their meanings should be documented, classified, and registered. It provides the conceptual framework used by the DoD Metadata Registry and other enterprise data management initiatives to ensure consistent data element definitions across systems.",
+    "status": "active",
+    "hostingType": "linked",
+    "externalUrl": "https://www.iso.org/standard/78914.html",
+    "keywords": ["ISO 11179", "metadata registry", "data element", "data dictionary", "standardization", "registry"],
+    "tier": "2A",
+    "version": "3rd Edition",
+    "managingOrganization": "International Organization for Standardization (ISO)",
+    "category": "Metadata Governance",
+    "relatedGuidanceIds": ["guid-8320-07", "guid-8310-01"],
+    "relatedProfileIds": ["profile-daf-acquisition"]
+  },
+  {
+    "id": "spec-ddms",
+    "title": "DoD Discovery Metadata Specification (DDMS)",
+    "description": "DDMS defines a standard set of metadata elements for tagging DoD resources to enable discovery across the DoD enterprise. It draws from Dublin Core, IC-ISM, and other standards to create a comprehensive metadata profile for DoD data assets. DDMS enables users and systems to discover, evaluate, and retrieve DoD information resources.",
+    "status": "active",
+    "hostingType": "stored",
+    "keywords": ["DDMS", "discovery metadata", "DoD metadata", "resource tagging", "enterprise discovery"],
+    "tier": "2A",
+    "version": "5.0",
+    "managingOrganization": "DoD CIO / Defense Information Systems Agency (DISA)",
+    "category": "Discovery Metadata",
+    "elements": [
+      "ddms:Resource", "ddms:Title", "ddms:Description",
+      "ddms:Creator", "ddms:Publisher", "ddms:SubjectCoverage",
+      "ddms:Security", "ddms:TemporalCoverage", "ddms:GeospatialCoverage",
+      "ddms:Format", "ddms:Identifier"
+    ],
+    "relatedGuidanceIds": ["guid-8320-02", "guid-8330-01"],
+    "relatedProfileIds": ["profile-af-isr", "profile-sf-c2"]
+  }
+]
