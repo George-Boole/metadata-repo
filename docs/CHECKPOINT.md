@@ -1,38 +1,34 @@
 # Checkpoint — 2026-02-11
 
 ## Current State
-Project scaffolding is ~90% complete. All config files, directory structure, types, empty data files, CLAUDE.md, PRD, and session log are in place. Dependencies are installed (`node_modules` exists). **Build has NOT been verified yet.**
+All 8 user stories implemented. Prototype is fully functional. Pushed to GitHub.
 
 ## What's Done
-- Git repo initialized
-- PRD finalized at `tasks/prd-metadata-repository.md` (8 user stories, 12 FRs)
-- Next.js 15 + TypeScript + Tailwind CSS 4 scaffolded manually (no create-next-app)
-- All config files: `package.json`, `tsconfig.json`, `next.config.ts`, `postcss.config.mjs`, `eslint.config.mjs`, `.gitignore`
-- App skeleton: `src/app/layout.tsx`, `src/app/page.tsx`, `src/app/globals.css`
-- TypeScript types defined: `src/types/index.ts` (BaseArtifact, GuidanceDocument, TechnicalSpec, DomainProfile, TaggingTool)
-- Empty JSON data files: `src/data/guidance.json`, `specs.json`, `profiles.json`, `tools.json`
-- CLAUDE.md with full project context and autonomy rules
-- `docs/SESSION_LOG.md` started
-- npm dependencies installed (322 packages, 0 vulnerabilities)
+- All scaffolding verified (npm run build, npm run lint — zero errors)
+- Mock data populated: 7 guidance, 10 specs, 6 profiles, 6 tools (29 artifacts total)
+- Shared components: Navbar, ArtifactCard, Badge, SearchBar, FilterBar
+- DAF branding with tier color system via Tailwind @theme
+- Data utilities (src/lib/data.ts) with cross-reference lookups
+- US-008: Dashboard with hero, stats, tier flowchart, quick-access cards, hosting model callout
+- US-001: Guidance list (search/filter) + 7 detail pages
+- US-002: Specs list (NIEM sub-spec grouping) + 10 detail pages
+- US-003: Profiles list (search/filter) + 6 detail pages with incorporated spec breakdowns
+- US-004: Tools list (search/filter) + 6 detail pages with supported standards
+- US-005: Cross-tier navigation via related artifact links on all detail pages
+- US-006: Global search with scoring engine, results grouped by tier
+- US-007: API Explorer with interactive endpoints, mock responses, DevSecOps narrative
+- 39 static pages generated
+- Initial commit + dashboard clickable cards fix committed
+- GitHub repo created and pushed
 
 ## What's NOT Done Yet
-- `npm run build` has not been run — need to verify the scaffold compiles clean
-- No initial git commit yet
-- No GitHub remote created
-- No mock data populated in JSON files
-- No feature pages built (guidance, specs, profiles, tools, search, api-explorer)
-- No components created
-- No DAF branding/assets
+- Tier 2B domain profiles are fictional placeholders — user to provide real ones
+- Visual polish pass (optional)
+- US-005 comprehensive testing of all cross-tier links
+- No automated tests
 
-## Next Steps (Resume Here)
-1. Run `npm run build` to verify scaffold compiles
-2. Fix any build issues
-3. Create initial git commit with all scaffolding
-4. Create GitHub repo and push
-5. Begin implementing US-008 (Dashboard/Landing Page) and populating mock data
-6. Then US-001 through US-004 (tier browse pages)
-
-## User Preferences (Important)
-- User wants **maximum autonomy** — agents should NOT prompt for confirmation on anything inside this repo
-- Agent teaming may be enabled next session — CLAUDE.md should support multiple agents working concurrently
-- The tool permission prompts from Claude Code's system are frustrating the user — when resuming, ensure permission settings allow autonomous operation within the repo
+## Next Steps
+1. Replace fictional domain profiles with real data when user provides it
+2. Visual review and polish
+3. Verify all cross-tier links work end-to-end
+4. Optional: add automated tests, accessibility audit

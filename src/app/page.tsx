@@ -32,30 +32,30 @@ export default function Home() {
       <section className="-mt-6 relative z-10">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
-            <div className="rounded-lg border-l-4 border-tier-1 bg-white p-4 shadow-md">
+            <Link href="/guidance" className="rounded-lg border-l-4 border-tier-1 bg-white p-4 shadow-md transition hover:shadow-lg hover:scale-[1.02]">
               <p className="text-3xl font-bold text-tier-1">{guidance.length}</p>
               <p className="mt-1 text-sm font-medium text-daf-dark-gray">
                 Guidance Documents
               </p>
-            </div>
-            <div className="rounded-lg border-l-4 border-tier-2a bg-white p-4 shadow-md">
+            </Link>
+            <Link href="/specs" className="rounded-lg border-l-4 border-tier-2a bg-white p-4 shadow-md transition hover:shadow-lg hover:scale-[1.02]">
               <p className="text-3xl font-bold text-tier-2a">{specs.length}</p>
               <p className="mt-1 text-sm font-medium text-daf-dark-gray">
                 Technical Specs
               </p>
-            </div>
-            <div className="rounded-lg border-l-4 border-tier-2b bg-white p-4 shadow-md">
+            </Link>
+            <Link href="/profiles" className="rounded-lg border-l-4 border-tier-2b bg-white p-4 shadow-md transition hover:shadow-lg hover:scale-[1.02]">
               <p className="text-3xl font-bold text-tier-2b">{profiles.length}</p>
               <p className="mt-1 text-sm font-medium text-daf-dark-gray">
                 Domain Profiles
               </p>
-            </div>
-            <div className="rounded-lg border-l-4 border-tier-3 bg-white p-4 shadow-md">
+            </Link>
+            <Link href="/tools" className="rounded-lg border-l-4 border-tier-3 bg-white p-4 shadow-md transition hover:shadow-lg hover:scale-[1.02]">
               <p className="text-3xl font-bold text-tier-3">{tools.length}</p>
               <p className="mt-1 text-sm font-medium text-daf-dark-gray">
                 Tagging Tools
               </p>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
