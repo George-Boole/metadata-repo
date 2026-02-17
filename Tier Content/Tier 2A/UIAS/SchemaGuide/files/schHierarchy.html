@@ -1,0 +1,672 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+      <title>Schema documentation for component </title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css"></link>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+        
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                        //
+--></script>
+   </head>
+   <body>
+      <h2>
+         <a id="INDEX" shape="rect">Table of Contents</a>
+      </h2>
+      <p>
+         <a href="SchemaGuide.indexList.html" shape="rect">Components</a>
+         <span> | </span>
+         <a href="schHierarchy.html" shape="rect">Resource Hierarchy</a>
+      </p>
+      <hr></hr>
+      <ul class="schemaHierarchy">
+         <li class="internal">
+            <p class="componentTitle">
+               <input id="button_sHUIAS.xsd" type="image" value="-" src="img/btM.gif" onclick="switchState('sHUIAS.xsd');" class="control"></input>
+               <a href="UIAS_xsd_Main_schema_UIAS_xsd.html#UIAS.xsd" target="mainFrame" shape="rect">UIAS.xsd</a>
+            </p>
+            <div id="sHUIAS.xsd" style="display:block">
+               <ul class="internal">
+                  <li class="schemaHierarchy">
+                     <p>
+                        <img src="img/HierarchyArrow12.jpg"></img> 
+                        <img src="img/Import12.gif" title="Imported by  'UIAS.xsd'."></img> 
+                        <a href="202dc552-c5eb-49fc-ab05-20b33dc466e5.html#CVEnumUIASCertificateAuthority.xsd" target="mainFrame" title="Imported by  'UIAS.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumUIASCertificateAuthority.xsd</a>
+                     </p>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p>
+                        <img src="img/HierarchyArrow12.jpg"></img> 
+                        <img src="img/Import12.gif" title="Imported by  'UIAS.xsd'."></img> 
+                        <a href="a2b9469b-62de-45db-a735-ea338f2407a0.html#CVEnumUIASClearance.xsd" target="mainFrame" title="Imported by  'UIAS.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumUIASClearance.xsd</a>
+                     </p>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p>
+                        <img src="img/HierarchyArrow12.jpg"></img> 
+                        <img src="img/Import12.gif" title="Imported by  'UIAS.xsd'."></img> 
+                        <a href="c3ef1ce8-37b2-4a4f-9626-09c307ac7dc5.html#CVEnumUIASEntityType.xsd" target="mainFrame" title="Imported by  'UIAS.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumUIASEntityType.xsd</a>
+                     </p>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p>
+                        <img src="img/HierarchyArrow12.jpg"></img> 
+                        <img src="img/Import12.gif" title="Imported by  'UIAS.xsd'."></img> 
+                        <a href="46b416ee-2d91-4df2-857e-33138d9bd2ef.html#CVEnumUIASSecurityMarkType.xsd" target="mainFrame" title="Imported by  'UIAS.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumUIASSecurityMarkType.xsd</a>
+                     </p>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p>
+                        <img src="img/HierarchyArrow12.jpg"></img> 
+                        <img src="img/Import12.gif" title="Imported by  'UIAS.xsd'."></img> 
+                        <a href="813ca6a3-71de-4e71-a94a-9ac7078806f3.html#CVEnumUIASHandlingControls.xsd" target="mainFrame" title="Imported by  'UIAS.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumUIASHandlingControls.xsd</a>
+                     </p>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p>
+                        <img src="img/HierarchyArrow12.jpg"></img> 
+                        <img src="img/Import12.gif" title="Imported by  'UIAS.xsd'."></img> 
+                        <a href="25e4c478-dabe-4053-8725-d05d4657b1fe.html#CVEnumUIASLifeCycleStatus.xsd" target="mainFrame" title="Imported by  'UIAS.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumUIASLifeCycleStatus.xsd</a>
+                     </p>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p>
+                        <input id="button_sHUIAS.xsdAuthorityCategory.xsd" type="image" value="-" src="img/btP.gif" onclick="switchState('sHUIAS.xsdAuthorityCategory.xsd');" class="control"></input>
+                        <img src="img/HierarchyArrow12.jpg"></img> 
+                        <img src="img/Import12.gif" title="Imported by  'UIAS.xsd'."></img> 
+                        <a href="04a2d341-049b-48fd-b8f4-d02c28f28c1d.html#AuthorityCategory.xsd" target="mainFrame" title="Imported by  'UIAS.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">AuthorityCategory.xsd</a>
+                     </p>
+                     <div id="sHUIAS.xsdAuthorityCategory.xsd" style="display:none">
+                        <ul class="internal">
+                           <li class="schemaHierarchy">
+                              <p>
+                                 <img src="img/HierarchyArrow12.jpg"></img> 
+                                 <img src="img/Import12.gif" title="Imported by  'AuthorityCategory.xsd'."></img> 
+                                 <a href="edcf2c49-5f30-4a81-aff9-246a4c4dbdff.html#CVEnumAuthCatType.xsd" target="mainFrame" title="Imported by  'AuthorityCategory.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumAuthCatType.xsd</a>
+                              </p>
+                           </li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p>
+                        <img src="img/HierarchyArrow12.jpg"></img> 
+                        <img src="img/Import12.gif" title="Imported by  'UIAS.xsd'."></img> 
+                        <a href="edcf2c49-5f30-4a81-aff9-246a4c4dbdff.html#CVEnumAuthCatType.xsd" target="mainFrame" title="Imported by  'UIAS.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumAuthCatType.xsd</a>
+                     </p>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p>
+                        <input id="button_sHUIAS.xsdFineAccessControl.xsd" type="image" value="-" src="img/btP.gif" onclick="switchState('sHUIAS.xsdFineAccessControl.xsd');" class="control"></input>
+                        <img src="img/HierarchyArrow12.jpg"></img> 
+                        <img src="img/Import12.gif" title="Imported by  'UIAS.xsd'."></img> 
+                        <a href="d98194d5-c319-4978-8946-eff9fd5662ed.html#FineAccessControl.xsd" target="mainFrame" title="Imported by  'UIAS.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">FineAccessControl.xsd</a>
+                     </p>
+                     <div id="sHUIAS.xsdFineAccessControl.xsd" style="display:none">
+                        <ul class="internal">
+                           <li class="schemaHierarchy">
+                              <p>
+                                 <img src="img/HierarchyArrow12.jpg"></img> 
+                                 <img src="img/Import12.gif" title="Imported by  'FineAccessControl.xsd'."></img> 
+                                 <a href="32cf0738-a772-44de-97a0-bc1aba7e66a0.html#CVEnumFineAccessControlType.xsd" target="mainFrame" title="Imported by  'FineAccessControl.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumFineAccessControlType.xsd</a>
+                              </p>
+                           </li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p>
+                        <img src="img/HierarchyArrow12.jpg"></img> 
+                        <img src="img/Import12.gif" title="Imported by  'UIAS.xsd'."></img> 
+                        <a href="32cf0738-a772-44de-97a0-bc1aba7e66a0.html#CVEnumFineAccessControlType.xsd" target="mainFrame" title="Imported by  'UIAS.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumFineAccessControlType.xsd</a>
+                     </p>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p>
+                        <input id="button_sHUIAS.xsdUSAgency.xsd" type="image" value="-" src="img/btP.gif" onclick="switchState('sHUIAS.xsdUSAgency.xsd');" class="control"></input>
+                        <img src="img/HierarchyArrow12.jpg"></img> 
+                        <img src="img/Import12.gif" title="Imported by  'UIAS.xsd'."></img> 
+                        <a href="f168c6e1-2ec0-449f-9328-48c9d39a33da.html#USAgency.xsd" target="mainFrame" title="Imported by  'UIAS.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">USAgency.xsd</a>
+                     </p>
+                     <div id="sHUIAS.xsdUSAgency.xsd" style="display:none">
+                        <ul class="internal">
+                           <li class="schemaHierarchy">
+                              <p>
+                                 <img src="img/HierarchyArrow12.jpg"></img> 
+                                 <img src="img/Import12.gif" title="Imported by  'USAgency.xsd'."></img> 
+                                 <a href="8cbbb5bc-7e72-4ca1-bd15-61640ed7af71.html#CVEnumUSAgencyAcronym.xsd" target="mainFrame" title="Imported by  'USAgency.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumUSAgencyAcronym.xsd</a>
+                              </p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p>
+                                 <img src="img/HierarchyArrow12.jpg"></img> 
+                                 <img src="img/Import12.gif" title="Imported by  'USAgency.xsd'."></img> 
+                                 <a href="7c8bf62f-4ac6-411e-bd83-188da551fcea.html#CVEnumUSGOVAgencyAcronym.xsd" target="mainFrame" title="Imported by  'USAgency.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumUSGOVAgencyAcronym.xsd</a>
+                              </p>
+                           </li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p>
+                        <img src="img/HierarchyArrow12.jpg"></img> 
+                        <img src="img/Import12.gif" title="Imported by  'UIAS.xsd'."></img> 
+                        <a href="8cbbb5bc-7e72-4ca1-bd15-61640ed7af71.html#CVEnumUSAgencyAcronym.xsd" target="mainFrame" title="Imported by  'UIAS.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumUSAgencyAcronym.xsd</a>
+                     </p>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p>
+                        <img src="img/HierarchyArrow12.jpg"></img> 
+                        <img src="img/Import12.gif" title="Imported by  'UIAS.xsd'."></img> 
+                        <a href="ceff25f5-79d8-453a-9fe0-f4f2614601d7.html#CVEnumAuditRoutingOrg.xsd" target="mainFrame" title="Imported by  'UIAS.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumAuditRoutingOrg.xsd</a>
+                     </p>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p>
+                        <input id="button_sHUIAS.xsdIC-GENC.xsd" type="image" value="-" src="img/btP.gif" onclick="switchState('sHUIAS.xsdIC-GENC.xsd');" class="control"></input>
+                        <img src="img/HierarchyArrow12.jpg"></img> 
+                        <img src="img/Import12.gif" title="Imported by  'UIAS.xsd'."></img> 
+                        <a href="a120b204-020a-4dc5-9fe7-f21e19d50420.html#IC-GENC.xsd" target="mainFrame" title="Imported by  'UIAS.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">IC-GENC.xsd</a>
+                     </p>
+                     <div id="sHUIAS.xsdIC-GENC.xsd" style="display:none">
+                        <ul class="internal">
+                           <li class="schemaHierarchy">
+                              <p>
+                                 <img src="img/HierarchyArrow12.jpg"></img> 
+                                 <img src="img/Import12.gif" title="Imported by  'IC-GENC.xsd'."></img> 
+                                 <a href="bdbba98f-df10-45f6-be55-1848ebc7053b.html#CVEnumGENCCountryCode.xsd" target="mainFrame" title="Imported by  'IC-GENC.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumGENCCountryCode.xsd</a>
+                              </p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p>
+                                 <img src="img/HierarchyArrow12.jpg"></img> 
+                                 <img src="img/Import12.gif" title="Imported by  'IC-GENC.xsd'."></img> 
+                                 <a href="0e4e010d-e39b-4740-92fa-d2890cdfd3a8.html#CVEnumGENCSubDivisionCode.xsd" target="mainFrame" title="Imported by  'IC-GENC.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumGENCSubDivisionCode.xsd</a>
+                              </p>
+                           </li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p>
+                        <img src="img/HierarchyArrow12.jpg"></img> 
+                        <img src="img/Import12.gif" title="Imported by  'UIAS.xsd'."></img> 
+                        <a href="bdbba98f-df10-45f6-be55-1848ebc7053b.html#CVEnumGENCCountryCode.xsd" target="mainFrame" title="Imported by  'UIAS.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumGENCCountryCode.xsd</a>
+                     </p>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p>
+                        <input id="button_sHUIAS.xsdMN.xsd" type="image" value="-" src="img/btP.gif" onclick="switchState('sHUIAS.xsdMN.xsd');" class="control"></input>
+                        <img src="img/HierarchyArrow12.jpg"></img> 
+                        <img src="img/Import12.gif" title="Imported by  'UIAS.xsd'."></img> 
+                        <a href="MN_xsd_Imported_schema_MN_xsd.html#MN.xsd" target="mainFrame" title="Imported by  'UIAS.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">MN.xsd</a>
+                     </p>
+                     <div id="sHUIAS.xsdMN.xsd" style="display:none">
+                        <ul class="internal">
+                           <li class="schemaHierarchy">
+                              <p>
+                                 <img src="img/HierarchyArrow12.jpg"></img> 
+                                 <img src="img/Import12.gif" title="Imported by  'MN.xsd'."></img> 
+                                 <a href="71f23774-f940-4b73-967b-e9abfb5c3839.html#CVEnumMNRegion.xsd" target="mainFrame" title="Imported by  'MN.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumMNRegion.xsd</a>
+                              </p>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p>
+                                 <img src="img/HierarchyArrow12.jpg"></img> 
+                                 <img src="img/Import12.gif" title="Imported by  'MN.xsd'."></img> 
+                                 <a href="3c3e157c-3a79-491f-9890-a894b2def729.html#CVEnumMNIssue.xsd" target="mainFrame" title="Imported by  'MN.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumMNIssue.xsd</a>
+                              </p>
+                           </li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p>
+                        <img src="img/HierarchyArrow12.jpg"></img> 
+                        <img src="img/Import12.gif" title="Imported by  'UIAS.xsd'."></img> 
+                        <a href="3c3e157c-3a79-491f-9890-a894b2def729.html#CVEnumMNIssue.xsd" target="mainFrame" title="Imported by  'UIAS.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumMNIssue.xsd</a>
+                     </p>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p>
+                        <img src="img/HierarchyArrow12.jpg"></img> 
+                        <img src="img/Import12.gif" title="Imported by  'UIAS.xsd'."></img> 
+                        <a href="71f23774-f940-4b73-967b-e9abfb5c3839.html#CVEnumMNRegion.xsd" target="mainFrame" title="Imported by  'UIAS.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumMNRegion.xsd</a>
+                     </p>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p>
+                        <input id="button_sHUIAS.xsdVIRT.xsd" type="image" value="-" src="img/btP.gif" onclick="switchState('sHUIAS.xsdVIRT.xsd');" class="control"></input>
+                        <img src="img/HierarchyArrow12.jpg"></img> 
+                        <img src="img/Import12.gif" title="Imported by  'UIAS.xsd'."></img> 
+                        <a href="VIRT_xsd_Imported_schema_VIRT_xsd.html#VIRT.xsd" target="mainFrame" title="Imported by  'UIAS.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">VIRT.xsd</a>
+                     </p>
+                     <div id="sHUIAS.xsdVIRT.xsd" style="display:none">
+                        <ul class="internal">
+                           <li class="schemaHierarchy">
+                              <p>
+                                 <input id="button_sHUIAS.xsdVIRT.xsdIC-ISM.xsd" type="image" value="-" src="img/btM.gif" onclick="switchState('sHUIAS.xsdVIRT.xsdIC-ISM.xsd');" class="control"></input>
+                                 <img src="img/HierarchyArrow12.jpg"></img> 
+                                 <img src="img/Import12.gif" title="Imported by  'VIRT.xsd'."></img> 
+                                 <a href="302b4a0e-b229-4189-9b9a-c0d8c4820e9e.html#IC-ISM.xsd" target="mainFrame" title="Imported by  'VIRT.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">IC-ISM.xsd</a>
+                              </p>
+                              <div id="sHUIAS.xsdVIRT.xsdIC-ISM.xsd" style="display:block">
+                                 <ul class="internal">
+                                    <li class="schemaHierarchy">
+                                       <p>
+                                          <img src="img/HierarchyArrow12.jpg"></img> 
+                                          <img src="img/Import12.gif" title="Imported by  'IC-ISM.xsd'."></img> 
+                                          <a href="db0b9a8b-09aa-42e1-89bb-2b4b616b265e.html#CVEnumISM25X.xsd" target="mainFrame" title="Imported by  'IC-ISM.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumISM25X.xsd</a>
+                                       </p>
+                                    </li>
+                                    <li class="schemaHierarchy">
+                                       <p>
+                                          <img src="img/HierarchyArrow12.jpg"></img> 
+                                          <img src="img/Import12.gif" title="Imported by  'IC-ISM.xsd'."></img> 
+                                          <a href="9118a072-483b-4a41-86b0-03789df51cc5.html#CVEnumISMAtomicEnergyMarkings.xsd" target="mainFrame" title="Imported by  'IC-ISM.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumISMAtomicEnergyMarkings.xsd</a>
+                                       </p>
+                                    </li>
+                                    <li class="schemaHierarchy">
+                                       <p>
+                                          <img src="img/HierarchyArrow12.jpg"></img> 
+                                          <img src="img/Import12.gif" title="Imported by  'IC-ISM.xsd'."></img> 
+                                          <a href="6a98b683-2233-4551-8e17-d9f825ed4af4.html#CVEnumISMClassificationAll.xsd" target="mainFrame" title="Imported by  'IC-ISM.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumISMClassificationAll.xsd</a>
+                                       </p>
+                                    </li>
+                                    <li class="schemaHierarchy">
+                                       <p>
+                                          <img src="img/HierarchyArrow12.jpg"></img> 
+                                          <img src="img/Import12.gif" title="Imported by  'IC-ISM.xsd'."></img> 
+                                          <a href="d0164cc9-184a-41db-89d8-8f89a24b2166.html#CVEnumISMDissem.xsd" target="mainFrame" title="Imported by  'IC-ISM.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumISMDissem.xsd</a>
+                                       </p>
+                                    </li>
+                                    <li class="schemaHierarchy">
+                                       <p>
+                                          <img src="img/HierarchyArrow12.jpg"></img> 
+                                          <img src="img/Import12.gif" title="Imported by  'IC-ISM.xsd'."></img> 
+                                          <a href="8fc6512f-d138-45db-bfa7-0fb785d9d17d.html#CVEnumISMCATFGIOpen.xsd" target="mainFrame" title="Imported by  'IC-ISM.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumISMCATFGIOpen.xsd</a>
+                                       </p>
+                                    </li>
+                                    <li class="schemaHierarchy">
+                                       <p>
+                                          <img src="img/HierarchyArrow12.jpg"></img> 
+                                          <img src="img/Import12.gif" title="Imported by  'IC-ISM.xsd'."></img> 
+                                          <a href="a252af77-2490-4937-88a0-054febe314ce.html#CVEnumISMCATFGIProtected.xsd" target="mainFrame" title="Imported by  'IC-ISM.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumISMCATFGIProtected.xsd</a>
+                                       </p>
+                                    </li>
+                                    <li class="schemaHierarchy">
+                                       <p>
+                                          <img src="img/HierarchyArrow12.jpg"></img> 
+                                          <img src="img/Import12.gif" title="Imported by  'IC-ISM.xsd'."></img> 
+                                          <a href="cb7ebbb6-c842-484f-ab36-f5911c6f1678.html#CVEnumISMHighWaterNATO.xsd" target="mainFrame" title="Imported by  'IC-ISM.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumISMHighWaterNATO.xsd</a>
+                                       </p>
+                                    </li>
+                                    <li class="schemaHierarchy">
+                                       <p>
+                                          <img src="img/HierarchyArrow12.jpg"></img> 
+                                          <img src="img/Import12.gif" title="Imported by  'IC-ISM.xsd'."></img> 
+                                          <a href="f7569d4b-cb32-4bc9-8bbf-a465c657e766.html#CVEnumISMNonIC.xsd" target="mainFrame" title="Imported by  'IC-ISM.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumISMNonIC.xsd</a>
+                                       </p>
+                                    </li>
+                                    <li class="schemaHierarchy">
+                                       <p>
+                                          <img src="img/HierarchyArrow12.jpg"></img> 
+                                          <img src="img/Import12.gif" title="Imported by  'IC-ISM.xsd'."></img> 
+                                          <a href="c81da0bf-16fa-46a8-be04-1526e5b1f406.html#CVEnumISMNonUSControls.xsd" target="mainFrame" title="Imported by  'IC-ISM.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumISMNonUSControls.xsd</a>
+                                       </p>
+                                    </li>
+                                    <li class="schemaHierarchy">
+                                       <p>
+                                          <img src="img/HierarchyArrow12.jpg"></img> 
+                                          <img src="img/Import12.gif" title="Imported by  'IC-ISM.xsd'."></img> 
+                                          <a href="42ded2f2-868f-4e14-b69a-41b262d7a2d1.html#CVEnumISMNotice.xsd" target="mainFrame" title="Imported by  'IC-ISM.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumISMNotice.xsd</a>
+                                       </p>
+                                    </li>
+                                    <li class="schemaHierarchy">
+                                       <p>
+                                          <img src="img/HierarchyArrow12.jpg"></img> 
+                                          <img src="img/Import12.gif" title="Imported by  'IC-ISM.xsd'."></img> 
+                                          <a href="53a38d48-50d9-44b1-b37d-77426a6c411a.html#CVEnumISMNoticeProse.xsd" target="mainFrame" title="Imported by  'IC-ISM.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumISMNoticeProse.xsd</a>
+                                       </p>
+                                    </li>
+                                    <li class="schemaHierarchy">
+                                       <p>
+                                          <img src="img/HierarchyArrow12.jpg"></img> 
+                                          <img src="img/Import12.gif" title="Imported by  'IC-ISM.xsd'."></img> 
+                                          <a href="0e182837-f721-405f-b829-55ae8fe25788.html#CVEnumISMCATOwnerProducer.xsd" target="mainFrame" title="Imported by  'IC-ISM.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumISMCATOwnerProducer.xsd</a>
+                                       </p>
+                                    </li>
+                                    <li class="schemaHierarchy">
+                                       <p>
+                                          <img src="img/HierarchyArrow12.jpg"></img> 
+                                          <img src="img/Import12.gif" title="Imported by  'IC-ISM.xsd'."></img> 
+                                          <a href="7910857d-3cf6-4cf0-9f1a-5ad8dbbf6e6b.html#CVEnumISMPocType.xsd" target="mainFrame" title="Imported by  'IC-ISM.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumISMPocType.xsd</a>
+                                       </p>
+                                    </li>
+                                    <li class="schemaHierarchy">
+                                       <p>
+                                          <img src="img/HierarchyArrow12.jpg"></img> 
+                                          <img src="img/Import12.gif" title="Imported by  'IC-ISM.xsd'."></img> 
+                                          <a href="bfcfb71a-6190-4aff-ad5e-03cb1a9a2ac9.html#CVEnumISMCATRelTo.xsd" target="mainFrame" title="Imported by  'IC-ISM.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumISMCATRelTo.xsd</a>
+                                       </p>
+                                    </li>
+                                    <li class="schemaHierarchy">
+                                       <p>
+                                          <img src="img/HierarchyArrow12.jpg"></img> 
+                                          <img src="img/Import12.gif" title="Imported by  'IC-ISM.xsd'."></img> 
+                                          <a href="d7997989-7f2e-4e9c-b915-442cd86e7cc9.html#CVEnumISMSAR.xsd" target="mainFrame" title="Imported by  'IC-ISM.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumISMSAR.xsd</a>
+                                       </p>
+                                    </li>
+                                    <li class="schemaHierarchy">
+                                       <p>
+                                          <img src="img/HierarchyArrow12.jpg"></img> 
+                                          <img src="img/Import12.gif" title="Imported by  'IC-ISM.xsd'."></img> 
+                                          <a href="3db4b643-e6f5-407e-9863-08104d89856a.html#CVEnumISMSCIControls.xsd" target="mainFrame" title="Imported by  'IC-ISM.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumISMSCIControls.xsd</a>
+                                       </p>
+                                    </li>
+                                    <li class="schemaHierarchy">
+                                       <p>
+                                          <img src="img/HierarchyArrow12.jpg"></img> 
+                                          <img src="img/Import12.gif" title="Imported by  'IC-ISM.xsd'."></img> 
+                                          <a href="bd406357-d401-4d0f-8414-3239d71f3c0f.html#CVEnumISMExemptFrom.xsd" target="mainFrame" title="Imported by  'IC-ISM.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumISMExemptFrom.xsd</a>
+                                       </p>
+                                    </li>
+                                    <li class="schemaHierarchy">
+                                       <p>
+                                          <img src="img/HierarchyArrow12.jpg"></img> 
+                                          <img src="img/Import12.gif" title="Imported by  'IC-ISM.xsd'."></img> 
+                                          <a href="929f1935-8084-4ebf-a095-e4085af6cc77.html#CVEnumISMCompliesWith.xsd" target="mainFrame" title="Imported by  'IC-ISM.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumISMCompliesWith.xsd</a>
+                                       </p>
+                                    </li>
+                                    <li class="schemaHierarchy">
+                                       <p>
+                                          <img src="img/HierarchyArrow12.jpg"></img> 
+                                          <img src="img/Import12.gif" title="Imported by  'IC-ISM.xsd'."></img> 
+                                          <a href="2d58ad70-c7e0-4bdb-8ab0-bd636f0dcfe7.html#CVEnumISMCUIBasic.xsd" target="mainFrame" title="Imported by  'IC-ISM.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumISMCUIBasic.xsd</a>
+                                       </p>
+                                    </li>
+                                    <li class="schemaHierarchy">
+                                       <p>
+                                          <img src="img/HierarchyArrow12.jpg"></img> 
+                                          <img src="img/Import12.gif" title="Imported by  'IC-ISM.xsd'."></img> 
+                                          <a href="74506a8d-6c6c-4c17-b782-599936a0a7ee.html#CVEnumISMCUISpecified.xsd" target="mainFrame" title="Imported by  'IC-ISM.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumISMCUISpecified.xsd</a>
+                                       </p>
+                                    </li>
+                                    <li class="schemaHierarchy">
+                                       <p>
+                                          <img src="img/HierarchyArrow12.jpg"></img> 
+                                          <img src="img/Import12.gif" title="Imported by  'IC-ISM.xsd'."></img> 
+                                          <a href="bc2cd4f5-687a-430f-b44e-70fb722e120a.html#CVEnumISMSecondBannerLine.xsd" target="mainFrame" title="Imported by  'IC-ISM.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumISMSecondBannerLine.xsd</a>
+                                       </p>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </li>
+                           <li class="schemaHierarchy">
+                              <p>
+                                 <img src="img/HierarchyArrow12.jpg"></img> 
+                                 <img src="img/Import12.gif" title="Imported by  'VIRT.xsd'."></img> 
+                                 <a href="38cdb32e-43c7-4399-8833-110d7c3019e3.html#CVEnumVIRTNetworkName.xsd" target="mainFrame" title="Imported by  'VIRT.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumVIRTNetworkName.xsd</a>
+                              </p>
+                           </li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p>
+                        <img src="img/HierarchyArrow12.jpg"></img> 
+                        <img src="img/Import12.gif" title="Imported by  'UIAS.xsd'."></img> 
+                        <a href="38cdb32e-43c7-4399-8833-110d7c3019e3.html#CVEnumVIRTNetworkName.xsd" target="mainFrame" title="Imported by  'UIAS.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">CVEnumVIRTNetworkName.xsd</a>
+                     </p>
+                  </li>
+                  <li class="schemaHierarchy">
+                     <p>
+                        <img src="img/HierarchyArrow12.jpg"></img> 
+                        <img src="img/Import12.gif" title="Imported by  'UIAS.xsd'."></img> 
+                        <a href="ROLE_xsd_Imported_schema_ROLE_xsd.html#ROLE.xsd" target="mainFrame" title="Imported by  'UIAS.xsd'." onclick="updatePageTitle('Schema documentation for component ')" shape="rect">ROLE.xsd</a>
+                     </p>
+                  </li>
+               </ul>
+            </div>
+         </li>
+      </ul>
+      <h2 style=" font:italic bold 12px Georgia,serif;color:gray;font-size:14px;text-align:center;  width : 95%;">
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See Distribution Notice for details.
+       <a href="../index.html" target="_top">
+                Click Here
+            </a>
+      </h2>
+      <div class="footer"></div>
+   </body>
+</html>

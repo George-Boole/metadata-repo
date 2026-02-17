@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:uias:handlingControls">
+   <define name="CVEnumUIASHandlingControls.cve">
+      <list>
+         <optional><!--(U) -->
+            <value>REL_ACGU</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>SBU</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>XD</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>REL_FVEY</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>REL_TEYE</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>RS</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>SSI</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>SBU-NF</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>USP</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>REL</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>USONLY</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>DISPLAYONLY</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>PR</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>IMC</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>DSEN</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>DCNI</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>UCNI</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>FOUO</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>FISA</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>LES-NF</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>LES</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>DS</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>NF</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>ND</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>OC</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>RAWFISA</value>
+         </optional>
+      </list>
+   </define>
+</grammar>

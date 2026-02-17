@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns:irmcomlan="urn:us:gov:ic:cvenum:irm:language:qualifier"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:irm:language:qualifier"
+            version="202111">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumIRMCompoundLanguageQualifierType Version 2.1 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumIRMCompoundLanguageQualifierType.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumIRMCompoundLanguageQualifierType">
+      <xsd:annotation>
+         <xsd:documentation>(U) All valid values for attribute irm:language/@irm:qualifier.
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumIRMCompoundLanguageQualifierType.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="urn:us:gov:ic:cvenum:irm:iso639:digraph">
+            <xsd:annotation>
+               <xsd:documentation>urn:us:gov:ic:cvenum:irm:iso639:digraph</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="urn:us:gov:ic:cvenum:irm:iso639-2:trigraph">
+            <xsd:annotation>
+               <xsd:documentation>urn:us:gov:ic:cvenum:irm:iso639-2:trigraph</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="urn:us:gov:ic:cvenum:irm:iso639-3:trigraph">
+            <xsd:annotation>
+               <xsd:documentation>urn:us:gov:ic:cvenum:irm:iso639-3:trigraph</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="RFC5646">
+            <xsd:annotation>
+               <xsd:documentation>RFC5646</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

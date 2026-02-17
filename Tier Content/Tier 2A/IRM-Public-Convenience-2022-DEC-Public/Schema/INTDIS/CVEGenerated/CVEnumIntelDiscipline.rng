@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:intdis:inteldiscipline">
+   <define name="CVEnumIntelDiscipline.cve">
+      <choice>
+         <value>APP</value>
+         <value>CI</value>
+         <value>GEOINT</value>
+         <value>HUMINT</value>
+         <value>MASINT</value>
+         <value>OSINT</value>
+         <value>SIGINT</value>
+         <value>TECHINT</value>
+      </choice>
+   </define>
+</grammar>

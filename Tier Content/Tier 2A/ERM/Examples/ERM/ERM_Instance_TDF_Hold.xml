@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/ARH/ARH_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-EDH/IC-EDH_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-ID/IC-ID_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-TDF/IC-TDF_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/ERM/ERM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!-- Distro Statement: Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<!-- All classification marks in this example are   
+ 	 for illustrative purposes only, there are no   
+      actual classified data contained in this example -->
+<TrustedDataObject xmlns="urn:us:gov:ic:tdf"
+    xmlns:tdf="urn:us:gov:ic:tdf"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    tdf:version="201412.201707"
+    xsi:schemaLocation="urn:us:gov:ic:tdf ../../Schema/IC-TDF/IC-TDF.xsd">
+    <tdf:HandlingAssertion tdf:scope="TDO">
+        <tdf:HandlingStatement >
+            <edh:Edh xmlns:edh="urn:us:gov:ic:edh"
+                xmlns:ism="urn:us:gov:ic:ism"
+                xmlns:usagency="urn:us:gov:ic:usagency"
+                xmlns:icid="urn:us:gov:ic:id"
+                ism:ISMCATCESVersion="201709"
+                usagency:CESVersion="201609"
+                icid:DESVersion="1"
+                edh:DESVersion="201609">
+                <icid:Identifier>guide://999001/ErmExample1</icid:Identifier>
+                <edh:DataItemCreateDateTime>2012-05-29T09:00:00Z</edh:DataItemCreateDateTime>
+                <edh:AuthorizationReference>AuthorizationReference0</edh:AuthorizationReference>
+                <edh:ResponsibleEntity ism:classification="U" ism:ownerProducer="USA" edh:role="Custodian">
+                    <edh:Country>USA</edh:Country>
+                    <edh:Organization>NGA</edh:Organization>
+                </edh:ResponsibleEntity>
+                <arh:Security xmlns:arh="urn:us:gov:ic:arh"
+                    ism:compliesWith="USGov USIC"
+                    arh:DESVersion="3"
+                    ism:DESVersion="201609.201707"
+                    ism:ISMCATCESVersion="201709"
+                    ism:classification="U"
+                    ism:createDate="2012-05-29"
+                    ism:ownerProducer="USA"
+                    ism:resourceElement="true"/>
+            </edh:Edh>
+        </tdf:HandlingStatement>
+        <tdf:Binding>
+            <tdf:Signer tdf:subject="MyDN" tdf:issuer="C=US"/>
+            <tdf:SignatureValue tdf:normalizationMethod="Normalization Method"
+                tdf:includesStatementMetadata="false"
+                tdf:signatureAlgorithm="SHA256withECDSA">RXhwZWN0ZWQgU3RyaW5nIFZhbHVl</tdf:SignatureValue>
+        </tdf:Binding>
+    </tdf:HandlingAssertion>
+    <tdf:HandlingAssertion tdf:scope="PAYL">
+        <tdf:HandlingStatement>
+            <edh:Edh xmlns:edh="urn:us:gov:ic:edh"
+                xmlns:ism="urn:us:gov:ic:ism"
+                xmlns:usagency="urn:us:gov:ic:usagency"
+                xmlns:icid="urn:us:gov:ic:id"
+                ism:ISMCATCESVersion="201709"
+                usagency:CESVersion="201609"
+                icid:DESVersion="1"
+                edh:DESVersion="201609">
+                <icid:Identifier>guide://999001/Example2</icid:Identifier>
+                <edh:DataItemCreateDateTime>2012-05-29T09:00:00Z</edh:DataItemCreateDateTime>
+                <edh:AuthorizationReference>AuthorizationReference0</edh:AuthorizationReference>
+                <edh:ResponsibleEntity ism:classification="U" ism:ownerProducer="USA" edh:role="Custodian">
+                    <edh:Country>USA</edh:Country>
+                    <edh:Organization>NGA</edh:Organization>
+                </edh:ResponsibleEntity>
+                <arh:Security xmlns:arh="urn:us:gov:ic:arh"
+                    ism:compliesWith="USGov USIC"
+                    arh:DESVersion="3"
+                    ism:DESVersion="201609.201707"
+                    ism:ISMCATCESVersion="201709"
+                    ism:classification="U"
+                    ism:createDate="2012-05-29"
+                    ism:ownerProducer="USA"
+                    ism:resourceElement="true"/>
+            </edh:Edh>
+        </tdf:HandlingStatement>
+        <tdf:Binding>
+            <tdf:Signer tdf:subject="MyDN" tdf:issuer="C=US"/>
+            <tdf:SignatureValue tdf:normalizationMethod="Normalization Method"
+                tdf:includesStatementMetadata="false"
+                tdf:signatureAlgorithm="SHA256withECDSA">RXhwZWN0ZWQgU3RyaW5nIFZhbHVl</tdf:SignatureValue>
+        </tdf:Binding>
+    </tdf:HandlingAssertion>
+    <tdf:Assertion tdf:scope="TDO">
+        <StatementMetadata>
+            <arh:Security xmlns:arh="urn:us:gov:ic:arh"
+                xmlns:ism="urn:us:gov:ic:ism"
+                ism:compliesWith="USGov USIC"
+                arh:DESVersion="3"
+                ism:DESVersion="201609.201707"
+                ism:ISMCATCESVersion="201709"
+                ism:classification="U"
+                ism:createDate="2012-05-29"
+                ism:ownerProducer="USA"
+                ism:resourceElement="true"/>
+        </StatementMetadata>
+        <tdf:StructuredStatement>
+            <erm:ElectronicRecordsManagementMetadata xmlns:erm="urn:us:gov:ic:erm" 
+                                             xmlns:edh="urn:us:gov:ic:edh" 
+                                             xmlns:ism="urn:us:gov:ic:ism"
+                                             xsi:schemaLocation="urn:us:gov:ic:erm ../../Schema/ERM/ERM_XML.xsd"
+                                             erm:DESVersion="201605">
+                <erm:FoiaOpsIndicator>false</erm:FoiaOpsIndicator>
+                <erm:OfficeOfRecord>
+                    <edh:Country>USA</edh:Country>
+                    <edh:Organization>NGA</edh:Organization>
+                    <edh:SubOrganization>TCAG</edh:SubOrganization>
+                </erm:OfficeOfRecord>
+                <erm:RecordDesignationDate>2006-05-04T18:13:51.0</erm:RecordDesignationDate>
+                <erm:VitalRecordsIndicator>true</erm:VitalRecordsIndicator>
+                <erm:Disposition ism:ownerProducer="USA" ism:classification="U">
+                    <erm:AppliedBy ism:ownerProducer="USA" ism:classification="U">appliedBy0</erm:AppliedBy>
+                    <erm:DateApplied>2006-05-04T18:13:51.0</erm:DateApplied>
+                    <erm:DateEligible>2006-05-04</erm:DateEligible>
+                    <erm:RecordControl>recordControl0</erm:RecordControl>
+                    <erm:ReviewIndicator>true</erm:ReviewIndicator>
+                    <erm:Hold ism:ownerProducer="USA" ism:classification="U">
+                        <erm:Authorizer ism:ownerProducer="USA" ism:classification="U">authorizor0</erm:Authorizer>
+                        <erm:DateApplied>2006-05-04T18:13:51.0</erm:DateApplied>
+                        <erm:EffectiveDate>2006-05-04T18:13:51.0</erm:EffectiveDate>
+                        <erm:Type>congressionalInquiry</erm:Type>
+                    </erm:Hold>
+                </erm:Disposition>    
+            </erm:ElectronicRecordsManagementMetadata>
+        </tdf:StructuredStatement>
+    </tdf:Assertion>
+    <tdf:StructuredPayload>
+        <Record xmlns="urn:fake:record">This is a representation of a record being included in the TDF as the payload.
+        In this case the ERM assertion refers to this payload.</Record>
+    </tdf:StructuredPayload>
+</TrustedDataObject>

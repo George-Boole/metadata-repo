@@ -1,0 +1,110 @@
+{
+    "@context": {
+        "defaultNamespace": "urn:us:gov:ic:cve", 
+        "cve": "urn:us:gov:ic:cve", 
+        "ism": "urn:us:gov:ic:ism"
+    }, 
+    "cve:CVE": {
+        "ism:ownerProducer": "USA", 
+        "CVEVersion": "2", 
+        "cve:IRM": {
+            "cve:Source": {
+                "text": "IC-CIO", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }, 
+            "cve:Description": {
+                "text": "All valid signature algorithms and patterns for use with SignatureValueType", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }, 
+            "cve:PointOfContact": {
+                "cve:Name": "Office IC CIO", 
+                "cve:Email": "ic-standards-support@iarpa.gov", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }, 
+            "cve:URN": "urn:us:gov:ic:cvenum:tdf:signaturealgorithm", 
+            "cve:Title": {
+                "text": "CVEnumTDFSignatureAlgorithm", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }, 
+            "cve:Created": "2012-06-27T11:19:00-04:00"
+        }, 
+        "xsi:schemaLocation": "urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd", 
+        "ism:DESVersion": "201609.201707", 
+        "cve:Enumeration": {
+            "cve:Term": [
+                {
+                    "cve:Description": {
+                        "text": "Signature algorithm with a Secure Hash Algorithm (SHA-*) and the RSA encryption algorithm as defined in the OSI Interoperability Workshop, using the padding conventions described in http://www.rsasecurity.com/rsalabs/pkcs. The SHA digest length in bits is indicated by the integer immediately following SHA.", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "cve:Value": {
+                        "text": "SHA(1|256|384|512)withRSA", 
+                        "regularExpression": "true", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "cve:Description": {
+                        "text": "Use of Secure Hash Algorithms with RSA and Mask Functions. For new signature schemes defined in PKCS1 v 2.0 for which the DigestwithEncryption form is insufficient, DigestwithEncryptionandMaskFunction can be used to form a name. Here, maskFucntion is a mask generation function such as MGF1. Example: SHA1withRSAandMGF1.", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "cve:Value": {
+                        "text": "SHA(1|256|384|512)withRSAand[A-Z]+[0-9]*", 
+                        "regularExpression": "true", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "cve:Description": {
+                        "text": "Signature algorithm with Secure Hash Algorithm (SHA-*) and ECDSA as defined in ANSI X9.62. Note: SHA1withECDSA is sometimes referred to simply as ECDSA, however this is an ambiguous and should not be used. The formal name SHA1withECDSA should be used.", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "cve:Value": {
+                        "text": "SHA(1|256|384|512)withECDSA", 
+                        "regularExpression": "true", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "cve:Description": {
+                        "text": "Use of Secure Hash Algorithms with ECDSA and Mask Functions. For new signature schemes defined in PKCS1 v 2.0 for which the DigestwithEncryption form is insufficient, DigestwithEncryptionandMaskFunction can be used to form a name. Here, maskFucntion is a mask generation function such as MGF1. Example: SHA1withECDSAandMGF1.", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "cve:Value": {
+                        "text": "SHA(1|256|384|512)withECDSAand[A-Z]+[0-9]*", 
+                        "regularExpression": "true", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "ism:classification": "U"
+                }
+            ], 
+            "multivalue": "false", 
+            "ism:ownerProducer": "USA", 
+            "ism:classification": "U"
+        }, 
+        "ism:compliesWith": "USGov USIC", 
+        "ism:classification": "U", 
+        "ism:createDate": "2012-06-27", 
+        "ism:resourceElement": "true", 
+        "ism:ISMCATCESVersion": "201609"
+    }
+}

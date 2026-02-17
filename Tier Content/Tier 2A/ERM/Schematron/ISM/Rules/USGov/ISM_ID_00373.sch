@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><?ICEA pattern?><!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       --><sch:pattern xmlns:sch="http://purl.oclc.org/dsdl/schematron" id="ISM-ID-00373" is-a="AttributeContributesToRollup">
+    <sch:p class="ruleText">
+        [ISM-ID-00373][Error] If ISM_USGOV_RESOURCE and any element in the document:
+        1. Meets ISM_CONTRIBUTES
+        AND
+        2. Has the attribute nonICmarkings containing [SSI]
+        Then the ISM_RESOURCE_ELEMENT must have nonICmarkings containing [SSI].
+        
+        Human Readable: USA documents having SSI Data must have SSI at the resource level.
+    </sch:p>
+    <sch:p class="codeDesc">
+        This rule uses an abstract pattern to consolidate logic. If the document
+        is an ISM_USGOV_RESOURCE and an element meeting ISM_CONTRIBUTES
+        specifies $attrLocalName with a value containing the token $value, this rule ensures that the ISM_RESOURCE_ELEMENT specifies the attribute
+        $attrLocalName with a value containing the token $value.
+    </sch:p>
+    <sch:param name="attrLocalName" value="nonICmarkings"/>
+    <sch:param name="value" value="SSI"/>
+    <sch:param name="errorMessage" value="'[ISM-ID-00373][Error] USA documents having SSI Data must have SSI at the resource level.'"/>
+</sch:pattern>

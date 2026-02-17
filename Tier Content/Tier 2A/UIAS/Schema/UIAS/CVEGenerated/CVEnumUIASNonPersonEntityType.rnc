@@ -1,0 +1,11 @@
+# UNCLASSIFIED
+default namespace = "urn:us:gov:ic:cvenum:uias:nonpersonentitytype"
+CVEnumUIASNonPersonEntityType.cve = 
+# (U) 
+"DEV" | 
+# (U) 
+"NET" | 
+# (U) 
+"SVC" | 
+# (U) 
+"SVR"

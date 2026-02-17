@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:intdis:inteldiscipline:component:technique">
+   <define name="CVEnumIntelDisciplineComponentTechnique.cve">
+      <choice>
+         <value>MASINT:EO:IRINT</value>
+         <value>MASINT:EO:LASINT</value>
+         <value>MASINT:EO:LASINT:ActiveIllumination</value>
+         <value>MASINT:EO:Radiometric</value>
+         <value>MASINT:EO:Spectral</value>
+         <value>MASINT:Geophysical:Acoustic</value>
+         <value>MASINT:Geophysical:Acoustic:Audible</value>
+         <value>MASINT:Geophysical:Acoustic:Infrasonic</value>
+         <value>MASINT:Geophysical:Electric</value>
+         <value>MASINT:Geophysical:Electromagnetic</value>
+         <value>MASINT:Geophysical:Gravity</value>
+         <value>MASINT:Geophysical:ACINT</value>
+         <value>MASINT:Geophysical:Magnetic</value>
+         <value>MASINT:Geophysical:Seismic</value>
+         <value>MASINT:Materials:Biological</value>
+         <value>MASINT:Materials:Chemical</value>
+         <value>MASINT:Materials:Explosive</value>
+         <value>MASINT:Materials:Nuclear</value>
+         <value>MASINT:Materials:Radiological</value>
+         <value>MASINT:NuclearRadiation:GammaRays</value>
+         <value>MASINT:NuclearRadiation:Neutrons</value>
+         <value>MASINT:NuclearRadiation:XRays</value>
+         <value>MASINT:Radar:Bistatic</value>
+         <value>MASINT:Radar:LOS</value>
+         <value>MASINT:Radar:OTH</value>
+         <value>MASINT:RF:DEW</value>
+         <value>MASINT:RF:EMP</value>
+         <value>MASINT:RF:URE</value>
+         <value>other:\S{1,256}</value>
+      </choice>
+   </define>
+</grammar>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns="urn:us:gov:ic:cvenum:uias:attribute"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:uias:attribute"
+            version="202111">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumUIASAttribute Version 2.1 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumUIASAttribute.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumUIASAttribute">
+      <xsd:annotation>
+         <xsd:documentation>(U) All attributes defined in UIAS
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumUIASAttribute.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="adminOrganization">
+            <xsd:annotation>
+               <xsd:documentation>
+				Reflects the home organization of the entity
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="aICP">
+            <xsd:annotation>
+               <xsd:documentation>
+				Reflects whether or not the entity is an Authorized IC Person
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ATOStatus">
+            <xsd:annotation>
+               <xsd:documentation>
+				This attribute indicates the Authority to Operate (ATO) status for the non-person entity
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="auditRoutingOrganization">
+            <xsd:annotation>
+               <xsd:documentation>
+				This attribute specifies the organization(s) to which Audit Records should be forwarded
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="authorityCategory">
+            <xsd:annotation>
+               <xsd:documentation>
+				This attribute specifies the authority(ies) under which the entity is authorized to access and/or discover protected resources
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="certificateAuthority">
+            <xsd:annotation>
+               <xsd:documentation>
+				Reflects the issuing PKI certificate authority for the entity
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="clearance">
+            <xsd:annotation>
+               <xsd:documentation>
+				Reflects the clearance or classification level of the entity
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="countryOfAffiliation">
+            <xsd:annotation>
+               <xsd:documentation>
+				Reflects the citizenship(s) or affiliation(s) of the entity
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="digitalIdentifier">
+            <xsd:annotation>
+               <xsd:documentation>
+				Reflects the DN from the entity’s PKI certificate
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="dutyOrganization">
+            <xsd:annotation>
+               <xsd:documentation>
+				Reflects the assigned organization of the entity
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="dutyOrganizationUnit">
+            <xsd:annotation>
+               <xsd:documentation>
+				Reflects the assigned organization unit structure of the entity
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="entitySecurityMark">
+            <xsd:annotation>
+               <xsd:documentation>
+				Classification and handling of the entity’s digital identifier
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="entityType">
+            <xsd:annotation>
+               <xsd:documentation>
+				Reflects the type of the entity
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="fineAccessControls">
+            <xsd:annotation>
+               <xsd:documentation>
+				Reflects the fine grain access aspects of control systems
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="group">
+            <xsd:annotation>
+               <xsd:documentation>
+				Indicates the group memberships associated with the entity
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="handlingControls">
+            <xsd:annotation>
+               <xsd:documentation>
+				Indicates the set of handling controls that an NPE is authorized to have
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="icNetworks">
+            <xsd:annotation>
+               <xsd:documentation>
+				List of other IC networks or domains to which an entity’s digital identifier may be transmitted 
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="isICMember">
+            <xsd:annotation>
+               <xsd:documentation>
+				Reflects whether or not the entity is a member of the Intelligence Community
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="lifeCycleStatus">
+            <xsd:annotation>
+               <xsd:documentation>
+				Indicates the life cycle phase in which the entity is operating
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="originatingNetwork">
+            <xsd:annotation>
+               <xsd:documentation>
+				Reflects the network or domain that the entity’s identity originates from
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="region">
+            <xsd:annotation>
+               <xsd:documentation>
+				Indicates the individual countries or larger sub-regions such as geographical areas of combatant command Areas of Responsibility (AORs), Areas of Interest (AOIs), or State and Non-State Actor(s)
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="role">
+            <xsd:annotation>
+               <xsd:documentation>
+				Indicates the position, job or area of responsibility associated with the entity
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="topic">
+            <xsd:annotation>
+               <xsd:documentation>
+				Indicates the particular intelligence subject area
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

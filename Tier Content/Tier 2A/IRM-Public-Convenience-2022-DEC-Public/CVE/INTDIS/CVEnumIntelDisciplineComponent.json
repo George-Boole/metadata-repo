@@ -1,0 +1,757 @@
+{
+    "@context": {
+        "@vocab": "urn:us:gov:ic:cve#", 
+        "ism": "urn:us:gov:ic:ism#"
+    }, 
+    "CVE": {
+        "ism:ownerProducer": "USA", 
+        "CVEVersion": "2.1", 
+        "specVersion": "201707", 
+        "ism:DESVersion": "202111", 
+        "xsi:schemaLocation": "urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd", 
+        "Enumeration": {
+            "Term": [
+                {
+                    "Description": {
+                        "text": "APP Domain: Identify Intelligence", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "APP:I2", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "APP Domain: Document and Media Exploitation", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "APP:DOMEX", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "APP Domain: Bio-metrics Enabled Intelligence", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "APP:BEI", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "APP Domain: Forensics Enabled Intelligence", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "APP:FEI", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "CI Domain: Collection", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "CI:Collection", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "CI Domain: Analysis and Production", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "CI:AnalysisAndProduction", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "CI Domain: Investigations", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "CI:Investigations", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "CI Domain: Operations", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "CI:Operations", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "CI Domain: Functional Services", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "CI:FunctionalServices", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "GEOINT Domain: Imagery", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "GEOINT:Imagery", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "GEOINT Domain: Imagery Intelligence", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "GEOINT:IMINT", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "GEOINT Domain: Imagery Intelligence (Electro-optical)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "GEOINT:IMINT:EO", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "GEOINT Domain: Imagery Intelligence (Electro-optical, Panchromatic)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "GEOINT:IMINT:EO:Panchromatic", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "GEOINT Domain: Imagery Intelligence (Electro-optical, Infrared)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "GEOINT:IMINT:EO:IR", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "GEOINT Domain: Imagery Intelligence (Electro-optical, Spectral)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "GEOINT:IMINT:EO:Spectral", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "GEOINT Domain: Imagery Intelligence (Electro-optical, Spectral, Multi)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "GEOINT:IMINT:EO:Spectral:MSI", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "GEOINT Domain: Imagery Intelligence (Electro-optical, Spectral, Hyper)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "GEOINT:IMINT:EO:Spectral:HSI", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "GEOINT Domain: Imagery Intelligence (Radar)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "GEOINT:IMINT:Radar", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "GEOINT Domain: Imagery Intelligence (Lidar)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "GEOINT:IMINT:Lidar", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "GEOINT Domain: Geospatial Information", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "GEOINT:GeospatialInformation", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "HUMINT Domain: Interrogation", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "HUMINT:Interrogation", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "HUMINT Domain: Source Operations", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "HUMINT:SourceOperations", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "HUMINT Domain: Source Operations (Walk-In)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "HUMINT:SourceOperations:WalkIn", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "HUMINT Domain: Source Operations (Developed Sources)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "HUMINT:SourceOperations:Developed", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "HUMINT Domain: Source Operations (Unwitting Persons)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "HUMINT:SourceOperations:Unwitting", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "HUMINT Domain: Debriefing", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "HUMINT:Debriefing", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "HUMINT Domain: Debriefing (Friendly Forces Personnel)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "HUMINT:Debriefing:FriendlyForces", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "HUMINT Domain: Debriefing (Refugees or Displaced Persons)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "HUMINT:Debriefing:RefugeesOrDisplaced", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "HUMINT Domain: Debriefing (Returnees)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "HUMINT:Debriefing:Returnees", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "HUMINT Domain: Debriefing (Volunteers)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "HUMINT:Debriefing:Volunteers", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "MASINT Domain: Electro-optical", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "MASINT:EO", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "MASINT Domain: Geophysical", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "MASINT:Geophysical", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "MASINT Domain: Materials", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "MASINT:Materials", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "MASINT Domain: Nuclear Radiation", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "MASINT:NuclearRadiation", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "MASINT Domain: Radar", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "MASINT:Radar", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "MASINT Domain: Radio Frequency", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "MASINT:RF", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "OSINT Domain: Academia", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "OSINT:Academia", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "OSINT Domain: Interagency", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "OSINT:Interagency", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "OSINT Domain: Newspapers/Periodicals", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "OSINT:Newspapers/Periodicals", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "OSINT Domain: Due Diligence", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "OSINT:DueDiligence", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "OSINT Domain: Media Broadcasts", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "OSINT:MediaBroadcasts", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "OSINT Domain: Internet", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "OSINT:Internet", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "OSINT Domain: Alternative Collections", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "OSINT:AlternativeCollections", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "SIGINT Domain: Communications Intelligence", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "SIGINT:COMINT", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "SIGINT Domain: Electronic Intelligence", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "SIGINT:ELINT", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "SIGINT Domain: Electronic Intelligence (Operational)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "SIGINT:ELINT:OPELINT", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "SIGINT Domain: Electronic Intelligence (Technical)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "SIGINT:ELINT:TECHELINT", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "SIGINT Domain: Foreign Instrumentation Signals Intelligence", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "SIGINT:FISINT", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "TECHINT Domain: Weapon Systems Intelligence", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "TECHINT:WeaponSystem", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "TECHINT Domain: Scientific Intelligence", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "TECHINT:Scientific", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }
+            ], 
+            "multivalue": "false", 
+            "ism:ownerProducer": "USA", 
+            "ism:classification": "U"
+        }, 
+        "ism:compliesWith": "USGov USIC", 
+        "IRM": {
+            "PointOfContact": {
+                "Email": "ic-standards-support@odni.gov", 
+                "Name": "Office IC CIO", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }, 
+            "Created": "2011-09-01T11:19:00-04:00", 
+            "URN": "urn:us:gov:ic:cvenum:intdis:inteldiscipline:component", 
+            "Title": {
+                "text": "CVEnumIntelDisciplineComponent", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }, 
+            "Source": [
+                {
+                    "text": "Joint Chiefs of Staff Pub 2.0: Appendix B - Intelligence Disciplines - http://www.dtic.mil/doctrine/new_pubs/jp2_0.pdf", 
+                    "ism:ownerProducer": "USA", 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "text": "Deputy Director of National Intelligence for Intelligence Integration (DDII)", 
+                    "ism:ownerProducer": "USA", 
+                    "ism:classification": "U"
+                }
+            ], 
+            "Description": {
+                "text": "All currently valid Intel Discipline Component codes.", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }
+        }, 
+        "ism:classification": "U", 
+        "ism:createDate": "2011-09-01", 
+        "ism:resourceElement": "true", 
+        "ism:ISMCATCESVersion": "202205"
+    }
+}

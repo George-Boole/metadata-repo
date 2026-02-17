@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<cve:CVE xmlns:cve="urn:us:gov:ic:cve"
+         xmlns:ism="urn:us:gov:ic:ism"
+         xmlns:uias="urn:us:gov:ic:uias"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         ism:compliesWith="USGov USIC"
+         ism:ownerProducer="USA"
+         ism:classification="U"
+         ism:DESVersion="202111"
+         ism:resourceElement="true"
+         ism:ISMCATCESVersion="202205"
+         CVEVersion="2.1"
+         specVersion="202111"
+         ism:createDate="2016-09-24"
+         xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+
+	  <cve:IRM>
+		    <URN xmlns="urn:us:gov:ic:cve">urn:us:gov:ic:cvenum:uias:attribute</URN>
+		    <Title xmlns="urn:us:gov:ic:cve"
+             ism:ownerProducer="USA"
+             ism:classification="U">CVEnumUIASAttribute</Title>
+		    <Description xmlns="urn:us:gov:ic:cve"
+                   ism:ownerProducer="USA"
+                   ism:classification="U">All attributes defined in UIAS</Description>
+		    <cve:Created>2016-04-19T16:11:00-04:00</cve:Created>
+		    <Source xmlns="urn:us:gov:ic:cve"
+              ism:classification="U"
+              ism:ownerProducer="USA">Unified Identity Attribute Set</Source>
+		    <PointOfContact xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">
+			      <Name>Office IC CIO</Name>
+			      <Email>ic-standards-support@odni.gov</Email>
+		    </PointOfContact>
+	  </cve:IRM>
+
+	  <Enumeration xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                multivalue="false"
+                ism:ownerProducer="USA">
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">adminOrganization</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">
+				Reflects the home organization of the entity
+			</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">aICP</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">
+				Reflects whether or not the entity is an Authorized IC Person
+			</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">ATOStatus</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">
+				This attribute indicates the Authority to Operate (ATO) status for the non-person entity
+			</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">auditRoutingOrganization</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">
+				This attribute specifies the organization(s) to which Audit Records should be forwarded
+			</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">authorityCategory</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">
+				This attribute specifies the authority(ies) under which the entity is authorized to access and/or discover protected resources
+			</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">certificateAuthority</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">
+				Reflects the issuing PKI certificate authority for the entity
+			</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">clearance</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">
+				Reflects the clearance or classification level of the entity
+			</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">countryOfAffiliation</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">
+				Reflects the citizenship(s) or affiliation(s) of the entity
+			</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">digitalIdentifier</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">
+				Reflects the DN from the entity’s PKI certificate
+			</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">dutyOrganization</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">
+				Reflects the assigned organization of the entity
+			</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">dutyOrganizationUnit</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">
+				Reflects the assigned organization unit structure of the entity
+			</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">entitySecurityMark</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">
+				Classification and handling of the entity’s digital identifier
+			</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">entityType</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">
+				Reflects the type of the entity
+			</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">fineAccessControls</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">
+				Reflects the fine grain access aspects of control systems
+			</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">group</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">
+				Indicates the group memberships associated with the entity
+			</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">handlingControls</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">
+				Indicates the set of handling controls that an NPE is authorized to have
+			</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">icNetworks</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">
+				List of other IC networks or domains to which an entity’s digital identifier may be transmitted 
+			</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">isICMember</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">
+				Reflects whether or not the entity is a member of the Intelligence Community
+			</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">lifeCycleStatus</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">
+				Indicates the life cycle phase in which the entity is operating
+			</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">originatingNetwork</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">
+				Reflects the network or domain that the entity’s identity originates from
+			</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">region</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">
+				Indicates the individual countries or larger sub-regions such as geographical areas of combatant command Areas of Responsibility (AORs), Areas of Interest (AOIs), or State and Non-State Actor(s)
+			</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">role</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">
+				Indicates the position, job or area of responsibility associated with the entity
+			</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">topic</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">
+				Indicates the particular intelligence subject area
+			</Description>
+		    </Term>
+   </Enumeration>
+</cve:CVE>

@@ -1,0 +1,373 @@
+{
+    "@context": {
+        "@vocab": "urn:us:gov:ic:cve#", 
+        "uias": "urn:us:gov:ic:uias#", 
+        "ism": "urn:us:gov:ic:ism#"
+    }, 
+    "CVE": {
+        "ism:ownerProducer": "USA", 
+        "CVEVersion": "2.1", 
+        "specVersion": "202111", 
+        "ism:DESVersion": "202111", 
+        "xsi:schemaLocation": "urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd", 
+        "Enumeration": {
+            "Term": [
+                {
+                    "Description": {
+                        "text": "Reflects the home organization of the entity", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "adminOrganization", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Reflects whether or not the entity is an Authorized IC Person", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "aICP", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "This attribute indicates the Authority to Operate (ATO) status for the non-person entity", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "ATOStatus", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "This attribute specifies the organization(s) to which Audit Records should be forwarded", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "auditRoutingOrganization", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "This attribute specifies the authority(ies) under which the entity is authorized to access and/or discover protected resources", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "authorityCategory", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Reflects the issuing PKI certificate authority for the entity", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "certificateAuthority", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Reflects the clearance or classification level of the entity", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "clearance", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Reflects the citizenship(s) or affiliation(s) of the entity", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "countryOfAffiliation", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Reflects the DN from the entity\u2019s PKI certificate", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "digitalIdentifier", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Reflects the assigned organization of the entity", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "dutyOrganization", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Reflects the assigned organization unit structure of the entity", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "dutyOrganizationUnit", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Classification and handling of the entity\u2019s digital identifier", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "entitySecurityMark", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Reflects the type of the entity", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "entityType", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Reflects the fine grain access aspects of control systems", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "fineAccessControls", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Indicates the group memberships associated with the entity", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "group", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Indicates the set of handling controls that an NPE is authorized to have", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "handlingControls", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "List of other IC networks or domains to which an entity\u2019s digital identifier may be transmitted", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "icNetworks", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Reflects whether or not the entity is a member of the Intelligence Community", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "isICMember", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Indicates the life cycle phase in which the entity is operating", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "lifeCycleStatus", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Reflects the network or domain that the entity\u2019s identity originates from", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "originatingNetwork", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Indicates the individual countries or larger sub-regions such as geographical areas of combatant command Areas of Responsibility (AORs), Areas of Interest (AOIs), or State and Non-State Actor(s)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "region", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Indicates the position, job or area of responsibility associated with the entity", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "role", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Indicates the particular intelligence subject area", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "topic", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }
+            ], 
+            "multivalue": "false", 
+            "ism:ownerProducer": "USA", 
+            "ism:classification": "U"
+        }, 
+        "ism:compliesWith": "USGov USIC", 
+        "IRM": {
+            "PointOfContact": {
+                "Email": "ic-standards-support@odni.gov", 
+                "Name": "Office IC CIO", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }, 
+            "Created": "2016-04-19T16:11:00-04:00", 
+            "URN": "urn:us:gov:ic:cvenum:uias:attribute", 
+            "Title": {
+                "text": "CVEnumUIASAttribute", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }, 
+            "Source": {
+                "text": "Unified Identity Attribute Set", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }, 
+            "Description": {
+                "text": "All attributes defined in UIAS", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }
+        }, 
+        "ism:classification": "U", 
+        "ism:createDate": "2016-09-24", 
+        "ism:resourceElement": "true", 
+        "ism:ISMCATCESVersion": "202205"
+    }
+}

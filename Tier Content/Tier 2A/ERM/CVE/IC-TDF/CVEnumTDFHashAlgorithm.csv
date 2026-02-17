@@ -1,0 +1,10 @@
+"ValueClassification","Value","DescriptionClassification","Description"
+"(U) ","SHA1","(U) ","Secure Hash Algorithm (SHA) with a a 160 bit message digest. SHA-1 is the most widely used of the existing SHA hash functions, and is employed in several widely used applications and protocols
+			"
+"(U) ","SHA256","(U) ","Secure Hash Algorithm (SHA) with a a 256 bit message digest. 
+   		    "
+"(U) ","SHA384","(U) ","Secure Hash Algorithm (SHA) with a a 384 bit message digest. 
+   	        "
+"(U) ","SHA512","(U) ","Secure Hash Algorithm (SHA) with a a 512 bit message digest.
+   	        "
+

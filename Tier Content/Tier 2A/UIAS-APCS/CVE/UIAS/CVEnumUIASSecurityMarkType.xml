@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cve:CVE xmlns:cve="urn:us:gov:ic:cve" xmlns:ism="urn:us:gov:ic:ism" xmlns:uias="urn:us:gov:ic:uias"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ism:compliesWith="USGov USIC" ism:ownerProducer="USA"
+	ism:classification="U" ism:DESVersion="202111" ism:ISMCATCESVersion="202205" ism:resourceElement="true"
+	CVEVersion="2.1" specVersion="202111" ism:createDate="2016-09-24" xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+
+	<cve:IRM>
+		<URN xmlns="urn:us:gov:ic:cve">urn:us:gov:ic:cvenum:uias:securitymarktype</URN>
+		<Title xmlns="urn:us:gov:ic:cve" ism:ownerProducer="USA" ism:classification="U">CVEnumUIASSecurityMarkType</Title>
+		<Description xmlns="urn:us:gov:ic:cve" ism:ownerProducer="USA" ism:classification="U">All valid values for security mark type from UIAS specification.</Description>
+
+		<cve:Created>2018-04-20T19:10:00-04:00</cve:Created>
+
+		<Source ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">Unified Identity Attribute Set.</Source>
+		<PointOfContact ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">
+			<Name>Office IC CIO</Name>
+			<Email>ic-standards-support@odni.gov</Email>
+		</PointOfContact>
+	</cve:IRM>
+
+	<cve:Enumeration multivalue="false" ism:ownerProducer="USA" ism:classification="U">
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">SECRET//NOFORN</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">SECRET//NOFORN</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">SECRET//REL TO USA, ACGU</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">SECRET//REL TO USA, ACGU</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">SECRET//REL TO USA, FVEY</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">SECRET//REL TO USA, FVEY</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">TOP SECRET//NOFORN</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">TOP SECRET//NOFORN</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">TOP SECRET//REL TO USA, ACGU</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">TOP SECRET//REL TO USA, ACGU</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">TOP SECRET//REL TO USA, FVEY</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">TOP SECRET//REL TO USA, FVEY</Description>
+		</Term>
+
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">UNCLASSIFIED//FOUO/NOFORN</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">UNCLASSIFIED//FOUO/NOFORN</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">UNCLASSIFIED//FOUO/REL TO USA, ACGU</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">UNCLASSIFIED//FOUO/REL TO USA, ACGU</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">UNCLASSIFIED//FOUO/REL TO USA, FVEY</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">UNCLASSIFIED//FOUO/REL TO USA, FVEY</Description>
+		</Term>
+	</cve:Enumeration>
+</cve:CVE>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<CVE xmlns="urn:us:gov:ic:cve" xmlns:cve="urn:us:gov:ic:cve" xmlns:ism="urn:us:gov:ic:ism"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ism:compliesWith="USGov USIC"
+    ism:ownerProducer="USA" ism:classification="U" ism:DESVersion="202111"
+    ism:ISMCATCESVersion="202205" ism:resourceElement="true" CVEVersion="2.1" specVersion="202111"
+    ism:createDate="2012-06-27" xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+    <IRM>
+        <URN>urn:us:gov:ic:cvenum:tdf:state</URN>
+        <Title ism:ownerProducer="USA" ism:classification="U">CVEnumTDFAppliesToState</Title>
+        <Description ism:ownerProducer="USA" ism:classification="U">All valid data states that effect markings.</Description>
+        <cve:Created xmlns:cve="urn:us:gov:ic:cve">2012-06-27T11:19:00-04:00</cve:Created>
+
+        <cve:Source ism:classification="U" ism:ownerProducer="USA">IC-CIO</cve:Source>
+        <cve:PointOfContact ism:classification="U" ism:ownerProducer="USA">
+            <Name>Office IC CIO</Name>
+            <Email>ic-standards-support@odni.gov</Email>
+        </cve:PointOfContact>
+    </IRM>
+
+    <Enumeration multivalue="false" ism:ownerProducer="USA" ism:classification="U">
+
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">encrypted</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Data that has been encrypted.
+			</Description>
+        </Term>
+
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">unencrypted</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Data in plain text.
+   		    </Description>
+        </Term>
+
+    </Enumeration>
+</CVE>

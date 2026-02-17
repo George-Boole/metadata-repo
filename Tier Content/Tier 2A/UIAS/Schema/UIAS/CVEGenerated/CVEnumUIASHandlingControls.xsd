@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns:uiashc="urn:us:gov:ic:cvenum:uias:handlingControls"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:uias:handlingControls"
+            version="202111">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumUIASHandlingControls Version 2.1 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumUIASHandlingControls.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumUIASHandlingControlsValues">
+      <xsd:annotation>
+         <xsd:documentation>(U) All valid values for handlingControls from UIAS specification. This CVE is used by @uias:handlingControls
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumUIASHandlingControls.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="REL_ACGU">
+            <xsd:annotation>
+               <xsd:documentation>
+				NPE is capable of processing  REL to USA, ACGU correctly. 
+				NPE users consists of persons who have one of AUS, CAN, GBR, USA countryOfAffiliation and appropriate adminOrganization.
+				NPE is NOT capable of distinguishing between it's users based on countryOfAffiliation so the minimum REL must be ACGU.
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SBU">
+            <xsd:annotation>
+               <xsd:documentation>
+				NPE is capable of processing  Sensitive but Unclassified corretly.
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XD">
+            <xsd:annotation>
+               <xsd:documentation>
+				NPE is capable of processing Exclusive Distribution correctly.
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="REL_FVEY">
+            <xsd:annotation>
+               <xsd:documentation>
+				NPE is capable of processing REL to USA, FVEY correctly. 
+				NPE users consists of persons who have one of AUS, CAN, GBR, NZL, USA countryOfAffiliation and appropriate adminOrganization.
+				NPE is NOT capable of distinguishing between it's users based on countryOfAffiliation so the minimum REL must be FVEY.
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="REL_TEYE">
+            <xsd:annotation>
+               <xsd:documentation>
+				NPE is capable of processing REL to USA, TEYE correctly.
+				NPE users consists of persons who have one of AUS, GBR, USA countryOfAffiliation and appropriate adminOrganization.
+				NPE is NOT capable of distinguishing between it's users based on countryOfAffiliation so the minimum REL must be TEYE.
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="RS">
+            <xsd:annotation>
+               <xsd:documentation>
+				NPE is capable of processing Risk Sensitive correctly.
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SSI">
+            <xsd:annotation>
+               <xsd:documentation>
+				NPE is capable of processing Sensitive Security information correctly.
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SBU-NF">
+            <xsd:annotation>
+               <xsd:documentation>
+				NPE is capable of processing Sensitive but Unclassified NOFORN correctly. This includes proper verification of countryOfAffiliation and adminOrganization to ensure US acccess only.
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="USP">
+            <xsd:annotation>
+               <xsd:documentation>
+				NPE is capable of processing US Persons correctly.
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="REL">
+            <xsd:annotation>
+               <xsd:documentation>
+				NPE is capable of processing all Releasability markings e.g. REL TO, NF, EYES Only, DISPLAY ONLY, LES-NF, SBU-NF. This includes proper verification of countryOfAffiliation and adminOrganization to ensure correct access, 
+				and would also include processing only valid markings. For example a system that recognizes all the markings but is not capable of performing Display Only could still be provisioned with this as long as it does not misshandle the
+				display only data, an example of mishandling would be to misinterpret the display only countries as if they were rel to countries and share the information. 
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="USONLY">
+            <xsd:annotation>
+               <xsd:documentation>
+				NPE users consists of persons who have USA citizenship (countryOfAffiliation=USA) and an adminOrganization that is part of USAgency. 
+				NPE is NOT capable of distinguishing between it's users based on countryOfAffiliation but as all are US, REL poses no concern.
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DISPLAYONLY">
+            <xsd:annotation>
+               <xsd:documentation>
+				The NPE is capable of enforcing display of information without release. Generally may require some form of DRM.
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PR">
+            <xsd:annotation>
+               <xsd:documentation>
+				The NPE is capable of processing  Caution-proprietary information involved correctly. 
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="IMC">
+            <xsd:annotation>
+               <xsd:documentation>
+				The NPE is capable of processing Controlled Imagery correctly.
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DSEN">
+            <xsd:annotation>
+               <xsd:documentation>
+				The NPE is capable of processing DEA Sensitive correctly.
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DCNI">
+            <xsd:annotation>
+               <xsd:documentation>
+				The NPE is capable of processing DOD UNCLASSIFIED CONTROLLED NUCLEAR INFORMATION correctly.
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="UCNI">
+            <xsd:annotation>
+               <xsd:documentation>
+				The NPE is capable of processing DOE UNCLASSIFIED CONTROLLED NUCLEAR INFORMATION correctly.
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="FOUO">
+            <xsd:annotation>
+               <xsd:documentation>
+				The NPE is capable of processing For Official Use Only correctly.
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="FISA">
+            <xsd:annotation>
+               <xsd:documentation>
+				The NPE is capable of processing Foreign Intelligence Surveillance Act correctly. This includes any reporting/audit requirements and purge requirements that may be levied.
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="LES-NF">
+            <xsd:annotation>
+               <xsd:documentation>
+				The NPE is capable of processing Law Enforcement Sensitive NOFORN correctly. This includes proper verification of countryOfAffiliation and adminOrganization to ensure US acccess only.
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="LES">
+            <xsd:annotation>
+               <xsd:documentation>
+				The NPE is capable of processing Law Enforcement Sensitive correctly.
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DS">
+            <xsd:annotation>
+               <xsd:documentation>
+				The NPE is capable of processing Limited Distribution correctly.
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="NF">
+            <xsd:annotation>
+               <xsd:documentation>
+				The NPE is capable of processing NOFORN correctly. This includes proper verification of countryOfAffiliation and adminOrganization to ensure US acccess only.
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ND">
+            <xsd:annotation>
+               <xsd:documentation>
+				The NPE is capable of processing No Distribution correctly.
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="OC">
+            <xsd:annotation>
+               <xsd:documentation>
+				The NPE is capable of processing Originator Control. This includes being accessed by users who should not have access to the OC and are properly denied. 
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="RAWFISA">
+            <xsd:annotation>
+               <xsd:documentation>The NPE is capable of processing RAWFISA correctly. This includes any reporting/audit requirements and purge requirements that may be levied.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="CVEnumUIASHandlingControls">
+      <xsd:annotation>
+         <xsd:documentation>(U) uiashc:CVEnumUIASHandlingControls definition</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction>
+         <xsd:simpleType>
+            <xsd:annotation>
+               <xsd:documentation>(U) A list of uiashc:CVEnumUIASHandlingControlsValues</xsd:documentation>
+            </xsd:annotation>
+            <xsd:list itemType="uiashc:CVEnumUIASHandlingControlsValues"/>
+         </xsd:simpleType>
+         <xsd:maxLength value="26"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

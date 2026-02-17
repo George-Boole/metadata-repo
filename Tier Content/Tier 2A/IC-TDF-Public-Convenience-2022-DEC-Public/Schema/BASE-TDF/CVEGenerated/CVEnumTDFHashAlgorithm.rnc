@@ -1,0 +1,11 @@
+# UNCLASSIFIED
+default namespace = "urn:us:gov:ic:cvenum:tdf:hashalgorithm"
+CVEnumTDFHashAlgorithm.cve = 
+# (U) 
+"SHA1" | 
+# (U) 
+"SHA256" | 
+# (U) 
+"SHA384" | 
+# (U) 
+"SHA512"

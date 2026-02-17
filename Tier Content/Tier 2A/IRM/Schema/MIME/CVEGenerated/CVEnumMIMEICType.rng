@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:mime:type">
+   <define name="CVEnumMIMEICType.cve">
+      <choice>
+         <value>application/dni-arh+xml</value>
+         <value>application/dni-audit+xml</value>
+         <value>application/dni-edh+xml</value>
+         <value>application/dni-irm+xml</value>
+         <value>application/dni-mat+xml</value>
+         <value>application/dni-pubs+xml</value>
+         <value>application/dni-tdf+xml</value>
+      </choice>
+   </define>
+</grammar>

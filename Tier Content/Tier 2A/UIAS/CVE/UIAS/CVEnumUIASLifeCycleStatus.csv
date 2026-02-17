@@ -1,0 +1,14 @@
+﻿"ValueClassification","Value","DescriptionClassification","Description","DeprecationDate"
+"(U) ","DEV","(U) ","
+				Development
+			",
+"(U) ","TEST","(U) ","
+	  			Test
+	  		",
+"(U) ","PROD","(U) ","
+	  			Production
+	  		",
+"(U) ","SUNSET","(U) ","
+				Sunset, to-be-retired
+			",
+

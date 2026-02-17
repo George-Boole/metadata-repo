@@ -1,0 +1,106 @@
+{
+    "@context": {
+        "defaultNamespace": "urn:us:gov:ic:cve", 
+        "cve": "urn:us:gov:ic:cve", 
+        "ism": "urn:us:gov:ic:ism"
+    }, 
+    "cve:CVE": {
+        "ism:ownerProducer": "USA", 
+        "CVEVersion": "2", 
+        "cve:IRM": {
+            "cve:Source": {
+                "text": "IC-CIO", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }, 
+            "cve:Description": {
+                "text": "All valid algorithms and patterns for hash algorithm for use with BindingValueType", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }, 
+            "cve:PointOfContact": {
+                "cve:Name": "Office IC CIO", 
+                "cve:Email": "ic-standards-support@iarpa.gov", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }, 
+            "cve:URN": "urn:us:gov:ic:cvenum:tdf:hashalgorithm", 
+            "cve:Title": {
+                "text": "CVEnumTDFHashAlgorithm", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }, 
+            "cve:Created": "2012-06-27T11:19:00-04:00"
+        }, 
+        "xsi:schemaLocation": "urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd", 
+        "ism:DESVersion": "201609.201707", 
+        "cve:Enumeration": {
+            "cve:Term": [
+                {
+                    "cve:Description": {
+                        "text": "Secure Hash Algorithm (SHA) with a a 160 bit message digest. SHA-1 is the most widely used of the existing SHA hash functions, and is employed in several widely used applications and protocols", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "cve:Value": {
+                        "text": "SHA1", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "cve:Description": {
+                        "text": "Secure Hash Algorithm (SHA) with a a 256 bit message digest.", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "cve:Value": {
+                        "text": "SHA256", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "cve:Description": {
+                        "text": "Secure Hash Algorithm (SHA) with a a 384 bit message digest.", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "cve:Value": {
+                        "text": "SHA384", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "cve:Description": {
+                        "text": "Secure Hash Algorithm (SHA) with a a 512 bit message digest.", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "cve:Value": {
+                        "text": "SHA512", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "ism:classification": "U"
+                }
+            ], 
+            "multivalue": "false", 
+            "ism:ownerProducer": "USA", 
+            "ism:classification": "U"
+        }, 
+        "ism:compliesWith": "USGov USIC", 
+        "ism:classification": "U", 
+        "ism:createDate": "2012-06-27", 
+        "ism:resourceElement": "true", 
+        "ism:ISMCATCESVersion": "201609"
+    }
+}

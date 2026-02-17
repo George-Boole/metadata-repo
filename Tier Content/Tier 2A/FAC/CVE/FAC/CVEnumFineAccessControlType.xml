@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This is a generated file. DO NOT EDIT!-->
+<cve:CVE xmlns:cve="urn:us:gov:ic:cve"
+         xmlns:ism="urn:us:gov:ic:ism"
+         xmlns:fac="urn:us:gov:ic:fineaccesscontrol"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         ism:compliesWith="USGov USIC"
+         ism:ownerProducer="USA"
+         ism:classification="U"
+         ism:DESVersion="202111"
+         ism:ISMCATCESVersion="202205"
+         ism:resourceElement="true"
+         CVEVersion="2.1"
+         specVersion="202211"
+         ism:createDate="2023-06-09"
+         xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+    
+    <cve:IRM>
+        <URN xmlns="urn:us:gov:ic:cve">urn:us:gov:ic:cvenum:fac:fineaccesscontroltype</URN>
+        <Title xmlns="urn:us:gov:ic:cve"
+             ism:ownerProducer="USA"
+             ism:classification="U">CVEnumFineAccessControlType</Title>
+        <Description xmlns="urn:us:gov:ic:cve"
+                   ism:ownerProducer="USA"
+                   ism:classification="U">All currently authorized Fine Access Controls.
+        </Description>
+        
+        <Created xmlns="urn:us:gov:ic:cve">2023-06-09T19:43:44.898Z</Created>
+        
+        <Source xmlns="urn:us:gov:ic:cve"
+              ism:classification="U"
+              ism:ownerProducer="USA">Security Marking Program (SMP, AKA CAPCO)</Source>
+        <PointOfContact xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">
+            <Name>Office IC CIO</Name>
+            <Email>ic-standards-support@odni.gov</Email>
+        </PointOfContact>
+    </cve:IRM>
+    
+    <cve:Enumeration multivalue="true" ism:ownerProducer="USA" ism:classification="U">
+      <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">RD</cve:Value>
+            <cve:Description ism:classification="U" ism:ownerProducer="USA">Hierarchy: AEA, RESTRICTED DATA</cve:Description>
+        </cve:Term>
+      <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">CNWDI</cve:Value>
+            <cve:Description ism:classification="U" ism:ownerProducer="USA">Hierarchy: AEA-RD, CRITICAL NUCLEAR WEAPON DESIGN INFORMATION</cve:Description>
+        </cve:Term>
+      <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">NATO-C</cve:Value>
+            <cve:Description ism:classification="U" ism:ownerProducer="USA">Hierarchy: NATO, NATO CONFIDENTIAL Readon</cve:Description>
+        </cve:Term>
+      <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">NATO-TS</cve:Value>
+            <cve:Description ism:classification="U" ism:ownerProducer="USA">Hierarchy: NATO, NATO COSMIC TOP SECRET Readon</cve:Description>
+        </cve:Term>
+      <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">NATO-R</cve:Value>
+            <cve:Description ism:classification="U" ism:ownerProducer="USA">Hierarchy: NATO, NATO RESTRICTED Readon</cve:Description>
+        </cve:Term>
+      <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">NATO-S</cve:Value>
+            <cve:Description ism:classification="U" ism:ownerProducer="USA">Hierarchy: NATO, NATO SECRET Readon</cve:Description>
+        </cve:Term>
+      <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">NATO-ATOMAL</cve:Value>
+            <cve:Description ism:classification="U" ism:ownerProducer="USA">Hierarchy: NATO, NATO-ATOMAL</cve:Description>
+        </cve:Term>
+      <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">NATO-BALK</cve:Value>
+            <cve:Description ism:classification="U" ism:ownerProducer="USA">Hierarchy: NATO, NATO-BALK</cve:Description>
+        </cve:Term>
+      <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">NATO-BOHEMIA</cve:Value>
+            <cve:Description ism:classification="U" ism:ownerProducer="USA">Hierarchy: NATO, NATO-BOHEMIA</cve:Description>
+        </cve:Term>
+      <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">HCS-X</cve:Value>
+            <cve:Description ism:classification="U" ism:ownerProducer="USA">Hierarchy: SCI, HUMINT External</cve:Description>
+        </cve:Term>
+      <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">HCS-O</cve:Value>
+            <cve:Description ism:classification="U" ism:ownerProducer="USA">Hierarchy: SCI, HUMINT OPERATIONS</cve:Description>
+        </cve:Term>
+      <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">HCS-P</cve:Value>
+            <cve:Description ism:classification="U" ism:ownerProducer="USA">Hierarchy: SCI, HUMINT PRODUCT</cve:Description>
+        </cve:Term>
+      <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">TK</cve:Value>
+            <cve:Description ism:classification="U" ism:ownerProducer="USA">Hierarchy: SCI, Talent-Keyhole</cve:Description>
+        </cve:Term>
+      <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">BUR</cve:Value>
+            <cve:Description ism:classification="U" ism:ownerProducer="USA">Hierarchy: SCI-BUR, BUR</cve:Description>
+        </cve:Term>
+      <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">BUR-BLG</cve:Value>
+            <cve:Description ism:classification="U" ism:ownerProducer="USA">Hierarchy: SCI-BUR, BUR-BLG</cve:Description>
+        </cve:Term>
+      <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">BUR-DTP</cve:Value>
+            <cve:Description ism:classification="U" ism:ownerProducer="USA">Hierarchy: SCI-BUR, BUR-DTP</cve:Description>
+        </cve:Term>
+      <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">BUR-WRG</cve:Value>
+            <cve:Description ism:classification="U" ism:ownerProducer="USA">Hierarchy: SCI-BUR, BUR-WRG</cve:Description>
+        </cve:Term>
+      <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">HCS</cve:Value>
+            <cve:Description ism:classification="U" ism:ownerProducer="USA">Hierarchy: SCI-HCS, HUMINT</cve:Description>
+        </cve:Term>
+      <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">KLM</cve:Value>
+            <cve:Description ism:classification="U" ism:ownerProducer="USA">Hierarchy: SCI-KLM, KLAMATH</cve:Description>
+        </cve:Term>
+      <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">KLM-R</cve:Value>
+            <cve:Description ism:classification="U" ism:ownerProducer="USA">Hierarchy: SCI-KLM, KLAMATH-R</cve:Description>
+        </cve:Term>
+      <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">MVL</cve:Value>
+            <cve:Description ism:classification="U" ism:ownerProducer="USA">Hierarchy: SCI-MVL, MARVEL</cve:Description>
+        </cve:Term>
+      <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SI</cve:Value>
+            <cve:Description ism:classification="U" ism:ownerProducer="USA">Hierarchy: SCI-SI, Special Intelligence</cve:Description>
+        </cve:Term>
+      <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SI-EU</cve:Value>
+            <cve:Description ism:classification="U" ism:ownerProducer="USA">Hierarchy: SCI-SI, Special Intelligence-ECRU</cve:Description>
+        </cve:Term>
+      <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SI-G</cve:Value>
+            <cve:Description ism:classification="U" ism:ownerProducer="USA">Hierarchy: SCI-SI, Special Intelligence-GAMMA</cve:Description>
+        </cve:Term>
+      <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">SI-NK</cve:Value>
+            <cve:Description ism:classification="U" ism:ownerProducer="USA">Hierarchy: SCI-SI, Special Intelligence-Nonbook</cve:Description>
+        </cve:Term>
+      <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">TK-BLFH</cve:Value>
+            <cve:Description ism:classification="U" ism:ownerProducer="USA">Hierarchy: SCI-TK, Talent Keyhole-Bluefish</cve:Description>
+        </cve:Term>
+      <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">TK-IDIT</cve:Value>
+            <cve:Description ism:classification="U" ism:ownerProducer="USA">Hierarchy: SCI-TK, Talent Keyhole-Iditarod</cve:Description>
+        </cve:Term>
+      <cve:Term ism:classification="U" ism:ownerProducer="USA">
+            <cve:Value ism:classification="U" ism:ownerProducer="USA">TK-KAND</cve:Value>
+            <cve:Description ism:classification="U" ism:ownerProducer="USA">Hierarchy: SCI-TK, Talent Keyhole-Kandik</cve:Description>
+        </cve:Term>
+   </cve:Enumeration>
+</cve:CVE>

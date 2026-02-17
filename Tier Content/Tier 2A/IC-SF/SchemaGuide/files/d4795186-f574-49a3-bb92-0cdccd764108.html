@@ -1,0 +1,640 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+      <title>Schema documentation for component ContentEncodedHashVerification</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css"></link>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+        var propertiesBoxes= new Array('properties_ContentEncodedHashVerification');
+var sourceBoxes= new Array('source_ContentEncodedHashVerification');
+var instanceBoxes= new Array('instance_ContentEncodedHashVerification');
+var diagramBoxes= new Array('diagram_ContentEncodedHashVerification');
+var annotationBoxes= new Array('annotations_ContentEncodedHashVerification');
+var attributesBoxes= new Array('attributes_ContentEncodedHashVerification');
+var modelBoxes= new Array('model_ContentEncodedHashVerification');
+
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                    //
+--></script>
+   </head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_content" rowspan="1" colspan="1">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, annotationBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Annotations</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, attributesBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Attributes </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, diagramBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Diagrams</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, instanceBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Instances</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, modelBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Model </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, propertiesBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Properties </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Source</span>
+                        </td>
+                     </tr>
+                  </table>
+                  <div align="right">
+                     <span>
+                        <input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close"></input>
+                     </span>
+                  </div>
+               </td>
+               <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+            </tr>
+         </table>
+      </div>
+      <a id="ContentEncodedHashVerification" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">ContentEncodedHashVerification</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:sf:hashverification</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_ContentEncodedHashVerification" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_ContentEncodedHashVerification');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_ContentEncodedHashVerification" style="display:block">
+                              <div class="annotation">
+                                 
+                                 <p>
+                                    Represents the hash of the payload in its encrypted state. 
+                                    Hash value is not meant to be taken over the Base64-encoded 
+                                    state of the payload when used with a Base64Binary payload.
+                                    
+                                    Used to represent the payload as stored and transmitted: Encrypted and split into
+                                    chunks as needed.
+                                    Used by tools that need to verify that a payload corresponds to the XML document,
+                                    
+                                    but which have no reason to further process the payload and may not have access to
+                                    
+                                    the necessary keys. 
+                                    </p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_ContentEncodedHashVerification" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_ContentEncodedHashVerification');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_ContentEncodedHashVerification" style="display:block">
+                              <img alt="Diagram" border="0" src="img/531243cd-5d38-4956-8038-aa0b23101d80.png" usemap="#HashVerification_xsd_Element_ContentEncodedHashVerification"></img>
+                              <map name="HashVerification_xsd_Element_ContentEncodedHashVerification" id="HashVerification_xsd_Element_ContentEncodedHashVerification">
+                                 <area alt="HashVerification_xsd_Attribute_hashType.tmp#hashType" href="6ef4f552-b6a2-4922-8e6e-1afe8f9c6f99.html#hashType" coords="291,78,397,102" shape="rect"></area>
+                                 <area alt="HashVerification_xsd_Element_PayloadHash.tmp#PayloadHash" href="89ac60ee-bc5b-4cbd-9c8d-01455b040320.html#PayloadHash" coords="419,149,523,173" shape="rect"></area>
+                                 <area alt="HashVerification_xsd_Element_TotalHash.tmp#TotalHash" href="918371af-4af4-4ddc-bed4-7257a6a4a9c3.html#TotalHash" coords="526,270,614,294" shape="rect"></area>
+                                 <area alt="HashVerification_xsd_Element_TotalHash.tmp#TotalHash" href="918371af-4af4-4ddc-bed4-7257a6a4a9c3.html#TotalHash" coords="526,518,614,542" shape="rect"></area>
+                                 <area alt="HashVerification_xsd_Element_BlockHash.tmp#BlockHash" href="3ff9c5a7-3ccf-43c6-a2d2-de8d5690c66d.html#BlockHash" coords="526,347,616,371" shape="rect"></area>
+                                 <area alt="HashVerification_xsd_Element_BlockHash.tmp#BlockHash" href="3ff9c5a7-3ccf-43c6-a2d2-de8d5690c66d.html#BlockHash" coords="526,595,616,619" shape="rect"></area>
+                                 <area alt="HashVerification_xsd_Element_Group_BlockedHashGroup.tmp#BlockedHashGroup" href="39449f79-937b-40c3-8b60-aed9feebbb35.html#BlockedHashGroup" coords="422,229,585,255" shape="rect"></area>
+                                 <area alt="HashVerification_xsd_Element_TotalHash.tmp#TotalHash" href="918371af-4af4-4ddc-bed4-7257a6a4a9c3.html#TotalHash" coords="526,270,614,294" shape="rect"></area>
+                                 <area alt="HashVerification_xsd_Element_TotalHash.tmp#TotalHash" href="918371af-4af4-4ddc-bed4-7257a6a4a9c3.html#TotalHash" coords="526,518,614,542" shape="rect"></area>
+                                 <area alt="HashVerification_xsd_Element_BlockHash.tmp#BlockHash" href="3ff9c5a7-3ccf-43c6-a2d2-de8d5690c66d.html#BlockHash" coords="526,347,616,371" shape="rect"></area>
+                                 <area alt="HashVerification_xsd_Element_BlockHash.tmp#BlockHash" href="3ff9c5a7-3ccf-43c6-a2d2-de8d5690c66d.html#BlockHash" coords="526,595,616,619" shape="rect"></area>
+                                 <area alt="HashVerification_xsd_Element_Group_BlockedHashGroup.tmp#BlockedHashGroup" href="39449f79-937b-40c3-8b60-aed9feebbb35.html#BlockedHashGroup" coords="422,477,585,503" shape="rect"></area>
+                                 <area alt="HashVerification_xsd_Complex_Type_HashVerificationType.tmp#HashVerificationType" href="547204e2-ab2b-4ddc-b118-ce2645efecf0.html#HashVerificationType" coords="266,3,436,25" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="547204e2-ab2b-4ddc-b118-ce2645efecf0.html#HashVerificationType" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component HashVerificationType')" shape="rect">HashVerificationType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_ContentEncodedHashVerification" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_ContentEncodedHashVerification');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_ContentEncodedHashVerification" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>complex</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_ContentEncodedHashVerification" type="image" src="img/btM.gif" value="-" onclick="switchState('model_ContentEncodedHashVerification');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_ContentEncodedHashVerification" style="display:block">(<b>
+                                 <a href="89ac60ee-bc5b-4cbd-9c8d-01455b040320.html#PayloadHash" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component PayloadHash')" shape="rect">PayloadHash</a>
+                              </b> , <b>
+                                 <a href="918371af-4af4-4ddc-bed4-7257a6a4a9c3.html#TotalHash" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component TotalHash')" shape="rect">TotalHash</a>
+                              </b> , <b>
+                                 <a href="3ff9c5a7-3ccf-43c6-a2d2-de8d5690c66d.html#BlockHash" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component BlockHash{2,unbounded}')" shape="rect">BlockHash{2,unbounded}</a>
+                              </b>) | (<b>
+                                 <a href="918371af-4af4-4ddc-bed4-7257a6a4a9c3.html#TotalHash" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component TotalHash')" shape="rect">TotalHash</a>
+                              </b> , <b>
+                                 <a href="3ff9c5a7-3ccf-43c6-a2d2-de8d5690c66d.html#BlockHash" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component BlockHash{2,unbounded}')" shape="rect">BlockHash{2,unbounded}</a>
+                              </b>)</div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="3ff9c5a7-3ccf-43c6-a2d2-de8d5690c66d.html#BlockHash" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component BlockHash')" shape="rect">BlockHash</a>
+                           </b>, <b>
+                              <a href="89ac60ee-bc5b-4cbd-9c8d-01455b040320.html#PayloadHash" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component PayloadHash')" shape="rect">PayloadHash</a>
+                           </b>, <b>
+                              <a href="918371af-4af4-4ddc-bed4-7257a6a4a9c3.html#TotalHash" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component TotalHash')" shape="rect">TotalHash</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Instance</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_instance_ContentEncodedHashVerification" type="image" src="img/btM.gif" value="-" onclick="switchState('instance_ContentEncodedHashVerification');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="instance_ContentEncodedHashVerification" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;ContentEncodedHashVerification</span><span class="tT"> </span><span class="tAN">hashType=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">xmlns=</span><span class="tAV">"urn:us:gov:ic:sf:hashverification"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;PayloadHash</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/PayloadHash&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;TotalHash</span><span class="tT"> </span><span class="tAN">blockSize=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">totalBlocks=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/TotalHash&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;BlockHash</span><span class="tT"> </span><span class="tAN">block=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{2,unbounded}</span><span class="tEl">&lt;/BlockHash&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;TotalHash</span><span class="tT"> </span><span class="tAN">blockSize=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">totalBlocks=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/TotalHash&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;BlockHash</span><span class="tT"> </span><span class="tAN">block=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{2,unbounded}</span><span class="tEl">&lt;/BlockHash&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/ContentEncodedHashVerification&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Attributes</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_attributes_ContentEncodedHashVerification" type="image" src="img/btM.gif" value="-" onclick="switchState('attributes_ContentEncodedHashVerification');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="attributes_ContentEncodedHashVerification" style="display:block">
+                              <table class="attributesTable">
+                                 <thead>
+                                    <tr>
+                                       <th rowspan="1" colspan="1">QName</th>
+                                       <th width="10%" rowspan="1" colspan="1">Type</th>
+                                       <th width="5%" rowspan="1" colspan="1">Use</th>
+                                       <th width="100%" rowspan="1" colspan="1">Annotation</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="6ef4f552-b6a2-4922-8e6e-1afe8f9c6f99.html#hashType" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component hashType')" shape="rect">hashType</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="26c30a38-776d-42ad-ba1a-562ba15b0ae5.html#HashTypeType" target="mainFrame" title="urn:us:gov:ic:sf:hashverification" onclick="updatePageTitle('Schema documentation for component HashTypeType')" shape="rect">HashTypeType</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">required</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">
+                                          
+                                          <p>The type of a
+                                             hash.</p>
+                                          </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_ContentEncodedHashVerification" type="image" src="img/btM.gif" value="-" onclick="switchState('source_ContentEncodedHashVerification');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_ContentEncodedHashVerification" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"ContentEncodedHashVerification"</span><span class="tAN"> type=</span><span class="tAV">"HashVerificationType"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tAN"> xml:lang=</span><span class="tAV">"en"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Represents the hash of the payload in its encrypted state. Hash value is not meant to be taken over the Base64-encoded state of the payload when used with a Base64Binary payload. Used to represent the payload as stored and transmitted: Encrypted and split into chunks as needed. Used by tools that need to verify that a payload corresponds to the XML document, but which have no reason to further process the payload and may not have access to the necessary keys.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/IC-SF/HashVerification.xsd">HashVerification.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <h2 style=" font:italic bold 12px Georgia,serif;color:gray;font-size:14px;text-align:center;  width : 95%;">
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See Distribution Notice for details.
+       <a href="../index.html" target="_top">
+                Click Here
+            </a>
+      </h2>
+      <div class="footer"></div>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                //
+--></script>
+   </body>
+</html>

@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="./Schematron/ERM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron" phase="ALL"?>
+<xs:schema xmlns:erm="urn:us:gov:ic:erm" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:xhtml="http://www.w3.org/1999/xhtml-StopBrowserRendering" xmlns:ism="urn:us:gov:ic:ism"
+	xmlns:edh="urn:us:gov:ic:edh" xmlns:ermhc="urn:us:gov:ic:cvenum:erm:holdCategory"
+	targetNamespace="urn:us:gov:ic:erm" elementFormDefault="qualified"
+	attributeFormDefault="unqualified" version="201508" ism:DESVersion="201508"
+	ism:createDate="2014-08-31" ism:resourceElement="true" ism:classification="U"
+	ism:ownerProducer="USA">
+	<xs:annotation>
+		<xs:documentation>
+			<xhtml:h1 ism:ownerProducer="USA" ism:classification="U">Intelligence Community Technical Specification XML
+				Data Encoding Specification for Electronic Records Management (ERM.XML)</xhtml:h1>
+		</xs:documentation>
+		<xs:documentation>
+			<xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Notices</xhtml:h2>
+			<xhtml:p ism:ownerProducer="USA" ism:classification="U"> Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+        </xhtml:p>
+		</xs:documentation>
+		<xs:documentation>
+			<xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Description</xhtml:h2>
+			<xhtml:p ism:ownerProducer="USA" ism:classification="U"> W3C XML Schema for the XML Data Encoding Specification
+				Intelligence Community Metadata Standard for Electronic Records Management (ERM.XML).</xhtml:p>
+		</xs:documentation>
+		<xs:documentation>
+			<xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Introduction</xhtml:h2>
+			<xhtml:p ism:ownerProducer="USA" ism:classification="U"> This XML Schema file is one component of the XML Data
+				Encoding Specification (DES). Please see the document titled <xhtml:i>
+					<xhtml:a href="../../Documents/ERM/DesERMXml.pdf">XML Data Encoding Specification for Electronic Records
+						Management</xhtml:a>
+				</xhtml:i> for a complete description of the encoding as well as list of all components. </xhtml:p>
+			<xhtml:p ism:ownerProducer="USA" ism:classification="U"> It is envisioned that this schema or its components,
+				as well as other parts of the DES may be overridden for localized implementations. Therefore, permission to
+				use, copy, modify and distribute this XML Schema and the other parts of the DES for any purpose is hereby
+				granted in perpetuity. </xhtml:p>
+			<xhtml:p ism:ownerProducer="USA" ism:classification="U"> Please reference the preceding two paragraphs in all
+				copies or variations. The developers make no representation about the suitability of the schema or DES for
+				any purpose. It is provided "as is" without expressed or implied warranty. </xhtml:p>
+			<xhtml:p ism:ownerProducer="USA" ism:classification="U"> If you modify this XML Schema in any way label your
+				schema as a variant of ERM.XML. </xhtml:p>
+			<xhtml:p ism:ownerProducer="USA" ism:classification="U"> Please direct all questions, bug reports,or
+				suggestions for changes to the points of contact identified in the document referenced above. </xhtml:p>
+		</xs:documentation>
+		<xs:documentation>
+			<xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Implementation Notes</xhtml:h2>
+			<xhtml:ul>
+				<xhtml:li ism:ownerProducer="USA" ism:classification="U">Refer to the <xhtml:i>
+						<xhtml:a href="../../Documents/ERM/DesERMXml.pdf">XML Data Encoding Specification for Electronic
+							Records Mananagement</xhtml:a>
+					</xhtml:i> (ERM DES) for additional information</xhtml:li>
+			</xhtml:ul>
+			<xhtml:p ism:ownerProducer="USA" ism:classification="U"> The root element for ERM is: <xhtml:ul>
+					<xhtml:li ism:ownerProducer="USA" ism:classification="U">
+						<xhtml:a href="ERM_XML_xsd_Element_erm_ElectronicRecordsManagementMetadata.html#ElectronicRecordsManagementMetadata">erm:ElectronicRecordsManagementMetadata</xhtml:a>
+					</xhtml:li>
+				</xhtml:ul>
+			</xhtml:p>
+		</xs:documentation>
+		<xs:documentation>
+			<xhtml:h2 ism:ownerProducer="USA" ism:classification="U">Creators</xhtml:h2>
+			<xhtml:p ism:ownerProducer="USA" ism:classification="U">Office of the Director of National Intelligence
+				Intelligence Community Chief Information Officer</xhtml:p>
+		</xs:documentation>
+	</xs:annotation>
+	<!--***************************************************-->
+	<!--Start Import Statements-->
+	<!--***************************************************-->
+	<xs:import namespace="urn:us:gov:ic:ism" schemaLocation="../ISM/IC-ISM.xsd"/>
+	<xs:import namespace="urn:us:gov:ic:edh" schemaLocation="../IC-EDH/IC-EDH.xsd"/>
+	<xs:import namespace="urn:us:gov:ic:cvenum:erm:holdCategory"
+		schemaLocation="./CVEGenerated/CVEnumERMHoldCategory.xsd"/>
+	<!--***************************************************-->
+	<!--End Import Statements-->
+	<!--***************************************************-->
+	<xs:attribute name="DESVersion">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">
+				<xhtml:p ism:ownerProducer="USA" ism:classification="U"> The version number of the DES </xhtml:p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value="[0-9]{6}(\.[0-9]{1,6})?(\-.{1,23})?"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:attribute>
+
+	<!--***************************************************-->
+	<!--     Element Definitions     -->
+	<!--***************************************************-->
+	<xs:element name="FoiaOpsIndicator" type="xs:boolean">
+		<xs:annotation>
+			<xs:documentation>
+				<xhtml:p ism:classification="U" ism:ownerProducer="USA">Indicator stating if the Record is exempted from
+					FOIA search and publication (e.g. operations exemption at CIA): each agency has specific exemptions they
+					request and maintain.</xhtml:p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="OfficeOfRecord" type="edh:ResponsibleEntityType">
+		<xs:annotation>
+			<xs:documentation>
+				<xhtml:p ism:classification="U" ism:ownerProducer="USA">Identifies the Agency and organization element
+					within the agency that is responsible for making decisions related to the Record. Also identifies which
+					organizational element within an agency owns/is responsible for the official copy of the
+					Record.</xhtml:p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="RecordDesignationDate" type="xs:dateTime">
+		<xs:annotation>
+			<xs:documentation>
+				<xhtml:p ism:classification="U" ism:ownerProducer="USA">Date the Record is declared final (e.g. cutoff,
+					publication, creation) and starts the retention period which will be used to calculate the disposition
+					date based on the retention schedule.</xhtml:p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="VitalRecordsIndicator" type="xs:boolean">
+		<xs:annotation>
+			<xs:documentation>
+				<xhtml:p ism:classification="U" ism:ownerProducer="USA">Indicator stating that the Record is a Vital Record.
+					Vital Records are those Records considered essential to the continuity of operation during and after
+					emergencies or disaster conditions. Also known as Essential Records (per Federal Continuity Directive 1
+					(FCD 1))</xhtml:p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="AppliedBy">
+		<xs:annotation>
+			<xs:documentation>
+				<xhtml:p ism:classification="U" ism:ownerProducer="USA">Individual that performed the disposition of the
+					Record.</xhtml:p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attributeGroup ref="ism:SecurityAttributesGroup"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DateApplied" type="xs:dateTime">
+		<xs:annotation>
+			<xs:documentation>
+				<xhtml:p ism:classification="U" ism:ownerProducer="USA">Date when action was taken or applied to the
+					Record.</xhtml:p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DateEligible" type="xs:date">
+		<xs:annotation>
+			<xs:documentation>
+				<xhtml:p ism:classification="U" ism:ownerProducer="USA">Date the record is eligible for
+					disposition.</xhtml:p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DateLimit" type="xs:dateTime">
+		<xs:annotation>
+			<xs:documentation>
+				<xhtml:p ism:classification="U" ism:ownerProducer="USA">Date by which a disposition action must be taken
+					regarding the Record.</xhtml:p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="RecordControl" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>
+				<xhtml:p ism:classification="U" ism:ownerProducer="USA">Identifier for Agency Record Control System (RCS)
+					disposition policies (per NARA). </xhtml:p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ReviewIndicator" type="xs:boolean">
+		<xs:annotation>
+			<xs:documentation>
+				<xhtml:p ism:classification="U" ism:ownerProducer="USA">Indicator stating that the resource has been
+					reviewed to determine the appropriate RCS, if applicable.</xhtml:p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Authorizer">
+		<xs:annotation>
+			<xs:documentation>
+				<xhtml:p ism:classification="U" ism:ownerProducer="USA">Entity responsible for the hold.</xhtml:p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attributeGroup ref="ism:SecurityAttributesGroup"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="EffectiveDate" type="xs:dateTime">
+		<xs:annotation>
+			<xs:documentation>
+				<xhtml:p ism:classification="U" ism:ownerProducer="USA">Date the hold order was effective.</xhtml:p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Identifier" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>
+				<xhtml:p ism:classification="U" ism:ownerProducer="USA">Specific way to identify the hold (unique among hold
+					types and agencies).</xhtml:p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Justification">
+		<xs:annotation>
+			<xs:documentation>
+				<xhtml:p ism:classification="U" ism:ownerProducer="USA">Legal, policy, or mission driver for the hold
+					order.</xhtml:p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attributeGroup ref="ism:SecurityAttributesGroup"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ReleasedDate" type="xs:dateTime">
+		<xs:annotation>
+			<xs:documentation>
+				<xhtml:p ism:classification="U" ism:ownerProducer="USA">Date the hold order was released.</xhtml:p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Type" type="ermhc:CVEnumERMHoldCategoryValues">
+		<xs:annotation>
+			<xs:documentation>
+				<xhtml:p ism:classification="U" ism:ownerProducer="USA">The category of a hold on a managed Record's
+					disposition.</xhtml:p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Hold" type="erm:HoldType">
+		<xs:annotation>
+			<xs:documentation>
+				<xhtml:p ism:classification="U" ism:ownerProducer="USA">A suspension of disposition of a set of one or more
+					records in the records management process of the cognizant organization or institution.</xhtml:p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="HoldType">
+		<xs:annotation>
+			<xs:documentation>
+				<xhtml:p ism:classification="U" ism:ownerProducer="USA">The complex datatype for representing information
+					about a suspension of a managed Record's disposition.</xhtml:p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="erm:Authorizer" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="erm:DateApplied" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="erm:EffectiveDate" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="erm:Identifier" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="erm:Justification" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="erm:ReleasedDate" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="erm:Type" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="ism:SecurityAttributesGroup"/>
+	</xs:complexType>
+	<xs:element name="Disposition" type="erm:DispositionType">
+		<xs:annotation>
+			<xs:documentation>
+				<xhtml:p ism:classification="U" ism:ownerProducer="USA">An action taken with regard to U.S. federal records
+					that are no longer needed for current government business as determined by their appraisal pursuant to
+					legislation, regulation, or administrative procedure.</xhtml:p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="DispositionType">
+		<xs:annotation>
+			<xs:documentation>
+				<xhtml:p ism:classification="U" ism:ownerProducer="USA">The complex datatype for representing information
+					about the disposition of the record, to include pertinent dates and parties responsible</xhtml:p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="erm:AppliedBy" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="erm:DateApplied" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="erm:DateEligible" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="erm:DateLimit" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="erm:RecordControl" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="erm:ReviewIndicator" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="erm:Hold" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="ism:SecurityAttributesGroup"/>
+	</xs:complexType>
+	<xs:element name="ElectronicRecordsManagementMetadata">
+		<xs:annotation>
+			<xs:documentation>
+				<xhtml:p ism:classification="U" ism:ownerProducer="USA">Information used by a records management system to
+					manage a resource. A records management system systematically controls the creation, distribution, use,
+					maintenance, and disposition of recorded information maintained as evidence of business activities and
+					transactions.</xhtml:p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="erm:ElectronicRecordsManagementMetadataType">
+					<xs:attributeGroup ref="erm:versionAttributeGroup"/>
+				</xs:extension>
+			</xs:complexContent>
+
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="ElectronicRecordsManagementMetadataType">
+		<xs:annotation>
+			<xs:documentation>
+				<xhtml:p ism:classification="U" ism:ownerProducer="USA">The complex datatype for representing information
+					required for managing electronic Records.</xhtml:p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="erm:FoiaOpsIndicator" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="erm:OfficeOfRecord" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="erm:RecordDesignationDate" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="erm:VitalRecordsIndicator" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="erm:Disposition" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:attributeGroup name="versionAttributeGroup">
+		<xs:attribute ref="edh:DESVersion" use="optional"/>
+		<xs:attributeGroup ref="ism:ISMRootNodeAttributeOptionGroup"/>
+		<xs:attribute ref="erm:DESVersion"/>
+	</xs:attributeGroup>
+	<!--***************************************************-->
+	<!--     End Element Definitions     -->
+	<!--***************************************************-->
+</xs:schema>

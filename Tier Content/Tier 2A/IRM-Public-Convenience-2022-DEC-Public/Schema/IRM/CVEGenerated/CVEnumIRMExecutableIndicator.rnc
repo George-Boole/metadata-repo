@@ -1,0 +1,11 @@
+# UNCLASSIFIED
+default namespace = "urn:us:gov:ic:cvenum:irm:executableindicator"
+CVEnumIRMExecutableIndicator.cve = 
+# (U) 
+"Executable" | 
+# (U) 
+"Indeterminate" | 
+# (U) 
+"NonExecutable" | 
+# (U) 
+"Unevaluated"

@@ -1,0 +1,107 @@
+{
+    "@context": {
+        "@vocab": "urn:us:gov:ic:cve#", 
+        "ism": "urn:us:gov:ic:ism#"
+    }, 
+    "CVE": {
+        "ism:ownerProducer": "USA", 
+        "CVEVersion": "2.1", 
+        "specVersion": "202010", 
+        "ism:DESVersion": "202111", 
+        "xsi:schemaLocation": "urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd", 
+        "Enumeration": {
+            "Term": [
+                {
+                    "Description": {
+                        "text": "application/vnd.openofficeorg.extension", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "application/vnd.openofficeorg.extension", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "application/xhtml-voice+xml", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "application/xhtml-voice+xml", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "application/x-autocad", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "application/x-autocad", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Media Type Wildcard", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "[A-Za-z0-9!#$&amp;.+\\-^_]{1,127}/[A-Za-z0-9!#$&amp;.+\\-^_]{1,127}", 
+                        "regularExpression": "true", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }
+            ], 
+            "multivalue": "false", 
+            "ism:ownerProducer": "USA", 
+            "ism:classification": "U"
+        }, 
+        "ism:compliesWith": "USGov USIC", 
+        "IRM": {
+            "PointOfContact": {
+                "Email": "ic-standards-support@odni.gov", 
+                "Name": "Office IC CIO", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }, 
+            "Created": "2023-06-09T20:08:49.619Z", 
+            "URN": "urn:us:gov:ic:cvenum:mime:type", 
+            "Title": {
+                "text": "CVEnumMIMELegacyType", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }, 
+            "Source": {
+                "text": "DNI", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }, 
+            "Description": {
+                "text": "All currently valid legacy media types. These are media types that do not fall into the category of IANA media types (including deprecated media types) or DNI unique media types. These were media types that existed in PUBS/IRM prior to the creation of MIME.CES.", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }
+        }, 
+        "ism:classification": "U", 
+        "ism:createDate": "2023-06-09", 
+        "ism:resourceElement": "true", 
+        "ism:ISMCATCESVersion": "202205"
+    }
+}

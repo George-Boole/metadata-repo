@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:irm:complies:usa">
+   <define name="CVEnumIRMCompliesWithUSA.cve">
+      <choice>
+         <value>USA_DOD</value>
+         <value>USA_IC</value>
+         <value>USA_OtherUSG</value>
+      </choice>
+   </define>
+</grammar>

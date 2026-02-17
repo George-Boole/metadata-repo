@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:uias:nonpersonentitytype">
+   <define name="CVEnumUIASNonPersonEntityType.cve">
+      <choice>
+         <value>DEV</value>
+         <value>NET</value>
+         <value>SVC</value>
+         <value>SVR</value>
+      </choice>
+   </define>
+</grammar>

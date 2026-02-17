@@ -1,0 +1,11 @@
+# UNCLASSIFIED
+default namespace = "urn:us:gov:ic:cvenum:revrecall:action"
+CVEnumRevRecallAction.cve = 
+# (U) 
+"PURGE" | 
+# (U) 
+"RETAIN_WARN" | 
+# (U) 
+"RETAIN_HIDE" | 
+# (U) 
+"MANUAL_INSTRUCTION"

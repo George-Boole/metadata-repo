@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:revrecall:action">
+   <define name="CVEnumRevRecallAction.cve">
+      <choice>
+         <value>PURGE</value>
+         <value>RETAIN_WARN</value>
+         <value>RETAIN_HIDE</value>
+         <value>MANUAL_INSTRUCTION</value>
+      </choice>
+   </define>
+</grammar>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns:irmact="urn:us:gov:ic:cvenum:irm:activity"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:irm:activity"
+            version="202111">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumIRMActivity Version 2.1 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumIRMActivity.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumIRMActivity">
+      <xsd:annotation>
+         <xsd:documentation>(U) All valid values used to identify a resource's 
+            associated type of activity.
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumIRMActivity.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="crisis">
+            <xsd:annotation>
+               <xsd:documentation>crisis</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="exercise">
+            <xsd:annotation>
+               <xsd:documentation>exercise</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="operation">
+            <xsd:annotation>
+               <xsd:documentation>operation</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

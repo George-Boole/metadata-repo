@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<CVE xmlns="urn:us:gov:ic:cve" xmlns:ism="urn:us:gov:ic:ism"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ism:compliesWith="USGov USIC"
+    ism:ownerProducer="USA" ism:classification="U" ism:DESVersion="202111"
+    ism:ISMCATCESVersion="202205" ism:resourceElement="true" CVEVersion="2"
+    specVersion="202010.202205" ism:createDate="2012-06-27"
+    xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+    
+    <IRM>
+        <URN>urn:us:gov:ic:cvenum:virt:network</URN>
+        <Title ism:ownerProducer="USA" ism:classification="U">CVEnumVIRTNetworkName</Title>
+        <Description ism:ownerProducer="USA" ism:classification="U">All valid network names</Description>
+        <cve:Created xmlns:cve="urn:us:gov:ic:cve">2012-06-27T11:19:00-04:00</cve:Created>
+
+        <Source ism:classification="U" ism:ownerProducer="USA">IC-CIO</Source>
+        <PointOfContact ism:classification="U" ism:ownerProducer="USA">
+            <Name>Office IC CIO</Name>
+            <Email>ic-standards-support@odni.gov</Email>
+        </PointOfContact>
+    </IRM>
+
+    <Enumeration multivalue="false" ism:ownerProducer="USA" ism:classification="U">
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">NIPRNet</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">DISA Non-classified IP Router Network
+			</Description>
+        </Term>
+
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">SIPRNet</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">DoD and DoS Secret Internet Protocol Router Network
+   		    </Description>
+        </Term>
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">JWICS</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Joint Worldwide Intelligence Communications System 
+   	            (JWICS) highside network.
+   	        </Description>
+        </Term>
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">ADSN</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">ADSN Network
+   	        </Description>
+        </Term>
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">StoneGhost</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">DIA Top Secret Sensitive 
+   	            Compartmented Information Network
+   	        </Description>
+        </Term>
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">LOCE</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA"> Linked Operations-Intelligence Centers Europe
+   	            (LOCE) Network is a USEUCOM system supporting joint forces with communications
+   	        </Description>
+        </Term>
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">CRONOS</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Crisis Response Operations in NATO Operating Systems 
+   	            (CRONOS) is a system of interconnected computer networks used by NATO to transmit classified information
+   	        </Description>
+        </Term>
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">ACSS</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Allied Collaborative Shared Services
+   			</Description>
+        </Term>
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">IMIS</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Integrated Management Information System
+   			</Description>
+        </Term>
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">NSANET</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">The National Security Agency Intranet
+   			</Description>
+        </Term>
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">QNET</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Quintipartite Network
+   			</Description>
+        </Term>
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">5EE</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Five Eyes Enterprise
+   			</Description>
+        </Term>
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">BICES</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Battlefield Information Collection and Exploitation Systems
+   			</Description>
+        </Term>
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">CFBLNet</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Combined Federated Battle Laboratories Network
+   			</Description>
+        </Term>
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">DDTE</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Distributed Development and Test Enterprise
+   			</Description>
+        </Term>
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA" regularExpression="true"
+                >other:\S{1,256}</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Other Network</Description>
+        </Term>
+    </Enumeration>
+</CVE>

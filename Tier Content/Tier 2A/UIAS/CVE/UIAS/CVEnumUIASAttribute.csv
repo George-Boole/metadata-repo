@@ -1,0 +1,71 @@
+﻿"ValueClassification","Value","DescriptionClassification","Description","DeprecationDate"
+"(U) ","adminOrganization","(U) ","
+				Reflects the home organization of the entity
+			",
+"(U) ","aICP","(U) ","
+				Reflects whether or not the entity is an Authorized IC Person
+			",
+"(U) ","ATOStatus","(U) ","
+				This attribute indicates the Authority to Operate (ATO) status for the non-person entity
+			",
+"(U) ","auditRoutingOrganization","(U) ","
+				This attribute specifies the organization(s) to which Audit Records should be forwarded
+			",
+"(U) ","authorityCategory","(U) ","
+				This attribute specifies the authority(ies) under which the entity is authorized to access and/or discover protected resources
+			",
+"(U) ","certificateAuthority","(U) ","
+				Reflects the issuing PKI certificate authority for the entity
+			",
+"(U) ","clearance","(U) ","
+				Reflects the clearance or classification level of the entity
+			",
+"(U) ","countryOfAffiliation","(U) ","
+				Reflects the citizenship(s) or affiliation(s) of the entity
+			",
+"(U) ","digitalIdentifier","(U) ","
+				Reflects the DN from the entity’s PKI certificate
+			",
+"(U) ","dutyOrganization","(U) ","
+				Reflects the assigned organization of the entity
+			",
+"(U) ","dutyOrganizationUnit","(U) ","
+				Reflects the assigned organization unit structure of the entity
+			",
+"(U) ","entitySecurityMark","(U) ","
+				Classification and handling of the entity’s digital identifier
+			",
+"(U) ","entityType","(U) ","
+				Reflects the type of the entity
+			",
+"(U) ","fineAccessControls","(U) ","
+				Reflects the fine grain access aspects of control systems
+			",
+"(U) ","group","(U) ","
+				Indicates the group memberships associated with the entity
+			",
+"(U) ","handlingControls","(U) ","
+				Indicates the set of handling controls that an NPE is authorized to have
+			",
+"(U) ","icNetworks","(U) ","
+				List of other IC networks or domains to which an entity’s digital identifier may be transmitted 
+			",
+"(U) ","isICMember","(U) ","
+				Reflects whether or not the entity is a member of the Intelligence Community
+			",
+"(U) ","lifeCycleStatus","(U) ","
+				Indicates the life cycle phase in which the entity is operating
+			",
+"(U) ","originatingNetwork","(U) ","
+				Reflects the network or domain that the entity’s identity originates from
+			",
+"(U) ","region","(U) ","
+				Indicates the individual countries or larger sub-regions such as geographical areas of combatant command Areas of Responsibility (AORs), Areas of Interest (AOIs), or State and Non-State Actor(s)
+			",
+"(U) ","role","(U) ","
+				Indicates the position, job or area of responsibility associated with the entity
+			",
+"(U) ","topic","(U) ","
+				Indicates the particular intelligence subject area
+			",
+

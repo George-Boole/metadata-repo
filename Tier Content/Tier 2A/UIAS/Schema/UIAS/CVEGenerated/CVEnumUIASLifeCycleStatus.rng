@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:uias:lifecyclestatus">
+   <define name="CVEnumUIASLifeCycleStatus.cve">
+      <choice>
+         <value>DEV</value>
+         <value>TEST</value>
+         <value>PROD</value>
+         <value>SUNSET</value>
+      </choice>
+   </define>
+</grammar>

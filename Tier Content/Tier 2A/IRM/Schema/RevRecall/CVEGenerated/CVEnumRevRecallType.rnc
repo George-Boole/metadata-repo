@@ -1,0 +1,13 @@
+# UNCLASSIFIED
+default namespace = "urn:us:gov:ic:cvenum:revrecall:type"
+CVEnumRevRecallType.cve = 
+# (U) 
+"ADMINISTRATIVE_RECALL" | 
+# (U) 
+"ADMINISTRATIVE_REVISION" | 
+# (U) 
+"FISA_COMPLIANCE_RECALL" | 
+# (U) 
+"SUBSTANTIVE_RECALL" | 
+# (U) 
+"SUBSTANTIVE_REVISION"

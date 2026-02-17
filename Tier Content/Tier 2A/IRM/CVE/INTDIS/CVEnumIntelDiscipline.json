@@ -1,0 +1,169 @@
+{
+    "@context": {
+        "@vocab": "urn:us:gov:ic:cve#", 
+        "ism": "urn:us:gov:ic:ism#"
+    }, 
+    "CVE": {
+        "ism:ownerProducer": "USA", 
+        "CVEVersion": "2.1", 
+        "specVersion": "201707", 
+        "ism:DESVersion": "202111", 
+        "xsi:schemaLocation": "urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd", 
+        "Enumeration": {
+            "Term": [
+                {
+                    "Description": {
+                        "text": "Digital Analytics Intelligence (Applications)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "APP", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Counterintelligence", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "CI", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Geospatial Intelligence (consists of imagery, IMINT, and geospatial information)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "GEOINT", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Human Source Intelligence", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "HUMINT", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Measurement and Signature Intelligence", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "MASINT", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Open-Source Intelligence", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "OSINT", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Signals Intelligence (consists of COMINT, ELINT, and FISINT)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "SIGINT", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Foreign Scientific/Technological Intelligence", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "TECHINT", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }
+            ], 
+            "multivalue": "false", 
+            "ism:ownerProducer": "USA", 
+            "ism:classification": "U"
+        }, 
+        "ism:compliesWith": "USGov USIC", 
+        "IRM": {
+            "PointOfContact": {
+                "Email": "ic-standards-support@odni.gov", 
+                "Name": "Office IC CIO", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }, 
+            "Created": "2015-03-24T18:19:00-05:00", 
+            "URN": "urn:us:gov:ic:cvenum:intdis:inteldiscipline", 
+            "Title": {
+                "text": "CVEnumIntelDiscipline", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }, 
+            "Source": [
+                {
+                    "text": "Joint Chiefs of Staff Pub 2.0: Appendix B - Intelligence Disciplines - http://www.dtic.mil/doctrine/new_pubs/jp2_0.pdf", 
+                    "ism:ownerProducer": "USA", 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "text": "Deputy Director of National Intelligence for Intelligence Integration (DDII)", 
+                    "ism:ownerProducer": "USA", 
+                    "ism:classification": "U"
+                }
+            ], 
+            "Description": {
+                "text": "All currently valid Intelligence Discipline codes.", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }
+        }, 
+        "ism:classification": "U", 
+        "ism:createDate": "2011-09-01", 
+        "ism:resourceElement": "true", 
+        "ism:ISMCATCESVersion": "202205"
+    }
+}

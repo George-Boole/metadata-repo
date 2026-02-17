@@ -1,0 +1,4601 @@
+{
+    "@context": {
+        "@vocab": "urn:us:gov:ic:cve#", 
+        "ism": "urn:us:gov:ic:ism#"
+    }, 
+    "CVE": {
+        "ism:ownerProducer": "USA", 
+        "CVEVersion": "2.1", 
+        "specVersion": "202211", 
+        "ism:DESVersion": "202111", 
+        "xsi:schemaLocation": "urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd", 
+        "Enumeration": {
+            "Term": [
+                {
+                    "cve:codespace": "ge:GENC:3:3-11", 
+                    "Description": {
+                        "text": "Gaza Strip", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "XGZ", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "cve:codespace": "ge:GENC:3:3-11", 
+                    "Description": {
+                        "text": "West Bank", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "XWB", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "African Union", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100001", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Arturo Beltran Leyva Organization (BLO)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100002", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Biological Warfare Threat Entities", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100003", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Chemical Warfare Threat Entities", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100004", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Entities Developing and Proliferating Space Services &amp; Technologies", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100005", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Comprehensive Nuclear Test Ban Treaty Organization", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100006", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Consolidated Priority Organization Targets (CPOT)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100007", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Corporations-Networks Engaged In Acquisition or Sale of Military or WMD Materials or Technology", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100008", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Corporations-Networks Proliferating D&amp;D Capabilities", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100009", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2016-02-07", 
+                    "Description": {
+                        "text": "Economic-Societal Entities", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100010", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "European Space Agency", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100011", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "United Nations Food and Agriculture Organization (FAO)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100012", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Foreign R&amp;D Institutions &amp; Corporate Entities", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100013", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Gulf Cartel", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100014", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Human Rights Entities and War Crimes Courts", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100017", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "International Arms Control Organizations", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100019", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "International Atomic Energy Agency (IAEA)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100020", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "International Criminal Court", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100021", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "International Financial Institutions and Infrastructures", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100022", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2016-02-07", 
+                    "Description": {
+                        "text": "International Political/Military Organizations", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100023", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Kurdish Political-Military Groups", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100024", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "La Familia Michoacana", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100025", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Los Zetas", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100026", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "North Atlantic Treaty Organization (NATO)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100028", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Non-Government Satellite Observers and Satellite Warning Programs", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100029", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Organization of Petroleum Exporting Countries (OPEC)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100030", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Organisation for the Prohibition of Chemical Weapons (OPCW)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100031", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Organization for Security and Cooperation in Europe (OSCE)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100032", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Organization of American States (OAS)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100033", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Organization of Islamic Cooperation (OIC)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100034", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2016-02-07", 
+                    "Description": {
+                        "text": "Other Illicit Drug Organizations and Networks", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100035", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Palestinian Authority", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100036", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Special Interest Alien Smuggling Organizations and Networks", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100038", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Transnational Criminal Organizations defined in Executive Order 13581", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100039", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Transnational Gangs", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100040", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Unattributed Network Activity", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100041", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "World Animal Health Organization (OIE)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100043", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "World Health Organization", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100044", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "World Trade Organization", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100045", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Terrorist Organization", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100046", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Alliance of Small Island States", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100047", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Arab League", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100048", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Arctic Council", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100049", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Bacrim (Criminal Bands)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100050", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Balkan-based Organized Crime Groups", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100051", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Chinese Speaking Triads", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100052", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "CPOT/Kingpin Organizations", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100053", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "D-Company", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100054", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Economic Community of West African States (ECOWAS)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100055", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Entities developing, providing, and distributing cyber capabilities and/or services", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100056", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Eurasian Organized Crime Groups", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100057", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "European Union", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100058", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Gulf of Guinea militants", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100059", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Human Smuggling and Trafficking Organizations", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100060", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Ideologically Motivated Hackers", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100061", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Insurgents in Iraq", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100062", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Italian Camorra", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100063", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Japanese Yakuza", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100064", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Lebanese Groups in Central and South America", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100065", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Lord's Resistance Army", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100066", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Mara Salvatrucha (MS-13)/18th Street (M-18) Gangs", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100067", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Mexican DTOs", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100068", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Non-Aligned Movement (NAM)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100069", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Nuclear Facility Insiders", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100070", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Russian-Led Separatist Forces (RLSF)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100071", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Syrian Opposition Coalition", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100072", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "United Nations", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100073", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "World Bank", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100074", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Abd al-Qadir Network", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100075", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Asbat al-Ansar, and splinter group Jund al-Sham", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100076", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Abu Sayyaf Group (ASG)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100077", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2016-02-07", 
+                    "Description": {
+                        "text": "Ajnad Misr", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100078", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Al-Akhtar Trust", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100079", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Al-Aqsa Martyrs Brigade (AAMB)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100080", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Al-Badhr Mujahidin (ABM)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100081", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Al-Furqan Welfare Trust", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100082", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Al-Haramain (Haramayn) International Foundation", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100083", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2016-02-07", 
+                    "Description": {
+                        "text": "Al-Mujahidin Brigades (AMB)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100084", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Al-Nusrah Front including Syria-based Khorasan Group", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100085", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Al-Qa\u2018ida senior leadership and associated cadre", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100086", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Al-Qa\u2018ida in the Arabian Peninsula (AQAP)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100087", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Al-Qa\u2018ida in the Lands of the Islamic Maghreb (AQIM)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100088", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Al-Qa\u2018ida Kurdistan Battalions (AQ-KB)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100089", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Al-Qa\u2018ida-linked and other extremist networks in Sudan", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100090", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Al-Qa\u2018ida in the Indian Subcontinent (AQIS)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100091", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Al-Rashid Trust Institution", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100092", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Al-Shabaab", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100093", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Al-Taqwa Association", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100094", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Al-Waqf Foundation", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100095", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Ansar al-Islam (AI)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100096", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Ansar al-Sharia (Tunisia)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100097", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2016-02-07", 
+                    "Description": {
+                        "text": "Ansar al-Sunnah", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100098", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Anti-Coalition Militias (ACM)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100099", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2016-02-07", 
+                    "Description": {
+                        "text": "Aum Shinrikyo", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100100", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Bahraini Shia Groups", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100101", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Balkans Islamic extremist networks", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100102", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Baluchistan Liberation Army (Pakistan)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100103", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Bangsamoro Islamic Freedom Fighters (BIFF) and Bangsomoro Islamic Freedom Movement (BIFM)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100104", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Barisan Revolusi Nasional-Coordinate (BRN-C)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100105", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Basque Fatherland and Liberty (ETA)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100106", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Boko Haram", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100107", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Brandbergen Mosque extremists (Sweden)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100108", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Central African Extremist Groups", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100109", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Crisis Action Committee (KOMPAK)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100110", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "East Turkestan Islamic Party (ETIP)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100111", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Egyptian extremist groups", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100112", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Extremist networks in Syria", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100113", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Emerging ISIS-aligned extremist networks in Tunisia", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100114", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "European Salafist Movement", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100115", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Extremist networks in Libya", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100116", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Fatah al-Islam (FAI)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100117", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Foreign Fighters affiliating, or seeking to associate with, Sunni violent extremists active in conflict zones", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100118", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Forum of Islamic Law Activists (FAKSI)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100119", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Gaza-based Salafi extremists", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100120", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Greek domestic extremist groups", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100121", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Gulf Hizballah Groups", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100122", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "HAMAS", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100123", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Haqqani Network", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100124", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Harakat ul-Jihad-i-Islami Bangladesh (HUJI-B)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100125", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Harakat-ul-Jihad-i-Islami (HUJI) (Pakistan)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100126", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Harakat-ul-Mujahidin (HUM)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100127", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Hizb al-Tahrir movement", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100128", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Hizballah (Lebanese)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100129", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Homegrown Violent Extremists (HVE)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100130", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Indian Mujahidin", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100131", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "International anti-globalization and environmental extremist groups", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100132", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "International Islamic Relief Organization (IIRO)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100133", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Internationale Humanitaere Hilfe (IHH)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100134", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Iranian state organizations involved in terrorism", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100135", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Shia Groups with ties to Iran and Lebanese Hizballah", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100136", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Irish extremist factions", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100137", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Islamic Dissemination Center for Latin America (CDIAL)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100138", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Islamic Jihad Union (IJU)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100139", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Islamic Movement of Uzbekistan (IMU)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100140", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Islamic State of Iraq and ash-Sham - Sinai (ISIS-Sinai)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100141", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Islamic State of Iraq and ash-Sham - Khorasan (ISIS-Khorasan)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100142", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Islamic State of Iraq and ash-Sham - Libya (ISIS-Libya)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100143", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Islamic State of Iraq and ash-Sham (ISIS)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100144", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2016-02-07", 
+                    "Description": {
+                        "text": "Israeli extremist groups", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100145", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Jaish-e-Mohammad (JEM)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100146", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2016-02-07", 
+                    "Description": {
+                        "text": "Jaljalat (Gaza Strip)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100147", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Jama\u2018at al-Tabligh (JT)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100148", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Jamaat Ansarullah (Tajikistan)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100149", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Bangladesh ISIS- and AQIS- affiliated extremists", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100150", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Jamaat-e-Islami", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100151", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Japanese militant groups", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100152", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2016-02-07", 
+                    "Description": {
+                        "text": "Jaysh al-Fatihin", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100153", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Jemaah Anshorut Tauhid (JAT)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100154", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Jemaah Islamiyah (JI)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100155", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Jihadist/al-Qa'ida-linked facilitation nodes in southern Africa", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100156", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Islamic State of Iraq and ash-Sham - Algeria (ISIS-Algeria)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100157", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Jund al-Khilafah (JAK) (Pakistan, Syria)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100158", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Jundallah", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100159", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Kenya-based groups other than al-Shabaab", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100160", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2016-02-07", 
+                    "Description": {
+                        "text": "Khair ul-Nass (KUN)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100161", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Kurdistan Workers Party (PKK)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100162", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Lashkar-e-Jhangvi (LJ)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100163", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Lashkar-e-Tayyiba (LT)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100164", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Left-wing anti-imperialist groups including Red Brigades", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100165", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Liberation Tigers of Tamil Eelam (LTTE)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100166", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Majelis Mujahidin Indonesia (MMI)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100167", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Medical Emergency Relief Committee (MER-C)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100168", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Moro Islamic Liberation Front (MILF)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100169", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Moro National Liberation Front (MNLF)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100170", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Muslim Brotherhood", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100171", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Muslim World League", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100172", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Muslims of the Americas (MOA)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100173", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "National Liberation Army (ELN) (Colombia)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100174", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "New People\u2019s Army (NPA)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100175", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "North Caucasus Islamic extremists (Russia) Including Imarat Kavkaz", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100176", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Pakistani and Kashmiri militant/extremist groups", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100177", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Palestine Islamic Jihad (PIJ)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100178", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Palestinian Popular Resistance Committees (PPRC)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100179", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "People Against Gangsterism and Drugs (PAGAD)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100180", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Popular Front for the Liberation of Palestine\u2013\u2013General Command (PFLP-GC)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100181", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Qatar Charitable Society", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100182", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Revival of Islamic Heritage Society", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100183", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Revolutionary Armed Forces of Colombia (FARC)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100184", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Revolutionary People\u2019s Liberation Party/Front (DHKP/C)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100185", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Rohingya separatist groups", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100186", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Sheikh Eid al-Thani Charity", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100187", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Shining Path (Sendero Luminoso)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100188", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Sikh militant/extremist groups", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100189", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2016-02-07", 
+                    "Description": {
+                        "text": "Sons of Salah al-Din (SSD)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100190", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Southeast Asian groups exploiting the conflict in Syria and Iraq", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100191", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-08-02", 
+                    "Description": {
+                        "text": "Southern Philippines-based terrorist groups", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100192", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Sulayman Abdul Aziz al Rajhi Foundation", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100193", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Sururi Movement", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100194", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Taliban", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100195", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Tehrik-e Taliban Pakistan (TTP)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100196", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Ummah Tameer Nau", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100197", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "War Crimes and Human Rights Fugitives", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100198", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "World Assembly of Muslim Youth\u00a0 (WAMY) (Saudi Arabia)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100199", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Yemeni Militants/Extremists", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100200", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Huthi Movement", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100201", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Ziyad al-Jarrah Battalions (ZJB)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100202", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Islamic State of Iraq and ash-Sham - Saudi Arabia (ISIS-Saudi Arabia)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100203", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Caucasus Sunni Islamic Extremists Groups", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100204", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Islamic State of Iraq and ash-Sham - Yemen (ISIS-Yemen)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100205", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Companies and Consortia Facilitating Theft of Property Rights and Illicit Technology Transfer", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100206", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Criminally Owned Gaming Enterprises", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100207", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Cyber Criminal Groups", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100208", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Foreign Regulatory Bodies and Standards Setting Organizations", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100209", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Foreign Venture Capital Community and Individuals", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100210", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Global Illegal, Unreported, and Unregulated Fishing Networks", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100211", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Human Smuggling Organizations and Networks", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100212", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "International Economic Organizations", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100213", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "International Banks, Money Transfer and Financial Messaging Services", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100214", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Italy-based Organized Crime Groups", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100215", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Lebanese Criminal Groups", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100216", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Sahel and Maghreb Based Trafficking Networks", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100217", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Syrian Armed Opposition", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100218", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Syrian Political Opposition", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100219", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Unaffiliated Technology Actors", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100220", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Wildlife Trafficking Networks", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100221", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Aspiring Islamic State of Iraq and ash-Sham (ISIS) Branches and Networks", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100222", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-03-02", 
+                    "Description": {
+                        "text": "Iranian Proxy Groups", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100223", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "deprecated": "2017-08-02", 
+                    "Description": {
+                        "text": "Islamic State of Iraq and ash-Sham (ISIS) and al-Qa'ida aligned Indonesian Extremists", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100224", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Other Terrorists using Disruptive and Destructive Cyber", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100225", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Terrorist Support Entities", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100226", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Turkistan Islamic Party (TIP)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100227", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Lashkar-e Jhangvi Alami (LJA)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100228", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Imam al-Bukhari Brigade (IBB)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100229", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Islamic State of Iraq and ash-Sham - West Africa (ISIS-West Africa)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100230", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Al-Qa\u2019ida-aligned Indonesian extremists", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100231", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Islamic State of Iraq and ash-Sham \u2013 Caucasus (ISIS-Caucasus)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100232", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "al-Gama'at al-Islamiyya (IG)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100233", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "al-Ittihad al-Islami", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100234", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Al-Qa`ida (AQ)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100235", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "al-Zarqawi Network", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100236", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Andean Region TCOs", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100237", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Anti-Coalition Insurgents in Iraq", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100238", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Anti-Coalition Militias in Afghanistan", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100239", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Arab Mujahidin in Chechnya", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100240", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Armed Islamic Group", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100241", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Army of Islam (AOI)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100242", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Aspiring al-Qa\u2019ida elements in Egypt", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100243", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Brazilian TCOs", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100244", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Brothers' Circle", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100245", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Caribbean TCOs", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100246", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Central American TCOs", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100247", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Chinese Drug Suppliers", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100248", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Communist Party of Nepal/Maoists", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100249", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "CT Priority 1 Terrorist Groups and Terrorist Support Entities", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100250", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "CT Priority 2 Terrorist Groups and Terrorist Support Entities", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100251", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "CT Priority 3 Terrorist Groups and Terrorist Support Entities", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100252", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "CT Priority 4 Terrorist Groups and Terrorist Support Entities", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100253", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "CT Priority 5 Terrorist Groups and Terrorist Support Entities", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100254", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Cyber Terrorism", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100255", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Dominican and other Caribbean TCOs", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100256", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "East African TCOs", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100257", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Egyptian Islamic Jihad (EIJ)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100258", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Entities Involved with POWs/MIAs", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100259", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Eritrean Islamic Jihad (ERIJ)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100260", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Foreign Financial Institutions and Services", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100261", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Foreign Illicit Synthetic Opioid Suppliers", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100262", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Global Jihad Support Network", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100263", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Greek domestic extremist groups not listed at Priority 3", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100264", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Harakat Sawa\u2019d Misr", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100265", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "HezbeIslami Gulbuddin (HIG)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100266", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Hizballah (Turkey)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100267", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Horn of Africa extremist networks engaged in terrorism", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100268", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Ibn Khattab Organization", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100269", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "IICT Tier 1 Islamic NGOs", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100270", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "IICT Tier 2 Islamic NGOs", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100271", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "IICT Tier 3 Islamic NGOs", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100272", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "IICT Tier 3 Terrorists Groups", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100273", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "IICT Tier 4 Islamic NGOs", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100274", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "IICT Tier 4 Terrorists Groups", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100275", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "India Drug Suppliers", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100276", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Indonesian extremists, to include Jemaah Anshorut Tauhid (JAT) and Jemaah Islamiyah (JI)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100277", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "International Organized Crime Organizations", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100278", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Islamic extremist elements associated with the now defunct Active Islamic Youth Organization (AIO)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100279", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Islamic Fighting Force", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100280", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Islamic State of Iraq and ash-Sham associated networks in Democratic Republic of the Congo (DRC)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100281", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Islamic State of Iraq and ash-Sham associated networks in India", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100282", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Islamic State of Iraq and ash-Sham associated networks in Indonesia", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100283", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Islamic State of Iraq and ash-Sham associated networks in Somalia", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100284", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Islamic State of Iraq and ash-Sham associated networks in Sudan", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100285", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Islamic State of Iraq and ash-Sham associated networks in the Greater Sahara", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100286", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Islamic State of Iraq and ash-Sham associated networks in the Philippines", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100287", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Islamic State of Iraq and ash-Sham associated networks in Tunisia", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100288", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Israeli TCOs", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100289", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Jamaat ud-Dawa al-Quran (JDQ)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100290", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Jama'at Ul Fuqra (JUF)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100291", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Jamaat ul-Mujahidin Bangladesh (JMB)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100292", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Jaysh al-Muhammad (Iraq)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100293", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Juarez Cartel", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100294", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Laskhar-e Jhangvi al-Alami (LJA)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100295", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Libyan Islamic Fighting Group", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100296", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Mercy Malaysia\u2014The Malaysian Medical Relief Society", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100297", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Moroccan Islamic Fighting Group", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100298", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Moroccan Salafya Jihadiya", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100299", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Movement for the Emancipation of the Niger Delta", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100300", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Movement of the Sons of the Sahara for Islamic Justice (MSJI)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100301", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Mujahedin-E Khalq", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100302", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Mujahidin Army (Iraq)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100303", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Mujahidin Shura Council in the Environs of Jerusalem (Gaza Strip)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100304", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Narcotics Kingpin Organizations", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100305", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "National Front for the Liberation of Corsica", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100306", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Naxalites", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100307", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Nigerian TCOs", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100308", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Other TOC Entities of Significant Concern", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100309", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Polisario Front", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100310", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Protectors of the Salafist Call", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100311", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Racially or Ethnically Motivated Violent Extremists (REMVE)", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100312", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Revolutionary Struggle", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100313", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Salafia Jihadia", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100314", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Semion Mogilevich", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100315", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Sunni-Arab Insurgents in Iraq", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100316", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "The Federation", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100317", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "The Saved Sect", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100318", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Tijuana Cartel", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100319", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "TOC Entities of Greatest Concern", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100320", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Transnational Organizations Posing Cyber Threats", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100321", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "Description": {
+                        "text": "Unidentified Actor", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "Value": {
+                        "text": "100322", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:classification": "U"
+                }
+            ], 
+            "multivalue": "false", 
+            "ism:ownerProducer": "USA", 
+            "ism:classification": "U"
+        }, 
+        "ism:compliesWith": "USGov USIC", 
+        "IRM": {
+            "PointOfContact": {
+                "Email": "ic-standards-support@odni.gov", 
+                "Name": "Office IC CIO", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }, 
+            "Created": "2023-06-09T20:08:37.537Z", 
+            "URN": "urn:us:gov:ic:cvenum:pm:nonstateactors", 
+            "Title": {
+                "text": "CVEnumPMNonStateActors", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }, 
+            "Source": {
+                "text": "Deputy Director of National Intelligence for Intelligence Integration (DDII)", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }, 
+            "Description": {
+                "text": "Production Metrics Non-State Actors", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }
+        }, 
+        "ism:classification": "U", 
+        "ism:createDate": "2023-06-09", 
+        "ism:resourceElement": "true", 
+        "ism:ISMCATCESVersion": "202205"
+    }
+}

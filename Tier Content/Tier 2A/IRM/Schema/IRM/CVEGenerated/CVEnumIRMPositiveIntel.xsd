@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns="urn:us:gov:ic:cvenum:irm:positive:intel"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:irm:positive:intel"
+            version="202111">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumIRMPositiveIntel Version 2.1 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumIRMPositiveIntel.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumIRMPositiveIntel">
+      <xsd:annotation>
+         <xsd:documentation>(U) All currently valid Positive Intel codes.
+	  		These values describe unavailability of finished intelligence information about a given topic, and 
+	  		are provided for applications in which some sort of statement must be made about each
+	  		node of a taxonomy, even when no substantive analysis is available. 
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumIRMPositiveIntel.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:union>
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:token">
+               <xsd:pattern value="other:\S{1,256}">
+                  <xsd:annotation>
+                     <xsd:documentation>Other positive intel. Must be the string 'other:' followed by the value specifying the other positive intelligence code.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:pattern>
+            </xsd:restriction>
+         </xsd:simpleType>
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:token">
+               <xsd:enumeration value="Unknown">
+                  <xsd:annotation>
+                     <xsd:documentation>Unknown Positive Intel</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="Not.exist">
+                  <xsd:annotation>
+                     <xsd:documentation>No positive intelligence exists</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="Not.observed">
+                  <xsd:annotation>
+                     <xsd:documentation>No positive intelligence has been observed</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+            </xsd:restriction>
+         </xsd:simpleType>
+      </xsd:union>
+   </xsd:simpleType>
+</xsd:schema>

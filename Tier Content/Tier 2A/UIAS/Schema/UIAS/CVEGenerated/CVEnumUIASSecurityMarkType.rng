@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:uias:securitymarktype">
+   <define name="CVEnumUIASSecurityMarkType.cve">
+      <choice>
+         <value>SECRET//NOFORN</value>
+         <value>SECRET//REL TO USA, ACGU</value>
+         <value>SECRET//REL TO USA, FVEY</value>
+         <value>TOP SECRET//NOFORN</value>
+         <value>TOP SECRET//REL TO USA, ACGU</value>
+         <value>TOP SECRET//REL TO USA, FVEY</value>
+         <value>UNCLASSIFIED//FOUO/NOFORN</value>
+         <value>UNCLASSIFIED//FOUO/REL TO USA, ACGU</value>
+         <value>UNCLASSIFIED//FOUO/REL TO USA, FVEY</value>
+      </choice>
+   </define>
+</grammar>

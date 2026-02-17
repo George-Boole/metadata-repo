@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:irm:activity">
+   <define name="CVEnumIRMActivity.cve">
+      <choice>
+         <value>crisis</value>
+         <value>exercise</value>
+         <value>operation</value>
+      </choice>
+   </define>
+</grammar>

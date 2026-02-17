@@ -1,0 +1,2743 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+      <title>Schema documentation for component usagency:usagency</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css"></link>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+        var propertiesBoxes= new Array('properties_urn_us_gov_ic_usagency_usagency');
+var facetsBoxes= new Array('facets_urn_us_gov_ic_usagency_usagency');
+var sourceBoxes= new Array('source_urn_us_gov_ic_usagency_usagency');
+var annotationBoxes= new Array('annotations_urn_us_gov_ic_usagency_usagency');
+
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                    //
+--></script>
+   </head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_content" rowspan="1" colspan="1">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, annotationBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Annotations</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, facetsBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Facets </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, propertiesBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Properties </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Source</span>
+                        </td>
+                     </tr>
+                  </table>
+                  <div align="right">
+                     <span>
+                        <input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close"></input>
+                     </span>
+                  </div>
+               </td>
+               <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+            </tr>
+         </table>
+      </div>
+      <a id="urn_us_gov_ic_usagency_usagency" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Attribute <span class="qname">@usagency:usagency</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:usagency</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_urn_us_gov_ic_usagency_usagency" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_urn_us_gov_ic_usagency_usagency');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_urn_us_gov_ic_usagency_usagency" style="display:block">
+                              <div class="annotation">
+                                 				        
+                                 <p> An attribute limited to
+                                    				        	allowable agency acronyms for USA. Contains the Executive and Legistlative
+                                    branch agencies. </p>
+                                 			      </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="742fe105-1854-4757-b30d-9f5f6100981d.html#CVEnumUSAgencyAcronym" target="mainFrame" title="urn:us:gov:ic:cvenum:usagency:agencyacronym" onclick="updatePageTitle('Schema documentation for component CVEnumUSAgencyAcronym')" shape="rect">CVEnumUSAgencyAcronym</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_urn_us_gov_ic_usagency_usagency" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_urn_us_gov_ic_usagency_usagency');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_urn_us_gov_ic_usagency_usagency" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Facets</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_facets_urn_us_gov_ic_usagency_usagency" type="image" src="img/btM.gif" value="-" onclick="switchState('facets_urn_us_gov_ic_usagency_usagency');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="facets_urn_us_gov_ic_usagency_usagency" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.ABMC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">American Battle Monuments Commission</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.ACCESS</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Architectural and Transportation Barriers Compliance Board </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.ACFR</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Administrative Committee of the Federal Register</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.ACHP</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Advisory Council on Historic Preservation</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.ACUS</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Administrative Conference of the United States</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.ADF</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">African Development Foundation</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.AMICC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Arthritis and Musculoskeletal Interagency Coordinating Committee</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.AMTRAK</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">National Railroad Passenger Corporation </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.ARC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Appalachian Regional Commission</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.ARCTIC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Arctic Research Commission</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.BBG</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Broadcasting Board of Governors </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.BMGS</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Barry M. Goldwater Scholarship and Excellence in Education Foundation</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.CAOC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Chief Acquisition Officers Council</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.CCJJ</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Coordinating Council on Juvenile Justice and Delinquency Prevention</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.CCR</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Commission on Civil Rights</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.CEA</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">United States Council of Economic Advisers</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.CFA</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Commission of Fine Arts</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.CFI</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Committee on Foreign Investments in the United States</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.CFOC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Chief Financial Officers Council</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.CFTC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Commodity Futures Trading Commission</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.CHCOC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Chief Human Capital Officers Council</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.CIA</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Central Intelligence Agency </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.CIOC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Chief Information Officers Council</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.CIRF</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Commission on International Religious Freedom</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.CITA</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Committee for the Implementation of Textile Agreements</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.CNCS</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Corporation for National and Community Service</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.COMP</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Office of Compliance</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.CPSC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Consumer Product Safety Commission </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.CSAC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Citizens' Stamp Advisory Committee</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.CSHIB</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Chemical Safety and Hazard Investigation Board</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.CSOSA</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Court Services and Offender Supervision Agency for the District of Columbia</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.DEA</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Drug Enforcement Administration</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.DENALI</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Denali Commission</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.DFC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">U.S. International Development Finance Corporation</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.DHS</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Department of Homeland Security </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.DIA</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Defense Intelligence Agency</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.DNFSB</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Defense Nuclear Facilities Safety Board</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.DNI</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Office of the Director of National Intelligence</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.DOC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Department of Commerce </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.DOD</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Department of Defense </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.DOE</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Department of Energy </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.DOI</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Department of the Interior </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.DOJ</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Department of Justice </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.DOL</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Department of Labor </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.DOT</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Department of Transportation </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.DRBC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Delaware River Basin Commission</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.EAC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">United States Election Assistance Commission</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.ED</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Department of Education </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.EEOC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Equal Employment Opportunity Commission </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.EIBUS</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Export-Import Bank of the United States</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.EOP</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Executive Office of the President</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.EPA</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Environmental Protection Agency </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.ESC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Endangered Species Committee</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.FAC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Federal Advisory Committees</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.FASAB</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Federal Accounting Standards Advisory Board</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.FBI</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Federal Bureau of Investigation</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.FCA</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Farm Credit Administration</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.FCC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Federal Communications Commission </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.FCIC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Financial Crisis Inquiry Commission</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.FCSIC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Farm Credit System Insurance Corporation</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.FDIC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Federal Deposit Insurance Corporation </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.FEB</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Federal Executive Boards</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.FEC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Federal Election Commission </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.FERC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Federal Energy Regulatory Commission</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.FFB</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Federal Financing Bank</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.FFIEC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Federal Financial Institutions Examination Council</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.FGDC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Federal Geographic Data Committee</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.FHRA</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Federal Housing Finance Agency</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.FICE</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Federal Interagency Committee on Education</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.FICMNEW</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Federal Interagency Committee for the Management of Noxious and Exotic Weeds</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.FICSP</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Federal Interagency Council on Statistical Policy</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.FLCTT</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Federal Laboratory Consortium for Technology Transfer</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.FLICC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Federal Library and Information Center Committee</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.FLRA</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Federal Labor Relations Authority</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.FMC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Federal Maritime Commission</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.FMCS</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Federal Mediation and Conciliation Service</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.FMSHRC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Federal Mine Safety and Health Review Commission</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.FRS</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Federal Reserve System</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.FRTIB</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Federal Retirement Thrift Investment Board</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.FTC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Federal Trade Commission </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.GSA</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">General Services Administration </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.HELSINKI</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Commission on Security and Cooperation in Europe </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.HHS</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Department of Health and Human Services </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.HMM</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">United States Holocaust Memorial Museum</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.HSTSF</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Harry S. Truman Scholarship Foundation</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.HUD</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Department of Housing and Urban Development </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.IACB</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Indian Arts and Crafts Board</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.IADRWG</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Interagency Alternative Dispute Resolution Working Group</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.IAF</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Inter-American Foundation</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.IBB</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">International Broadcasting Bureau </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.ICH</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Interagency Council on Homelessness</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.ICPRB</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Interstate Commission on the Potomac River Basin</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.IMCNHCC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Illinois and Michigan Canal National Heritage Corridor Commission</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.IMLS</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Institute of Museum and Library Services</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.ITC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">United States International Trade Commission</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.JBEA</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Joint Board for the Enrollment of Actuaries</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.JFSP</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Joint Fire Science Program</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.JMMFF</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">James Madison Memorial Fellowship Foundation</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.JUSFC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Japan-United States Friendship Commission</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.JWFFSB</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">J. William Fulbright Foreign Scholarship Board</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.LSC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Legal Services Corporation</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.MBCC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Migratory Bird Conservation Commission</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.MCC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Millennium Challenge Corporation</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.MKUF</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Morris K. Udall Foundation: Scholarship and Excellence in National Environmental Policy</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.MMC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Marine Mammal Commission</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.MRC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Mississippi River Commission</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.MSPB</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Merit Systems Protection Board</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.NARA</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">National Archives and Records Administration </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.NASA</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">National Aeronautics and Space Administration </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.NBCFM</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">National Bipartisan Commission on the Future of Medicare</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.NCD</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">National Council on Disability</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.NCFRR</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">National Commission on Fiscal Responsibility and Reform</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.NCPC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">National Capital Planning Commission</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.NCUA</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">National Credit Union Administration </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.NEA</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">National Endowment for the Arts</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.NEH</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">National Endowment for the Humanities</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.NGA</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">National Geospatial-Intelligence Agency</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.NIGC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">National Indian Gaming Commission</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.NLRB</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">National Labor Relations Board </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.NMB</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">National Mediation Board</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.NPF</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">National Park Foundation</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.NPPC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Northwest Power Planning Council</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.NRC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Nuclear Regulatory Commission </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.NRO</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">National Reconnaissance Office</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.NSA</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">National Security Agency</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.NSF</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">National Science Foundation </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.NTSB</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">National Transportation Safety Board</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.NWTRB</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Nuclear Waste Technical Review Board</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.OGE</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Office of Government Ethics</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.OMB</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Office of Management and Budget</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.ONCIX</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Office of the National Counterintelligence Executive</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.OPIC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Overseas Private Investment Corporation</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.OPM</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Office of Personnel Management</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.OSC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Office of Special Counsel</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.OSHRC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Occupational Safety and Health Review Commission</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.OVP</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Office of the Vice President</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.PBGC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Pension Benefit Guaranty Corporation</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.PCC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Panama Canal Commission</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.PEACE</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Peace Corps</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.PRC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Postal Regulatory Commission</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.PRESIDIO</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Presidio Trust</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.RISC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Regulatory Information Service Center</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.RRB</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Railroad Retirement Board</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.SBA</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Small Business Administration </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.SEC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Securities and Exchange Commission </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.SJI</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">State Justice Institute</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.SMITH</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Smithsonian Institution</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.SRBC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Susquehanna River Basin Commission</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.SSA</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Social Security Administration </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.SSAB</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Social Security Advisory Board</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.SSS</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Selective Service System</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.STATE</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Department of State </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.TAP</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Taxpayer Advocacy Panel</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.TDA</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">U.S. Trade and Development Agency</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.TREAS</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Department of the Treasury</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.TVA</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Tennessee Valley Authority</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.USA</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">US Army</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.USAF</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">US Air Force</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.USAID</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">United States Agency for International Development</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.USAOC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">U.S. AbilityOne Commission</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.USCG</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">US Coast Guard</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.USDA</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Department of Agriculture </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.USIP</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">United States Institute of Peace</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.USMC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">US Marine Corps</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.USN</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">US Navy</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.USPS</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">United States Postal Service </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.USSF</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">United States Space Force </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.USTR</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">United States Office of the Trade Representative</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.USUN</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">United States Mission to the United Nations</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.VA</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Department of Veterans Affairs </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.VDNC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Veterans Day National Committee</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.VEF</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Vietnam Educational Foundation</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.WHCPS</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">White House Commission on Presidential Scholars: Presidential Scholars Program</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.WHMO</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">White House Military Office</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.AOC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Architect of the Capitol</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.CBO</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Congressional Budget Office </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.CRS</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Congressional Research Service</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.GAO</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Government Accountability Office </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.GPO</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Government Printing Office </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-ADM</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Committee on House Administration</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-AGR</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Committee on Agriculture</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-APP</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Committee on Appropriations</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-ARM</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Armed Services Committee</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-BUD</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Committee on the Budget</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-CAO</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Office of the Chief Administrative Officer</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-CHAP</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Office of the Chaplain</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-CLRK</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Office of the Clerk</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-EC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Committee on Ethics</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-EDW</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Education and the Workforce Committee</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-E_C</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Energy and Commerce Committee</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-FIN</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Committee on Financial Services</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-FOR</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Committee on Foreign Affairs</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-HIST</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Office of the Historian</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-HLS</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Committee on Homeland Security</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-JUD</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Judiciary Committee</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-LDRS</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Leadership</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-LRC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Office of the Law Revision Counsel</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-NAT</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Committee on Natural Resources</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-OGR</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Committee on Oversight and Government Reform</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-OIG</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Office of the Inspector General</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-OLC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Office of the Legislative Counsel</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-PAR</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Office of the Parliamentarian</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-RUL</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Committee on Rules</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-SAA</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Office of the Sergeant at Arms</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-SCI</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Committee on Science, Space, and Technology</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-SMB</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Committee on Small Business</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-T_I</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Transportation and Infrastructure Committee</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-VET</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Committee on Veterans? Affairs</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.H-W_M</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Committee on Ways and Means</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.HPSCI</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">House Permanent Select Committee on Intelligence</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.J-JCP</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Joint Committee on Printing</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.J-JCT</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Joint Committee on Taxation</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.J-JEC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Joint Economic Committee </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.JCLDS</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Joint Committee on the Library</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.LOC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Library of Congress</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.MACPAC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Medicaid and CHIP Payment and Access Commission</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.MedPAC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Medicare Payment Advisory Commission</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.OWLC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Open World Leadership Center</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.S-AGE</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Senate Special Committee on Aging</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.S-AGR</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Senate Committee on Agriculture, Nutrition, and Forestry</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.S-APP</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Senate Committee on Appropriations</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.S-ARM</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Senate Committee on Armed Services</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.S-BNK</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Senate Committee on Banking, Housing, and Urban Affairs</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.S-BUD</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Senate Budget Committee</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.S-CHAP</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Senate Office of the Chaplain</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.S-COE</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Senate Select Committee on Ethics</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.S-CST</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Senate Committee on Commerce, Science, and Transportation</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.S-ENR</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Senate Committee on Energy and Natural Resources</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.S-EPW</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Senate Committee on Environment and Public Works</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.S-FIN</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Senate Committee on Finance</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.S-FOR</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Senate Committee on Foreign Relations</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.S-HELP</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Senate Committee on Health, Education, Labor, and Pensions</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.S-HSG</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Senate Committee on Homeland Security and Governmental Affairs</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.S-IND</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Senate Committee on Indian Affairs</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.S-JUD</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Senate
+                                          			Committee on the Judiciary</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.S-LDRS</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Senate Leadership</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.S-MAJSEC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Senate Office of the Secretary for the Majority</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.S-MINSEC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Senate Office of the Secretary for the Minority</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.S-PAR</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Senate Office of the Parliamentarian</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.S-R_A</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Senate Committee on Rules and Administration</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.S-SAA</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Senate Office of the Sergeant at Arms</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.S-SEC</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Office of the Secretary of the Senate</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.S-SMB</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Senate Committee on Small Business and Entrepreneurship</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.S-VET</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Senate Committee on Veterans? Affairs</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.SCPS</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Stennis Center for Public Service</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.SSCI</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Senate Select Committee on Intelligence</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.USBG</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">U.S. Botanic Garden</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.USCO</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Copyright Office</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.USCP</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">U.S. Capitol Police</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.OtherUSG</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Other United State Federal Government</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>USA.SLT</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">State, Local, Tribal Government</div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_urn_us_gov_ic_usagency_usagency" type="image" src="img/btM.gif" value="-" onclick="switchState('source_urn_us_gov_ic_usagency_usagency');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_urn_us_gov_ic_usagency_usagency" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:attribute</span><span class="tAN"> name=</span><span class="tAV">"usagency"</span><span class="tAN"> type=</span><span class="tAV">"usaa:CVEnumUSAgencyAcronym"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tAN"> xml:lang=</span><span class="tAV">"en"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">An attribute limited to allowable agency acronyms for USA. Contains the Executive and Legistlative branch agencies.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:attribute&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/USAgency/USAgency.xsd">USAgency.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <h2 style=" font:italic bold 12px Georgia,serif;color:gray;font-size:14px;text-align:center;  width : 95%;">
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See Distribution Notice for details.
+       <a href="../index.html" target="_top">
+                Click Here
+            </a>
+      </h2>
+      <div class="footer"></div>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                //
+--></script>
+   </body>
+</html>

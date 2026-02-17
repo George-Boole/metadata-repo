@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This is a generated file. DO NOT EDIT!-->
+<cve:CVE xmlns:cve="urn:us:gov:ic:cve"
+         xmlns="urn:us:gov:ic:cve"
+         xmlns:ism="urn:us:gov:ic:ism"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         ism:compliesWith="USGov USIC"
+         ism:ownerProducer="USA"
+         ism:classification="U"
+         ism:DESVersion="202111"
+         ism:ISMCATCESVersion="202205"
+         ism:resourceElement="true"
+         CVEVersion="2.1"
+         specVersion="202010"
+         ism:createDate="2023-06-09"
+         xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+    
+    <cve:IRM>
+        <URN>urn:us:gov:ic:cvenum:mime:type</URN>
+        <Title ism:ownerProducer="USA" ism:classification="U">CVEnumMIMELegacyType</Title>
+        <Description ism:ownerProducer="USA" ism:classification="U">All currently valid legacy media types. 
+            These are media types that do not fall into the category of IANA media types (including deprecated media types) 
+            or DNI unique media types. These were media types that existed in PUBS/IRM prior to the creation of MIME.CES.</Description>
+        
+        <Created>2023-06-09T20:08:49.619Z</Created>
+        
+        <Source ism:classification="U" ism:ownerProducer="USA">DNI</Source>
+        <PointOfContact ism:classification="U" ism:ownerProducer="USA">
+            <Name>Office IC CIO</Name>
+            <Email>ic-standards-support@odni.gov</Email>
+        </PointOfContact>
+    </cve:IRM>
+    
+    <cve:Enumeration multivalue="false" ism:ownerProducer="USA" ism:classification="U">
+      <Term ism:classification="U" ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">application/vnd.openofficeorg.extension</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">application/vnd.openofficeorg.extension</Description>
+      </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">application/xhtml-voice+xml</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">application/xhtml-voice+xml</Description>
+      </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">application/x-autocad</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">application/x-autocad</Description>
+      </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+         <Value ism:classification="U"
+                ism:ownerProducer="USA"
+                regularExpression="true">[A-Za-z0-9!#$&amp;.+\-^_]{1,127}/[A-Za-z0-9!#$&amp;.+\-^_]{1,127}</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Media Type Wildcard</Description>
+      </Term>
+   </cve:Enumeration>
+</cve:CVE>

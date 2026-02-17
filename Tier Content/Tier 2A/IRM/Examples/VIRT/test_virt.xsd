@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ism="urn:us:gov:ic:ism" xmlns:virt="urn:us:gov:ic:virt"
+   targetNamespace="test:virt">
+   <xs:import namespace="urn:us:gov:ic:virt" schemaLocation="../../Schema/VIRT/VIRT.xsd"/>
+   <xs:import namespace="urn:us:gov:ic:ism" schemaLocation="../../Schema/ISM/IC-ISM.xsd"/>
+   <xs:element name="root">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="virt:VirtualCoverage" minOccurs="0" maxOccurs="unbounded"/>
+         </xs:sequence>
+         <xs:attributeGroup ref="ism:ISMRootNodeAttributeGroup"/>
+         <xs:attributeGroup ref="ism:ResourceNodeAttributeGroup"/>
+         <xs:attribute ref="virt:DESVersion"/>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

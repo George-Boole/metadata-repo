@@ -1,0 +1,1535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<cve:CVE xmlns:cve="urn:us:gov:ic:cve"
+         xmlns:ism="urn:us:gov:ic:ism"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         ism:compliesWith="USGov USIC"
+         ism:ownerProducer="USA"
+         ism:classification="U"
+         ism:DESVersion="202111"
+         ism:ISMCATCESVersion="202205"
+         ism:resourceElement="true"
+         CVEVersion="2.1"
+         specVersion="202111" 
+         ism:createDate="2011-11-11"
+         xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+  <cve:IRM>
+      <URN xmlns="urn:us:gov:ic:cve">urn:us:gov:ic:cvenum:irm:coverage:iso3166:digraph</URN>
+      <Title xmlns="urn:us:gov:ic:cve"
+             ism:classification="U"
+             ism:ownerProducer="USA">CVEnumIRMCoverageISO3166Digraph</Title>
+      <Description xmlns="urn:us:gov:ic:cve"
+                   ism:classification="U"
+                   ism:ownerProducer="USA">All currently valid ISO-3166 digraphs(up to ISO update newsletter VI-11). Hence, this CVE has one less term than the corresponding ISO trigraph CVE, which has a code for WWW.</Description>
+      <cve:Created>2011-11-11T11:19:00-04:00</cve:Created>
+    
+      <Source xmlns="urn:us:gov:ic:cve"
+              ism:classification="U"
+              ism:ownerProducer="USA">ISO 3166 http://www.iso.org/iso/country_codes/iso_3166_code_lists.htm</Source>
+      <PointOfContact xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">
+         <Name>Office IC CIO</Name>
+         <Email>ic-standards-support@odni.gov</Email>
+      </PointOfContact>
+  </cve:IRM>
+
+  <cve:Enumeration multivalue="false" ism:classification="U" ism:ownerProducer="USA">
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">AD</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Andorra</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">AE</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">United Arab Emirates</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">AF</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Afghanistan</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">AG</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Antigua and Barbuda</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">AI</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Anguilla</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">AL</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Albania</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">AM</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Armenia</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">AO</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Angola</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">AQ</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Antarctica</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">AR</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Argentina</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">AS</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">American Samoa</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">AT</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Austria</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">AU</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Australia</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">AW</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Aruba</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">AX</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Åland Islands</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">AZ</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Azerbaijan</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">BA</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bosnia and Herzegovina</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">BB</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Barbados</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">BD</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bangladesh</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">BE</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Belgium</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">BF</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Burkina Faso</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">BG</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bulgaria</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">BH</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bahrain</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">BI</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Burundi</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">BJ</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Benin</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">BL</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Saint Barthélemy</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">BM</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bermuda</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">BN</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Brunei Darussalam</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">BO</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bolivia, Plurinational State of</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">BQ</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bonaire, Sint Eustatius and Saba</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">BR</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Brazil</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">BS</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bahamas</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">BT</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bhutan</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">BV</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bouvet Island</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">BW</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Botswana</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">BY</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Belarus</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">BZ</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Belize</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">CA</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Canada</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">CC</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Cocos (Keeling) Islands</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">CD</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Congo, The Democratic Republic of the</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">CF</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Central African Republic</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">CG</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Congo</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">CH</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Switzerland</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">CI</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Côte d'Ivoire</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">CK</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Cook Islands</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">CL</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Chile</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">CM</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Cameroon</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">CN</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">China</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">CO</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Colombia</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">CR</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Costa Rica</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">CU</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Cuba</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">CV</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Cape Verde</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">CW</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Curaçao</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">CX</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Christmas Island</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">CY</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Cyprus</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">CZ</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Czech Republic</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">DE</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Germany</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">DJ</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Djibouti</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">DK</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Denmark</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">DM</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Dominica</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">DO</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Dominican Republic</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">DZ</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Algeria</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">EC</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Ecuador</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">EE</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Estonia</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">EG</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Egypt</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">EH</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Western Sahara</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ER</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Eritrea</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ES</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Spain</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ET</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Ethiopia</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">FI</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Finland</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">FJ</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Fiji</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">FK</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Falkland Islands (Malvinas)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">FM</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Micronesia, Federated States of</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">FO</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Faroe Islands</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">FR</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">France</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">GA</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Gabon</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">GB</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">United Kingdom</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">GD</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Grenada</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">GE</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Georgia</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">GF</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">French Guiana</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">GG</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Guernsey</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">GH</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Ghana</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">GI</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Gibraltar</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">GL</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Greenland</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">GM</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Gambia</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">GN</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Guinea</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">GP</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Guadeloupe</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">GQ</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Equatorial Guinea</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">GR</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Greece</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">GS</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">South Georgia and the South Sandwich Islands</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">GT</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Guatemala</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">GU</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Guam</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">GW</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Guinea-Bissau</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">GY</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Guyana</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">HK</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Hong Kong</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">HM</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Heard Island and McDonald Islands</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">HN</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Honduras</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">HR</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Croatia</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">HT</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Haiti</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">HU</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Hungary</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ID</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Indonesia</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">IE</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Ireland</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">IL</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Israel</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">IM</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Isle of Man</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">IN</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">India</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">IO</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">British Indian Ocean Territory</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">IQ</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Iraq</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">IR</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Iran, Islamic Republic of</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">IS</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Iceland</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">IT</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Italy</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">JE</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Jersey</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">JM</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Jamaica</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">JO</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Jordan</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">JP</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Japan</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">KE</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kenya</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">KG</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kyrgyzstan</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">KH</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Cambodia</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">KI</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kiribati</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">KM</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Comoros</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">KN</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Saint Kitts and Nevis</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">KP</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Korea, Democratic People's Republic of</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">KR</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Korea, Republic of</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">KW</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kuwait</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">KY</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Cayman Islands</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">KZ</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kazakhstan</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">LA</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Lao People's Democratic Republic</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">LB</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Lebanon</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">LC</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Saint Lucia</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">LI</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Liechtenstein</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">LK</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Sri Lanka</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">LR</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Liberia</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">LS</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Lesotho</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">LT</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Lithuania</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">LU</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Luxembourg</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">LV</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Latvia</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">LY</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Libya</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">MA</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Morocco</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">MC</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Monaco</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">MD</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Moldova (the Republic of)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ME</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Montenegro</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">MF</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Saint Martin (French part)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">MG</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Madagascar</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">MH</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Marshall Islands</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">MK</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Macedonia, The former Yugoslav Republic of</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ML</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Mali</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">MM</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Myanmar</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">MN</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Mongolia</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">MO</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Macao</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">MP</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Northern Mariana Islands</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">MQ</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Martinique</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">MR</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Mauritania</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">MS</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Montserrat</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">MT</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Malta</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">MU</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Mauritius</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">MV</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Maldives</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">MW</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Malawi</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">MX</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Mexico</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">MY</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Malaysia</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">MZ</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Mozambique</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">NA</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Namibia</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">NC</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">New Caledonia</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">NE</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Niger</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">NF</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Norfolk Island</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">NG</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Nigeria</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">NI</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Nicaragua</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">NL</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Netherlands</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">NO</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Norway</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">NP</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Nepal</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">NR</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Nauru</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">NU</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Niue</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">NZ</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">New Zealand</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">OM</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Oman</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">PA</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Panama</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">PE</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Peru</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">PF</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">French Polynesia</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">PG</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Papua New Guinea</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">PH</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Philippines</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">PK</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Pakistan</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">PL</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Poland</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">PM</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Saint Pierre and Miquelon</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">PN</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Pitcairn</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">PR</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Puerto Rico</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">PS</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Palestinian Territory, Occupied</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">PT</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Portugal</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">PW</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Palau</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">PY</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Paraguay</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">QA</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Qatar</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">RE</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Réunion</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">RO</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Romania</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">RS</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Serbia</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">RU</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Russian Federation</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">RW</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Rwanda</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">SA</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Saudi Arabia</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">SB</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Solomon Islands</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">SC</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Seychelles</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">SD</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Sudan</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">SE</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Sweden</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">SG</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Singapore</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">SH</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Saint Helena, Ascension and Tristan da Cunha</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">SI</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Slovenia</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">SJ</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Svalbard and Jan Mayen</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">SK</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Slovakia</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">SL</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Sierra Leone</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">SM</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">San Marino</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">SN</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Senegal</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">SO</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Somalia</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">SR</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Suriname</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">SS</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">South Sudan</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ST</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Sao Tome and Principe</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">SV</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">El Salvador</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">SX</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Sint Maarten (Dutch part)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">SY</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Syrian Arab Republic</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">SZ</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Swaziland</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">TC</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Turks and Caicos Islands</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">TD</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Chad</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">TF</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">French Southern Territories</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">TG</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Togo</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">TH</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Thailand</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">TJ</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Tajikistan</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">TK</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Tokelau</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">TL</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Timor-Leste</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">TM</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Turkmenistan</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">TN</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Tunisia</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">TO</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Tonga</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">TR</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Turkey</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">TT</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Trinidad and Tobago</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">TV</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Tuvalu</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">TW</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Taiwan, Province of China</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">TZ</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Tanzania, United Republic of</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">UA</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Ukraine</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">UG</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Uganda</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">UM</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">United States Minor Outlying Islands</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">US</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">United States</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">UY</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Uruguay</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">UZ</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Uzbekistan</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">VA</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Holy See (Vatican City State)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">VC</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Saint Vincent and the Grenadines</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">VE</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Venezuela, Bolivarian Republic of</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">VG</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Virgin Islands, British</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">VI</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Virgin Islands, U.S.</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">VN</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Viet Nam</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">VU</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Vanuatu</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">WF</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Wallis and Futuna</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">WS</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Samoa</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">YE</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Yemen</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">YT</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Mayotte</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ZA</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">South Africa</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ZM</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Zambia</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ZW</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Zimbabwe</Description>
+      </Term>
+  </cve:Enumeration>
+</cve:CVE>

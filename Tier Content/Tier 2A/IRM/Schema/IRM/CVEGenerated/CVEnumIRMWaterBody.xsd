@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns:irmwaterbody="urn:us:gov:ic:cvenum:irm:waterBody"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:irm:waterBody"
+            version="202111">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumIRMWaterBody Version 2.1 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumIRMWaterBody.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumIRMWaterBody">
+      <xsd:annotation>
+         <xsd:documentation>(U) CWW Water Body Codes
+         sorted alphabetically.
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumIRMWaterBody.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="1AA">
+            <xsd:annotation>
+               <xsd:documentation>Artic Ocean</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="1BA">
+            <xsd:annotation>
+               <xsd:documentation>Barents Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="1CA">
+            <xsd:annotation>
+               <xsd:documentation>Beaufort Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="1CB">
+            <xsd:annotation>
+               <xsd:documentation>Amundsen Gulf</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="1CC">
+            <xsd:annotation>
+               <xsd:documentation>Cumberland Sound</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="1CD">
+            <xsd:annotation>
+               <xsd:documentation>Foxe Basin</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="1CE">
+            <xsd:annotation>
+               <xsd:documentation>Gulf of Botthia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="1CF">
+            <xsd:annotation>
+               <xsd:documentation>Hudson Bay</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="1CG">
+            <xsd:annotation>
+               <xsd:documentation>Hudson Strait</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="1CH">
+            <xsd:annotation>
+               <xsd:documentation>James Bay</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="1CJ">
+            <xsd:annotation>
+               <xsd:documentation>Larsen Sound</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="1CK">
+            <xsd:annotation>
+               <xsd:documentation>McClure Strait</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="1CL">
+            <xsd:annotation>
+               <xsd:documentation>MClintock Channel</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="1CM">
+            <xsd:annotation>
+               <xsd:documentation>Northwest Passage</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="1CN">
+            <xsd:annotation>
+               <xsd:documentation>Prince Gustav Adolf Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="1CP">
+            <xsd:annotation>
+               <xsd:documentation>Queen Maud Gulf</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="1CQ">
+            <xsd:annotation>
+               <xsd:documentation>Viscount Melville Sound</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="1DA">
+            <xsd:annotation>
+               <xsd:documentation>Chukchi Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="1EA">
+            <xsd:annotation>
+               <xsd:documentation>East Siberian Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="1FA">
+            <xsd:annotation>
+               <xsd:documentation>Greenland Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="1GA">
+            <xsd:annotation>
+               <xsd:documentation>Kara Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="1HA">
+            <xsd:annotation>
+               <xsd:documentation>Laptev Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="1JA">
+            <xsd:annotation>
+               <xsd:documentation>Lincoln Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="1JB">
+            <xsd:annotation>
+               <xsd:documentation>Kane Basin</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="1JC">
+            <xsd:annotation>
+               <xsd:documentation>Baffin Bay</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="1JD">
+            <xsd:annotation>
+               <xsd:documentation>David Strait</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="1KA">
+            <xsd:annotation>
+               <xsd:documentation>Norwegian Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="1LA">
+            <xsd:annotation>
+               <xsd:documentation>White Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2AA">
+            <xsd:annotation>
+               <xsd:documentation>North Pacific Ocean</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2AB">
+            <xsd:annotation>
+               <xsd:documentation>Bohol Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2AC">
+            <xsd:annotation>
+               <xsd:documentation>Cook Inlet</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2AD">
+            <xsd:annotation>
+               <xsd:documentation>Gulf of Alaska</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2AE">
+            <xsd:annotation>
+               <xsd:documentation>Gulf of California</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2AF">
+            <xsd:annotation>
+               <xsd:documentation>Gulf of Panama</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2AG">
+            <xsd:annotation>
+               <xsd:documentation>Hecate Strait</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2AH">
+            <xsd:annotation>
+               <xsd:documentation>Queen Charlotte Sound</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2BA">
+            <xsd:annotation>
+               <xsd:documentation>Berin Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2BB">
+            <xsd:annotation>
+               <xsd:documentation>Bering Strait</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2BC">
+            <xsd:annotation>
+               <xsd:documentation>Anadyrskiy Zaliv Strait</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2BD">
+            <xsd:annotation>
+               <xsd:documentation>Bristol Bay</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2CA">
+            <xsd:annotation>
+               <xsd:documentation>Celebes Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2DA">
+            <xsd:annotation>
+               <xsd:documentation>East China Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2DB">
+            <xsd:annotation>
+               <xsd:documentation>Taiwan Strait</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2EA">
+            <xsd:annotation>
+               <xsd:documentation>Philipine Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2EB">
+            <xsd:annotation>
+               <xsd:documentation>Luzon Strait</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2FA">
+            <xsd:annotation>
+               <xsd:documentation>Sea of Japan</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2FB">
+            <xsd:annotation>
+               <xsd:documentation>Korea Strait</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2FC">
+            <xsd:annotation>
+               <xsd:documentation>Tatar Strait</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2FD">
+            <xsd:annotation>
+               <xsd:documentation>Tsushima Strait</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2GA">
+            <xsd:annotation>
+               <xsd:documentation>Sea of Okhotsk</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2GB">
+            <xsd:annotation>
+               <xsd:documentation>Zaliv Shelikhova</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2HA">
+            <xsd:annotation>
+               <xsd:documentation>South China Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2HB">
+            <xsd:annotation>
+               <xsd:documentation>Gulf of Thailand</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2HC">
+            <xsd:annotation>
+               <xsd:documentation>Gulf of Tonkin</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2JA">
+            <xsd:annotation>
+               <xsd:documentation>Sulu Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2KA">
+            <xsd:annotation>
+               <xsd:documentation>Yellow Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2KB">
+            <xsd:annotation>
+               <xsd:documentation>Bo Hai</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="2KC">
+            <xsd:annotation>
+               <xsd:documentation>Korea Bay</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="3AA">
+            <xsd:annotation>
+               <xsd:documentation>South Pacific Ocean</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="3AB">
+            <xsd:annotation>
+               <xsd:documentation>Teluk Cenderawasih</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="3BA">
+            <xsd:annotation>
+               <xsd:documentation>Arafura Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="3BB">
+            <xsd:annotation>
+               <xsd:documentation>Gulf of Carpentaria</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="3BC">
+            <xsd:annotation>
+               <xsd:documentation>Torres Strait</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="3CA">
+            <xsd:annotation>
+               <xsd:documentation>Bali Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="3DA">
+            <xsd:annotation>
+               <xsd:documentation>Banda Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="3DB">
+            <xsd:annotation>
+               <xsd:documentation>Teluk Bone</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="3EA">
+            <xsd:annotation>
+               <xsd:documentation>Bellingshausen Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="3FA">
+            <xsd:annotation>
+               <xsd:documentation>Bismarck Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="3GA">
+            <xsd:annotation>
+               <xsd:documentation>Coral Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="3GB">
+            <xsd:annotation>
+               <xsd:documentation>Gulf of Papua</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="3HA">
+            <xsd:annotation>
+               <xsd:documentation>Flores Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="3JA">
+            <xsd:annotation>
+               <xsd:documentation>Halmahera Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="3JB">
+            <xsd:annotation>
+               <xsd:documentation>Makassar Strait Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="3KA">
+            <xsd:annotation>
+               <xsd:documentation>Java Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="3KB">
+            <xsd:annotation>
+               <xsd:documentation>Selat Karimata</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="3LA">
+            <xsd:annotation>
+               <xsd:documentation>Maluku Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="3LB">
+            <xsd:annotation>
+               <xsd:documentation>Teluk Tomini</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="3MA">
+            <xsd:annotation>
+               <xsd:documentation>Natuna Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="3NA">
+            <xsd:annotation>
+               <xsd:documentation>Seram Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="3PA">
+            <xsd:annotation>
+               <xsd:documentation>Solomon Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="3QA">
+            <xsd:annotation>
+               <xsd:documentation>Tasman Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="3QB">
+            <xsd:annotation>
+               <xsd:documentation>Bass Strait</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="3QC">
+            <xsd:annotation>
+               <xsd:documentation>Cook Strait</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="4AA">
+            <xsd:annotation>
+               <xsd:documentation>North Atlantic Ocean</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="4AB">
+            <xsd:annotation>
+               <xsd:documentation>Bay of Biscay</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="4AC">
+            <xsd:annotation>
+               <xsd:documentation>Bay of Fundy</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="4AD">
+            <xsd:annotation>
+               <xsd:documentation>Bight of Benin</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="4AE">
+            <xsd:annotation>
+               <xsd:documentation>Bristol Channel</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="4AF">
+            <xsd:annotation>
+               <xsd:documentation>Denmark Strait</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="4AG">
+            <xsd:annotation>
+               <xsd:documentation>English Channel</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="4AH">
+            <xsd:annotation>
+               <xsd:documentation>Gulf of Guinea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="4AJ">
+            <xsd:annotation>
+               <xsd:documentation>Gulf of Mexico</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="4AK">
+            <xsd:annotation>
+               <xsd:documentation>Straits of Florida</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="4BA">
+            <xsd:annotation>
+               <xsd:documentation>Baltic Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="4BB">
+            <xsd:annotation>
+               <xsd:documentation>Gulf of Bothnia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="4BC">
+            <xsd:annotation>
+               <xsd:documentation>Gulf of Finland</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="4BD">
+            <xsd:annotation>
+               <xsd:documentation>Gulf of Riga</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="4CA">
+            <xsd:annotation>
+               <xsd:documentation>Carribaen Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="4CB">
+            <xsd:annotation>
+               <xsd:documentation>Mona Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="4DA">
+            <xsd:annotation>
+               <xsd:documentation>Celtic Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="4EA">
+            <xsd:annotation>
+               <xsd:documentation>Irish Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="4FA">
+            <xsd:annotation>
+               <xsd:documentation>Labrador Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="4GA">
+            <xsd:annotation>
+               <xsd:documentation>North Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="4GB">
+            <xsd:annotation>
+               <xsd:documentation>Kattegat Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="4GC">
+            <xsd:annotation>
+               <xsd:documentation>Skagerak</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="5AA">
+            <xsd:annotation>
+               <xsd:documentation>South Atlantic Ocean</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="5AB">
+            <xsd:annotation>
+               <xsd:documentation>San Jorge Gulf</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="5AC">
+            <xsd:annotation>
+               <xsd:documentation>San Matias Gulf</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="5AD">
+            <xsd:annotation>
+               <xsd:documentation>Rio De La Plata</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="5BA">
+            <xsd:annotation>
+               <xsd:documentation>Scotia Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="5BB">
+            <xsd:annotation>
+               <xsd:documentation>Drake Passage</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="6AA">
+            <xsd:annotation>
+               <xsd:documentation>Mediterranean Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="6AB">
+            <xsd:annotation>
+               <xsd:documentation>Gulf Lion</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="6AC">
+            <xsd:annotation>
+               <xsd:documentation>Gulf of Sidra</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="6AD">
+            <xsd:annotation>
+               <xsd:documentation>Strait of Gibraltar</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="6BA">
+            <xsd:annotation>
+               <xsd:documentation>Adriatic Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="6CA">
+            <xsd:annotation>
+               <xsd:documentation>Aegean Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="6DA">
+            <xsd:annotation>
+               <xsd:documentation>Balearic Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="6EA">
+            <xsd:annotation>
+               <xsd:documentation>Black Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="6FA">
+            <xsd:annotation>
+               <xsd:documentation>Caspian Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="6GA">
+            <xsd:annotation>
+               <xsd:documentation>Ionian Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="6GB">
+            <xsd:annotation>
+               <xsd:documentation>Golfo Di Taranto</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="6HA">
+            <xsd:annotation>
+               <xsd:documentation>Ligurian Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="6JA">
+            <xsd:annotation>
+               <xsd:documentation>Sea of Azov</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="6KA">
+            <xsd:annotation>
+               <xsd:documentation>Sea of Marmara</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="6LA">
+            <xsd:annotation>
+               <xsd:documentation>Tyrrhenian Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="7AA">
+            <xsd:annotation>
+               <xsd:documentation>Indian Ocean</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="7AB">
+            <xsd:annotation>
+               <xsd:documentation>Bay of Bengal</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="7AC">
+            <xsd:annotation>
+               <xsd:documentation>Great Australian Bight</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="7AD">
+            <xsd:annotation>
+               <xsd:documentation>Mozambique Channel</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="7AE">
+            <xsd:annotation>
+               <xsd:documentation>Palk Strait</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="7AF">
+            <xsd:annotation>
+               <xsd:documentation>Spencer Gulf</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="7BA">
+            <xsd:annotation>
+               <xsd:documentation>Andaman Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="7BB">
+            <xsd:annotation>
+               <xsd:documentation>Strait of Malacca</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="7CA">
+            <xsd:annotation>
+               <xsd:documentation>Arabian Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="7CB">
+            <xsd:annotation>
+               <xsd:documentation>Gulf of Aden</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="7CC">
+            <xsd:annotation>
+               <xsd:documentation>Gulf of Oman</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="7CD">
+            <xsd:annotation>
+               <xsd:documentation>Strait of Hormuz</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="7CE">
+            <xsd:annotation>
+               <xsd:documentation>Persian Gulf</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="7DA">
+            <xsd:annotation>
+               <xsd:documentation>Laccadive Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="7EA">
+            <xsd:annotation>
+               <xsd:documentation>Red Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="7EB">
+            <xsd:annotation>
+               <xsd:documentation>Gulf of Aqaba</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="7EC">
+            <xsd:annotation>
+               <xsd:documentation>Gulf of Suez</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="7FA">
+            <xsd:annotation>
+               <xsd:documentation>Savu Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="7GA">
+            <xsd:annotation>
+               <xsd:documentation>Timor Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="7GB">
+            <xsd:annotation>
+               <xsd:documentation>Joseph Bonaparte Gulf</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="8AA">
+            <xsd:annotation>
+               <xsd:documentation>Southern Ocean</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="8AB">
+            <xsd:annotation>
+               <xsd:documentation>Bransfield Strait</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="8BA">
+            <xsd:annotation>
+               <xsd:documentation>Amundsen Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="8CA">
+            <xsd:annotation>
+               <xsd:documentation>Bellingshausen Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="8DA">
+            <xsd:annotation>
+               <xsd:documentation>Ross Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="8EA">
+            <xsd:annotation>
+               <xsd:documentation>Weddell Sea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

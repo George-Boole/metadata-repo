@@ -1,0 +1,11 @@
+# UNCLASSIFIED
+default namespace = "urn:us:gov:ic:cvenum:irm:positive:intel"
+CVEnumIRMPositiveIntel.cve = 
+# (U) 
+"Unknown" | 
+# (U) 
+"Not.exist" | 
+# (U) 
+"Not.observed" | 
+# (U) 
+"other:\S{1,256}"

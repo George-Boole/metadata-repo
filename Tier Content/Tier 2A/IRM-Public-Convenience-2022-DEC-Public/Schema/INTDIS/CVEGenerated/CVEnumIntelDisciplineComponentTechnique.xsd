@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns="urn:us:gov:ic:cvenum:intdis:inteldiscipline:component:technique"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:intdis:inteldiscipline:component:technique"
+            version="201707">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumIntelDisciplineComponentTechnique Version 2.1 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumIntelDisciplineComponentTechnique.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumIntelDisciplineComponentTechnique">
+      <xsd:annotation>
+         <xsd:documentation>(U) All currently valid Intel Discipline Component Technique codes.
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumIntelDisciplineComponentTechnique.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:union>
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:token">
+               <xsd:pattern value="other:\S{1,256}">
+                  <xsd:annotation>
+                     <xsd:documentation>Other intel discipline component technique. Must be the string 'other:' followed by the value specifying the other technique type.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:pattern>
+            </xsd:restriction>
+         </xsd:simpleType>
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:token">
+               <xsd:enumeration value="MASINT:EO:IRINT">
+                  <xsd:annotation>
+                     <xsd:documentation>MASINT:EO Domain: Infrared Intelligence</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="MASINT:EO:LASINT">
+                  <xsd:annotation>
+                     <xsd:documentation>MASINT:EO Domain: Laser Intelligence</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="MASINT:EO:LASINT:ActiveIllumination">
+                  <xsd:annotation>
+                     <xsd:documentation>MASINT:EO Domain: Laser Intelligence: Active Illumination</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="MASINT:EO:Radiometric">
+                  <xsd:annotation>
+                     <xsd:documentation>MASINT:EO Domain: Radiometric</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="MASINT:EO:Spectral">
+                  <xsd:annotation>
+                     <xsd:documentation>MASINT:EO Domain: Spectral</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="MASINT:Geophysical:Acoustic">
+                  <xsd:annotation>
+                     <xsd:documentation>MASINT:Geophysical Domain: Acoustic</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="MASINT:Geophysical:Acoustic:Audible">
+                  <xsd:annotation>
+                     <xsd:documentation>MASINT:Geophysical Domain: Acoustic: Audible</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="MASINT:Geophysical:Acoustic:Infrasonic">
+                  <xsd:annotation>
+                     <xsd:documentation>MASINT:Geophysical Domain: Acoustic: Infrasonic</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="MASINT:Geophysical:Electric">
+                  <xsd:annotation>
+                     <xsd:documentation>MASINT:Geophysical Domain: Electric</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="MASINT:Geophysical:Electromagnetic">
+                  <xsd:annotation>
+                     <xsd:documentation>MASINT:Geophysical Domain: Electromagnetic</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="MASINT:Geophysical:Gravity">
+                  <xsd:annotation>
+                     <xsd:documentation>MASINT:Geophysical Domain: Gravity</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="MASINT:Geophysical:ACINT">
+                  <xsd:annotation>
+                     <xsd:documentation>MASINT:Geophysical Domain: Hydroacoustic Intelligence</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="MASINT:Geophysical:Magnetic">
+                  <xsd:annotation>
+                     <xsd:documentation>MASINT:Geophysical Domain: Magnetic</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="MASINT:Geophysical:Seismic">
+                  <xsd:annotation>
+                     <xsd:documentation>MASINT:Geophysical Domain: Seismic</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="MASINT:Materials:Biological">
+                  <xsd:annotation>
+                     <xsd:documentation>MASINT:Materials Domain: Biological</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="MASINT:Materials:Chemical">
+                  <xsd:annotation>
+                     <xsd:documentation>MASINT:Materials Domain: Chemical</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="MASINT:Materials:Explosive">
+                  <xsd:annotation>
+                     <xsd:documentation>MASINT:Materials Domain: Explosive</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="MASINT:Materials:Nuclear">
+                  <xsd:annotation>
+                     <xsd:documentation>MASINT:Materials Domain: Nuclear</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="MASINT:Materials:Radiological">
+                  <xsd:annotation>
+                     <xsd:documentation>MASINT:Materials Domain: Radiological</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="MASINT:NuclearRadiation:GammaRays">
+                  <xsd:annotation>
+                     <xsd:documentation>MASINT:Nuclear Radiation Domain: Gamma-rays</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="MASINT:NuclearRadiation:Neutrons">
+                  <xsd:annotation>
+                     <xsd:documentation>MASINT:Nuclear Radiation Domain: Neutrons</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="MASINT:NuclearRadiation:XRays">
+                  <xsd:annotation>
+                     <xsd:documentation>MASINT:Nuclear Radiation Domain: X-rays</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="MASINT:Radar:Bistatic">
+                  <xsd:annotation>
+                     <xsd:documentation>MASINT:Radar Domain: Bistatic</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="MASINT:Radar:LOS">
+                  <xsd:annotation>
+                     <xsd:documentation>MASINT:Radar Domain: Line of Sight</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="MASINT:Radar:OTH">
+                  <xsd:annotation>
+                     <xsd:documentation>MASINT:Radar Domain: Over the Horizon</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="MASINT:RF:DEW">
+                  <xsd:annotation>
+                     <xsd:documentation>MASINT:Radio Frequency Domain: Direct Energy Weapon</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="MASINT:RF:EMP">
+                  <xsd:annotation>
+                     <xsd:documentation>MASINT:Radio Frequency Domain: Electromagnetic Pulse</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="MASINT:RF:URE">
+                  <xsd:annotation>
+                     <xsd:documentation>MASINT:Radio Frequency Domain: Unintentional Radiated Emission</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+            </xsd:restriction>
+         </xsd:simpleType>
+      </xsd:union>
+   </xsd:simpleType>
+</xsd:schema>

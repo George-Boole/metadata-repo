@@ -1,0 +1,19 @@
+# UNCLASSIFIED
+default namespace = "urn:us:gov:ic:cvenum:intdis:inteldiscipline"
+CVEnumIntelDiscipline.cve = 
+# (U) 
+"APP" | 
+# (U) 
+"CI" | 
+# (U) 
+"GEOINT" | 
+# (U) 
+"HUMINT" | 
+# (U) 
+"MASINT" | 
+# (U) 
+"OSINT" | 
+# (U) 
+"SIGINT" | 
+# (U) 
+"TECHINT"

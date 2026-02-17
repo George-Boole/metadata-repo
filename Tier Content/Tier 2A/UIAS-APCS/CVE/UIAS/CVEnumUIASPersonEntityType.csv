@@ -1,0 +1,11 @@
+﻿"ValueClassification","Value","DescriptionClassification","Description","DeprecationDate"
+"(U) ","CTR","(U) ","
+	  			Contractor (Person)
+	  		",
+"(U) ","GOV","(U) ","
+				Government civilian employee (Person)
+			",
+"(U) ","MIL","(U) ","
+	  			Military service member (Person)
+	  		",
+

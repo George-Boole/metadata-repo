@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:tdf:signaturealgorithm">
+   <define name="CVEnumTDFSignatureAlgorithm.cve">
+      <choice>
+         <value>SHA(1|256|384|512)withRSA</value>
+         <value>SHA(1|256|384|512)withRSAand[A-Z]+[0-9]*</value>
+         <value>SHA(1|256|384|512)withECDSA</value>
+         <value>SHA(1|256|384|512)withECDSAand[A-Z]+[0-9]*</value>
+      </choice>
+   </define>
+</grammar>

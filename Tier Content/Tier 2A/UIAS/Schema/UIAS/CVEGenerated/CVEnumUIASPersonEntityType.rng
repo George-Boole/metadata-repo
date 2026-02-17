@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:uias:personentitytype">
+   <define name="CVEnumUIASPersonEntityType.cve">
+      <choice>
+         <value>CTR</value>
+         <value>GOV</value>
+         <value>MIL</value>
+      </choice>
+   </define>
+</grammar>

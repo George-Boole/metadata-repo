@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/NTK/NTK_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<!-- All classification marks in this example are   -->
+<!-- for illustrative purposes only, there are no   -->
+<!-- actual classified data contained in this example -->
+<test:root xmlns:test="test:ntk"
+           xmlns:ism="urn:us:gov:ic:ism"
+           xmlns:ntk="urn:us:gov:ic:ntk"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           ism:compliesWith="USGov USIC"
+           ntk:DESVersion="201508"
+           ism:resourceElement="true"
+           ism:createDate="2012-05-28"
+           ism:DESVersion="201609.201707"
+           ism:ISMCATCESVersion="201709"
+           ism:classification="U"
+           ism:disseminationControls="NF"
+           ism:ownerProducer="USA"
+           ism:nonICmarkings="ND"
+           xsi:schemaLocation="test:ntk ../NTK/test_ntk.xsd"><!-- Restrict access to only the specific individuals listed or members of
+      the IAAEMS group Group_A. Group_A is a notional group for this example. -->
+   <ntk:Access xsi:schemaLocation="urn:us:gov:ic:ntk ../../../../../Schema/NTK/IC-NTK.xsd"
+               ism:classification="U"
+               ism:ownerProducer="USA">
+      <ntk:RequiresAllOf>
+         <ntk:AccessProfileList>
+            <ntk:AccessProfile ism:classification="U" ism:ownerProducer="USA">
+               <ntk:AccessPolicy>urn:us:gov:ic:aces:ntk:nd</ntk:AccessPolicy>
+               <ntk:ProfileDes>urn:us:gov:ic:ntk:profile:grp-ind</ntk:ProfileDes>
+               <ntk:AccessProfileValue ntk:vocabulary="group:iaaems">Group_A</ntk:AccessProfileValue>
+               <ntk:AccessProfileValue ntk:vocabulary="individual:icpki">CN=John Doe,OU=Example,OU=GOV</ntk:AccessProfileValue>
+               <ntk:AccessProfileValue ntk:vocabulary="individual:icpki">CN=Jane Smith,OU=Example,OU=GOV</ntk:AccessProfileValue>
+               <ntk:AccessProfileValue ntk:vocabulary="individual:icpki">CN=John Public,OU=Example,OU=GOV</ntk:AccessProfileValue>
+               <ntk:AccessProfileValue ntk:vocabulary="individual:icpki">CN=Sally Analyst,OU=Example,OU=GOV</ntk:AccessProfileValue>
+            </ntk:AccessProfile>
+         </ntk:AccessProfileList>
+      </ntk:RequiresAllOf>
+   </ntk:Access>
+</test:root>

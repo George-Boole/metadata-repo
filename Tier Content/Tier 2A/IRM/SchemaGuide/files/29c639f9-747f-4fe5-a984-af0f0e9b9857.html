@@ -1,0 +1,1959 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+      <title>Schema documentation for component irm:acquiredOn</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css"></link>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+        var propertiesBoxes= new Array('properties_DatesType_acquiredOn', 
+				'properties_DatesType_created', 
+				'properties_DatesType_posted', 
+				'properties_DatesType_validTil', 
+				'properties_DatesType_infoCutOff', 
+				'properties_DatesType_approvedOn', 
+				'properties_DatesType_receivedOn');
+var usedByBoxes= new Array('usedBy_DatesType', 
+				'usedBy_DatesType_created', 
+				'usedBy_DatesType_posted', 
+				'usedBy_DatesType_validTil', 
+				'usedBy_DatesType_infoCutOff', 
+				'usedBy_DatesType_approvedOn', 
+				'usedBy_DatesType_receivedOn');
+var sourceBoxes= new Array('source_DatesType_acquiredOn', 
+				'source_DatesType', 
+				'source_DatesType_created', 
+				'source_DatesType_posted', 
+				'source_DatesType_validTil', 
+				'source_DatesType_infoCutOff', 
+				'source_DatesType_approvedOn', 
+				'source_DatesType_receivedOn');
+var instanceBoxes= new Array('instance_DatesType_acquiredOn');
+var diagramBoxes= new Array('diagram_DatesType_acquiredOn', 
+				'diagram_DatesType');
+var annotationBoxes= new Array('annotations_DatesType_acquiredOn', 
+				'annotations_DatesType', 
+				'annotations_DatesType_created', 
+				'annotations_DatesType_posted', 
+				'annotations_DatesType_validTil', 
+				'annotations_DatesType_infoCutOff', 
+				'annotations_DatesType_approvedOn', 
+				'annotations_DatesType_receivedOn');
+var attributesBoxes= new Array('attributes_DatesType');
+var modelBoxes= new Array('model_DatesType_acquiredOn', 
+				'model_DatesType');
+
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                    //
+--></script>
+   </head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_content" rowspan="1" colspan="1">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, annotationBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Annotations</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, attributesBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Attributes </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, diagramBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Diagrams</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, instanceBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Instances</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, modelBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Model </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, propertiesBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Properties </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Source</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Used by </span>
+                        </td>
+                     </tr>
+                  </table>
+                  <div align="right">
+                     <span>
+                        <input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close"></input>
+                     </span>
+                  </div>
+               </td>
+               <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+            </tr>
+         </table>
+      </div>
+      <a id="DatesType_acquiredOn" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="29c639f9-747f-4fe5-a984-af0f0e9b9857.html#DatesType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:DatesType')" shape="rect">irm:DatesType</a>
+            </b> / irm:acquiredOn</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:irm</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_DatesType_acquiredOn" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_DatesType_acquiredOn');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_DatesType_acquiredOn" style="display:block">
+                              <div class="annotation">? 
+                                 
+                                 <p data-ded="ded:Definition">ded:Definition: An
+                                    optional, repeatable element of dates that provides an approximable date
+                                    on which information in a product was acquired. Date of acquisition of
+                                    the information.</p>
+                                 
+                                 <p data-ded="ded:Obligation">ded:Obligation: (Optional)</p>
+                                 
+                                 <p data-ded="ded:Comment"></p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_DatesType_acquiredOn" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_DatesType_acquiredOn');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_DatesType_acquiredOn" style="display:block">
+                              <img alt="Diagram" border="0" src="img/IC-IRM_xsd_Element_irm_acquiredOn.png" usemap="#IC-IRM_xsd_Element_irm_acquiredOn"></img>
+                              <map name="IC-IRM_xsd_Element_irm_acquiredOn" id="IC-IRM_xsd_Element_irm_acquiredOn">
+                                 <area alt="IC-IRM_xsd_Complex_Type_irm_ApproximableDateType.tmp#ApproximableDateType_description" href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_description" coords="229,40,323,64" shape="rect"></area>
+                                 <area alt="IC-IRM_xsd_Complex_Type_irm_ApproximableDateType.tmp#ApproximableDateType_approximableDate" href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_approximableDate" coords="229,143,363,167" shape="rect"></area>
+                                 <area alt="IC-IRM_xsd_Complex_Type_irm_ApproximableDateType.tmp#ApproximableDateType_searchableDate" href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_searchableDate" coords="229,233,349,257" shape="rect"></area>
+                                 <area alt="IC-IRM_xsd_Complex_Type_irm_ApproximableDateType.tmp#ApproximableDateType" href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType" coords="147,3,351,25" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:ApproximableDateType')" shape="rect">irm:ApproximableDateType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_DatesType_acquiredOn" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_DatesType_acquiredOn');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_DatesType_acquiredOn" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>complex</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">maxOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>unbounded</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_DatesType_acquiredOn" type="image" src="img/btM.gif" value="-" onclick="switchState('model_DatesType_acquiredOn');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_DatesType_acquiredOn" style="display:block">ALL(<b>
+                                 <a href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_description" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:description{0,1}')" shape="rect">irm:description{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_approximableDate" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:approximableDate{0,1}')" shape="rect">irm:approximableDate{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_searchableDate" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:searchableDate{0,1}')" shape="rect">irm:searchableDate{0,1}</a>
+                              </b>)</div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_approximableDate" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:approximableDate')" shape="rect">irm:approximableDate</a>
+                           </b>, <b>
+                              <a href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_description" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:description')" shape="rect">irm:description</a>
+                           </b>, <b>
+                              <a href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_searchableDate" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:searchableDate')" shape="rect">irm:searchableDate</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Instance</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_instance_DatesType_acquiredOn" type="image" src="img/btM.gif" value="-" onclick="switchState('instance_DatesType_acquiredOn');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="instance_DatesType_acquiredOn" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;irm:acquiredOn</span><span class="tT"> </span><span class="tAN">xmlns:irm=</span><span class="tAV">"urn:us:gov:ic:irm"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;irm:description</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/irm:description&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;irm:approximableDate</span><span class="tT"> </span><span class="tAN">irm:approximation=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/irm:approximableDate&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;irm:searchableDate</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/irm:searchableDate&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/irm:acquiredOn&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_DatesType_acquiredOn" type="image" src="img/btM.gif" value="-" onclick="switchState('source_DatesType_acquiredOn');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_DatesType_acquiredOn" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"acquiredOn"</span><span class="tAN"> type=</span><span class="tAV">"irm:ApproximableDateType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An optional, repeatable element of dates that provides an approximable date on which information in a product was acquired. Date of acquisition of the information.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Optional)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/IRM/IC-IRM.xsd">IC-IRM.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="DatesType" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Complex Type <span class="qname">irm:DatesType</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:irm</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_DatesType" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_DatesType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_DatesType" style="display:block">
+                              <div class="annotation">? 
+                                 
+                                 <p> Type
+                                    used for the dates element. </p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_DatesType" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_DatesType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_DatesType" style="display:block">
+                              <img alt="Diagram" border="0" src="img/44bf3274-82cc-4f9d-a1ac-2180460eab26.png" usemap="#IC-IRM_xsd_Complex_Type_irm_DatesType"></img>
+                              <map name="IC-IRM_xsd_Complex_Type_irm_DatesType" id="IC-IRM_xsd_Complex_Type_irm_DatesType">
+                                 <area alt="IC-IRM_xsd_Complex_Type_irm_DatesType.tmp#DatesType_created" href="29c639f9-747f-4fe5-a984-af0f0e9b9857.html#DatesType_created" coords="177,38,271,62" shape="rect"></area>
+                                 <area alt="IC-IRM_xsd_Complex_Type_irm_DatesType.tmp#DatesType_posted" href="29c639f9-747f-4fe5-a984-af0f0e9b9857.html#DatesType_posted" coords="177,141,267,165" shape="rect"></area>
+                                 <area alt="IC-IRM_xsd_Complex_Type_irm_DatesType.tmp#DatesType_validTil" href="29c639f9-747f-4fe5-a984-af0f0e9b9857.html#DatesType_validTil" coords="177,244,267,268" shape="rect"></area>
+                                 <area alt="IC-IRM_xsd_Complex_Type_irm_DatesType.tmp#DatesType_infoCutOff" href="29c639f9-747f-4fe5-a984-af0f0e9b9857.html#DatesType_infoCutOff" coords="177,334,285,358" shape="rect"></area>
+                                 <area alt="IC-IRM_xsd_Complex_Type_irm_DatesType.tmp#DatesType_approvedOn" href="29c639f9-747f-4fe5-a984-af0f0e9b9857.html#DatesType_approvedOn" coords="177,424,297,448" shape="rect"></area>
+                                 <area alt="IC-IRM_xsd_Complex_Type_irm_DatesType.tmp#DatesType_receivedOn" href="29c639f9-747f-4fe5-a984-af0f0e9b9857.html#DatesType_receivedOn" coords="177,514,292,538" shape="rect"></area>
+                                 <area alt="IC-IRM_xsd_Complex_Type_irm_DatesType.tmp#DatesType_acquiredOn" href="29c639f9-747f-4fe5-a984-af0f0e9b9857.html#DatesType_acquiredOn" coords="256,615,352,639" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Used by</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_usedBy_DatesType" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_DatesType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="usedBy_DatesType" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Element </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="IC-IRM_xsd_Element_irm_dates.html#dates" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:dates')" shape="rect">irm:dates</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_DatesType" type="image" src="img/btM.gif" value="-" onclick="switchState('model_DatesType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_DatesType" style="display:block">
+                              <b>
+                                 <a href="29c639f9-747f-4fe5-a984-af0f0e9b9857.html#DatesType_acquiredOn" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:acquiredOn*')" shape="rect">irm:acquiredOn*</a>
+                              </b>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="29c639f9-747f-4fe5-a984-af0f0e9b9857.html#DatesType_acquiredOn" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:acquiredOn')" shape="rect">irm:acquiredOn</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Attributes</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_attributes_DatesType" type="image" src="img/btM.gif" value="-" onclick="switchState('attributes_DatesType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="attributes_DatesType" style="display:block">
+                              <table class="attributesTable">
+                                 <thead>
+                                    <tr>
+                                       <th rowspan="1" colspan="1">QName</th>
+                                       <th width="10%" rowspan="1" colspan="1">Type</th>
+                                       <th width="5%" rowspan="1" colspan="1">Use</th>
+                                       <th width="100%" rowspan="1" colspan="1">Annotation</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="29c639f9-747f-4fe5-a984-af0f0e9b9857.html#DatesType_approvedOn" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:approvedOn')" shape="rect">irm:approvedOn</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="75479129-17d3-4516-8839-950254b3a0df.html#CombinedDateType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CombinedDateType')" shape="rect">irm:CombinedDateType</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">? 
+                                          
+                                          <p data-ded="ded:Definition">ded:Definition: An attribute of dates that
+                                             provides the date on which the resource was approved for publishing or
+                                             posting. The date on which the resource was approved for publishing or
+                                             posting.</p>
+                                          
+                                          <p data-ded="ded:Obligation">ded:Obligation: (Optional)</p>
+                                          
+                                          <p data-ded="ded:Comment"></p>
+                                          </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="29c639f9-747f-4fe5-a984-af0f0e9b9857.html#DatesType_created" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:created')" shape="rect">irm:created</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="75479129-17d3-4516-8839-950254b3a0df.html#CombinedDateType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CombinedDateType')" shape="rect">irm:CombinedDateType</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">? 
+                                          
+                                          <p data-ded="ded:Definition">ded:Definition: An attribute of dates that
+                                             provides the date of creation of the resource. Date of creation of the
+                                             resource.</p>
+                                          
+                                          <p data-ded="ded:Obligation">ded:Obligation: (Optional)</p>
+                                          
+                                          <p data-ded="ded:Comment"></p>
+                                          </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="29c639f9-747f-4fe5-a984-af0f0e9b9857.html#DatesType_infoCutOff" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:infoCutOff')" shape="rect">irm:infoCutOff</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="75479129-17d3-4516-8839-950254b3a0df.html#CombinedDateType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CombinedDateType')" shape="rect">irm:CombinedDateType</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">? 
+                                          
+                                          <p data-ded="ded:Definition">ded:Definition: An attribute of dates that
+                                             provides the cutoff date of information in a product. This is commonly
+                                             referred to as Information Cutoff Date (ICOD). It is the date of last input.
+                                             The cutoff date of information in a product. This is commonly referred to as
+                                             Information Cutoff Date (ICOD). It is the date of last input.</p>
+                                          
+                                          <p data-ded="ded:Obligation">ded:Obligation: (Optional)</p>
+                                          
+                                          <p data-ded="ded:Comment"></p>
+                                          </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="29c639f9-747f-4fe5-a984-af0f0e9b9857.html#DatesType_posted" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:posted')" shape="rect">irm:posted</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="75479129-17d3-4516-8839-950254b3a0df.html#CombinedDateType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CombinedDateType')" shape="rect">irm:CombinedDateType</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">? 
+                                          
+                                          <p data-ded="ded:Definition">ded:Definition: An attribute of dates that
+                                             provides the date a product is posted to a shared network or system. The
+                                             date a product is posted to a shared network or system.</p>
+                                          
+                                          <p data-ded="ded:Obligation">ded:Obligation: (Optional)</p>
+                                          
+                                          <p data-ded="ded:Comment"></p>
+                                          </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="29c639f9-747f-4fe5-a984-af0f0e9b9857.html#DatesType_receivedOn" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:receivedOn')" shape="rect">irm:receivedOn</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="75479129-17d3-4516-8839-950254b3a0df.html#CombinedDateType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CombinedDateType')" shape="rect">irm:CombinedDateType</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">? 
+                                          
+                                          <p data-ded="ded:Definition">ded:Definition: An attribute of dates that
+                                             provides the date on which a product was received by an ingestion system
+                                             from an external source. The date on which the resource was received for
+                                             publishing or posting.</p>
+                                          
+                                          <p data-ded="ded:Obligation">ded:Obligation: (Optional)</p>
+                                          
+                                          <p data-ded="ded:Comment"></p>
+                                          </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="29c639f9-747f-4fe5-a984-af0f0e9b9857.html#DatesType_validTil" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:validTil')" shape="rect">irm:validTil</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="75479129-17d3-4516-8839-950254b3a0df.html#CombinedDateType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CombinedDateType')" shape="rect">irm:CombinedDateType</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">
+                                          
+                                          <p data-ded="ded:Definition">ded:Definition: An attribute of dates that
+                                             provides the date that a product should be removed from a registry, index,
+                                             or catalog. The date that a product should be removed from a registry,
+                                             index, or catalog.</p>
+                                          
+                                          <p data-ded="ded:Obligation">ded:Obligation: (Optional)</p>
+                                          
+                                          <p data-ded="ded:Comment"></p>
+                                          </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_DatesType" type="image" src="img/btM.gif" value="-" onclick="switchState('source_DatesType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_DatesType" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:complexType</span><span class="tAN"> name=</span><span class="tAV">"DatesType"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Type used for the dates element.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:sequence</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"acquiredOn"</span><span class="tAN"> type=</span><span class="tAV">"irm:ApproximableDateType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An optional, repeatable element of dates that provides an approximable date on which information in a product was acquired. Date of acquisition of the information.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Optional)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">/&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:element&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:sequence&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"created"</span><span class="tAN"> type=</span><span class="tAV">"irm:CombinedDateType"</span><span class="tAN"> use=</span><span class="tAV">"optional"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+        </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An attribute of dates that provides the date of creation of the resource. Date of creation of the resource.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Optional)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:attribute&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"posted"</span><span class="tAN"> type=</span><span class="tAV">"irm:CombinedDateType"</span><span class="tAN"> use=</span><span class="tAV">"optional"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+        </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An attribute of dates that provides the date a product is posted to a shared network or system. The date a product is posted to a shared network or system.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Optional)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:attribute&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"validTil"</span><span class="tAN"> type=</span><span class="tAV">"irm:CombinedDateType"</span><span class="tAN"> use=</span><span class="tAV">"optional"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An attribute of dates that provides the date that a product should be removed from a registry, index, or catalog. The date that a product should be removed from a registry, index, or catalog.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Optional)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:attribute&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"infoCutOff"</span><span class="tAN"> type=</span><span class="tAV">"irm:CombinedDateType"</span><span class="tAN"> use=</span><span class="tAV">"optional"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+        </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An attribute of dates that provides the cutoff date of information in a product. This is commonly referred to as Information Cutoff Date (ICOD). It is the date of last input. The cutoff date of information in a product. This is commonly referred to as Information Cutoff Date (ICOD). It is the date of last input.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Optional)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:attribute&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"approvedOn"</span><span class="tAN"> type=</span><span class="tAV">"irm:CombinedDateType"</span><span class="tAN"> use=</span><span class="tAV">"optional"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+        </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An attribute of dates that provides the date on which the resource was approved for publishing or posting. The date on which the resource was approved for publishing or posting.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Optional)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:attribute&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"receivedOn"</span><span class="tAN"> type=</span><span class="tAV">"irm:CombinedDateType"</span><span class="tAN"> use=</span><span class="tAV">"optional"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+        </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An attribute of dates that provides the date on which a product was received by an ingestion system from an external source. The date on which the resource was received for publishing or posting.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Optional)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:attribute&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:complexType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/IRM/IC-IRM.xsd">IC-IRM.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="DatesType_created" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Attribute <span class="qname">
+            <b>
+               <a href="29c639f9-747f-4fe5-a984-af0f0e9b9857.html#DatesType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:DatesType')" shape="rect">irm:DatesType</a>
+            </b> / @irm:created</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:irm</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_DatesType_created" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_DatesType_created');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_DatesType_created" style="display:block">
+                              <div class="annotation">? 
+                                 
+                                 <p data-ded="ded:Definition">ded:Definition: An attribute of dates that
+                                    provides the date of creation of the resource. Date of creation of the
+                                    resource.</p>
+                                 
+                                 <p data-ded="ded:Obligation">ded:Obligation: (Optional)</p>
+                                 
+                                 <p data-ded="ded:Comment"></p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="75479129-17d3-4516-8839-950254b3a0df.html#CombinedDateType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CombinedDateType')" shape="rect">irm:CombinedDateType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_DatesType_created" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_DatesType_created');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_DatesType_created" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">use</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>optional</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Used by</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_usedBy_DatesType_created" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_DatesType_created');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="usedBy_DatesType_created" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Complex Type </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="29c639f9-747f-4fe5-a984-af0f0e9b9857.html#DatesType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:DatesType')" shape="rect">irm:DatesType</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_DatesType_created" type="image" src="img/btM.gif" value="-" onclick="switchState('source_DatesType_created');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_DatesType_created" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"created"</span><span class="tAN"> type=</span><span class="tAV">"irm:CombinedDateType"</span><span class="tAN"> use=</span><span class="tAV">"optional"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An attribute of dates that provides the date of creation of the resource. Date of creation of the resource.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Optional)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attribute&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/IRM/IC-IRM.xsd">IC-IRM.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="DatesType_posted" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Attribute <span class="qname">
+            <b>
+               <a href="29c639f9-747f-4fe5-a984-af0f0e9b9857.html#DatesType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:DatesType')" shape="rect">irm:DatesType</a>
+            </b> / @irm:posted</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:irm</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_DatesType_posted" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_DatesType_posted');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_DatesType_posted" style="display:block">
+                              <div class="annotation">? 
+                                 
+                                 <p data-ded="ded:Definition">ded:Definition: An attribute of dates that
+                                    provides the date a product is posted to a shared network or system. The
+                                    date a product is posted to a shared network or system.</p>
+                                 
+                                 <p data-ded="ded:Obligation">ded:Obligation: (Optional)</p>
+                                 
+                                 <p data-ded="ded:Comment"></p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="75479129-17d3-4516-8839-950254b3a0df.html#CombinedDateType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CombinedDateType')" shape="rect">irm:CombinedDateType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_DatesType_posted" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_DatesType_posted');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_DatesType_posted" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">use</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>optional</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Used by</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_usedBy_DatesType_posted" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_DatesType_posted');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="usedBy_DatesType_posted" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Complex Type </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="29c639f9-747f-4fe5-a984-af0f0e9b9857.html#DatesType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:DatesType')" shape="rect">irm:DatesType</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_DatesType_posted" type="image" src="img/btM.gif" value="-" onclick="switchState('source_DatesType_posted');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_DatesType_posted" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"posted"</span><span class="tAN"> type=</span><span class="tAV">"irm:CombinedDateType"</span><span class="tAN"> use=</span><span class="tAV">"optional"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An attribute of dates that provides the date a product is posted to a shared network or system. The date a product is posted to a shared network or system.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Optional)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attribute&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/IRM/IC-IRM.xsd">IC-IRM.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="DatesType_validTil" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Attribute <span class="qname">
+            <b>
+               <a href="29c639f9-747f-4fe5-a984-af0f0e9b9857.html#DatesType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:DatesType')" shape="rect">irm:DatesType</a>
+            </b> / @irm:validTil</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:irm</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_DatesType_validTil" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_DatesType_validTil');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_DatesType_validTil" style="display:block">
+                              <div class="annotation">
+                                 
+                                 <p data-ded="ded:Definition">ded:Definition: An attribute of dates that
+                                    provides the date that a product should be removed from a registry, index,
+                                    or catalog. The date that a product should be removed from a registry,
+                                    index, or catalog.</p>
+                                 
+                                 <p data-ded="ded:Obligation">ded:Obligation: (Optional)</p>
+                                 
+                                 <p data-ded="ded:Comment"></p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="75479129-17d3-4516-8839-950254b3a0df.html#CombinedDateType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CombinedDateType')" shape="rect">irm:CombinedDateType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_DatesType_validTil" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_DatesType_validTil');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_DatesType_validTil" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">use</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>optional</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Used by</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_usedBy_DatesType_validTil" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_DatesType_validTil');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="usedBy_DatesType_validTil" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Complex Type </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="29c639f9-747f-4fe5-a984-af0f0e9b9857.html#DatesType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:DatesType')" shape="rect">irm:DatesType</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_DatesType_validTil" type="image" src="img/btM.gif" value="-" onclick="switchState('source_DatesType_validTil');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_DatesType_validTil" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"validTil"</span><span class="tAN"> type=</span><span class="tAV">"irm:CombinedDateType"</span><span class="tAN"> use=</span><span class="tAV">"optional"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An attribute of dates that provides the date that a product should be removed from a registry, index, or catalog. The date that a product should be removed from a registry, index, or catalog.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Optional)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attribute&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/IRM/IC-IRM.xsd">IC-IRM.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="DatesType_infoCutOff" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Attribute <span class="qname">
+            <b>
+               <a href="29c639f9-747f-4fe5-a984-af0f0e9b9857.html#DatesType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:DatesType')" shape="rect">irm:DatesType</a>
+            </b> / @irm:infoCutOff</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:irm</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_DatesType_infoCutOff" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_DatesType_infoCutOff');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_DatesType_infoCutOff" style="display:block">
+                              <div class="annotation">? 
+                                 
+                                 <p data-ded="ded:Definition">ded:Definition: An attribute of dates that
+                                    provides the cutoff date of information in a product. This is commonly
+                                    referred to as Information Cutoff Date (ICOD). It is the date of last input.
+                                    The cutoff date of information in a product. This is commonly referred to as
+                                    Information Cutoff Date (ICOD). It is the date of last input.</p>
+                                 
+                                 <p data-ded="ded:Obligation">ded:Obligation: (Optional)</p>
+                                 
+                                 <p data-ded="ded:Comment"></p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="75479129-17d3-4516-8839-950254b3a0df.html#CombinedDateType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CombinedDateType')" shape="rect">irm:CombinedDateType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_DatesType_infoCutOff" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_DatesType_infoCutOff');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_DatesType_infoCutOff" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">use</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>optional</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Used by</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_usedBy_DatesType_infoCutOff" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_DatesType_infoCutOff');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="usedBy_DatesType_infoCutOff" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Complex Type </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="29c639f9-747f-4fe5-a984-af0f0e9b9857.html#DatesType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:DatesType')" shape="rect">irm:DatesType</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_DatesType_infoCutOff" type="image" src="img/btM.gif" value="-" onclick="switchState('source_DatesType_infoCutOff');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_DatesType_infoCutOff" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"infoCutOff"</span><span class="tAN"> type=</span><span class="tAV">"irm:CombinedDateType"</span><span class="tAN"> use=</span><span class="tAV">"optional"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An attribute of dates that provides the cutoff date of information in a product. This is commonly referred to as Information Cutoff Date (ICOD). It is the date of last input. The cutoff date of information in a product. This is commonly referred to as Information Cutoff Date (ICOD). It is the date of last input.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Optional)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attribute&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/IRM/IC-IRM.xsd">IC-IRM.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="DatesType_approvedOn" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Attribute <span class="qname">
+            <b>
+               <a href="29c639f9-747f-4fe5-a984-af0f0e9b9857.html#DatesType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:DatesType')" shape="rect">irm:DatesType</a>
+            </b> / @irm:approvedOn</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:irm</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_DatesType_approvedOn" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_DatesType_approvedOn');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_DatesType_approvedOn" style="display:block">
+                              <div class="annotation">? 
+                                 
+                                 <p data-ded="ded:Definition">ded:Definition: An attribute of dates that
+                                    provides the date on which the resource was approved for publishing or
+                                    posting. The date on which the resource was approved for publishing or
+                                    posting.</p>
+                                 
+                                 <p data-ded="ded:Obligation">ded:Obligation: (Optional)</p>
+                                 
+                                 <p data-ded="ded:Comment"></p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="75479129-17d3-4516-8839-950254b3a0df.html#CombinedDateType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CombinedDateType')" shape="rect">irm:CombinedDateType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_DatesType_approvedOn" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_DatesType_approvedOn');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_DatesType_approvedOn" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">use</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>optional</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Used by</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_usedBy_DatesType_approvedOn" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_DatesType_approvedOn');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="usedBy_DatesType_approvedOn" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Complex Type </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="29c639f9-747f-4fe5-a984-af0f0e9b9857.html#DatesType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:DatesType')" shape="rect">irm:DatesType</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_DatesType_approvedOn" type="image" src="img/btM.gif" value="-" onclick="switchState('source_DatesType_approvedOn');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_DatesType_approvedOn" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"approvedOn"</span><span class="tAN"> type=</span><span class="tAV">"irm:CombinedDateType"</span><span class="tAN"> use=</span><span class="tAV">"optional"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An attribute of dates that provides the date on which the resource was approved for publishing or posting. The date on which the resource was approved for publishing or posting.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Optional)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attribute&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/IRM/IC-IRM.xsd">IC-IRM.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="DatesType_receivedOn" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Attribute <span class="qname">
+            <b>
+               <a href="29c639f9-747f-4fe5-a984-af0f0e9b9857.html#DatesType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:DatesType')" shape="rect">irm:DatesType</a>
+            </b> / @irm:receivedOn</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:irm</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_DatesType_receivedOn" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_DatesType_receivedOn');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_DatesType_receivedOn" style="display:block">
+                              <div class="annotation">? 
+                                 
+                                 <p data-ded="ded:Definition">ded:Definition: An attribute of dates that
+                                    provides the date on which a product was received by an ingestion system
+                                    from an external source. The date on which the resource was received for
+                                    publishing or posting.</p>
+                                 
+                                 <p data-ded="ded:Obligation">ded:Obligation: (Optional)</p>
+                                 
+                                 <p data-ded="ded:Comment"></p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="75479129-17d3-4516-8839-950254b3a0df.html#CombinedDateType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CombinedDateType')" shape="rect">irm:CombinedDateType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_DatesType_receivedOn" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_DatesType_receivedOn');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_DatesType_receivedOn" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">use</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>optional</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Used by</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_usedBy_DatesType_receivedOn" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_DatesType_receivedOn');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="usedBy_DatesType_receivedOn" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Complex Type </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="29c639f9-747f-4fe5-a984-af0f0e9b9857.html#DatesType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:DatesType')" shape="rect">irm:DatesType</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_DatesType_receivedOn" type="image" src="img/btM.gif" value="-" onclick="switchState('source_DatesType_receivedOn');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_DatesType_receivedOn" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"receivedOn"</span><span class="tAN"> type=</span><span class="tAV">"irm:CombinedDateType"</span><span class="tAN"> use=</span><span class="tAV">"optional"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An attribute of dates that provides the date on which a product was received by an ingestion system from an external source. The date on which the resource was received for publishing or posting.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Optional)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attribute&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/IRM/IC-IRM.xsd">IC-IRM.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <h2 style=" font:italic bold 12px Georgia,serif;color:gray;font-size:14px;text-align:center;  width : 95%;">
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See Distribution Notice for details.
+       <a href="../index.html" target="_top">
+                Click Here
+            </a>
+      </h2>
+      <div class="footer"></div>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                //
+--></script>
+   </body>
+</html>

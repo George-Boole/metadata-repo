@@ -1,0 +1,11 @@
+# UNCLASSIFIED
+default namespace = "urn:us:gov:ic:cvenum:irm:language:qualifier"
+CVEnumIRMCompoundLanguageQualifierType.cve = 
+# (U) 
+"urn:us:gov:ic:cvenum:irm:iso639:digraph" | 
+# (U) 
+"urn:us:gov:ic:cvenum:irm:iso639-2:trigraph" | 
+# (U) 
+"urn:us:gov:ic:cvenum:irm:iso639-3:trigraph" | 
+# (U) 
+"RFC5646"

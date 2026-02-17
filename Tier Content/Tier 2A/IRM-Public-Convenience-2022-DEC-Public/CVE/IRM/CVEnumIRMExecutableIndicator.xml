@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<cve:CVE xmlns:cve="urn:us:gov:ic:cve"
+         xmlns:ism="urn:us:gov:ic:ism"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         ism:compliesWith="USGov USIC"
+         ism:ownerProducer="USA"
+         ism:classification="U"
+         ism:DESVersion="202111"
+         ism:ISMCATCESVersion="202205"
+         ism:resourceElement="true"
+         CVEVersion="2.1"
+         specVersion="202111" 
+         ism:createDate="2011-09-01"
+         xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+    <cve:IRM>
+        <URN xmlns="urn:us:gov:ic:cve">urn:us:gov:ic:cvenum:irm:executableindicator</URN>
+        <Title xmlns="urn:us:gov:ic:cve"
+             ism:classification="U"
+             ism:ownerProducer="USA">CVEnumIRMExecutableIndicator</Title>
+        <Description xmlns="urn:us:gov:ic:cve"
+                   ism:classification="U"
+                   ism:ownerProducer="USA">All valid values used to identify possible executable content.</Description>
+        <cve:Created>2012-07-06T11:19:00-04:00</cve:Created>
+        
+        <Source xmlns="urn:us:gov:ic:cve"
+              ism:classification="U"
+              ism:ownerProducer="USA">IC-CIO</Source>
+        <PointOfContact xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">
+         <Name>Office IC CIO</Name>
+         <Email>ic-standards-support@odni.gov</Email>
+      </PointOfContact>
+    </cve:IRM>
+    <cve:Enumeration multivalue="false" ism:classification="U" ism:ownerProducer="USA">
+        <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">Executable</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Information resource has been evaluated and a determination made that the content is executable.</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">Indeterminate</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Information resource has been evaluated and no conclusive determination made to indicate whether or not it is executable.</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">NonExecutable</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Information resource has been evaluated as being non-executable to the best of the ability of existing algorithms.</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">Unevaluated</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Information resource has not been evaluated as to whether or not it is executable. Could be used as a default value for systems where this is mandatory.</Description>
+        </Term>
+    </cve:Enumeration>
+</cve:CVE>

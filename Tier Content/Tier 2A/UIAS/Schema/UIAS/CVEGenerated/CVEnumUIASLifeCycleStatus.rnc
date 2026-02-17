@@ -1,0 +1,11 @@
+# UNCLASSIFIED
+default namespace = "urn:us:gov:ic:cvenum:uias:lifecyclestatus"
+CVEnumUIASLifeCycleStatus.cve = 
+# (U) 
+"DEV" | 
+# (U) 
+"TEST" | 
+# (U) 
+"PROD" | 
+# (U) 
+"SUNSET"

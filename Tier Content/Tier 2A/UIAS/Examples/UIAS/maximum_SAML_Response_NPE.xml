@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/UIAS/UIAS_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:uias="urn:us:gov:ic:uias"
+                xsi:schemaLocation="urn:us:gov:ic:uiassaml ../../Schema/UIAS/UIAS_SAML.xsd urn:oasis:names:tc:SAML:2.0:protocol ../../Schema/SAML2.0/saml-schema-protocol-2.0.xsd urn:us:gov:ic:uias ../../Schema/UIAS/UIAS.xsd"
+                Version="2.0"
+                ID="abc123"
+                IssueInstant="2004-12-05T09:27:05"
+                InResponseTo="de305d54-75b4-431b-adb2-eb6b9e546014">
+  <!-- A sample file showing the maximum number of attributes possible, in a SAML response about an NPE, according the UIAS specification.   -->
+  <saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">service.agency.ic.gov:saml2:entityId</saml:Issuer>
+  <samlp:Status>
+    <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success" />
+  </samlp:Status>
+  <saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+                  Version="2.0"
+                  ID="abc124"
+                  IssueInstant="2004-12-05T09:27:05">
+    <saml:Issuer>service.agency.ic.gov:saml2:entityId</saml:Issuer>
+    <saml:Subject>
+      <saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName">-CN=webserver.cia.ic.gov, ou=CIA, 0=US</saml:NameID>
+    </saml:Subject>
+    <saml:Conditions NotBefore="2004-12-05T09:17:05"
+                     NotOnOrAfter="2004-12-05T09:27:05">
+      <saml:AudienceRestriction>
+        <saml:Audience>http://service.agency.ic.gov-uaasv3</saml:Audience>
+        <!-- Declares the assertion's semantics are only valid for the relying party named in the UIR.
+                    Restricts the conditions under which the assertion is valid, could optionally 
+                    provide Ts and Cs relating to such validity. Relates to scope and conditions of
+                    the trust relationship. -->
+      </saml:AudienceRestriction>
+    </saml:Conditions>
+    <saml:AttributeStatement>
+      <saml:Attribute Name="adminOrganization"
+                      FriendlyName="urn:us:gov:ic:uias:adminOrganization"
+                      NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+        <saml:AttributeValue xsi:type="uias:adminOrganizationType">USA.CIA</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="auditRoutingOrganization"
+                      FriendlyName="urn:us:gov:ic:uias:auditRoutingOrganization"
+                      NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+        <saml:AttributeValue xsi:type="uias:auditRoutingOrganizationType">USA.CIA</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="authorityCategory"
+                      FriendlyName="urn:us:gov:ic:uias:authorityCategory"
+                      NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+        <saml:AttributeValue xsi:type="uias:authorityCategoryType">TEST_DATA</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="ATOStatus"
+                      FriendlyName="urn:us:gov:ic:uias:ATOStatus"
+                      NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+        <saml:AttributeValue xsi:type="uias:ATOStatusType">true</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="certificateAuthority"
+                      FriendlyName="urn:us:gov:ic:uias:certificateAuthority"
+                      NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+        <saml:AttributeValue xsi:type="uias:certificateAuthorityType">ICPKI</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="clearance"
+                      FriendlyName="urn:us:gov:ic:uias:clearance"
+                      NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+        <saml:AttributeValue xsi:type="uias:clearanceType">TS</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="countryOfAffiliation"
+                      FriendlyName="urn:us:gov:ic:uias:countryOfAffiliation"
+                      NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+        <saml:AttributeValue xsi:type="uias:countryOfAffiliationType">USA</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="digitalIdentifier"
+                      FriendlyName="urn:us:gov:ic:uias:digitalIdentifier"
+                      NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+        <saml:AttributeValue xsi:type="uias:digitalIdentifierType">-CN=webserver.cia.ic.gov, ou=CIA, 0=US</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="dutyOrganization"
+                      FriendlyName="urn:us:gov:ic:uias:dutyOrganization"
+                      NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+        <saml:AttributeValue xsi:type="uias:dutyOrganizationType">USA.CIA</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="dutyOrganizationUnit"
+                      FriendlyName="urn:us:gov:ic:uias:dutyOrganizationUnit"
+                      NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+        <saml:AttributeValue xsi:type="uias:dutyOrganizationUnitType">USA.CIA:ONE:TWO</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="entitySecurityMark"
+                      FriendlyName="urn:us:gov:ic:uias:entitySecurityMark"
+                      NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+        <saml:AttributeValue xsi:type="uias:entitySecurityMarkType">SECRET//NOFORN</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="entityType"
+                      FriendlyName="urn:us:gov:ic:uias:entityType"
+                      NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+        <saml:AttributeValue xsi:type="uias:entityTypeType">SVR</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="fineAccessControls"
+                      FriendlyName="urn:us:gov:ic:uias:fineAccessControls"
+                      NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+        <saml:AttributeValue xsi:type="uias:fineAccessControlsType">SI TK</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="group"
+                      FriendlyName="urn:us:gov:ic:uias:group"
+                      NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+        <saml:AttributeValue xsi:type="uias:groupType">NERDS fools tryme</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="handlingControls"
+                      FriendlyName="urn:us:gov:ic:uias:handlingControls"
+                      NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+        <saml:AttributeValue xsi:type="uias:handlingControlsType">RAWFISA</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="icNetworks"
+                      FriendlyName="urn:us:gov:ic:uias:icNetworks"
+                      NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+        <saml:AttributeValue xsi:type="uias:icNetworksType">ACSS</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="isICMember"
+                      FriendlyName="urn:us:gov:ic:uias:isICMember"
+                      NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+        <saml:AttributeValue xsi:type="uias:isICMemberType">true</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="lifeCycleStatus"
+                      FriendlyName="urn:us:gov:ic:uias:lifeCycleStatus"
+                      NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+        <!-- This is only valid for NPEs -->
+        <saml:AttributeValue xsi:type="uias:lifeCycleStatusType">PROD</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="originatingNetwork"
+                      FriendlyName="urn:us:gov:ic:uias:originatingNetwork"
+                      NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+        <saml:AttributeValue xsi:type="uias:originatingNetworkType">ACSS</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="region"
+                      FriendlyName="urn:us:gov:ic:uias:region"
+                      NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+        <saml:AttributeValue xsi:type="uias:regionType">ANAN AMno</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="role"
+                      FriendlyName="urn:us:gov:ic:uias:role"
+                      NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+        <saml:AttributeValue xsi:type="uias:roleType">C2S-CIA-Ent-CIO-NETADMIN Nebula-CIA-Bulk</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="topic"
+                      FriendlyName="urn:us:gov:ic:uias:topic"
+                      NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+        <saml:AttributeValue xsi:type="uias:topicType">ANY CN</saml:AttributeValue>
+      </saml:Attribute>
+    </saml:AttributeStatement>
+  </saml:Assertion>
+</samlp:Response>

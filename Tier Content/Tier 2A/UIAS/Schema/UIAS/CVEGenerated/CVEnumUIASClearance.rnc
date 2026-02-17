@@ -1,0 +1,17 @@
+# UNCLASSIFIED
+default namespace = "urn:us:gov:ic:cvenum:uias:clearance"
+CVEnumUIASClearance.cve = list { 
+# (U) 
+"U"?, 
+# (U) 
+"R"?, 
+# (U) 
+"C"?, 
+# (U) 
+"S"?, 
+# (U) 
+"TS"?, 
+# (U) 
+"L"?, 
+# (U) 
+"Q"? } 

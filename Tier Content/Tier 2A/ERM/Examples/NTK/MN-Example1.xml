@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/NTK/NTK_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<!-- All classification marks in this example are   -->
+<!-- for illustrative purposes only, there are no   -->
+<!-- actual classified data contained in this example -->
+<test:root xmlns:test="test:ntk"
+           xmlns:ism="urn:us:gov:ic:ism"
+           xmlns:ntk="urn:us:gov:ic:ntk"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           ism:compliesWith="USGov USIC"
+           ntk:DESVersion="201508"
+           ism:resourceElement="true"
+           ism:createDate="2012-05-28"
+           ism:DESVersion="201609.201707"
+           ism:ISMCATCESVersion="201709"
+           ism:classification="U"
+           ism:ownerProducer="USA"
+           xsi:schemaLocation="test:ntk ../../Examples/NTK/test_ntk.xsd"><!-- Example file to limit access to users with mission need profile containing at least one group and one issue listed -->
+   <ntk:Access xsi:schemaLocation="urn:us:gov:ic:ntk ../../../../../Schema/NTK/IC-NTK.xsd"
+               ism:classification="U"
+               ism:ownerProducer="USA">
+      <ntk:RequiresAnyOf>
+         <ntk:AccessProfileList>
+            <ntk:AccessProfile ism:classification="U" ism:ownerProducer="USA">
+               <ntk:AccessPolicy>urn:us:gov:ic:aces:ntk:mn</ntk:AccessPolicy>
+               <ntk:ProfileDes>urn:us:gov:ic:ntk:profile:datasphere</ntk:ProfileDes>
+               <ntk:VocabularyType ntk:name="datasphere:mn:issue" ntk:sourceVersion="201705"/>
+               <ntk:VocabularyType ntk:name="datasphere:mn:region" ntk:sourceVersion="201705"/>
+               <ntk:AccessProfileValue ntk:vocabulary="datasphere:mn:issue">DI</ntk:AccessProfileValue>
+               <ntk:AccessProfileValue ntk:vocabulary="datasphere:mn:issue">CST</ntk:AccessProfileValue>
+               <ntk:AccessProfileValue ntk:vocabulary="datasphere:mn:region">AFce</ntk:AccessProfileValue>
+               <ntk:AccessProfileValue ntk:vocabulary="datasphere:mn:region">AFea</ntk:AccessProfileValue>
+               <ntk:AccessProfileValue ntk:vocabulary="datasphere:mn:region">AFno</ntk:AccessProfileValue>
+            </ntk:AccessProfile>
+         </ntk:AccessProfileList>
+      </ntk:RequiresAnyOf>
+   </ntk:Access>
+</test:root>

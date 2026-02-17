@@ -1,0 +1,620 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+      <title>Schema documentation for component irm:simpleTokenType</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css"></link>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+        var facetsBoxes= new Array('facets_simpleTokenType');
+var usedByBoxes= new Array('usedBy_simpleTokenType');
+var sourceBoxes= new Array('source_simpleTokenType');
+var diagramBoxes= new Array('diagram_simpleTokenType');
+var annotationBoxes= new Array('annotations_simpleTokenType');
+
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                    //
+--></script>
+   </head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_content" rowspan="1" colspan="1">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, annotationBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Annotations</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, diagramBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Diagrams</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, facetsBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Facets </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Source</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Used by </span>
+                        </td>
+                     </tr>
+                  </table>
+                  <div align="right">
+                     <span>
+                        <input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close"></input>
+                     </span>
+                  </div>
+               </td>
+               <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+            </tr>
+         </table>
+      </div>
+      <a id="simpleTokenType" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Simple Type <span class="qname">irm:simpleTokenType</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:irm</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_simpleTokenType" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_simpleTokenType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_simpleTokenType" style="display:block">
+                              <div class="annotation">type created to ensure an element / attribute is
+                                 comprised of more than whitespace, tab, newline, etc.</div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_simpleTokenType" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_simpleTokenType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_simpleTokenType" style="display:block">
+                              <img alt="Diagram" border="0" src="img/9efda44b-728c-4946-a7a6-29f0a5cadf80.png"></img>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">restriction of <b>xsd:token</b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Facets</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_facets_simpleTokenType" type="image" src="img/btM.gif" value="-" onclick="switchState('facets_simpleTokenType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="facets_simpleTokenType" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">minLength</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>1</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Used by</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_usedBy_simpleTokenType" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_simpleTokenType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="usedBy_simpleTokenType" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Attributes </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="IC-IRM_xsd_Attribute_irm_acronym.html#acronym" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component @irm:acronym')" shape="rect">@irm:acronym</a>
+                                       </b>, <b>
+                                          <a href="2b36d201-7edf-4498-aa6b-dcdb3874edbd.html#CompoundCategoryIdentifierType_code" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundCategoryIdentifierType/@irm:code')" shape="rect">irm:CompoundCategoryIdentifierType/@irm:code</a>
+                                       </b>, <b>
+                                          <a href="2b36d201-7edf-4498-aa6b-dcdb3874edbd.html#CompoundCategoryIdentifierType_label" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundCategoryIdentifierType/@irm:label')" shape="rect">irm:CompoundCategoryIdentifierType/@irm:label</a>
+                                       </b>, <b>
+                                          <a href="c6fcf4eb-4459-4ffa-a948-d90d77855a99.html#CompoundCountryCodeIdentifierType_code" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundCountryCodeIdentifierType/@irm:code')" shape="rect">irm:CompoundCountryCodeIdentifierType/@irm:code</a>
+                                       </b>, <b>
+                                          <a href="c6fcf4eb-4459-4ffa-a948-d90d77855a99.html#CompoundCountryCodeIdentifierType_codespace" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundCountryCodeIdentifierType/@irm:codespace')" shape="rect">irm:CompoundCountryCodeIdentifierType/@irm:codespace</a>
+                                       </b>, <b>
+                                          <a href="a3f46f77-cec5-49de-b5e4-44da59dfca47.html#CompoundKeywordIdentifierType_value" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundKeywordIdentifierType/@irm:value')" shape="rect">irm:CompoundKeywordIdentifierType/@irm:value</a>
+                                       </b>, <b>
+                                          <a href="19932cc0-7d40-4b1c-a447-163caf5ee04c.html#CompoundLanguageIdentifierType_qualifier" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundLanguageIdentifierType/@irm:qualifier')" shape="rect">irm:CompoundLanguageIdentifierType/@irm:qualifier</a>
+                                       </b>, <b>
+                                          <a href="19932cc0-7d40-4b1c-a447-163caf5ee04c.html#CompoundLanguageIdentifierType_value" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundLanguageIdentifierType/@irm:value')" shape="rect">irm:CompoundLanguageIdentifierType/@irm:value</a>
+                                       </b>, <b>
+                                          <a href="d2f74fbb-1270-4c5f-916c-499a207762ba.html#CompoundResourceIdentifierType_value" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundResourceIdentifierType/@irm:value')" shape="rect">irm:CompoundResourceIdentifierType/@irm:value</a>
+                                       </b>, <b>
+                                          <a href="21af47c7-03dc-4a02-966b-1f1309b9edbf.html#CompoundSourceIdentifierType_qualifier" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundSourceIdentifierType/@irm:qualifier')" shape="rect">irm:CompoundSourceIdentifierType/@irm:qualifier</a>
+                                       </b>, <b>
+                                          <a href="21af47c7-03dc-4a02-966b-1f1309b9edbf.html#CompoundSourceIdentifierType_schemaQualifier" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundSourceIdentifierType/@irm:schemaQualifier')" shape="rect">irm:CompoundSourceIdentifierType/@irm:schemaQualifier</a>
+                                       </b>, <b>
+                                          <a href="21af47c7-03dc-4a02-966b-1f1309b9edbf.html#CompoundSourceIdentifierType_value" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundSourceIdentifierType/@irm:value')" shape="rect">irm:CompoundSourceIdentifierType/@irm:value</a>
+                                       </b>, <b>
+                                          <a href="2ac2059d-5b39-45b3-b802-f499c8fb536d.html#CompoundTypeIdentifierType_qualifier" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundTypeIdentifierType/@irm:qualifier')" shape="rect">irm:CompoundTypeIdentifierType/@irm:qualifier</a>
+                                       </b>, <b>
+                                          <a href="2ac2059d-5b39-45b3-b802-f499c8fb536d.html#CompoundTypeIdentifierType_value" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundTypeIdentifierType/@irm:value')" shape="rect">irm:CompoundTypeIdentifierType/@irm:value</a>
+                                       </b>, <b>
+                                          <a href="4fa0cb09-93e3-4070-bc12-5bcb589ae315.html#CompoundWaterBodyIdentifierType_code" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundWaterBodyIdentifierType/@irm:code')" shape="rect">irm:CompoundWaterBodyIdentifierType/@irm:code</a>
+                                       </b>, <b>
+                                          <a href="4fa0cb09-93e3-4070-bc12-5bcb589ae315.html#CompoundWaterBodyIdentifierType_codespace" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CompoundWaterBodyIdentifierType/@irm:codespace')" shape="rect">irm:CompoundWaterBodyIdentifierType/@irm:codespace</a>
+                                       </b>, <b>
+                                          <a href="56cb20ad-5768-441a-b17e-aa7817c2601e.html#FacilityIdentifierType_beNumber" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:FacilityIdentifierType/@irm:beNumber')" shape="rect">irm:FacilityIdentifierType/@irm:beNumber</a>
+                                       </b>, <b>
+                                          <a href="56cb20ad-5768-441a-b17e-aa7817c2601e.html#FacilityIdentifierType_osuffix" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:FacilityIdentifierType/@irm:osuffix')" shape="rect">irm:FacilityIdentifierType/@irm:osuffix</a>
+                                       </b>, <b>
+                                          <a href="46cf2233-aa4b-4235-8863-01b8b10b40f4.html#PlaceType_precedence" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:PlaceType/@irm:precedence')" shape="rect">irm:PlaceType/@irm:precedence</a>
+                                       </b>, <b>
+                                          <a href="2ad42352-bbf0-4c1f-9621-76fecba2b992.html#QualifiedExtentValueType_value" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:QualifiedExtentValueType/@irm:value')" shape="rect">irm:QualifiedExtentValueType/@irm:value</a>
+                                       </b>, <b>
+                                          <a href="3f65acbb-c6fe-4085-ae93-742ffae4f845.html#TaskingInfoType_TaskingInfoType_taskID_taskingSystem" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:TaskingInfoType/irm:taskID/@irm:taskingSystem')" shape="rect">irm:TaskingInfoType/irm:taskID/@irm:taskingSystem</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Elements </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="c709b5a1-a61b-4cdb-996e-9e6f8b1a981f.html#AffiliatedProducerType_email" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:AffiliatedProducerType/irm:email')" shape="rect">irm:AffiliatedProducerType/irm:email</a>
+                                       </b>, <b>
+                                          <a href="c709b5a1-a61b-4cdb-996e-9e6f8b1a981f.html#AffiliatedProducerType_name" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:AffiliatedProducerType/irm:name')" shape="rect">irm:AffiliatedProducerType/irm:name</a>
+                                       </b>, <b>
+                                          <a href="c709b5a1-a61b-4cdb-996e-9e6f8b1a981f.html#AffiliatedProducerType_phone" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:AffiliatedProducerType/irm:phone')" shape="rect">irm:AffiliatedProducerType/irm:phone</a>
+                                       </b>, <b>
+                                          <a href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_description" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:ApproximableDateType/irm:description')" shape="rect">irm:ApproximableDateType/irm:description</a>
+                                       </b>, <b>
+                                          <a href="09c00706-0c8a-495f-bd63-79eaf107654b.html#OrganizationType_email" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:OrganizationType/irm:email')" shape="rect">irm:OrganizationType/irm:email</a>
+                                       </b>, <b>
+                                          <a href="09c00706-0c8a-495f-bd63-79eaf107654b.html#OrganizationType_name" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:OrganizationType/irm:name')" shape="rect">irm:OrganizationType/irm:name</a>
+                                       </b>, <b>
+                                          <a href="09c00706-0c8a-495f-bd63-79eaf107654b.html#OrganizationType_phone" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:OrganizationType/irm:phone')" shape="rect">irm:OrganizationType/irm:phone</a>
+                                       </b>, <b>
+                                          <a href="09c00706-0c8a-495f-bd63-79eaf107654b.html#OrganizationType_subOrganization" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:OrganizationType/irm:subOrganization')" shape="rect">irm:OrganizationType/irm:subOrganization</a>
+                                       </b>, <b>
+                                          <a href="26db0281-d29e-4303-a098-894229287315.html#PersonType_email" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:PersonType/irm:email')" shape="rect">irm:PersonType/irm:email</a>
+                                       </b>, <b>
+                                          <a href="26db0281-d29e-4303-a098-894229287315.html#PersonType_name" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:PersonType/irm:name')" shape="rect">irm:PersonType/irm:name</a>
+                                       </b>, <b>
+                                          <a href="26db0281-d29e-4303-a098-894229287315.html#PersonType_phone" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:PersonType/irm:phone')" shape="rect">irm:PersonType/irm:phone</a>
+                                       </b>, <b>
+                                          <a href="26db0281-d29e-4303-a098-894229287315.html#PersonType_surname" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:PersonType/irm:surname')" shape="rect">irm:PersonType/irm:surname</a>
+                                       </b>, <b>
+                                          <a href="26db0281-d29e-4303-a098-894229287315.html#PersonType_userID" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:PersonType/irm:userID')" shape="rect">irm:PersonType/irm:userID</a>
+                                       </b>, <b>
+                                          <a href="3f65acbb-c6fe-4085-ae93-742ffae4f845.html#TaskingInfoType_taskID" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:TaskingInfoType/irm:taskID')" shape="rect">irm:TaskingInfoType/irm:taskID</a>
+                                       </b>, <b>
+                                          <a href="e01d6cd2-f007-4dd5-a884-f583d06c3800.html#TimePeriodType_name" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:TimePeriodType/irm:name')" shape="rect">irm:TimePeriodType/irm:name</a>
+                                       </b>, <b>
+                                          <a href="IC-IRM_xsd_Element_irm_affiliation.html#affiliation" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:affiliation')" shape="rect">irm:affiliation</a>
+                                       </b>, <b>
+                                          <a href="6acc0c03-0e32-4f55-b38d-f23271186e17.html#geographicIdentifier_name" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:geographicIdentifier/irm:name')" shape="rect">irm:geographicIdentifier/irm:name</a>
+                                       </b>, <b>
+                                          <a href="6acc0c03-0e32-4f55-b38d-f23271186e17.html#geographicIdentifier_region" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:geographicIdentifier/irm:region')" shape="rect">irm:geographicIdentifier/irm:region</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Complex Types </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="597e96dd-eba6-4b72-a4e6-74d7569de9a2.html#DescriptionType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:DescriptionType')" shape="rect">irm:DescriptionType</a>
+                                       </b>, <b>
+                                          <a href="7fdf8b3d-61db-4699-a544-74520aed1a5b.html#NonStateActorCoverageType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:NonStateActorCoverageType')" shape="rect">irm:NonStateActorCoverageType</a>
+                                       </b>, <b>
+                                          <a href="1da207e7-635d-4273-9975-e0dfa024f13a.html#ProcessingInfoType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:ProcessingInfoType')" shape="rect">irm:ProcessingInfoType</a>
+                                       </b>, <b>
+                                          <a href="5acf3253-14d0-4caa-8468-5bb9763a453b.html#SubtitleType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:SubtitleType')" shape="rect">irm:SubtitleType</a>
+                                       </b>, <b>
+                                          <a href="96d138ad-fe28-4050-b20c-0dc3a911f6b9.html#TitleType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:TitleType')" shape="rect">irm:TitleType</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Simple Types </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="88b85391-2b1c-4191-b306-0627e5d12fd2.html#MediumType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:MediumType')" shape="rect">irm:MediumType</a>
+                                       </b>, <b>
+                                          <a href="4b3f57c1-9dc0-47c9-8b28-ced05abae4a2.html#MimeTypeType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:MimeTypeType')" shape="rect">irm:MimeTypeType</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_simpleTokenType" type="image" src="img/btM.gif" value="-" onclick="switchState('source_simpleTokenType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_simpleTokenType" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:simpleType</span><span class="tAN"> name=</span><span class="tAV">"simpleTokenType"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tAN"> xml:lang=</span><span class="tAV">"en"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">type created to ensure an element / attribute is comprised of more than whitespace, tab, newline, etc.</span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:restriction</span><span class="tAN"> base=</span><span class="tAV">"xsd:token"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:minLength</span><span class="tAN"> value=</span><span class="tAV">"1"</span><span class="tEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:restriction&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:simpleType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/IRM/IC-IRM.xsd">IC-IRM.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <h2 style=" font:italic bold 12px Georgia,serif;color:gray;font-size:14px;text-align:center;  width : 95%;">
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See Distribution Notice for details.
+       <a href="../index.html" target="_top">
+                Click Here
+            </a>
+      </h2>
+      <div class="footer"></div>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                //
+--></script>
+   </body>
+</html>

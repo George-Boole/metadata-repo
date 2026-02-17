@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/PMA/PMA_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron" title="Main PMA Schematron File" ?>
+<?xml-model href="../../Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-EDH/IC-EDH_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-TDF/IC-TDF_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IRM/IRM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-ID/IC-ID_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/ISMCAT/ISMCAT_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/USAgency/USAgency_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/PM/PM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron" title="Main PM Schematron File"?>
+<?xml-model href="../../Schematron/IC-GENC/IC-GENC_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!-- Distro Statement: Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<!-- All classification marks in this example are   
+         for illustrative purposes only, there are no   
+      actual classified data contained in this example -->
+<TrustedDataObject xmlns="urn:us:gov:ic:tdf"
+                   xmlns:tdf="urn:us:gov:ic:tdf"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   tdf:version="202111-IC-TDF.202111"
+                   xsi:schemaLocation="urn:us:gov:ic:irm ../../Schema/IRM/IC-IRM.xsd urn:us:gov:ic:tdf ../../Schema/IC-TDF/IC-TDF.xsd">
+  <HandlingAssertion tdf:scope="TDO">
+    <HandlingStatement>
+      <Edh xmlns="urn:us:gov:ic:edh"
+           xmlns:usagency="urn:us:gov:ic:usagency"
+           xmlns:icid="urn:us:gov:ic:id"
+           xmlns:edh="urn:us:gov:ic:edh"
+           xmlns:ism="urn:us:gov:ic:ism"
+           usagency:CESVersion="202207"
+           icid:DESVersion="202111"
+           edh:DESVersion="201903"
+           ism:DESVersion="202111.202211"
+           ism:ISMCATCESVersion="202211">
+        <icid:Identifier>guide://999990/test-metacard-instance2</icid:Identifier>
+        <DataItemCreateDateTime>2011-08-19T00:00:00Z</DataItemCreateDateTime>
+        <ResponsibleEntity edh:role="Custodian">
+          <Country>USA</Country>
+          <Organization>USA.DNI</Organization>
+        </ResponsibleEntity>
+        <Security xmlns="urn:us:gov:ic:arh"
+                  ism:compliesWith="USGov USIC"
+                  ism:DESVersion="202111.202211"
+                  ism:ISMCATCESVersion="202211"
+                  ism:resourceElement="true"
+                  ism:createDate="2011-08-19"
+                  ism:classification="S"
+                  ism:ownerProducer="USA"
+                  ism:atomicEnergyMarkings="TFNI"
+                  ism:derivativelyClassifiedBy="John Doe"
+                  ism:derivedFrom="Multiple Sources"
+                  ism:declassException="AEA"
+                  ism:disseminationControls="OC NF">
+          <ntk:Access xmlns:ntk="urn:us:gov:ic:ntk"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">
+            <ntk:RequiresAllOf>
+              <ntk:AccessProfileList>
+                <ntk:AccessProfile ism:classification="U"
+                                   ism:ownerProducer="USA">
+                  <ntk:AccessPolicy>urn:us:gov:ic:aces:ntk:oc</ntk:AccessPolicy>
+                  <ntk:ProfileDes>urn:us:gov:ic:ntk:profile:agencydissem</ntk:ProfileDes>
+                  <ntk:VocabularyType ntk:name="organization:usa-agency"
+                                      ntk:sourceVersion="202207" />
+                  <ntk:AccessProfileValue ntk:qualifier="originator"
+                                          ntk:vocabulary="organization:usa-agency">USA.CIA</ntk:AccessProfileValue>
+                  <ntk:AccessProfileValue ntk:qualifier="dissemto"
+                                          ntk:vocabulary="organization:usa-agency">USA.CIA</ntk:AccessProfileValue>
+                </ntk:AccessProfile>
+              </ntk:AccessProfileList>
+            </ntk:RequiresAllOf>
+          </ntk:Access>
+        </Security>
+      </Edh>
+    </HandlingStatement>
+  </HandlingAssertion>
+  <HandlingAssertion tdf:scope="PAYL">
+    <HandlingStatement>
+      <ExternalEdh xmlns="urn:us:gov:ic:edh"
+                   xmlns:usagency="urn:us:gov:ic:usagency"
+                   xmlns:icid="urn:us:gov:ic:id"
+                   xmlns:edh="urn:us:gov:ic:edh"
+                   xmlns:ism="urn:us:gov:ic:ism"
+                   usagency:CESVersion="202207"
+                   icid:DESVersion="202111"
+                   edh:DESVersion="201903"
+                   ism:DESVersion="202111.202211"
+                   ism:ISMCATCESVersion="202211">
+        <icid:Identifier>guide://999990/test-instance2</icid:Identifier>
+        <DataItemCreateDateTime>2012-07-06T00:00:00Z</DataItemCreateDateTime>
+        <ResponsibleEntity edh:role="Custodian">
+          <Country>USA</Country>
+          <Organization>USA.DNI</Organization>
+        </ResponsibleEntity>
+        <ExternalSecurity xmlns="urn:us:gov:ic:arh"
+                          ism:excludeFromRollup="true"
+                          ism:classification="U"
+                          ism:ownerProducer="USA">
+          <ExternalAccess xmlns="urn:us:gov:ic:ntk"
+                          xmlns:ntk="urn:us:gov:ic:ntk"
+                          ntk:externalReference="true"
+                          ism:classification="U"
+                          ism:ownerProducer="USA">
+            <ntk:RequiresAnyOf>
+              <ntk:AccessProfileList>
+                <ntk:AccessProfile ism:classification="S"
+                                   ism:ownerProducer="USA"
+                                   ism:disseminationControls="RELIDO">
+                  <ntk:AccessPolicy>urn:us:gov:ic:aces:ntk:permissive</ntk:AccessPolicy>
+                  <ntk:ProfileDes>urn:us:gov:ic:ntk:profile:grp-ind</ntk:ProfileDes>
+                  <ntk:VocabularyType ntk:name="individual:urn:us:gov:ic:aces:ntk:oc"
+                                      ntk:source="urn:us:gov:ic:aces:ntk:oc" />
+                  <ntk:AccessProfileValue ntk:vocabulary="individual:urn:us:gov:ic:aces:ntk:oc">
+                  user_2321889:Doe_John_H</ntk:AccessProfileValue>
+                </ntk:AccessProfile>
+              </ntk:AccessProfileList>
+            </ntk:RequiresAnyOf>
+          </ExternalAccess>
+          <NoticeExternalList xmlns="urn:us:gov:ic:ism"
+                              ism:classification="U"
+                              ism:ownerProducer="USA">
+            <NoticeExternal ism:externalNotice="true"
+                            ism:noticeType="FRD"
+                            ism:classification="U"
+                            ism:ownerProducer="USA">
+              <ism:NoticeText ism:classification="U"
+                              ism:ownerProducer="USA">This document contains FRD data.</ism:NoticeText>
+            </NoticeExternal>
+          </NoticeExternalList>
+        </ExternalSecurity>
+      </ExternalEdh>
+    </HandlingStatement>
+  </HandlingAssertion>
+  <Assertion tdf:scope="PAYL">
+    <StatementMetadata>
+      <Security xmlns="urn:us:gov:ic:arh"
+                xmlns:ism="urn:us:gov:ic:ism"
+                ism:classification="U"
+                ism:ownerProducer="USA"
+                ism:resourceElement="true"
+                ism:compliesWith="USGov USIC"
+                ism:createDate="2019-12-19" />
+    </StatementMetadata>
+    <StructuredStatement>
+      <ProductionMetricsAssertion xmlns="urn:us:gov:ic:pma"
+                                  xmlns:pma="urn:us:gov:ic:pma"
+                                  xmlns:pm="urn:us:gov:ic:pm"
+                                  pma:DESVersion="201903.201909"
+                                  pm:CESVersion="202211">
+        <ProductionMetric xmlns:ism="urn:us:gov:ic:ism"
+                          ism:classification="C"
+                          ism:ownerProducer="USA"
+                          ism:disseminationControls="RELIDO"
+                          pma:actor="GBR"
+                          pma:subject="LEAD" />
+      </ProductionMetricsAssertion>
+    </StructuredStatement>
+  </Assertion>
+  <Assertion tdf:scope="PAYL">
+    <StatementMetadata>
+      <Security xmlns="urn:us:gov:ic:arh"
+                xmlns:ism="urn:us:gov:ic:ism"
+                ism:compliesWith="USGov USIC"
+                ism:DESVersion="202111.202211"
+                ism:ISMCATCESVersion="202211"
+                ism:resourceElement="true"
+                ism:createDate="2011-08-19"
+                ism:classification="S"
+                ism:ownerProducer="USA"
+                ism:disseminationControls="OC NF"
+                ism:derivativelyClassifiedBy="John Doe"
+                ism:derivedFrom="Multiple Sources"
+                ism:declassDate="2020-12-31">
+        <NoticeList xmlns="urn:us:gov:ic:ism"
+                    ism:classification="U"
+                    ism:ownerProducer="USA">
+          <Notice ism:noticeType="POC"
+                  ism:classification="U"
+                  ism:ownerProducer="USA">
+            <NoticeText ism:classification="U"
+                        ism:ownerProducer="USA"
+                        ism:pocType="ICD-710">Agency Z 800-555-6573 ext.9935</NoticeText>
+          </Notice>
+          <Notice ism:noticeType="POC"
+                  ism:classification="U"
+                  ism:ownerProducer="USA">
+            <NoticeText ism:classification="U"
+                        ism:ownerProducer="USA">James Smith 800-555-3719 james.e.smith@agencyz.gov AgencyZ</NoticeText>
+          </Notice>
+        </NoticeList>
+      </Security>
+    </StatementMetadata>
+    <StructuredStatement>
+      <ICResourceMetadataPackage xmlns="urn:us:gov:ic:irm"
+                                 xmlns:usagency="urn:us:gov:ic:usagency"
+                                 xmlns:icid="urn:us:gov:ic:id"
+                                 xmlns:intdis="urn:us:gov:ic:intdis"
+                                 xmlns:irm="urn:us:gov:ic:irm"
+                                 xmlns:genc="urn:us:gov:ic:icgenc"
+                                 usagency:CESVersion="202207"
+                                 icid:DESVersion="202111"
+                                 intdis:CESVersion="201707"
+                                 irm:DESVersion="202111"
+                                 genc:CESVersion="202111"
+                                 irm:compliesWith="USA_IC">
+        <metacardInfo>
+          <identifier irm:qualifier="IC-ID"
+                      irm:value="guide://9990/test-metacard-instance2" />
+          <dates irm:created="2011-08-19"
+                 irm:validTil="2051-08-19" />
+          <publisher>
+            <organization irm:acronym="USA.OtherUSG">
+              <name>OtherUSG</name>
+              <subOrganization xmlns:ism="urn:us:gov:ic:ism"
+                               ism:classification="U"
+                               ism:ownerProducer="USA">Agency Z</subOrganization>
+            </organization>
+          </publisher>
+          <pointOfContact xmlns:ism="urn:us:gov:ic:ism"
+                          ism:pocType="ICD-710">
+            <organization>
+              <name>Agency Z</name>
+              <phone>800-555-6573 ext.9935</phone>
+            </organization>
+          </pointOfContact>
+          <pointOfContact>
+            <person>
+              <name>James</name>
+              <surname>Smith</surname>
+              <phone>800-555-3719</phone>
+              <email>james.e.smith@agencyz.gov</email>
+              <affiliation>AgencyZ</affiliation>
+            </person>
+          </pointOfContact>
+          <processingInfo xmlns:ism="urn:us:gov:ic:ism"
+                          irm:dateProcessed="2011-08-19"
+                          ism:classification="U"
+                          ism:ownerProducer="USA">XSLT Transformation to convert DDMS 2.0 to DDMS 3.1.</processingInfo>
+        </metacardInfo>
+        <identifier irm:qualifier="IC-ID"
+                    irm:value="guide://9990/test-instance2" />
+        <identifier irm:qualifier="FullName"
+                    irm:value="Asset HR-832js34" />
+        <title xmlns:ism="urn:us:gov:ic:ism"
+               ism:classification="U"
+               ism:ownerProducer="USA">Sample IRM Document - LEAD</title>
+        <language irm:qualifier="urn:us:gov:ic:cvenum:irm:iso639-3:trigraph"
+                  irm:value="eng" />
+        <dates irm:receivedOn="2011-08-19"
+               irm:created="2012-07-06T00:00:00Z" />
+        <type xmlns:ism="urn:us:gov:ic:ism"
+              ism:classification="U"
+              ism:ownerProducer="USA"
+              irm:qualifier="urn:us:gov:ic:cvenum:intdis:discipline"
+              irm:value="HUMINT" />
+        <type xmlns:ism="urn:us:gov:ic:ism"
+              ism:classification="U"
+              ism:ownerProducer="USA"
+              irm:qualifier="urn:us:gov:ic:cvenum:intdis:discipline"
+              irm:value="MASINT" />
+        <type xmlns:ism="urn:us:gov:ic:ism"
+              ism:classification="U"
+              ism:ownerProducer="USA"
+              irm:qualifier="urn:us:gov:ic:cvenum:intdis:discipline:component"
+              irm:value="MASINT_GEO" />
+        <type xmlns:ism="urn:us:gov:ic:ism"
+              ism:classification="U"
+              ism:ownerProducer="USA"
+              irm:qualifier="urn:us:gov:ic:cvenum:intdis:discipline"
+              irm:value="other:MyDiscipline" />
+        <type xmlns:ism="urn:us:gov:ic:ism"
+              ism:classification="U"
+              ism:ownerProducer="USA"
+              irm:qualifier="urn:us:gov:ic:cvenum:intdis:discipline:component"
+              irm:value="other:MySubDiscipline" />
+        <type xmlns:ism="urn:us:gov:ic:ism"
+              ism:classification="U"
+              ism:ownerProducer="USA"
+              irm:qualifier="urn:us:gov:ic:cvenum:intdis:discipline:component:technique"
+              irm:value="other:MySubTechnique" />
+        <type irm:qualifier="urn:us:gov:ic:irm:intel:reportinglevel"
+              irm:value="2" />
+        <creator>
+          <organization irm:acronym="USA.CIA">
+            <name>CIA</name>
+          </organization>
+        </creator>
+        <creator>
+          <person>
+            <name>John</name>
+            <surname>Doe</surname>
+          </person>
+        </creator>
+        <subjectCoverage>
+          <category irm:label="leadership" />
+          <nonStateActor xmlns:ism="urn:us:gov:ic:ism"
+                         ism:classification="U"
+                         ism:ownerProducer="USA"
+                         irm:qualifier="urn:i:never:had:a:qualifier"
+                         irm:order="3">100043</nonStateActor>
+        </subjectCoverage>
+        <geospatialCoverage xmlns:ism="urn:us:gov:ic:ism"
+                            ism:classification="U"
+                            ism:ownerProducer="USA"
+                            irm:order="1"
+                            irm:precedence="Primary">
+          <geographicIdentifier>
+            <countryCode irm:codespace="ge:GENC:3:ed3"
+                         irm:code="GBR" />
+          </geographicIdentifier>
+        </geospatialCoverage>
+        <geospatialCoverage xmlns:ism="urn:us:gov:ic:ism"
+                            ism:classification="U"
+                            ism:ownerProducer="USA"
+                            irm:order="4"
+                            irm:precedence="Secondary">
+          <geographicIdentifier>
+            <subDivisionCode irm:codespace="as:GENC:6:3-2"
+                             irm:code="GB-BST" />
+          </geographicIdentifier>
+        </geospatialCoverage>
+        <geospatialCoverage xmlns:ism="urn:us:gov:ic:ism"
+                            ism:classification="U"
+                            ism:ownerProducer="USA"
+                            irm:order="2">
+          <geographicIdentifier>
+            <subDivisionCode irm:codespace="as:GENC:6:ed3"
+                             irm:code="AD-03" />
+          </geographicIdentifier>
+        </geospatialCoverage>
+        <resourceManagement>
+          <taskingInfo xmlns:ism="urn:us:gov:ic:ism"
+                       ism:classification="U"
+                       ism:ownerProducer="USA">
+            <requesterInfo ism:classification="U"
+                           ism:ownerProducer="USA">
+              <organization>
+                <name>NSA</name>
+              </organization>
+            </requesterInfo>
+            <addressee ism:classification="U"
+                       ism:ownerProducer="USA">
+              <person>
+                <name>Joseph</name>
+                <surname>Jackson</surname>
+                <userID>79812126789</userID>
+              </person>
+            </addressee>
+            <taskID>Task 2391032</taskID>
+          </taskingInfo>
+        </resourceManagement>
+      </ICResourceMetadataPackage>
+    </StructuredStatement>
+  </Assertion>
+  <ReferenceValuePayload tdf:uri="guide://9990/test" />
+</TrustedDataObject>

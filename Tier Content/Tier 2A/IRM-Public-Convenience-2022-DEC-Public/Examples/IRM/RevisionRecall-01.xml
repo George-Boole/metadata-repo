@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/PMA/PMA_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron" title="Main PMA Schematron File" ?>
+<?xml-model href="../../Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-EDH/IC-EDH_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-TDF/IC-TDF_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IRM/IRM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/RevRecall/RevRecall_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-ID/IC-ID_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/USAgency/USAgency_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/PM/PM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron" title="Main PM Schematron File"?>
+<?xml-model href="../../Schematron/ISMCAT/ISMCAT_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<!-- All classification marks in this example are   -->
+<!-- for illustrative purposes only, there are no   -->
+<!-- actual classified data contained in this example -->
+<!-- An example document fragment. This is example file is Schema valid
+   but does not represent a complete document. It only represents enough to show how
+   to use the Revision recall indicator in one of the many ways it could be used.
+-->
+<!--[NTKv5-to-NTKv6][INFO]ICResourceMetadataPackage - DESVersion attribute has been incremented to reflect next version number.-->
+<!--[ISMv7-to-ISMv8][INFO]ICResourceMetadataPackage - DESVersion attribute has been incremented to reflect next version number.-->
+<TrustedDataObject xmlns="urn:us:gov:ic:tdf"
+                   xmlns:tdf="urn:us:gov:ic:tdf"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   tdf:version="202111-IC-TDF.202111"
+                   xsi:schemaLocation="urn:us:gov:ic:irm ../../Schema/IRM/IC-IRM.xsd urn:us:gov:ic:tdf ../../Schema/IC-TDF/IC-TDF.xsd">
+  <HandlingAssertion tdf:scope="TDO">
+    <HandlingStatement>
+      <Edh xmlns="urn:us:gov:ic:edh"
+           xmlns:usagency="urn:us:gov:ic:usagency"
+           xmlns:icid="urn:us:gov:ic:id"
+           xmlns:edh="urn:us:gov:ic:edh"
+           xmlns:ism="urn:us:gov:ic:ism"
+           usagency:CESVersion="202207"
+           icid:DESVersion="202111"
+           edh:DESVersion="201903"
+           ism:DESVersion="202111.202211"
+           ism:ISMCATCESVersion="202211">
+        <icid:Identifier>guide://999990/DNI-Card-1</icid:Identifier>
+        <DataItemCreateDateTime>2010-05-04T00:00:00Z</DataItemCreateDateTime>
+        <ResponsibleEntity edh:role="Custodian">
+          <Country>USA</Country>
+          <Organization>USA.DNI</Organization>
+        </ResponsibleEntity>
+        <Security xmlns="urn:us:gov:ic:arh"
+                  ism:compliesWith="USGov USIC"
+                  ism:DESVersion="202111.202211"
+                  ism:ISMCATCESVersion="202211"
+                  ism:classification="U"
+                  ism:ownerProducer="USA"
+                  ism:resourceElement="true"
+                  ism:createDate="2010-05-04" />
+      </Edh>
+    </HandlingStatement>
+  </HandlingAssertion>
+  <HandlingAssertion tdf:scope="PAYL">
+    <HandlingStatement>
+      <ExternalEdh xmlns="urn:us:gov:ic:edh"
+                   xmlns:usagency="urn:us:gov:ic:usagency"
+                   xmlns:icid="urn:us:gov:ic:id"
+                   xmlns:edh="urn:us:gov:ic:edh"
+                   xmlns:ism="urn:us:gov:ic:ism"
+                   usagency:CESVersion="202207"
+                   icid:DESVersion="202111"
+                   edh:DESVersion="201903"
+                   ism:DESVersion="202111.202211"
+                   ism:ISMCATCESVersion="202211">
+        <icid:Identifier>guide://999990/DNI-Doc-1</icid:Identifier>
+        <DataItemCreateDateTime>2009-11-10T12:00:00-04:00</DataItemCreateDateTime>
+        <ResponsibleEntity edh:role="Custodian">
+          <Country>USA</Country>
+          <Organization>USA.DNI</Organization>
+        </ResponsibleEntity>
+        <ExternalSecurity xmlns="urn:us:gov:ic:arh"
+                          ism:classification="U"
+                          ism:ownerProducer="USA"
+                          ism:excludeFromRollup="true" />
+      </ExternalEdh>
+    </HandlingStatement>
+  </HandlingAssertion>
+  <HandlingAssertion tdf:scope="TDO">
+    <HandlingStatement>
+      <RevisionRecall xmlns="urn:us:gov:ic:revrecall"
+                      xmlns:rr="urn:us:gov:ic:revrecall"
+                      rr:DESVersion="202111.202205"
+                      rr:id="7"
+                      rr:type="ADMINISTRATIVE_RECALL"
+                      rr:dateTime="2010-11-10T12:00:00.0-04:00"
+                      rr:action="RETAIN_WARN">
+        <Security xmlns="urn:us:gov:ic:arh"
+                  xmlns:ism="urn:us:gov:ic:ism"
+                  ism:resourceElement="true"
+                  ism:createDate="2010-05-04"
+                  ism:classification="U"
+                  ism:ownerProducer="USA"
+                  ism:compliesWith="USGov USIC" />
+        <ProductTitle xmlns:ism="urn:us:gov:ic:ism"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">A cool document you can't read</ProductTitle>
+        <Reason xmlns:ism="urn:us:gov:ic:ism"
+                ism:classification="U"
+                ism:ownerProducer="USA">asdfasdf. asdfasdf.</Reason>
+        <POC xmlns:ism="urn:us:gov:ic:ism"
+             ism:classification="U"
+             ism:ownerProducer="USA">John Doe, john.doe@org.gov, 555-555-5555</POC>
+        <Link xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlns:ism="urn:us:gov:ic:ism"
+              xlink:type="locator"
+              xlink:href="asdfasdf"
+              ism:classification="U"
+              ism:ownerProducer="USA" />
+      </RevisionRecall>
+    </HandlingStatement>
+  </HandlingAssertion>
+  <Assertion tdf:scope="PAYL">
+    <StatementMetadata>
+      <Security xmlns="urn:us:gov:ic:arh"
+                xmlns:ism="urn:us:gov:ic:ism"
+                ism:classification="U"
+                ism:ownerProducer="USA"
+                ism:resourceElement="true"
+                ism:compliesWith="USGov USIC"
+                ism:createDate="2019-12-19" />
+    </StatementMetadata>
+    <StructuredStatement>
+      <ProductionMetricsAssertion xmlns="urn:us:gov:ic:pma"
+                                  xmlns:pma="urn:us:gov:ic:pma"
+                                  xmlns:pm="urn:us:gov:ic:pm"
+                                  pma:DESVersion="201903.201909"
+                                  pm:CESVersion="202211">
+        <ProductionMetric xmlns:ism="urn:us:gov:ic:ism"
+                          ism:classification="U"
+                          ism:ownerProducer="USA"
+                          pma:actor="AFG"
+                          pma:subject="FOOD" />
+      </ProductionMetricsAssertion>
+    </StructuredStatement>
+  </Assertion>
+  <Assertion tdf:scope="PAYL">
+    <StatementMetadata>
+      <Security xmlns="urn:us:gov:ic:arh"
+                xmlns:ism="urn:us:gov:ic:ism"
+                ism:compliesWith="USGov USIC"
+                ism:DESVersion="202111.202211"
+                ism:ISMCATCESVersion="202211"
+                ism:classification="U"
+                ism:ownerProducer="USA"
+                ism:resourceElement="true"
+                ism:createDate="2010-05-04" />
+    </StatementMetadata>
+    <StructuredStatement>
+      <ICResourceMetadataPackage xmlns="urn:us:gov:ic:irm"
+                                 xmlns:usagency="urn:us:gov:ic:usagency"
+                                 xmlns:icid="urn:us:gov:ic:id"
+                                 xmlns:irm="urn:us:gov:ic:irm"
+                                 usagency:CESVersion="202207"
+                                 icid:DESVersion="202111"
+                                 irm:DESVersion="202111"
+                                 irm:compliesWith="USA_IC">
+        <metacardInfo>
+          <identifier irm:qualifier="IC-ID"
+                      irm:value="guide://9990/DNI-Card-1" />
+          <dates irm:created="2010-05-04" />
+          <publisher>
+            <organization irm:acronym="USA.DNI">
+              <name>DNI</name>
+            </organization>
+          </publisher>
+        </metacardInfo>
+        <identifier irm:qualifier="IC-ID"
+                    irm:value="guide://9990/DNI-Doc-1" />
+        <title xmlns:ism="urn:us:gov:ic:ism"
+               ism:classification="U"
+               ism:ownerProducer="USA">Some Title</title>
+        <description xmlns:ism="urn:us:gov:ic:ism"
+                     ism:classification="U"
+                     ism:ownerProducer="USA">A nice document</description>
+        <language irm:qualifier="urn:us:gov:ic:cvenum:irm:iso639-2:trigraph"
+                  irm:value="eng" />
+        <dates irm:created="2009-11-10T12:00:00.0-04:00" />
+        <creator>
+          <organization irm:acronym="USA.NSA">
+            <name>NSA</name>
+          </organization>
+        </creator>
+        <publisher>
+          <organization>
+            <name>DNI</name>
+          </organization>
+        </publisher>
+        <subjectCoverage>
+          <keyword irm:value="Sample Document" />
+        </subjectCoverage>
+        <resourceManagement />
+      </ICResourceMetadataPackage>
+    </StructuredStatement>
+  </Assertion>
+  <ReferenceValuePayload tdf:uri="guide://9990/test" />
+</TrustedDataObject>

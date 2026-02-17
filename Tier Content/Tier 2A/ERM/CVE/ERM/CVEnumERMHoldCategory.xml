@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<CVE xmlns="urn:us:gov:ic:cve" xmlns:ism="urn:us:gov:ic:ism" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	ism:compliesWith="USGov USIC" ism:ownerProducer="USA" ism:classification="U" ism:DESVersion="201508"
+	ism:ISMCATCESVersion="201511" ism:resourceElement="true" CVEVersion="2" ism:createDate="2012-12-21"
+	xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+
+	<IRM>
+		<URN>urn:us:gov:ic:cvenum:erm:holdCategory</URN>
+		<Title ism:ownerProducer="USA" ism:classification="U">CVEnumERMHoldCategory</Title>
+		<Description ism:ownerProducer="USA" ism:classification="U">The category of a hold on a managed
+			Record's disposition.</Description>
+
+		<Created>2016-06-27</Created>
+
+		<Source ism:classification="U" ism:ownerProducer="USA">IC-CIO</Source>
+
+		<PointOfContact ism:classification="U" ism:ownerProducer="USA">
+			<Name>Office of the IC CIO</Name>
+			<Email>ic-standards-support@iarpa.gov</Email>
+		</PointOfContact>
+	</IRM>
+
+	<Enumeration multivalue="true" ism:ownerProducer="USA" ism:classification="U">
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">congressionalInquiry</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Records relating to an agency's
+				congressional affairs office's ongoing searches and congressional inquiries</Description>
+		</Term>
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">financial</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">(1) Records retired before contract
+				close-out, final payment, and/or settlement OR (2) Records under review for confirmation of
+				payment, undergoing financial audits, and certifications</Description>
+		</Term>
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">foiaPaMdr</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Records associated with open
+				FOIA/PA/MDR requests</Description>
+		</Term>
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">historicalReview</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Records determined by the History
+				Staff to be of historical significance</Description>
+		</Term>
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">invAudInsp</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Records relating to pending
+				Inspector General's office and other offices' investigations, inspections and audits</Description>
+		</Term>
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">litigation</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Records relating to the General
+				Counsel's Office and other offices' ongoing legal actions</Description>
+		</Term>
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">markingsHold</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Record has classification or
+				dissemination control marking(s) that prevent the record from being transferred to NARA. For
+				example: LIMDIS, RD (Restricted Data) and Declassification Review Pending"</Description>
+		</Term>
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">missionCritical</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Records associated with ongoing
+				operations, projects and/or programs</Description>
+		</Term>
+		<Term ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">recordsManagerHold</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">(1) Records requiring Records
+				Manager/Custodian review OR
+				(2) Waiting for NARA approval of proposed new disposition OR
+				(3) Records relating to/from office reorganization OR
+				(4) Records retired under wrong Record Control Schedule (RCS) and/or incorrect RCS Item Number OR
+				(5) Inactive records retired prior to cutoff OR
+				(6) Disposition time miscalculated</Description>
+		</Term>
+	</Enumeration>
+
+</CVE>

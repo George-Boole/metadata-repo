@@ -1,0 +1,23 @@
+﻿"ValueClassification","Value","DescriptionClassification","Description","DeprecationDate"
+"(U) ","U","(U) ","
+				Unclassified (US Government)
+			",
+"(U) ","R","(U) ","
+				Restricted (Foreign Governments)
+	  		",
+"(U) ","C","(U) ","
+				Confidential (US Government)
+	  		",
+"(U) ","S","(U) ","
+				Secret (US Government)
+			",
+"(U) ","TS","(U) ","
+				Top Secret (US Government)
+			",
+"(U) ","L","(U) ","
+				Secret NSI and Confidential RD (US Department of Energy)
+			",
+"(U) ","Q","(U) ","
+				Top Secret NSI and RD (US Department of Energy)
+			",
+

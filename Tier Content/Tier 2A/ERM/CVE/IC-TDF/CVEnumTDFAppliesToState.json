@@ -1,0 +1,78 @@
+{
+    "@context": {
+        "defaultNamespace": "urn:us:gov:ic:cve", 
+        "cve": "urn:us:gov:ic:cve", 
+        "ism": "urn:us:gov:ic:ism"
+    }, 
+    "cve:CVE": {
+        "ism:ownerProducer": "USA", 
+        "CVEVersion": "2", 
+        "cve:IRM": {
+            "cve:Source": {
+                "text": "IC-CIO", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }, 
+            "cve:Description": {
+                "text": "All valid data states that effect markings", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }, 
+            "cve:PointOfContact": {
+                "cve:Name": "Office IC CIO", 
+                "cve:Email": "ic-standards-support@iarpa.gov", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }, 
+            "cve:URN": "urn:us:gov:ic:cvenum:tdf:state", 
+            "cve:Title": {
+                "text": "CVEnumTDFAppliesToState", 
+                "ism:ownerProducer": "USA", 
+                "ism:classification": "U"
+            }, 
+            "cve:Created": "2012-06-27T11:19:00-04:00"
+        }, 
+        "xsi:schemaLocation": "urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd", 
+        "ism:DESVersion": "201609.201707", 
+        "cve:Enumeration": {
+            "cve:Term": [
+                {
+                    "cve:Description": {
+                        "text": "Data that has been encrypted", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "cve:Value": {
+                        "text": "encrypted", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "ism:classification": "U"
+                }, 
+                {
+                    "cve:Description": {
+                        "text": "Data in plain text", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "cve:Value": {
+                        "text": "unencrypted", 
+                        "ism:ownerProducer": "USA", 
+                        "ism:classification": "U"
+                    }, 
+                    "ism:ownerProducer": "USA", 
+                    "ism:classification": "U"
+                }
+            ], 
+            "multivalue": "false", 
+            "ism:ownerProducer": "USA", 
+            "ism:classification": "U"
+        }, 
+        "ism:compliesWith": "USGov USIC", 
+        "ism:classification": "U", 
+        "ism:createDate": "2012-06-27", 
+        "ism:resourceElement": "true", 
+        "ism:ISMCATCESVersion": "201609"
+    }
+}

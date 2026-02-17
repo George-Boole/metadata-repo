@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns:factype="urn:us:gov:ic:cvenum:fac:fineaccesscontroltype"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:fac:fineaccesscontroltype"
+            version="202211">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumFineAccessControlType Version 2.1 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumFineAccessControlType.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumFineAccessControlTypeValues">
+      <xsd:annotation>
+         <xsd:documentation>(U) All currently authorized Fine Access Controls.
+        
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumFineAccessControlType.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="RD">
+            <xsd:annotation>
+               <xsd:documentation>Hierarchy: AEA, RESTRICTED DATA</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CNWDI">
+            <xsd:annotation>
+               <xsd:documentation>Hierarchy: AEA-RD, CRITICAL NUCLEAR WEAPON DESIGN INFORMATION</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="NATO-C">
+            <xsd:annotation>
+               <xsd:documentation>Hierarchy: NATO, NATO CONFIDENTIAL Readon</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="NATO-TS">
+            <xsd:annotation>
+               <xsd:documentation>Hierarchy: NATO, NATO COSMIC TOP SECRET Readon</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="NATO-R">
+            <xsd:annotation>
+               <xsd:documentation>Hierarchy: NATO, NATO RESTRICTED Readon</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="NATO-S">
+            <xsd:annotation>
+               <xsd:documentation>Hierarchy: NATO, NATO SECRET Readon</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="NATO-ATOMAL">
+            <xsd:annotation>
+               <xsd:documentation>Hierarchy: NATO, NATO-ATOMAL</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="NATO-BALK">
+            <xsd:annotation>
+               <xsd:documentation>Hierarchy: NATO, NATO-BALK</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="NATO-BOHEMIA">
+            <xsd:annotation>
+               <xsd:documentation>Hierarchy: NATO, NATO-BOHEMIA</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HCS-X">
+            <xsd:annotation>
+               <xsd:documentation>Hierarchy: SCI, HUMINT External</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HCS-O">
+            <xsd:annotation>
+               <xsd:documentation>Hierarchy: SCI, HUMINT OPERATIONS</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HCS-P">
+            <xsd:annotation>
+               <xsd:documentation>Hierarchy: SCI, HUMINT PRODUCT</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TK">
+            <xsd:annotation>
+               <xsd:documentation>Hierarchy: SCI, Talent-Keyhole</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BUR">
+            <xsd:annotation>
+               <xsd:documentation>Hierarchy: SCI-BUR, BUR</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BUR-BLG">
+            <xsd:annotation>
+               <xsd:documentation>Hierarchy: SCI-BUR, BUR-BLG</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BUR-DTP">
+            <xsd:annotation>
+               <xsd:documentation>Hierarchy: SCI-BUR, BUR-DTP</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BUR-WRG">
+            <xsd:annotation>
+               <xsd:documentation>Hierarchy: SCI-BUR, BUR-WRG</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HCS">
+            <xsd:annotation>
+               <xsd:documentation>Hierarchy: SCI-HCS, HUMINT</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="KLM">
+            <xsd:annotation>
+               <xsd:documentation>Hierarchy: SCI-KLM, KLAMATH</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="KLM-R">
+            <xsd:annotation>
+               <xsd:documentation>Hierarchy: SCI-KLM, KLAMATH-R</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MVL">
+            <xsd:annotation>
+               <xsd:documentation>Hierarchy: SCI-MVL, MARVEL</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SI">
+            <xsd:annotation>
+               <xsd:documentation>Hierarchy: SCI-SI, Special Intelligence</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SI-EU">
+            <xsd:annotation>
+               <xsd:documentation>Hierarchy: SCI-SI, Special Intelligence-ECRU</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SI-G">
+            <xsd:annotation>
+               <xsd:documentation>Hierarchy: SCI-SI, Special Intelligence-GAMMA</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SI-NK">
+            <xsd:annotation>
+               <xsd:documentation>Hierarchy: SCI-SI, Special Intelligence-Nonbook</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TK-BLFH">
+            <xsd:annotation>
+               <xsd:documentation>Hierarchy: SCI-TK, Talent Keyhole-Bluefish</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TK-IDIT">
+            <xsd:annotation>
+               <xsd:documentation>Hierarchy: SCI-TK, Talent Keyhole-Iditarod</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TK-KAND">
+            <xsd:annotation>
+               <xsd:documentation>Hierarchy: SCI-TK, Talent Keyhole-Kandik</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="CVEnumFineAccessControlType">
+      <xsd:annotation>
+         <xsd:documentation>(U) factype:CVEnumFineAccessControlType definition</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction>
+         <xsd:simpleType>
+            <xsd:annotation>
+               <xsd:documentation>(U) A list of factype:CVEnumFineAccessControlTypeValues</xsd:documentation>
+            </xsd:annotation>
+            <xsd:list itemType="factype:CVEnumFineAccessControlTypeValues"/>
+         </xsd:simpleType>
+         <xsd:maxLength value="28"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

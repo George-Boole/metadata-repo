@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<cve:CVE xmlns:cve="urn:us:gov:ic:cve" xmlns:ism="urn:us:gov:ic:ism"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ism:compliesWith="USGov USIC"
+    ism:ownerProducer="USA" ism:classification="U" ism:DESVersion="202111"
+    ism:ISMCATCESVersion="202205" ism:resourceElement="true" CVEVersion="2.1" specVersion="201707" 
+    ism:createDate="2011-09-01" xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+    <cve:IRM>
+        <URN xmlns="urn:us:gov:ic:cve">urn:us:gov:ic:cvenum:intdis:inteldiscipline:component</URN>
+        <Title xmlns="urn:us:gov:ic:cve" ism:ownerProducer="USA" ism:classification="U">CVEnumIntelDisciplineComponent</Title>
+        <Description xmlns="urn:us:gov:ic:cve" ism:ownerProducer="USA" ism:classification="U">All currently valid Intel Discipline Component codes.</Description>
+        <cve:Created>2011-09-01T11:19:00-04:00</cve:Created>
+
+        <Source xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">Joint Chiefs of Staff Pub 2.0: Appendix B - Intelligence Disciplines -  http://www.dtic.mil/doctrine/new_pubs/jp2_0.pdf</Source>
+
+        <Source xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">Deputy Director of National Intelligence for Intelligence Integration (DDII)</Source>
+        <PointOfContact xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Name>Office IC CIO</Name>
+            <Email>ic-standards-support@odni.gov</Email>
+        </PointOfContact>
+    </cve:IRM>
+    <cve:Enumeration multivalue="false" ism:ownerProducer="USA" ism:classification="U">
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">APP:I2</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">APP Domain: Identify Intelligence</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">APP:DOMEX</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">APP Domain: Document and Media Exploitation</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">APP:BEI</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">APP Domain: Bio-metrics Enabled Intelligence</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">APP:FEI</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">APP Domain: Forensics Enabled Intelligence</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">CI:Collection</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">CI Domain: Collection</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">CI:AnalysisAndProduction</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">CI Domain: Analysis and Production</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">CI:Investigations</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">CI Domain: Investigations</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">CI:Operations</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">CI Domain: Operations</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">CI:FunctionalServices</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">CI Domain: Functional Services</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">GEOINT:Imagery</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">GEOINT Domain: Imagery</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">GEOINT:IMINT</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">GEOINT Domain: Imagery Intelligence</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">GEOINT:IMINT:EO</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">GEOINT Domain: Imagery Intelligence (Electro-optical)</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">GEOINT:IMINT:EO:Panchromatic</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">GEOINT Domain: Imagery Intelligence (Electro-optical, Panchromatic)</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">GEOINT:IMINT:EO:IR</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">GEOINT Domain: Imagery Intelligence (Electro-optical, Infrared)</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">GEOINT:IMINT:EO:Spectral</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">GEOINT Domain: Imagery Intelligence (Electro-optical, Spectral)</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">GEOINT:IMINT:EO:Spectral:MSI</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">GEOINT Domain: Imagery Intelligence (Electro-optical, Spectral, Multi)</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">GEOINT:IMINT:EO:Spectral:HSI</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">GEOINT Domain: Imagery Intelligence (Electro-optical, Spectral, Hyper)</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">GEOINT:IMINT:Radar</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">GEOINT Domain: Imagery Intelligence (Radar)</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">GEOINT:IMINT:Lidar</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">GEOINT Domain: Imagery Intelligence (Lidar)</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">GEOINT:GeospatialInformation</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">GEOINT Domain: Geospatial Information</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">HUMINT:Interrogation</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">HUMINT Domain: Interrogation</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">HUMINT:SourceOperations</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">HUMINT Domain: Source Operations</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">HUMINT:SourceOperations:WalkIn</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">HUMINT Domain: Source Operations (Walk-In)</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">HUMINT:SourceOperations:Developed</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">HUMINT Domain: Source Operations (Developed Sources)</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">HUMINT:SourceOperations:Unwitting</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">HUMINT Domain: Source Operations (Unwitting Persons)</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">HUMINT:Debriefing</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">HUMINT Domain: Debriefing</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">HUMINT:Debriefing:FriendlyForces</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">HUMINT Domain: Debriefing (Friendly Forces Personnel)</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">HUMINT:Debriefing:RefugeesOrDisplaced</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">HUMINT Domain: Debriefing (Refugees or Displaced Persons)</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">HUMINT:Debriefing:Returnees</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">HUMINT Domain: Debriefing (Returnees)</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">HUMINT:Debriefing:Volunteers</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">HUMINT Domain: Debriefing (Volunteers)</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">MASINT:EO</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">MASINT Domain: Electro-optical</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">MASINT:Geophysical</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">MASINT Domain: Geophysical</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">MASINT:Materials</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">MASINT Domain: Materials</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">MASINT:NuclearRadiation</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">MASINT Domain: Nuclear Radiation</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">MASINT:Radar</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">MASINT Domain: Radar</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">MASINT:RF</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">MASINT Domain: Radio Frequency</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">OSINT:Academia</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">OSINT Domain: Academia</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">OSINT:Interagency</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">OSINT Domain: Interagency</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">OSINT:Newspapers/Periodicals</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">OSINT Domain: Newspapers/Periodicals</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">OSINT:DueDiligence</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">OSINT Domain: Due Diligence</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">OSINT:MediaBroadcasts</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">OSINT Domain: Media Broadcasts</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">OSINT:Internet</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">OSINT Domain: Internet</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">OSINT:AlternativeCollections</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">OSINT Domain: Alternative Collections</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">SIGINT:COMINT</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">SIGINT Domain: Communications Intelligence</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">SIGINT:ELINT</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">SIGINT Domain: Electronic Intelligence</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">SIGINT:ELINT:OPELINT</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">SIGINT Domain: Electronic Intelligence (Operational)</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">SIGINT:ELINT:TECHELINT</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">SIGINT Domain: Electronic Intelligence (Technical)</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">SIGINT:FISINT</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">SIGINT Domain: Foreign Instrumentation Signals Intelligence</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">TECHINT:WeaponSystem</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">TECHINT Domain: Weapon Systems Intelligence</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">TECHINT:Scientific</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">TECHINT Domain: Scientific Intelligence</Description>
+        </Term>
+    </cve:Enumeration>
+</cve:CVE>

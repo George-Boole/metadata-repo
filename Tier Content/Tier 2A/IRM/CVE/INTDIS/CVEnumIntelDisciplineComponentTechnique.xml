@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<cve:CVE xmlns:cve="urn:us:gov:ic:cve"
+         xmlns:ism="urn:us:gov:ic:ism"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         ism:compliesWith="USGov USIC"
+         ism:ownerProducer="USA"
+         ism:classification="U"
+         ism:DESVersion="202111"
+         ism:ISMCATCESVersion="202205"
+         ism:resourceElement="true"
+         CVEVersion="2.1"
+         specVersion="201707" 
+         ism:createDate="2011-09-01"
+         xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+	  <cve:IRM>
+	  	<URN xmlns="urn:us:gov:ic:cve">urn:us:gov:ic:cvenum:intdis:inteldiscipline:component:technique</URN>
+	  	<Title xmlns="urn:us:gov:ic:cve" ism:ownerProducer="USA" ism:classification="U">CVEnumIntelDisciplineComponentTechnique</Title>
+		    <Description xmlns="urn:us:gov:ic:cve"
+                   ism:ownerProducer="USA"
+                   ism:classification="U">All currently valid Intel Discipline Component Technique codes.</Description>
+		    <cve:Created>2011-09-01T11:19:00-04:00</cve:Created>
+
+		    <Source xmlns="urn:us:gov:ic:cve"
+              ism:classification="U"
+              ism:ownerProducer="USA">IC/DOD Community Feedback</Source>
+
+		    <Source xmlns="urn:us:gov:ic:cve"
+              ism:classification="U"
+              ism:ownerProducer="USA">Deputy Director of National Intelligence for Intelligence Integration (DDII)</Source>
+		    <PointOfContact xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">
+         <Name>Office IC CIO</Name>
+         <Email>ic-standards-support@odni.gov</Email>
+      </PointOfContact>
+	  </cve:IRM>
+	  <cve:Enumeration multivalue="false" ism:ownerProducer="USA" ism:classification="U">
+	  	<Term xmlns="urn:us:gov:ic:cve"
+	  		ism:classification="U"
+	  		ism:ownerProducer="USA">
+	  			<Value ism:classification="U" ism:ownerProducer="USA">MASINT:EO:IRINT</Value>
+	  			  <Description ism:classification="U" ism:ownerProducer="USA">MASINT:EO Domain: Infrared Intelligence</Description>
+	  	</Term>
+	  	<Term xmlns="urn:us:gov:ic:cve"
+	  		ism:classification="U"
+	  		ism:ownerProducer="USA">
+	  			<Value ism:classification="U" ism:ownerProducer="USA">MASINT:EO:LASINT</Value>
+	  			  <Description ism:classification="U" ism:ownerProducer="USA">MASINT:EO Domain: Laser Intelligence</Description>
+	  	</Term>
+	  	<Term xmlns="urn:us:gov:ic:cve"
+	  		ism:classification="U"
+	  		ism:ownerProducer="USA">
+	  		<Value ism:classification="U" ism:ownerProducer="USA">MASINT:EO:LASINT:ActiveIllumination</Value>
+	  		<Description ism:classification="U" ism:ownerProducer="USA">MASINT:EO Domain: Laser Intelligence: Active Illumination</Description>
+	  	</Term>
+	  	<Term xmlns="urn:us:gov:ic:cve"
+	  		ism:classification="U"
+	  		ism:ownerProducer="USA">
+	  			<Value ism:classification="U" ism:ownerProducer="USA">MASINT:EO:Radiometric</Value>
+	  			  <Description ism:classification="U" ism:ownerProducer="USA">MASINT:EO Domain: Radiometric</Description>
+	  	</Term>
+	  	<Term xmlns="urn:us:gov:ic:cve"
+	  		ism:classification="U"
+	  		ism:ownerProducer="USA">
+	  			<Value ism:classification="U" ism:ownerProducer="USA">MASINT:EO:Spectral</Value>
+	  			  <Description ism:classification="U" ism:ownerProducer="USA">MASINT:EO Domain: Spectral</Description>
+	  	</Term>
+	  	<Term xmlns="urn:us:gov:ic:cve"
+	  		ism:classification="U"
+	  		ism:ownerProducer="USA">
+	  			<Value ism:classification="U" ism:ownerProducer="USA">MASINT:Geophysical:Acoustic</Value>
+	  			  <Description ism:classification="U" ism:ownerProducer="USA">MASINT:Geophysical Domain: Acoustic</Description>
+	  	</Term>
+	  	<Term xmlns="urn:us:gov:ic:cve"
+	  		ism:classification="U"
+	  		ism:ownerProducer="USA">
+	  		<Value ism:classification="U" ism:ownerProducer="USA">MASINT:Geophysical:Acoustic:Audible</Value>
+	  		<Description ism:classification="U" ism:ownerProducer="USA">MASINT:Geophysical Domain: Acoustic: Audible</Description>
+	  	</Term>
+	  	<Term xmlns="urn:us:gov:ic:cve"
+	  		ism:classification="U"
+	  		ism:ownerProducer="USA">
+	  		<Value ism:classification="U" ism:ownerProducer="USA">MASINT:Geophysical:Acoustic:Infrasonic</Value>
+	  		<Description ism:classification="U" ism:ownerProducer="USA">MASINT:Geophysical Domain: Acoustic: Infrasonic</Description>
+	  	</Term>
+	  	<Term xmlns="urn:us:gov:ic:cve"
+	  		ism:classification="U"
+	  		ism:ownerProducer="USA">
+	  			<Value ism:classification="U" ism:ownerProducer="USA">MASINT:Geophysical:Electric</Value>
+	  			  <Description ism:classification="U" ism:ownerProducer="USA">MASINT:Geophysical Domain: Electric</Description>
+	  	</Term>
+	  	<Term xmlns="urn:us:gov:ic:cve"
+	  		ism:classification="U"
+	  		ism:ownerProducer="USA">
+	  			<Value ism:classification="U" ism:ownerProducer="USA">MASINT:Geophysical:Electromagnetic</Value>
+	  			  <Description ism:classification="U" ism:ownerProducer="USA">MASINT:Geophysical Domain: Electromagnetic</Description>
+	  	</Term>
+	  	<Term xmlns="urn:us:gov:ic:cve"
+	  		ism:classification="U"
+	  		ism:ownerProducer="USA">
+	  			<Value ism:classification="U" ism:ownerProducer="USA">MASINT:Geophysical:Gravity</Value>
+	  			  <Description ism:classification="U" ism:ownerProducer="USA">MASINT:Geophysical Domain: Gravity</Description>
+	  	</Term>
+	  	<Term xmlns="urn:us:gov:ic:cve"
+	  		ism:classification="U"
+	  		ism:ownerProducer="USA">
+	  			<Value ism:classification="U" ism:ownerProducer="USA">MASINT:Geophysical:ACINT</Value>
+	  			  <Description ism:classification="U" ism:ownerProducer="USA">MASINT:Geophysical Domain: Hydroacoustic Intelligence</Description>
+	  	</Term>
+	  	<Term xmlns="urn:us:gov:ic:cve"
+	  		ism:classification="U"
+	  		ism:ownerProducer="USA">
+	  			<Value ism:classification="U" ism:ownerProducer="USA">MASINT:Geophysical:Magnetic</Value>
+	  			  <Description ism:classification="U" ism:ownerProducer="USA">MASINT:Geophysical Domain: Magnetic</Description>
+	  	</Term>
+	  	<Term xmlns="urn:us:gov:ic:cve"
+	  		ism:classification="U"
+	  		ism:ownerProducer="USA">
+	  			<Value ism:classification="U" ism:ownerProducer="USA">MASINT:Geophysical:Seismic</Value>
+	  			  <Description ism:classification="U" ism:ownerProducer="USA">MASINT:Geophysical Domain: Seismic</Description>
+	  	</Term>
+	  	<Term xmlns="urn:us:gov:ic:cve"
+	  		ism:classification="U"
+	  		ism:ownerProducer="USA">
+	  			<Value ism:classification="U" ism:ownerProducer="USA">MASINT:Materials:Biological</Value>
+	  			  <Description ism:classification="U" ism:ownerProducer="USA">MASINT:Materials Domain: Biological</Description>
+	  	</Term>
+	  	<Term xmlns="urn:us:gov:ic:cve"
+	  		ism:classification="U"
+	  		ism:ownerProducer="USA">
+	  			<Value ism:classification="U" ism:ownerProducer="USA">MASINT:Materials:Chemical</Value>
+	  			  <Description ism:classification="U" ism:ownerProducer="USA">MASINT:Materials Domain: Chemical</Description>
+	  	</Term>
+	  	<Term xmlns="urn:us:gov:ic:cve"
+	  		ism:classification="U"
+	  		ism:ownerProducer="USA">
+	  			<Value ism:classification="U" ism:ownerProducer="USA">MASINT:Materials:Explosive</Value>
+	  			  <Description ism:classification="U" ism:ownerProducer="USA">MASINT:Materials Domain: Explosive</Description>
+	  	</Term>
+	  	<Term xmlns="urn:us:gov:ic:cve"
+	  		ism:classification="U"
+	  		ism:ownerProducer="USA">
+	  			<Value ism:classification="U" ism:ownerProducer="USA">MASINT:Materials:Nuclear</Value>
+	  			  <Description ism:classification="U" ism:ownerProducer="USA">MASINT:Materials Domain: Nuclear</Description>
+	  	</Term>
+	  	<Term xmlns="urn:us:gov:ic:cve"
+	  		ism:classification="U"
+	  		ism:ownerProducer="USA">
+	  			<Value ism:classification="U" ism:ownerProducer="USA">MASINT:Materials:Radiological</Value>
+	  			  <Description ism:classification="U" ism:ownerProducer="USA">MASINT:Materials Domain: Radiological</Description>
+	  	</Term>
+	  	<Term xmlns="urn:us:gov:ic:cve"
+	  		ism:classification="U"
+	  		ism:ownerProducer="USA">
+	  			<Value ism:classification="U" ism:ownerProducer="USA">MASINT:NuclearRadiation:GammaRays</Value>
+	  			  <Description ism:classification="U" ism:ownerProducer="USA">MASINT:Nuclear Radiation Domain: Gamma-rays</Description>
+	  	</Term>
+	  	<Term xmlns="urn:us:gov:ic:cve"
+	  		ism:classification="U"
+	  		ism:ownerProducer="USA">
+	  			<Value ism:classification="U" ism:ownerProducer="USA">MASINT:NuclearRadiation:Neutrons</Value>
+	  			  <Description ism:classification="U" ism:ownerProducer="USA">MASINT:Nuclear Radiation Domain: Neutrons</Description>
+	  	</Term>
+	  	<Term xmlns="urn:us:gov:ic:cve"
+	  		ism:classification="U"
+	  		ism:ownerProducer="USA">
+	  			<Value ism:classification="U" ism:ownerProducer="USA">MASINT:NuclearRadiation:XRays</Value>
+	  			  <Description ism:classification="U" ism:ownerProducer="USA">MASINT:Nuclear Radiation Domain: X-rays</Description>
+	  	</Term>
+	  	<Term xmlns="urn:us:gov:ic:cve"
+	  		ism:classification="U"
+	  		ism:ownerProducer="USA">
+	  			<Value ism:classification="U" ism:ownerProducer="USA">MASINT:Radar:Bistatic</Value>
+	  			  <Description ism:classification="U" ism:ownerProducer="USA">MASINT:Radar Domain: Bistatic</Description>
+	  	</Term>
+	  	<Term xmlns="urn:us:gov:ic:cve"
+	  		ism:classification="U"
+	  		ism:ownerProducer="USA">
+	  			<Value ism:classification="U" ism:ownerProducer="USA">MASINT:Radar:LOS</Value>
+	  			  <Description ism:classification="U" ism:ownerProducer="USA">MASINT:Radar Domain: Line of Sight</Description>
+	  	</Term>
+	  	<Term xmlns="urn:us:gov:ic:cve"
+	  		ism:classification="U"
+	  		ism:ownerProducer="USA">
+	  			<Value ism:classification="U" ism:ownerProducer="USA">MASINT:Radar:OTH</Value>
+	  			  <Description ism:classification="U" ism:ownerProducer="USA">MASINT:Radar Domain: Over the Horizon</Description>
+	  	</Term>
+	  	<Term xmlns="urn:us:gov:ic:cve"
+	  		ism:classification="U"
+	  		ism:ownerProducer="USA">
+	  			<Value ism:classification="U" ism:ownerProducer="USA">MASINT:RF:DEW</Value>
+	  			  <Description ism:classification="U" ism:ownerProducer="USA">MASINT:Radio Frequency Domain: Direct Energy Weapon</Description>
+	  	</Term>
+	  	<Term xmlns="urn:us:gov:ic:cve"
+	  		ism:classification="U"
+	  		ism:ownerProducer="USA">
+	  			<Value ism:classification="U" ism:ownerProducer="USA">MASINT:RF:EMP</Value>
+	  			  <Description ism:classification="U" ism:ownerProducer="USA">MASINT:Radio Frequency Domain: Electromagnetic Pulse</Description>
+	  	</Term>
+	  	<Term xmlns="urn:us:gov:ic:cve"
+	  		ism:classification="U"
+	  		ism:ownerProducer="USA">
+	  			<Value ism:classification="U" ism:ownerProducer="USA">MASINT:RF:URE</Value>
+	  			  <Description ism:classification="U" ism:ownerProducer="USA">MASINT:Radio Frequency Domain: Unintentional Radiated Emission</Description>
+	  	</Term>
+	  	<Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+			      <Value ism:classification="U"
+                ism:ownerProducer="USA"
+                regularExpression="true">other:\S{1,256}</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">Other intel discipline component technique. Must be the string 'other:' followed by the value specifying the other technique type.</Description>
+		    </Term>
+	  </cve:Enumeration>
+</cve:CVE>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:uias:clearance">
+   <define name="CVEnumUIASClearance.cve">
+      <list>
+         <optional><!--(U) -->
+            <value>U</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>R</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>C</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>S</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>TS</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>L</value>
+         </optional>
+         <optional><!--(U) -->
+            <value>Q</value>
+         </optional>
+      </list>
+   </define>
+</grammar>

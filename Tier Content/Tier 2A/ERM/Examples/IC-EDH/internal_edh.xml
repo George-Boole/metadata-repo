@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/ARH/ARH_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-EDH/IC-EDH_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-ID/IC-ID_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/NTK/NTK_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/ISMCAT/ISMCAT_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<!-- Distro Statement: Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<!-- All classification marks in this example are   
+ 	 for illustrative purposes only, there are no   
+      actual classified data contained in this example -->
+<test:root xmlns:test="test:edh"
+           xmlns:edh="urn:us:gov:ic:edh"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           edh:DESVersion="201609"
+           xsi:schemaLocation="test:edh ./test_edh.xsd urn:us:gov:ic:edh ../../Schema/IC-EDH/IC-EDH.xsd">
+   <edh:Edh xmlns:ism="urn:us:gov:ic:ism"
+            xmlns:usagency="urn:us:gov:ic:usagency"
+            xmlns:icid="urn:us:gov:ic:id"
+            ism:ISMCATCESVersion="201709"
+            usagency:CESVersion="201609"
+            icid:DESVersion="1">
+      <icid:Identifier>guide://999990/testcase</icid:Identifier>
+      <edh:DataItemCreateDateTime>2006-05-04T18:13:51.0Z</edh:DataItemCreateDateTime>
+      <edh:ResponsibleEntity edh:role="Custodian">
+         <edh:Country>USA</edh:Country>
+         <edh:Organization>DNI</edh:Organization>
+      </edh:ResponsibleEntity>
+      <arh:Security xmlns:arh="urn:us:gov:ic:arh"
+                    xmlns:ntk="urn:us:gov:ic:ntk"
+                    ism:compliesWith="USGov USIC"
+                    arh:DESVersion="3"
+                    ntk:DESVersion="201508"
+                    ism:DESVersion="201609.201707"
+                    ism:ISMCATCESVersion="201709"
+                    ism:resourceElement="true"
+                    ism:createDate="2006-05-04"
+                    ism:classification="U"
+                    ism:ownerProducer="USA">
+         <ntk:Access ism:classification="U" ism:ownerProducer="USA">
+            <ntk:RequiresAnyOf>
+               <AccessProfileList xmlns="urn:us:gov:ic:ntk">
+                  <AccessProfile ism:classification="U" ism:ownerProducer="USA">
+                     <AccessPolicy>urn:us:gov:ic:aces:ntk:permissive</AccessPolicy>
+                     <ProfileDes>urn:us:gov:ic:ntk:profile:grp-ind</ProfileDes>
+                     <VocabularyType ntk:name="individual:unclasssourceforge"
+                                     ntk:source="UnclassSourceForge"/>
+                     <AccessProfileValue ntk:vocabulary="individual:unclasssourceforge">bobstuart</AccessProfileValue>
+                     <AccessProfileValue ntk:vocabulary="individual:unclasssourceforge">wheedletonc</AccessProfileValue>
+                     <AccessProfileValue ntk:vocabulary="individual:unclasssourceforge">jcrown</AccessProfileValue>
+                  </AccessProfile>
+               </AccessProfileList>
+            </ntk:RequiresAnyOf>
+         </ntk:Access>
+         <ism:NoticeList ism:classification="U" ism:ownerProducer="USA">
+            <ism:Notice ism:classification="U"
+                        ism:ownerProducer="USA"
+                        ism:unregisteredNoticeType="Holiday">
+               <ism:NoticeText ism:classification="U" ism:ownerProducer="USA">Memorial day is on May 28 2012</ism:NoticeText>
+            </ism:Notice>
+         </ism:NoticeList>
+      </arh:Security>
+   </edh:Edh>
+   <test:edhPortionMark xmlns:ism="urn:us:gov:ic:ism"
+                        ism:classification="U"
+                        ism:ownerProducer="USA"/>
+</test:root>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:revrecall:type">
+   <define name="CVEnumRevRecallType.cve">
+      <choice>
+         <value>ADMINISTRATIVE_RECALL</value>
+         <value>ADMINISTRATIVE_REVISION</value>
+         <value>FISA_COMPLIANCE_RECALL</value>
+         <value>SUBSTANTIVE_RECALL</value>
+         <value>SUBSTANTIVE_REVISION</value>
+      </choice>
+   </define>
+</grammar>

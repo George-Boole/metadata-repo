@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<cve:CVE xmlns:cve="urn:us:gov:ic:cve" xmlns:ism="urn:us:gov:ic:ism" xmlns:uias="urn:us:gov:ic:uias"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ism:compliesWith="USGov USIC" ism:ownerProducer="USA"
+	ism:classification="U" ism:DESVersion="202111" ism:resourceElement="true" ism:ISMCATCESVersion="202205" 
+	CVEVersion="2.1" specVersion="202111" ism:createDate="2016-09-24" xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+
+	<cve:IRM>
+		<URN xmlns="urn:us:gov:ic:cve">urn:us:gov:ic:cvenum:uias:certificateauthority</URN>
+		<Title xmlns="urn:us:gov:ic:cve" ism:ownerProducer="USA" ism:classification="U">CVEnumUIASCertificateAuthority</Title>
+		<Description xmlns="urn:us:gov:ic:cve" ism:ownerProducer="USA" ism:classification="U">All valid values for Certificate Authority from UIAS specification.</Description>
+
+		<cve:Created>2016-09-25T19:10:00-04:00</cve:Created>
+
+		<Source ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">Unified Identity Attribute Set</Source>
+		<PointOfContact ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">
+			<Name>Office IC CIO</Name>
+			<Email>ic-standards-support@odni.gov</Email>
+		</PointOfContact>
+	</cve:IRM>
+
+	<cve:Enumeration multivalue="false" ism:ownerProducer="USA" ism:classification="U">
+		
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">CADPKI</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">
+	  			CADPKI
+	  		</Description>
+		</Term>
+
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">ICPKI</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">
+				ICPKI
+			</Description>
+		</Term>
+
+	</cve:Enumeration>
+</cve:CVE>

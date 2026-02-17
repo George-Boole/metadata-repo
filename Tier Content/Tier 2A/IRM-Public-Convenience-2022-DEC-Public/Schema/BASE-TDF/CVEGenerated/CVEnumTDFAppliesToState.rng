@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:tdf:state">
+   <define name="CVEnumTDFAppliesToState.cve">
+      <choice>
+         <value>encrypted</value>
+         <value>unencrypted</value>
+      </choice>
+   </define>
+</grammar>

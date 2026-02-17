@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<cve:CVE xmlns:cve="urn:us:gov:ic:cve"
+         xmlns:ism="urn:us:gov:ic:ism"
+         xmlns:uias="urn:us:gov:ic:uias"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         ism:compliesWith="USGov USIC"
+         ism:ownerProducer="USA"
+         ism:classification="U"
+         ism:DESVersion="202111"
+         ism:resourceElement="true"
+         ism:ISMCATCESVersion="202205"
+         CVEVersion="2.1"
+         specVersion="202111"
+         ism:createDate="2016-09-24"
+         xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+
+	  <cve:IRM>
+		    <URN xmlns="urn:us:gov:ic:cve">urn:us:gov:ic:cvenum:uias:schematype</URN>
+		    <Title xmlns="urn:us:gov:ic:cve"
+             ism:ownerProducer="USA"
+             ism:classification="U">CVEnumUIASSchemaType</Title>
+		    <Description xmlns="urn:us:gov:ic:cve"
+                   ism:ownerProducer="USA"
+                   ism:classification="U">All valid SchemaTypes for saml:AttributeValue/@xsi:type in UIAS SAML saml:Attribute.</Description>
+
+	     <cve:Created>2018-04-20T19:10:00-04:00</cve:Created>
+
+		    <Source xmlns="urn:us:gov:ic:cve"
+              ism:classification="U"
+              ism:ownerProducer="USA">Unified Identity Attribute Set.</Source>
+		    <PointOfContact xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">
+			      <Name>Office IC CIO</Name>
+			      <Email>ic-standards-support@odni.gov</Email>
+		    </PointOfContact>
+	  </cve:IRM>
+
+	  <Enumeration xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                multivalue="false"
+                ism:ownerProducer="USA">
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">adminOrganization</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">uias:adminOrganizationType</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">aICP</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">uias:aICPType</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">ATOStatus</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">uias:ATOStatusType</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">auditRoutingOrganization</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">uias:auditRoutingOrganizationType</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">authorityCategory</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">uias:authorityCategoryType</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">certificateAuthority</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">uias:certificateAuthorityType</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">clearance</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">uias:clearanceType</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">countryOfAffiliation</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">uias:countryOfAffiliationType</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">digitalIdentifier</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">uias:digitalIdentifierType</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">dutyOrganization</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">uias:dutyOrganizationType</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">dutyOrganizationUnit</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">uias:dutyOrganizationUnitType</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">entitySecurityMark</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">uias:entitySecurityMarkType</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">entityType</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">uias:entityTypeType</Description>
+		    </Term>
+		    <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">fineAccessControls</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">uias:fineAccessControlsType</Description>
+			      <!-- references uias:fineAccessControlsType, which currently points to FAC -->
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">group</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">uias:groupType</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">handlingControls</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">uias:handlingControlsType</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">icNetworks</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">uias:icNetworksType</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">isICMember</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">uias:isICMemberType</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">lifeCycleStatus</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">uias:lifeCycleStatusType</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">originatingNetwork</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">uias:originatingNetworkType</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">region</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">uias:regionType</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">role</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">uias:roleType</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">topic</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">uias:topicType</Description>
+		    </Term>
+   </Enumeration>
+</cve:CVE>

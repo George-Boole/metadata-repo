@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns="urn:us:gov:ic:cvenum:uias:nonpersonentitytype"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:uias:nonpersonentitytype"
+            version="202111">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumUIASNonPersonEntityType Version 2.1 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumUIASNonPersonEntityType.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumUIASNonPersonEntityType">
+      <xsd:annotation>
+         <xsd:documentation>(U) All valid values for non-person entity type from UIAS specification.
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumUIASNonPersonEntityType.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="DEV">
+            <xsd:annotation>
+               <xsd:documentation>
+				End-point device (Non-Person)
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="NET">
+            <xsd:annotation>
+               <xsd:documentation>
+				Network device (Non-Person)
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SVC">
+            <xsd:annotation>
+               <xsd:documentation>
+				Service, Widget, Application, Software, etc (Non-Person)
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SVR">
+            <xsd:annotation>
+               <xsd:documentation>
+				Server (Non-Person)
+			</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

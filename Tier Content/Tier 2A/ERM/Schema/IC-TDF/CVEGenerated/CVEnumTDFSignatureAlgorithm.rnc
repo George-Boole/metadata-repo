@@ -1,0 +1,1 @@
+CVEnumTDFSignatureAlgorithm.att = attribute CVEnumTDFSignatureAlgorithm { "SHA(1|256|384|512)withRSA" | "SHA(1|256|384|512)withRSAand[A-Z]+[0-9]*" | "SHA(1|256|384|512)withECDSA" | "SHA(1|256|384|512)withECDSAand[A-Z]+[0-9]*" } 

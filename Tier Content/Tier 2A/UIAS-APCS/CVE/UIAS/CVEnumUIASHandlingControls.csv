@@ -1,0 +1,87 @@
+﻿"ValueClassification","Value","DescriptionClassification","Description","DeprecationDate"
+"(U) ","REL_ACGU","(U) ","
+				NPE is capable of processing  REL to USA, ACGU correctly. 
+				NPE users consists of persons who have one of AUS, CAN, GBR, USA countryOfAffiliation and appropriate adminOrganization.
+				NPE is NOT capable of distinguishing between it's users based on countryOfAffiliation so the minimum REL must be ACGU.
+			",
+"(U) ","SBU","(U) ","
+				NPE is capable of processing  Sensitive but Unclassified corretly.
+			",
+"(U) ","XD","(U) ","
+				NPE is capable of processing Exclusive Distribution correctly.
+			",
+"(U) ","REL_FVEY","(U) ","
+				NPE is capable of processing REL to USA, FVEY correctly. 
+				NPE users consists of persons who have one of AUS, CAN, GBR, NZL, USA countryOfAffiliation and appropriate adminOrganization.
+				NPE is NOT capable of distinguishing between it's users based on countryOfAffiliation so the minimum REL must be FVEY.
+			",
+"(U) ","REL_TEYE","(U) ","
+				NPE is capable of processing REL to USA, TEYE correctly.
+				NPE users consists of persons who have one of AUS, GBR, USA countryOfAffiliation and appropriate adminOrganization.
+				NPE is NOT capable of distinguishing between it's users based on countryOfAffiliation so the minimum REL must be TEYE.
+			",
+"(U) ","RS","(U) ","
+				NPE is capable of processing Risk Sensitive correctly.
+			",
+"(U) ","SSI","(U) ","
+				NPE is capable of processing Sensitive Security information correctly.
+			",
+"(U) ","SBU-NF","(U) ","
+				NPE is capable of processing Sensitive but Unclassified NOFORN correctly. This includes proper verification of countryOfAffiliation and adminOrganization to ensure US acccess only.
+			",
+"(U) ","USP","(U) ","
+				NPE is capable of processing US Persons correctly.
+			",
+"(U) ","REL","(U) ","
+				NPE is capable of processing all Releasability markings e.g. REL TO, NF, EYES Only, DISPLAY ONLY, LES-NF, SBU-NF. This includes proper verification of countryOfAffiliation and adminOrganization to ensure correct access, 
+				and would also include processing only valid markings. For example a system that recognizes all the markings but is not capable of performing Display Only could still be provisioned with this as long as it does not misshandle the
+				display only data, an example of mishandling would be to misinterpret the display only countries as if they were rel to countries and share the information. 
+			",
+"(U) ","USONLY","(U) ","
+				NPE users consists of persons who have USA citizenship (countryOfAffiliation=USA) and an adminOrganization that is part of USAgency. 
+				NPE is NOT capable of distinguishing between it's users based on countryOfAffiliation but as all are US, REL poses no concern.
+			",
+"(U) ","DISPLAYONLY","(U) ","
+				The NPE is capable of enforcing display of information without release. Generally may require some form of DRM.
+			",
+"(U) ","PR","(U) ","
+				The NPE is capable of processing  Caution-proprietary information involved correctly. 
+			",
+"(U) ","IMC","(U) ","
+				The NPE is capable of processing Controlled Imagery correctly.
+			",
+"(U) ","DSEN","(U) ","
+				The NPE is capable of processing DEA Sensitive correctly.
+			",
+"(U) ","DCNI","(U) ","
+				The NPE is capable of processing DOD UNCLASSIFIED CONTROLLED NUCLEAR INFORMATION correctly.
+			",
+"(U) ","UCNI","(U) ","
+				The NPE is capable of processing DOE UNCLASSIFIED CONTROLLED NUCLEAR INFORMATION correctly.
+			",
+"(U) ","FOUO","(U) ","
+				The NPE is capable of processing For Official Use Only correctly.
+			",
+"(U) ","FISA","(U) ","
+				The NPE is capable of processing Foreign Intelligence Surveillance Act correctly. This includes any reporting/audit requirements and purge requirements that may be levied.
+			",
+"(U) ","LES-NF","(U) ","
+				The NPE is capable of processing Law Enforcement Sensitive NOFORN correctly. This includes proper verification of countryOfAffiliation and adminOrganization to ensure US acccess only.
+			",
+"(U) ","LES","(U) ","
+				The NPE is capable of processing Law Enforcement Sensitive correctly.
+			",
+"(U) ","DS","(U) ","
+				The NPE is capable of processing Limited Distribution correctly.
+			",
+"(U) ","NF","(U) ","
+				The NPE is capable of processing NOFORN correctly. This includes proper verification of countryOfAffiliation and adminOrganization to ensure US acccess only.
+			",
+"(U) ","ND","(U) ","
+				The NPE is capable of processing No Distribution correctly.
+			",
+"(U) ","OC","(U) ","
+				The NPE is capable of processing Originator Control. This includes being accessed by users who should not have access to the OC and are properly denied. 
+			",
+"(U) ","RAWFISA","(U) ","The NPE is capable of processing RAWFISA correctly. This includes any reporting/audit requirements and purge requirements that may be levied.",
+

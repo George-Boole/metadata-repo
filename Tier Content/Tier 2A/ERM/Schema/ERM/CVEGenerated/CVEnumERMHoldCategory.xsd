@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:ermhc="urn:us:gov:ic:cvenum:erm:holdCategory"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:erm:holdCategory">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumERMHoldCategory Version 2 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumERMHoldCategory.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+<!--Generated TYPE DEFINITIONS ..................................-->
+<!--*************************************************************-->
+<xsd:simpleType name="CVEnumERMHoldCategoryValues">
+      <xsd:annotation>
+         <xsd:documentation>(U) The category of a hold on a managed
+			Record's disposition.
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumERMHoldCategory.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="congressionalInquiry">
+            <xsd:annotation>
+               <xsd:documentation>Records relating to an agency's
+				congressional affairs office's ongoing searches and congressional inquiries</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="financial">
+            <xsd:annotation>
+               <xsd:documentation>(1) Records retired before contract
+				close-out, final payment, and/or settlement OR (2) Records under review for confirmation of
+				payment, undergoing financial audits, and certifications</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="foiaPaMdr">
+            <xsd:annotation>
+               <xsd:documentation>Records associated with open
+				FOIA/PA/MDR requests</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="historicalReview">
+            <xsd:annotation>
+               <xsd:documentation>Records determined by the History
+				Staff to be of historical significance</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="invAudInsp">
+            <xsd:annotation>
+               <xsd:documentation>Records relating to pending
+				Inspector General's office and other offices' investigations, inspections and audits</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="litigation">
+            <xsd:annotation>
+               <xsd:documentation>Records relating to the General
+				Counsel's Office and other offices' ongoing legal actions</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="markingsHold">
+            <xsd:annotation>
+               <xsd:documentation>Record has classification or
+				dissemination control marking(s) that prevent the record from being transferred to NARA. For
+				example: LIMDIS, RD (Restricted Data) and Declassification Review Pending"</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="missionCritical">
+            <xsd:annotation>
+               <xsd:documentation>Records associated with ongoing
+				operations, projects and/or programs</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="recordsManagerHold">
+            <xsd:annotation>
+               <xsd:documentation>(1) Records requiring Records
+				Manager/Custodian review OR
+				(2) Waiting for NARA approval of proposed new disposition OR
+				(3) Records relating to/from office reorganization OR
+				(4) Records retired under wrong Record Control Schedule (RCS) and/or incorrect RCS Item Number OR
+				(5) Inactive records retired prior to cutoff OR
+				(6) Disposition time miscalculated</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="CVEnumERMHoldCategory">
+      <xsd:restriction>
+         <xsd:simpleType>
+            <xsd:list itemType="ermhc:CVEnumERMHoldCategoryValues"/>
+         </xsd:simpleType>
+         <xsd:maxLength value="9"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

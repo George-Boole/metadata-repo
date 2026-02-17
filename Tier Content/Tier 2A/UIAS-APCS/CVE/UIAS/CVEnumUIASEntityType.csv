@@ -1,0 +1,23 @@
+﻿"ValueClassification","Value","DescriptionClassification","Description","DeprecationDate"
+"(U) ","CTR","(U) ","
+	  			Contractor (Person)
+	  		",
+"(U) ","GOV","(U) ","
+				Government civilian employee (Person)
+			",
+"(U) ","MIL","(U) ","
+	  			Military service member (Person)
+	  		",
+"(U) ","DEV","(U) ","
+				End-point device (Non-Person)
+			",
+"(U) ","NET","(U) ","
+				Network device (Non-Person)
+			",
+"(U) ","SVC","(U) ","
+				Service, Widget, Application, Software, etc (Non-Person)
+			",
+"(U) ","SVR","(U) ","
+				Server (Non-Person)
+			",
+

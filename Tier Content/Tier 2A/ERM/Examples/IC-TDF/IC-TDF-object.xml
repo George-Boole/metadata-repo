@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/ARH/ARH_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-EDH/IC-EDH_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-ID/IC-ID_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-TDF/IC-TDF_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!-- Distro Statement: Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<!-- All classification marks in this example are   
+ 	 for illustrative purposes only, there are no   
+      actual classified data contained in this example -->
+<TrustedDataObject xmlns="urn:us:gov:ic:tdf"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:tdf="urn:us:gov:ic:tdf"
+                   xsi:schemaLocation="urn:us:gov:ic:tdf ../../Schema/IC-TDF/IC-TDF.xsd"
+                   tdf:version="201412.201707">
+   <tdf:HandlingAssertion tdf:scope="TDO">
+      <tdf:HandlingStatement>
+         <edh:Edh xmlns:edh="urn:us:gov:ic:edh"
+                  xmlns:usagency="urn:us:gov:ic:usagency"
+                  xmlns:icid="urn:us:gov:ic:id"
+                  xmlns:arh="urn:us:gov:ic:arh"
+                  xmlns:ism="urn:us:gov:ic:ism"
+                  usagency:CESVersion="201609"
+                  icid:DESVersion="1"
+                  edh:DESVersion="201609"
+                  arh:DESVersion="3"
+                  ism:DESVersion="201609.201707"
+                  ism:ISMCATCESVersion="201709">
+            <icid:Identifier>guide://999001/EdhExample1</icid:Identifier>
+            <edh:DataItemCreateDateTime>2012-05-29T09:00:00Z</edh:DataItemCreateDateTime>
+            <edh:ResponsibleEntity edh:role="Custodian">
+               <edh:Country>USA</edh:Country>
+               <edh:Organization>DIA</edh:Organization>
+            </edh:ResponsibleEntity>
+            <arh:Security ism:compliesWith="USGov USIC"
+                          ism:resourceElement="true"
+                          ism:createDate="2012-05-29"
+                          ism:classification="U"
+                          ism:ownerProducer="USA"/>
+         </edh:Edh>
+      </tdf:HandlingStatement>
+   </tdf:HandlingAssertion>
+   <tdf:HandlingAssertion tdf:scope="PAYL">
+      <tdf:HandlingStatement>
+         <edh:Edh xmlns:edh="urn:us:gov:ic:edh"
+                  xmlns:usagency="urn:us:gov:ic:usagency"
+                  xmlns:icid="urn:us:gov:ic:id"
+                  xmlns:arh="urn:us:gov:ic:arh"
+                  xmlns:ism="urn:us:gov:ic:ism"
+                  usagency:CESVersion="201609"
+                  icid:DESVersion="1"
+                  edh:DESVersion="201609"
+                  arh:DESVersion="3"
+                  ism:DESVersion="201609.201707"
+                  ism:ISMCATCESVersion="201709">
+            <icid:Identifier>guide://999001/EdhExample2</icid:Identifier>
+            <edh:DataItemCreateDateTime>2012-05-29T09:00:00Z</edh:DataItemCreateDateTime>
+            <edh:ResponsibleEntity edh:role="Custodian">
+               <edh:Country>USA</edh:Country>
+               <edh:Organization>DIA</edh:Organization>
+            </edh:ResponsibleEntity>
+            <arh:Security ism:compliesWith="USGov USIC"
+                          ism:resourceElement="true"
+                          ism:createDate="2012-05-29"
+                          ism:classification="U"
+                          ism:ownerProducer="USA"/>
+         </edh:Edh>
+      </tdf:HandlingStatement>
+   </tdf:HandlingAssertion>
+   <tdf:Assertion tdf:scope="PAYL">
+      <tdf:StringStatement>I am assertion about the payload. This payload is just an example to show usage of the IC-TDF schema</tdf:StringStatement>
+   </tdf:Assertion>
+   <tdf:StringPayload>
+        I am an example payload of a string within 
+    </tdf:StringPayload>
+</TrustedDataObject>

@@ -1,0 +1,3011 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns="urn:us:gov:ic:cvenum:pm:actor"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:pm:actor"
+            version="202211">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumPMActor Version 2.1 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumPMActor.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumPMActor">
+      <xsd:annotation>
+         <xsd:documentation>(U) Production Metrics Actor: all currently valid GENC trigraphs, Alpha sorted by Tetra followed by Non-State Actors. 
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumPMActor.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="ABW">
+            <xsd:annotation>
+               <xsd:documentation>Aruba</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="AFG">
+            <xsd:annotation>
+               <xsd:documentation>Afghanistan</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="AGO">
+            <xsd:annotation>
+               <xsd:documentation>Angola</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="AIA">
+            <xsd:annotation>
+               <xsd:documentation>Anguilla</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ALB">
+            <xsd:annotation>
+               <xsd:documentation>Albania</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="AND">
+            <xsd:annotation>
+               <xsd:documentation>Andorra</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ARE">
+            <xsd:annotation>
+               <xsd:documentation>United Arab Emirates</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ARG">
+            <xsd:annotation>
+               <xsd:documentation>Argentina</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ARM">
+            <xsd:annotation>
+               <xsd:documentation>Armenia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ASM">
+            <xsd:annotation>
+               <xsd:documentation>American Samoa</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ATA">
+            <xsd:annotation>
+               <xsd:documentation>Antarctica</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ATF">
+            <xsd:annotation>
+               <xsd:documentation>French Southern and Antarctic Lands</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ATG">
+            <xsd:annotation>
+               <xsd:documentation>Antigua and Barbuda</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="AUS">
+            <xsd:annotation>
+               <xsd:documentation>Australia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="AUT">
+            <xsd:annotation>
+               <xsd:documentation>Austria</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="AX1">
+            <xsd:annotation>
+               <xsd:documentation>Unknown</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="AX2">
+            <xsd:annotation>
+               <xsd:documentation>Guantanamo Bay Naval Base</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="AX3">
+            <xsd:annotation>
+               <xsd:documentation>Entity 6</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="AZE">
+            <xsd:annotation>
+               <xsd:documentation>Azerbaijan</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BDI">
+            <xsd:annotation>
+               <xsd:documentation>Burundi</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BEL">
+            <xsd:annotation>
+               <xsd:documentation>Belgium</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BEN">
+            <xsd:annotation>
+               <xsd:documentation>Benin</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BES">
+            <xsd:annotation>
+               <xsd:documentation>Bonaire, Sint Eustatius, and Saba</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BFA">
+            <xsd:annotation>
+               <xsd:documentation>Burkina Faso</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BGD">
+            <xsd:annotation>
+               <xsd:documentation>Bangladesh</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BGR">
+            <xsd:annotation>
+               <xsd:documentation>Bulgaria</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BHR">
+            <xsd:annotation>
+               <xsd:documentation>Bahrain</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BHS">
+            <xsd:annotation>
+               <xsd:documentation>Bahamas, The</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BIH">
+            <xsd:annotation>
+               <xsd:documentation>Bosnia and Herzegovina</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BLM">
+            <xsd:annotation>
+               <xsd:documentation>Saint Barthelemy</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BLR">
+            <xsd:annotation>
+               <xsd:documentation>Belarus</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BLZ">
+            <xsd:annotation>
+               <xsd:documentation>Belize</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BMU">
+            <xsd:annotation>
+               <xsd:documentation>Bermuda</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BOL">
+            <xsd:annotation>
+               <xsd:documentation>Bolivia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BRA">
+            <xsd:annotation>
+               <xsd:documentation>Brazil</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BRB">
+            <xsd:annotation>
+               <xsd:documentation>Barbados</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BRN">
+            <xsd:annotation>
+               <xsd:documentation>Brunei</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BTN">
+            <xsd:annotation>
+               <xsd:documentation>Bhutan</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BVT">
+            <xsd:annotation>
+               <xsd:documentation>Bouvet Island</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BWA">
+            <xsd:annotation>
+               <xsd:documentation>Botswana</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CAF">
+            <xsd:annotation>
+               <xsd:documentation>Central African Republic</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CAN">
+            <xsd:annotation>
+               <xsd:documentation>Canada</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CCK">
+            <xsd:annotation>
+               <xsd:documentation>Cocos (Keeling) Islands</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CHE">
+            <xsd:annotation>
+               <xsd:documentation>Switzerland</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CHL">
+            <xsd:annotation>
+               <xsd:documentation>Chile</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CHN">
+            <xsd:annotation>
+               <xsd:documentation>China</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CIV">
+            <xsd:annotation>
+               <xsd:documentation>Côte d’Ivoire</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CMR">
+            <xsd:annotation>
+               <xsd:documentation>Cameroon</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="COD">
+            <xsd:annotation>
+               <xsd:documentation>Congo (Kinshasa)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="COG">
+            <xsd:annotation>
+               <xsd:documentation>Congo (Brazzaville)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="COK">
+            <xsd:annotation>
+               <xsd:documentation>Cook Islands</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="COL">
+            <xsd:annotation>
+               <xsd:documentation>Colombia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="COM">
+            <xsd:annotation>
+               <xsd:documentation>Comoros</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CPT">
+            <xsd:annotation>
+               <xsd:documentation>Clipperton Island</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CPV">
+            <xsd:annotation>
+               <xsd:documentation>Cabo Verde</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CRI">
+            <xsd:annotation>
+               <xsd:documentation>Costa Rica</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CUB">
+            <xsd:annotation>
+               <xsd:documentation>Cuba</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CUW">
+            <xsd:annotation>
+               <xsd:documentation>Curaçao</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CXR">
+            <xsd:annotation>
+               <xsd:documentation>Christmas Island</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CYM">
+            <xsd:annotation>
+               <xsd:documentation>Cayman Islands</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CYP">
+            <xsd:annotation>
+               <xsd:documentation>Cyprus</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CZE">
+            <xsd:annotation>
+               <xsd:documentation>Czechia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DEU">
+            <xsd:annotation>
+               <xsd:documentation>Germany</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DGA">
+            <xsd:annotation>
+               <xsd:documentation>Diego Garcia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DJI">
+            <xsd:annotation>
+               <xsd:documentation>Djibouti</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DMA">
+            <xsd:annotation>
+               <xsd:documentation>Dominica</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DNK">
+            <xsd:annotation>
+               <xsd:documentation>Denmark</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DOM">
+            <xsd:annotation>
+               <xsd:documentation>Dominican Republic</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DZA">
+            <xsd:annotation>
+               <xsd:documentation>Algeria</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ECU">
+            <xsd:annotation>
+               <xsd:documentation>Ecuador</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="EGY">
+            <xsd:annotation>
+               <xsd:documentation>Egypt</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ERI">
+            <xsd:annotation>
+               <xsd:documentation>Eritrea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ESH">
+            <xsd:annotation>
+               <xsd:documentation>Western Sahara</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ESP">
+            <xsd:annotation>
+               <xsd:documentation>Spain</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="EST">
+            <xsd:annotation>
+               <xsd:documentation>Estonia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ETH">
+            <xsd:annotation>
+               <xsd:documentation>Ethiopia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="FIN">
+            <xsd:annotation>
+               <xsd:documentation>Finland</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="FJI">
+            <xsd:annotation>
+               <xsd:documentation>Fiji</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="FLK">
+            <xsd:annotation>
+               <xsd:documentation>Falkland Islands (Islas Malvinas)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="FRA">
+            <xsd:annotation>
+               <xsd:documentation>France</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="FRO">
+            <xsd:annotation>
+               <xsd:documentation>Faroe Islands</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="FSM">
+            <xsd:annotation>
+               <xsd:documentation>Micronesia, Federated States of</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GAB">
+            <xsd:annotation>
+               <xsd:documentation>Gabon</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GBR">
+            <xsd:annotation>
+               <xsd:documentation>United Kingdom</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GEO">
+            <xsd:annotation>
+               <xsd:documentation>Georgia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GGY">
+            <xsd:annotation>
+               <xsd:documentation>Guernsey</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GHA">
+            <xsd:annotation>
+               <xsd:documentation>Ghana</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GIB">
+            <xsd:annotation>
+               <xsd:documentation>Gibraltar</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GIN">
+            <xsd:annotation>
+               <xsd:documentation>Guinea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GLP">
+            <xsd:annotation>
+               <xsd:documentation>Guadeloupe</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GMB">
+            <xsd:annotation>
+               <xsd:documentation>Gambia, The</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GNB">
+            <xsd:annotation>
+               <xsd:documentation>Guinea-Bissau</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GNQ">
+            <xsd:annotation>
+               <xsd:documentation>Equatorial Guinea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GRC">
+            <xsd:annotation>
+               <xsd:documentation>Greece</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GRD">
+            <xsd:annotation>
+               <xsd:documentation>Grenada</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GRL">
+            <xsd:annotation>
+               <xsd:documentation>Greenland</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GTM">
+            <xsd:annotation>
+               <xsd:documentation>Guatemala</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GUF">
+            <xsd:annotation>
+               <xsd:documentation>French Guiana</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GUM">
+            <xsd:annotation>
+               <xsd:documentation>Guam</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GUY">
+            <xsd:annotation>
+               <xsd:documentation>Guyana</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HKG">
+            <xsd:annotation>
+               <xsd:documentation>Hong Kong</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HMD">
+            <xsd:annotation>
+               <xsd:documentation>Heard Island and McDonald Islands</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HND">
+            <xsd:annotation>
+               <xsd:documentation>Honduras</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HRV">
+            <xsd:annotation>
+               <xsd:documentation>Croatia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HTI">
+            <xsd:annotation>
+               <xsd:documentation>Haiti</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HUN">
+            <xsd:annotation>
+               <xsd:documentation>Hungary</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="IDN">
+            <xsd:annotation>
+               <xsd:documentation>Indonesia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="IMN">
+            <xsd:annotation>
+               <xsd:documentation>Isle of Man</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="IND">
+            <xsd:annotation>
+               <xsd:documentation>India</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="IOT">
+            <xsd:annotation>
+               <xsd:documentation>British Indian Ocean Territory</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="IRL">
+            <xsd:annotation>
+               <xsd:documentation>Ireland</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="IRN">
+            <xsd:annotation>
+               <xsd:documentation>Iran</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="IRQ">
+            <xsd:annotation>
+               <xsd:documentation>Iraq</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ISL">
+            <xsd:annotation>
+               <xsd:documentation>Iceland</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ISR">
+            <xsd:annotation>
+               <xsd:documentation>Israel</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ITA">
+            <xsd:annotation>
+               <xsd:documentation>Italy</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="JAM">
+            <xsd:annotation>
+               <xsd:documentation>Jamaica</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="JEY">
+            <xsd:annotation>
+               <xsd:documentation>Jersey</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="JOR">
+            <xsd:annotation>
+               <xsd:documentation>Jordan</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="JPN">
+            <xsd:annotation>
+               <xsd:documentation>Japan</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="KAZ">
+            <xsd:annotation>
+               <xsd:documentation>Kazakhstan</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="KEN">
+            <xsd:annotation>
+               <xsd:documentation>Kenya</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="KGZ">
+            <xsd:annotation>
+               <xsd:documentation>Kyrgyzstan</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="KHM">
+            <xsd:annotation>
+               <xsd:documentation>Cambodia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="KIR">
+            <xsd:annotation>
+               <xsd:documentation>Kiribati</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="KNA">
+            <xsd:annotation>
+               <xsd:documentation>Saint Kitts and Nevis</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="KOR">
+            <xsd:annotation>
+               <xsd:documentation>Korea, South</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="KWT">
+            <xsd:annotation>
+               <xsd:documentation>Kuwait</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="LAO">
+            <xsd:annotation>
+               <xsd:documentation>Laos</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="LBN">
+            <xsd:annotation>
+               <xsd:documentation>Lebanon</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="LBR">
+            <xsd:annotation>
+               <xsd:documentation>Liberia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="LBY">
+            <xsd:annotation>
+               <xsd:documentation>Libya</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="LCA">
+            <xsd:annotation>
+               <xsd:documentation>Saint Lucia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="LIE">
+            <xsd:annotation>
+               <xsd:documentation>Liechtenstein</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="LKA">
+            <xsd:annotation>
+               <xsd:documentation>Sri Lanka</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="LSO">
+            <xsd:annotation>
+               <xsd:documentation>Lesotho</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="LTU">
+            <xsd:annotation>
+               <xsd:documentation>Lithuania</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="LUX">
+            <xsd:annotation>
+               <xsd:documentation>Luxembourg</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="LVA">
+            <xsd:annotation>
+               <xsd:documentation>Latvia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MAC">
+            <xsd:annotation>
+               <xsd:documentation>Macau</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MAF">
+            <xsd:annotation>
+               <xsd:documentation>Saint Martin</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MAR">
+            <xsd:annotation>
+               <xsd:documentation>Morocco</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MCO">
+            <xsd:annotation>
+               <xsd:documentation>Monaco</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MDA">
+            <xsd:annotation>
+               <xsd:documentation>Moldova</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MDG">
+            <xsd:annotation>
+               <xsd:documentation>Madagascar</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MDV">
+            <xsd:annotation>
+               <xsd:documentation>Maldives</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MEX">
+            <xsd:annotation>
+               <xsd:documentation>Mexico</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MHL">
+            <xsd:annotation>
+               <xsd:documentation>Marshall Islands</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MKD">
+            <xsd:annotation>
+               <xsd:documentation>North Macedonia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MLI">
+            <xsd:annotation>
+               <xsd:documentation>Mali</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MLT">
+            <xsd:annotation>
+               <xsd:documentation>Malta</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MMR">
+            <xsd:annotation>
+               <xsd:documentation>Burma</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MNE">
+            <xsd:annotation>
+               <xsd:documentation>Montenegro</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MNG">
+            <xsd:annotation>
+               <xsd:documentation>Mongolia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MNP">
+            <xsd:annotation>
+               <xsd:documentation>Northern Mariana Islands</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MOZ">
+            <xsd:annotation>
+               <xsd:documentation>Mozambique</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MRT">
+            <xsd:annotation>
+               <xsd:documentation>Mauritania</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MSR">
+            <xsd:annotation>
+               <xsd:documentation>Montserrat</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MTQ">
+            <xsd:annotation>
+               <xsd:documentation>Martinique</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MUS">
+            <xsd:annotation>
+               <xsd:documentation>Mauritius</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MWI">
+            <xsd:annotation>
+               <xsd:documentation>Malawi</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MYS">
+            <xsd:annotation>
+               <xsd:documentation>Malaysia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MYT">
+            <xsd:annotation>
+               <xsd:documentation>Mayotte</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="NAM">
+            <xsd:annotation>
+               <xsd:documentation>Namibia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="NCL">
+            <xsd:annotation>
+               <xsd:documentation>New Caledonia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="NER">
+            <xsd:annotation>
+               <xsd:documentation>Niger</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="NFK">
+            <xsd:annotation>
+               <xsd:documentation>Norfolk Island</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="NGA">
+            <xsd:annotation>
+               <xsd:documentation>Nigeria</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="NIC">
+            <xsd:annotation>
+               <xsd:documentation>Nicaragua</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="NIU">
+            <xsd:annotation>
+               <xsd:documentation>Niue</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="NLD">
+            <xsd:annotation>
+               <xsd:documentation>Netherlands</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="NOR">
+            <xsd:annotation>
+               <xsd:documentation>Norway</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="NPL">
+            <xsd:annotation>
+               <xsd:documentation>Nepal</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="NRU">
+            <xsd:annotation>
+               <xsd:documentation>Nauru</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="NZL">
+            <xsd:annotation>
+               <xsd:documentation>New Zealand</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="OMN">
+            <xsd:annotation>
+               <xsd:documentation>Oman</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PAK">
+            <xsd:annotation>
+               <xsd:documentation>Pakistan</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PAN">
+            <xsd:annotation>
+               <xsd:documentation>Panama</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PCN">
+            <xsd:annotation>
+               <xsd:documentation>Pitcairn Islands</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PER">
+            <xsd:annotation>
+               <xsd:documentation>Peru</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PHL">
+            <xsd:annotation>
+               <xsd:documentation>Philippines</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PLW">
+            <xsd:annotation>
+               <xsd:documentation>Palau</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PNG">
+            <xsd:annotation>
+               <xsd:documentation>Papua New Guinea</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="POL">
+            <xsd:annotation>
+               <xsd:documentation>Poland</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PRI">
+            <xsd:annotation>
+               <xsd:documentation>Puerto Rico</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PRK">
+            <xsd:annotation>
+               <xsd:documentation>Korea, North</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PRT">
+            <xsd:annotation>
+               <xsd:documentation>Portugal</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PRY">
+            <xsd:annotation>
+               <xsd:documentation>Paraguay</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="PYF">
+            <xsd:annotation>
+               <xsd:documentation>French Polynesia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="QAT">
+            <xsd:annotation>
+               <xsd:documentation>Qatar</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="REU">
+            <xsd:annotation>
+               <xsd:documentation>Reunion</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ROU">
+            <xsd:annotation>
+               <xsd:documentation>Romania</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="RUS">
+            <xsd:annotation>
+               <xsd:documentation>Russia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="RWA">
+            <xsd:annotation>
+               <xsd:documentation>Rwanda</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SAU">
+            <xsd:annotation>
+               <xsd:documentation>Saudi Arabia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SDN">
+            <xsd:annotation>
+               <xsd:documentation>Sudan</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SEN">
+            <xsd:annotation>
+               <xsd:documentation>Senegal</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SGP">
+            <xsd:annotation>
+               <xsd:documentation>Singapore</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SGS">
+            <xsd:annotation>
+               <xsd:documentation>South Georgia and South Sandwich Islands</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SHN">
+            <xsd:annotation>
+               <xsd:documentation>Saint Helena, Ascension, and Tristan da Cunha</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SLB">
+            <xsd:annotation>
+               <xsd:documentation>Solomon Islands</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SLE">
+            <xsd:annotation>
+               <xsd:documentation>Sierra Leone</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SLV">
+            <xsd:annotation>
+               <xsd:documentation>El Salvador</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SMR">
+            <xsd:annotation>
+               <xsd:documentation>San Marino</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SOM">
+            <xsd:annotation>
+               <xsd:documentation>Somalia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SPM">
+            <xsd:annotation>
+               <xsd:documentation>Saint Pierre and Miquelon</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SRB">
+            <xsd:annotation>
+               <xsd:documentation>Serbia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SSD">
+            <xsd:annotation>
+               <xsd:documentation>South Sudan</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="STP">
+            <xsd:annotation>
+               <xsd:documentation>Sao Tome and Principe</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SUR">
+            <xsd:annotation>
+               <xsd:documentation>Suriname</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SVK">
+            <xsd:annotation>
+               <xsd:documentation>Slovakia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SVN">
+            <xsd:annotation>
+               <xsd:documentation>Slovenia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SWE">
+            <xsd:annotation>
+               <xsd:documentation>Sweden</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SWZ">
+            <xsd:annotation>
+               <xsd:documentation>Eswatini</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SXM">
+            <xsd:annotation>
+               <xsd:documentation>Sint Maarten</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SYC">
+            <xsd:annotation>
+               <xsd:documentation>Seychelles</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SYR">
+            <xsd:annotation>
+               <xsd:documentation>Syria</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TCA">
+            <xsd:annotation>
+               <xsd:documentation>Turks and Caicos Islands</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TCD">
+            <xsd:annotation>
+               <xsd:documentation>Chad</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TGO">
+            <xsd:annotation>
+               <xsd:documentation>Togo</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="THA">
+            <xsd:annotation>
+               <xsd:documentation>Thailand</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TJK">
+            <xsd:annotation>
+               <xsd:documentation>Tajikistan</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TKL">
+            <xsd:annotation>
+               <xsd:documentation>Tokelau</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TKM">
+            <xsd:annotation>
+               <xsd:documentation>Turkmenistan</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TLS">
+            <xsd:annotation>
+               <xsd:documentation>Timor-Leste</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TON">
+            <xsd:annotation>
+               <xsd:documentation>Tonga</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TTO">
+            <xsd:annotation>
+               <xsd:documentation>Trinidad and Tobago</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TUN">
+            <xsd:annotation>
+               <xsd:documentation>Tunisia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TUR">
+            <xsd:annotation>
+               <xsd:documentation>Turkey</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TUV">
+            <xsd:annotation>
+               <xsd:documentation>Tuvalu</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TWN">
+            <xsd:annotation>
+               <xsd:documentation>Taiwan</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TZA">
+            <xsd:annotation>
+               <xsd:documentation>Tanzania</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="UGA">
+            <xsd:annotation>
+               <xsd:documentation>Uganda</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="UKR">
+            <xsd:annotation>
+               <xsd:documentation>Ukraine</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="URY">
+            <xsd:annotation>
+               <xsd:documentation>Uruguay</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="USA">
+            <xsd:annotation>
+               <xsd:documentation>United States</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="UZB">
+            <xsd:annotation>
+               <xsd:documentation>Uzbekistan</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="VAT">
+            <xsd:annotation>
+               <xsd:documentation>Vatican City</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="VCT">
+            <xsd:annotation>
+               <xsd:documentation>Saint Vincent and the Grenadines</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="VEN">
+            <xsd:annotation>
+               <xsd:documentation>Venezuela</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="VGB">
+            <xsd:annotation>
+               <xsd:documentation>Virgin Islands, British</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="VIR">
+            <xsd:annotation>
+               <xsd:documentation>Virgin Islands, U.S.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="VNM">
+            <xsd:annotation>
+               <xsd:documentation>Vietnam</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="VUT">
+            <xsd:annotation>
+               <xsd:documentation>Vanuatu</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="WLF">
+            <xsd:annotation>
+               <xsd:documentation>Wallis and Futuna</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="WSM">
+            <xsd:annotation>
+               <xsd:documentation>Samoa</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XAC">
+            <xsd:annotation>
+               <xsd:documentation>Ashmore and Cartier Islands</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XAZ">
+            <xsd:annotation>
+               <xsd:documentation>Entity 1</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XBI">
+            <xsd:annotation>
+               <xsd:documentation>Bassas da India</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XBK">
+            <xsd:annotation>
+               <xsd:documentation>Baker Island</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XCR">
+            <xsd:annotation>
+               <xsd:documentation>Entity 2</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XCS">
+            <xsd:annotation>
+               <xsd:documentation>Coral Sea Islands</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XCY">
+            <xsd:annotation>
+               <xsd:documentation>Entity 3</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XEU">
+            <xsd:annotation>
+               <xsd:documentation>Europa Island</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XGL">
+            <xsd:annotation>
+               <xsd:documentation>Glorioso Islands</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XGZ">
+            <xsd:annotation>
+               <xsd:documentation>Gaza Strip</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XHO">
+            <xsd:annotation>
+               <xsd:documentation>Howland Island</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XJA">
+            <xsd:annotation>
+               <xsd:documentation>Johnston Atoll</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XJM">
+            <xsd:annotation>
+               <xsd:documentation>Jan Mayen</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XJN">
+            <xsd:annotation>
+               <xsd:documentation>Juan de Nova Island</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XJV">
+            <xsd:annotation>
+               <xsd:documentation>Jarvis Island</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XKM">
+            <xsd:annotation>
+               <xsd:documentation>Entity 4</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XKN">
+            <xsd:annotation>
+               <xsd:documentation>Entity 5</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XKR">
+            <xsd:annotation>
+               <xsd:documentation>Kingman Reef</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XKS">
+            <xsd:annotation>
+               <xsd:documentation>Kosovo</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XMW">
+            <xsd:annotation>
+               <xsd:documentation>Midway Islands</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XNV">
+            <xsd:annotation>
+               <xsd:documentation>Navassa Island</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XPL">
+            <xsd:annotation>
+               <xsd:documentation>Palmyra Atoll</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XPR">
+            <xsd:annotation>
+               <xsd:documentation>Paracel Islands</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XQZ">
+            <xsd:annotation>
+               <xsd:documentation>Akrotiri</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XSP">
+            <xsd:annotation>
+               <xsd:documentation>Spratly Islands</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XSV">
+            <xsd:annotation>
+               <xsd:documentation>Svalbard</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XTR">
+            <xsd:annotation>
+               <xsd:documentation>Tromelin Island</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XWB">
+            <xsd:annotation>
+               <xsd:documentation>West Bank</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XWK">
+            <xsd:annotation>
+               <xsd:documentation>Wake Island</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="XXD">
+            <xsd:annotation>
+               <xsd:documentation>Dhekelia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="YEM">
+            <xsd:annotation>
+               <xsd:documentation>Yemen</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ZAF">
+            <xsd:annotation>
+               <xsd:documentation>South Africa</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ZMB">
+            <xsd:annotation>
+               <xsd:documentation>Zambia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ZWE">
+            <xsd:annotation>
+               <xsd:documentation>Zimbabwe</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100001">
+            <xsd:annotation>
+               <xsd:documentation>African Union</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100002">
+            <xsd:annotation>
+               <xsd:documentation>Arturo Beltran Leyva Organization (BLO)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100003">
+            <xsd:annotation>
+               <xsd:documentation>Biological Warfare Threat Entities</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100004">
+            <xsd:annotation>
+               <xsd:documentation>Chemical Warfare Threat Entities</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100005">
+            <xsd:annotation>
+               <xsd:documentation>Entities Developing and Proliferating Space Services &amp; Technologies</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100006">
+            <xsd:annotation>
+               <xsd:documentation>Comprehensive Nuclear Test Ban Treaty Organization</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100007">
+            <xsd:annotation>
+               <xsd:documentation>Consolidated Priority Organization Targets (CPOT)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100008">
+            <xsd:annotation>
+               <xsd:documentation>Corporations-Networks Engaged In Acquisition or Sale of Military or WMD Materials or Technology</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100009">
+            <xsd:annotation>
+               <xsd:documentation>Corporations-Networks Proliferating D&amp;D Capabilities</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100010">
+            <xsd:annotation>
+               <xsd:documentation>Economic-Societal Entities</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100011">
+            <xsd:annotation>
+               <xsd:documentation>European Space Agency</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100012">
+            <xsd:annotation>
+               <xsd:documentation>United Nations Food and Agriculture Organization (FAO)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100013">
+            <xsd:annotation>
+               <xsd:documentation>Foreign R&amp;D Institutions &amp; Corporate Entities</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100014">
+            <xsd:annotation>
+               <xsd:documentation>Gulf Cartel</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100017">
+            <xsd:annotation>
+               <xsd:documentation>Human Rights Entities and War Crimes Courts</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100019">
+            <xsd:annotation>
+               <xsd:documentation>International Arms Control Organizations</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100020">
+            <xsd:annotation>
+               <xsd:documentation>International Atomic Energy Agency (IAEA)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100021">
+            <xsd:annotation>
+               <xsd:documentation>International Criminal Court</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100022">
+            <xsd:annotation>
+               <xsd:documentation>International Financial Institutions and Infrastructures</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100023">
+            <xsd:annotation>
+               <xsd:documentation>International Political/Military Organizations</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100024">
+            <xsd:annotation>
+               <xsd:documentation>Kurdish Political-Military Groups</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100025">
+            <xsd:annotation>
+               <xsd:documentation>La Familia Michoacana</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100026">
+            <xsd:annotation>
+               <xsd:documentation>Los Zetas</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100028">
+            <xsd:annotation>
+               <xsd:documentation>North Atlantic Treaty Organization (NATO)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100029">
+            <xsd:annotation>
+               <xsd:documentation>Non-Government Satellite Observers and Satellite Warning Programs</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100030">
+            <xsd:annotation>
+               <xsd:documentation>Organization of Petroleum Exporting Countries (OPEC)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100031">
+            <xsd:annotation>
+               <xsd:documentation>Organisation for the Prohibition of Chemical Weapons (OPCW)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100032">
+            <xsd:annotation>
+               <xsd:documentation>Organization for Security and Cooperation in Europe (OSCE)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100033">
+            <xsd:annotation>
+               <xsd:documentation>Organization of American States (OAS)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100034">
+            <xsd:annotation>
+               <xsd:documentation>Organization of Islamic Cooperation (OIC)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100035">
+            <xsd:annotation>
+               <xsd:documentation>Other Illicit Drug Organizations and Networks</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100036">
+            <xsd:annotation>
+               <xsd:documentation>Palestinian Authority</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100038">
+            <xsd:annotation>
+               <xsd:documentation>Special Interest Alien Smuggling Organizations and Networks</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100039">
+            <xsd:annotation>
+               <xsd:documentation>Transnational Criminal Organizations defined in Executive Order 13581</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100040">
+            <xsd:annotation>
+               <xsd:documentation>Transnational Gangs</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100041">
+            <xsd:annotation>
+               <xsd:documentation>Unattributed Network Activity</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100043">
+            <xsd:annotation>
+               <xsd:documentation>World Animal Health Organization (OIE)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100044">
+            <xsd:annotation>
+               <xsd:documentation>World Health Organization</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100045">
+            <xsd:annotation>
+               <xsd:documentation>World Trade Organization</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100046">
+            <xsd:annotation>
+               <xsd:documentation>Terrorist Organization</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100047">
+            <xsd:annotation>
+               <xsd:documentation>Alliance of Small Island States</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100048">
+            <xsd:annotation>
+               <xsd:documentation>Arab League</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100049">
+            <xsd:annotation>
+               <xsd:documentation>Arctic Council</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100050">
+            <xsd:annotation>
+               <xsd:documentation>Bacrim (Criminal Bands)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100051">
+            <xsd:annotation>
+               <xsd:documentation>Balkan-based Organized Crime Groups</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100052">
+            <xsd:annotation>
+               <xsd:documentation>Chinese Speaking Triads</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100053">
+            <xsd:annotation>
+               <xsd:documentation>CPOT/Kingpin Organizations</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100054">
+            <xsd:annotation>
+               <xsd:documentation>D-Company</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100055">
+            <xsd:annotation>
+               <xsd:documentation>Economic Community of West African States (ECOWAS)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100056">
+            <xsd:annotation>
+               <xsd:documentation>Entities developing, providing, and distributing cyber capabilities and/or services</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100057">
+            <xsd:annotation>
+               <xsd:documentation>Eurasian Organized Crime Groups</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100058">
+            <xsd:annotation>
+               <xsd:documentation>European Union</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100059">
+            <xsd:annotation>
+               <xsd:documentation>Gulf of Guinea militants</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100060">
+            <xsd:annotation>
+               <xsd:documentation>Human Smuggling and Trafficking Organizations</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100061">
+            <xsd:annotation>
+               <xsd:documentation>Ideologically Motivated Hackers</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100062">
+            <xsd:annotation>
+               <xsd:documentation>Insurgents in Iraq</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100063">
+            <xsd:annotation>
+               <xsd:documentation>Italian Camorra</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100064">
+            <xsd:annotation>
+               <xsd:documentation>Japanese Yakuza</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100065">
+            <xsd:annotation>
+               <xsd:documentation>Lebanese Groups in Central and South America</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100066">
+            <xsd:annotation>
+               <xsd:documentation>Lord's Resistance Army</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100067">
+            <xsd:annotation>
+               <xsd:documentation>Mara Salvatrucha (MS-13)/18th Street (M-18) Gangs</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100068">
+            <xsd:annotation>
+               <xsd:documentation>Mexican DTOs</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100069">
+            <xsd:annotation>
+               <xsd:documentation>Non-Aligned Movement (NAM)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100070">
+            <xsd:annotation>
+               <xsd:documentation>Nuclear Facility Insiders</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100071">
+            <xsd:annotation>
+               <xsd:documentation>Russian-Led Separatist Forces (RLSF)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100072">
+            <xsd:annotation>
+               <xsd:documentation>Syrian Opposition Coalition</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100073">
+            <xsd:annotation>
+               <xsd:documentation>United Nations</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100074">
+            <xsd:annotation>
+               <xsd:documentation>World Bank</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100075">
+            <xsd:annotation>
+               <xsd:documentation>Abd al-Qadir Network</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100076">
+            <xsd:annotation>
+               <xsd:documentation>Asbat al-Ansar, and splinter group Jund al-Sham</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100077">
+            <xsd:annotation>
+               <xsd:documentation>Abu Sayyaf Group (ASG)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100078">
+            <xsd:annotation>
+               <xsd:documentation>Ajnad Misr</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100079">
+            <xsd:annotation>
+               <xsd:documentation>Al-Akhtar Trust</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100080">
+            <xsd:annotation>
+               <xsd:documentation>Al-Aqsa Martyrs Brigade (AAMB)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100081">
+            <xsd:annotation>
+               <xsd:documentation>Al-Badhr Mujahidin (ABM)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100082">
+            <xsd:annotation>
+               <xsd:documentation>Al-Furqan Welfare Trust</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100083">
+            <xsd:annotation>
+               <xsd:documentation>Al-Haramain (Haramayn) International Foundation</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100084">
+            <xsd:annotation>
+               <xsd:documentation>Al-Mujahidin Brigades (AMB)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100085">
+            <xsd:annotation>
+               <xsd:documentation>Al-Nusrah Front including Syria-based Khorasan Group</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100086">
+            <xsd:annotation>
+               <xsd:documentation>Al-Qa‘ida senior leadership and associated cadre</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100087">
+            <xsd:annotation>
+               <xsd:documentation>Al-Qa‘ida in the Arabian Peninsula (AQAP)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100088">
+            <xsd:annotation>
+               <xsd:documentation>Al-Qa‘ida in the Lands of the Islamic Maghreb (AQIM)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100089">
+            <xsd:annotation>
+               <xsd:documentation>Al-Qa‘ida Kurdistan Battalions (AQ-KB)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100090">
+            <xsd:annotation>
+               <xsd:documentation>Al-Qa‘ida-linked and other extremist networks in Sudan</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100091">
+            <xsd:annotation>
+               <xsd:documentation>Al-Qa‘ida in the Indian Subcontinent (AQIS)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100092">
+            <xsd:annotation>
+               <xsd:documentation>Al-Rashid Trust Institution</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100093">
+            <xsd:annotation>
+               <xsd:documentation>Al-Shabaab</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100094">
+            <xsd:annotation>
+               <xsd:documentation>Al-Taqwa Association</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100095">
+            <xsd:annotation>
+               <xsd:documentation>Al-Waqf Foundation</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100096">
+            <xsd:annotation>
+               <xsd:documentation>Ansar al-Islam (AI)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100097">
+            <xsd:annotation>
+               <xsd:documentation>Ansar al-Sharia (Tunisia)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100098">
+            <xsd:annotation>
+               <xsd:documentation>Ansar al-Sunnah</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100099">
+            <xsd:annotation>
+               <xsd:documentation>Anti-Coalition Militias (ACM)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100100">
+            <xsd:annotation>
+               <xsd:documentation>Aum Shinrikyo</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100101">
+            <xsd:annotation>
+               <xsd:documentation>Bahraini Shia Groups</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100102">
+            <xsd:annotation>
+               <xsd:documentation>Balkans Islamic extremist networks</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100103">
+            <xsd:annotation>
+               <xsd:documentation>Baluchistan Liberation Army (Pakistan)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100104">
+            <xsd:annotation>
+               <xsd:documentation>Bangsamoro Islamic Freedom Fighters (BIFF) and Bangsomoro Islamic Freedom Movement (BIFM)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100105">
+            <xsd:annotation>
+               <xsd:documentation>Barisan Revolusi Nasional-Coordinate (BRN-C)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100106">
+            <xsd:annotation>
+               <xsd:documentation>Basque Fatherland and Liberty (ETA)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100107">
+            <xsd:annotation>
+               <xsd:documentation>Boko Haram</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100108">
+            <xsd:annotation>
+               <xsd:documentation>Brandbergen Mosque extremists (Sweden)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100109">
+            <xsd:annotation>
+               <xsd:documentation>Central African Extremist Groups</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100110">
+            <xsd:annotation>
+               <xsd:documentation>Crisis Action Committee (KOMPAK)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100111">
+            <xsd:annotation>
+               <xsd:documentation>East Turkestan Islamic Party (ETIP)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100112">
+            <xsd:annotation>
+               <xsd:documentation>Egyptian extremist groups</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100113">
+            <xsd:annotation>
+               <xsd:documentation>Extremist networks in Syria</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100114">
+            <xsd:annotation>
+               <xsd:documentation>Emerging ISIS-aligned extremist networks in Tunisia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100115">
+            <xsd:annotation>
+               <xsd:documentation>European Salafist Movement</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100116">
+            <xsd:annotation>
+               <xsd:documentation>Extremist networks in Libya</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100117">
+            <xsd:annotation>
+               <xsd:documentation>Fatah al-Islam (FAI)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100118">
+            <xsd:annotation>
+               <xsd:documentation>Foreign Fighters affiliating, or seeking to associate with, Sunni violent extremists active in conflict zones</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100119">
+            <xsd:annotation>
+               <xsd:documentation>Forum of Islamic Law Activists (FAKSI)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100120">
+            <xsd:annotation>
+               <xsd:documentation>Gaza-based Salafi extremists</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100121">
+            <xsd:annotation>
+               <xsd:documentation>Greek domestic extremist groups</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100122">
+            <xsd:annotation>
+               <xsd:documentation>Gulf Hizballah Groups</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100123">
+            <xsd:annotation>
+               <xsd:documentation>HAMAS</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100124">
+            <xsd:annotation>
+               <xsd:documentation>Haqqani Network</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100125">
+            <xsd:annotation>
+               <xsd:documentation>Harakat ul-Jihad-i-Islami Bangladesh (HUJI-B)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100126">
+            <xsd:annotation>
+               <xsd:documentation>Harakat-ul-Jihad-i-Islami (HUJI) (Pakistan)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100127">
+            <xsd:annotation>
+               <xsd:documentation>Harakat-ul-Mujahidin (HUM)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100128">
+            <xsd:annotation>
+               <xsd:documentation>Hizb al-Tahrir movement</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100129">
+            <xsd:annotation>
+               <xsd:documentation>Hizballah (Lebanese)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100130">
+            <xsd:annotation>
+               <xsd:documentation>Homegrown Violent Extremists (HVE)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100131">
+            <xsd:annotation>
+               <xsd:documentation>Indian Mujahidin</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100132">
+            <xsd:annotation>
+               <xsd:documentation>International anti-globalization and environmental extremist groups</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100133">
+            <xsd:annotation>
+               <xsd:documentation>International Islamic Relief Organization (IIRO)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100134">
+            <xsd:annotation>
+               <xsd:documentation>Internationale Humanitaere Hilfe (IHH)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100135">
+            <xsd:annotation>
+               <xsd:documentation>Iranian state organizations involved in terrorism</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100136">
+            <xsd:annotation>
+               <xsd:documentation>Shia Groups with ties to Iran and Lebanese Hizballah</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100137">
+            <xsd:annotation>
+               <xsd:documentation>Irish extremist factions</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100138">
+            <xsd:annotation>
+               <xsd:documentation>Islamic Dissemination Center for Latin America (CDIAL)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100139">
+            <xsd:annotation>
+               <xsd:documentation>Islamic Jihad Union (IJU)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100140">
+            <xsd:annotation>
+               <xsd:documentation>Islamic Movement of Uzbekistan (IMU)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100141">
+            <xsd:annotation>
+               <xsd:documentation>Islamic State of Iraq and ash-Sham - Sinai (ISIS-Sinai)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100142">
+            <xsd:annotation>
+               <xsd:documentation>Islamic State of Iraq and ash-Sham - Khorasan (ISIS-Khorasan)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100143">
+            <xsd:annotation>
+               <xsd:documentation>Islamic State of Iraq and ash-Sham - Libya (ISIS-Libya)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100144">
+            <xsd:annotation>
+               <xsd:documentation>Islamic State of Iraq and ash-Sham (ISIS)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100145">
+            <xsd:annotation>
+               <xsd:documentation>Israeli extremist groups</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100146">
+            <xsd:annotation>
+               <xsd:documentation>Jaish-e-Mohammad (JEM)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100147">
+            <xsd:annotation>
+               <xsd:documentation>Jaljalat (Gaza Strip)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100148">
+            <xsd:annotation>
+               <xsd:documentation>Jama‘at al-Tabligh (JT)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100149">
+            <xsd:annotation>
+               <xsd:documentation>Jamaat Ansarullah (Tajikistan)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100150">
+            <xsd:annotation>
+               <xsd:documentation>Bangladesh ISIS- and AQIS- affiliated extremists</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100151">
+            <xsd:annotation>
+               <xsd:documentation>Jamaat-e-Islami</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100152">
+            <xsd:annotation>
+               <xsd:documentation>Japanese militant groups</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100153">
+            <xsd:annotation>
+               <xsd:documentation>Jaysh al-Fatihin</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100154">
+            <xsd:annotation>
+               <xsd:documentation>Jemaah Anshorut Tauhid (JAT)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100155">
+            <xsd:annotation>
+               <xsd:documentation>Jemaah Islamiyah (JI)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100156">
+            <xsd:annotation>
+               <xsd:documentation>Jihadist/al-Qa'ida-linked facilitation nodes in southern Africa</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100157">
+            <xsd:annotation>
+               <xsd:documentation>Islamic State of Iraq and ash-Sham - Algeria (ISIS-Algeria)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100158">
+            <xsd:annotation>
+               <xsd:documentation>Jund al-Khilafah (JAK) (Pakistan, Syria)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100159">
+            <xsd:annotation>
+               <xsd:documentation>Jundallah</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100160">
+            <xsd:annotation>
+               <xsd:documentation>Kenya-based groups other than al-Shabaab</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100161">
+            <xsd:annotation>
+               <xsd:documentation>Khair ul-Nass (KUN)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100162">
+            <xsd:annotation>
+               <xsd:documentation>Kurdistan Workers Party (PKK)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100163">
+            <xsd:annotation>
+               <xsd:documentation>Lashkar-e-Jhangvi (LJ)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100164">
+            <xsd:annotation>
+               <xsd:documentation>Lashkar-e-Tayyiba (LT)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100165">
+            <xsd:annotation>
+               <xsd:documentation>Left-wing anti-imperialist groups including Red Brigades</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100166">
+            <xsd:annotation>
+               <xsd:documentation>Liberation Tigers of Tamil Eelam (LTTE)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100167">
+            <xsd:annotation>
+               <xsd:documentation>Majelis Mujahidin Indonesia (MMI)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100168">
+            <xsd:annotation>
+               <xsd:documentation>Medical Emergency Relief Committee (MER-C)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100169">
+            <xsd:annotation>
+               <xsd:documentation>Moro Islamic Liberation Front (MILF)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100170">
+            <xsd:annotation>
+               <xsd:documentation>Moro National Liberation Front (MNLF)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100171">
+            <xsd:annotation>
+               <xsd:documentation>Muslim Brotherhood</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100172">
+            <xsd:annotation>
+               <xsd:documentation>Muslim World League</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100173">
+            <xsd:annotation>
+               <xsd:documentation>Muslims of the Americas (MOA)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100174">
+            <xsd:annotation>
+               <xsd:documentation>National Liberation Army (ELN) (Colombia)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100175">
+            <xsd:annotation>
+               <xsd:documentation>New People’s Army (NPA)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100176">
+            <xsd:annotation>
+               <xsd:documentation>North Caucasus Islamic extremists (Russia) Including Imarat Kavkaz</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100177">
+            <xsd:annotation>
+               <xsd:documentation>Pakistani and Kashmiri militant/extremist groups</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100178">
+            <xsd:annotation>
+               <xsd:documentation>Palestine Islamic Jihad (PIJ)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100179">
+            <xsd:annotation>
+               <xsd:documentation>Palestinian Popular Resistance Committees (PPRC)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100180">
+            <xsd:annotation>
+               <xsd:documentation>People Against Gangsterism and Drugs (PAGAD)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100181">
+            <xsd:annotation>
+               <xsd:documentation>Popular Front for the Liberation of Palestine––General Command (PFLP-GC)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100182">
+            <xsd:annotation>
+               <xsd:documentation>Qatar Charitable Society</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100183">
+            <xsd:annotation>
+               <xsd:documentation>Revival of Islamic Heritage Society</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100184">
+            <xsd:annotation>
+               <xsd:documentation>Revolutionary Armed Forces of Colombia (FARC)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100185">
+            <xsd:annotation>
+               <xsd:documentation>Revolutionary People’s Liberation Party/Front (DHKP/C)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100186">
+            <xsd:annotation>
+               <xsd:documentation>Rohingya separatist groups</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100187">
+            <xsd:annotation>
+               <xsd:documentation>Sheikh Eid al-Thani Charity</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100188">
+            <xsd:annotation>
+               <xsd:documentation>Shining Path (Sendero Luminoso)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100189">
+            <xsd:annotation>
+               <xsd:documentation>Sikh militant/extremist groups</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100190">
+            <xsd:annotation>
+               <xsd:documentation>Sons of Salah al-Din (SSD)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100191">
+            <xsd:annotation>
+               <xsd:documentation>Southeast Asian groups exploiting the conflict in Syria and Iraq</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100192">
+            <xsd:annotation>
+               <xsd:documentation>Southern Philippines-based terrorist groups</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100193">
+            <xsd:annotation>
+               <xsd:documentation>Sulayman Abdul Aziz al Rajhi Foundation</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100194">
+            <xsd:annotation>
+               <xsd:documentation>Sururi Movement</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100195">
+            <xsd:annotation>
+               <xsd:documentation>Taliban</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100196">
+            <xsd:annotation>
+               <xsd:documentation>Tehrik-e Taliban Pakistan (TTP)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100197">
+            <xsd:annotation>
+               <xsd:documentation>Ummah Tameer Nau</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100198">
+            <xsd:annotation>
+               <xsd:documentation>War Crimes and Human Rights Fugitives</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100199">
+            <xsd:annotation>
+               <xsd:documentation>World Assembly of Muslim Youth  (WAMY) (Saudi Arabia)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100200">
+            <xsd:annotation>
+               <xsd:documentation>Yemeni Militants/Extremists</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100201">
+            <xsd:annotation>
+               <xsd:documentation>Huthi Movement</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100202">
+            <xsd:annotation>
+               <xsd:documentation>Ziyad al-Jarrah Battalions (ZJB)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100203">
+            <xsd:annotation>
+               <xsd:documentation>Islamic State of Iraq and ash-Sham - Saudi Arabia (ISIS-Saudi Arabia)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100204">
+            <xsd:annotation>
+               <xsd:documentation>Caucasus Sunni Islamic Extremists Groups</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100205">
+            <xsd:annotation>
+               <xsd:documentation>Islamic State of Iraq and ash-Sham - Yemen (ISIS-Yemen)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100206">
+            <xsd:annotation>
+               <xsd:documentation>Companies and Consortia Facilitating Theft of Property Rights and Illicit Technology Transfer</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100207">
+            <xsd:annotation>
+               <xsd:documentation>Criminally Owned Gaming Enterprises</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100208">
+            <xsd:annotation>
+               <xsd:documentation> Cyber Criminal Groups</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100209">
+            <xsd:annotation>
+               <xsd:documentation>Foreign Regulatory Bodies and Standards Setting Organizations</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100210">
+            <xsd:annotation>
+               <xsd:documentation>Foreign Venture Capital Community and Individuals</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100211">
+            <xsd:annotation>
+               <xsd:documentation>Global Illegal, Unreported, and Unregulated Fishing Networks</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100212">
+            <xsd:annotation>
+               <xsd:documentation>Human Smuggling Organizations and Networks</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100213">
+            <xsd:annotation>
+               <xsd:documentation>International Economic Organizations</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100214">
+            <xsd:annotation>
+               <xsd:documentation>International Banks, Money Transfer and Financial Messaging Services</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100215">
+            <xsd:annotation>
+               <xsd:documentation>Italy-based Organized Crime Groups</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100216">
+            <xsd:annotation>
+               <xsd:documentation>Lebanese Criminal Groups</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100217">
+            <xsd:annotation>
+               <xsd:documentation>Sahel and Maghreb Based Trafficking Networks</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100218">
+            <xsd:annotation>
+               <xsd:documentation>Syrian Armed Opposition</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100219">
+            <xsd:annotation>
+               <xsd:documentation>Syrian Political Opposition</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100220">
+            <xsd:annotation>
+               <xsd:documentation>Unaffiliated Technology Actors</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100221">
+            <xsd:annotation>
+               <xsd:documentation>Wildlife Trafficking Networks</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100222">
+            <xsd:annotation>
+               <xsd:documentation>Aspiring Islamic State of Iraq and ash-Sham (ISIS) Branches and Networks</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100223">
+            <xsd:annotation>
+               <xsd:documentation>Iranian Proxy Groups</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100224">
+            <xsd:annotation>
+               <xsd:documentation>Islamic State of Iraq and ash-Sham (ISIS) and al-Qa'ida aligned Indonesian Extremists</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100225">
+            <xsd:annotation>
+               <xsd:documentation>Other Terrorists using Disruptive and Destructive Cyber</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100226">
+            <xsd:annotation>
+               <xsd:documentation>Terrorist Support Entities</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100227">
+            <xsd:annotation>
+               <xsd:documentation>Turkistan Islamic Party (TIP)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100228">
+            <xsd:annotation>
+               <xsd:documentation>Lashkar-e Jhangvi Alami (LJA)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100229">
+            <xsd:annotation>
+               <xsd:documentation>Imam al-Bukhari Brigade (IBB)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100230">
+            <xsd:annotation>
+               <xsd:documentation>Islamic State of Iraq and ash-Sham - West Africa (ISIS-West Africa)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100231">
+            <xsd:annotation>
+               <xsd:documentation>Al-Qa’ida-aligned Indonesian extremists</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100232">
+            <xsd:annotation>
+               <xsd:documentation>Islamic State of Iraq and ash-Sham – Caucasus (ISIS-Caucasus)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100233">
+            <xsd:annotation>
+               <xsd:documentation>al-Gama'at al-Islamiyya (IG)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100234">
+            <xsd:annotation>
+               <xsd:documentation>al-Ittihad al-Islami</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100235">
+            <xsd:annotation>
+               <xsd:documentation>Al-Qa`ida (AQ)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100236">
+            <xsd:annotation>
+               <xsd:documentation>al-Zarqawi Network</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100237">
+            <xsd:annotation>
+               <xsd:documentation>Andean Region TCOs</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100238">
+            <xsd:annotation>
+               <xsd:documentation>Anti-Coalition Insurgents in Iraq</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100239">
+            <xsd:annotation>
+               <xsd:documentation>Anti-Coalition Militias in Afghanistan</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100240">
+            <xsd:annotation>
+               <xsd:documentation>Arab Mujahidin in Chechnya</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100241">
+            <xsd:annotation>
+               <xsd:documentation>Armed Islamic Group</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100242">
+            <xsd:annotation>
+               <xsd:documentation>Army of Islam (AOI)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100243">
+            <xsd:annotation>
+               <xsd:documentation>Aspiring al-Qa’ida elements in Egypt</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100244">
+            <xsd:annotation>
+               <xsd:documentation>Brazilian TCOs</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100245">
+            <xsd:annotation>
+               <xsd:documentation>Brothers' Circle</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100246">
+            <xsd:annotation>
+               <xsd:documentation>Caribbean TCOs</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100247">
+            <xsd:annotation>
+               <xsd:documentation>Central American TCOs</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100248">
+            <xsd:annotation>
+               <xsd:documentation>Chinese Drug Suppliers</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100249">
+            <xsd:annotation>
+               <xsd:documentation>Communist Party of Nepal/Maoists</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100250">
+            <xsd:annotation>
+               <xsd:documentation>CT Priority 1 Terrorist Groups and Terrorist Support Entities</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100251">
+            <xsd:annotation>
+               <xsd:documentation>CT Priority 2 Terrorist Groups and Terrorist Support Entities</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100252">
+            <xsd:annotation>
+               <xsd:documentation>CT Priority 3 Terrorist Groups and Terrorist Support Entities</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100253">
+            <xsd:annotation>
+               <xsd:documentation>CT Priority 4 Terrorist Groups and Terrorist Support Entities</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100254">
+            <xsd:annotation>
+               <xsd:documentation>CT Priority 5 Terrorist Groups and Terrorist Support Entities</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100255">
+            <xsd:annotation>
+               <xsd:documentation>Cyber Terrorism </xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100256">
+            <xsd:annotation>
+               <xsd:documentation>Dominican and other Caribbean TCOs</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100257">
+            <xsd:annotation>
+               <xsd:documentation>East African TCOs</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100258">
+            <xsd:annotation>
+               <xsd:documentation>Egyptian Islamic Jihad (EIJ)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100259">
+            <xsd:annotation>
+               <xsd:documentation>Entities Involved with POWs/MIAs</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100260">
+            <xsd:annotation>
+               <xsd:documentation>Eritrean Islamic Jihad (ERIJ)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100261">
+            <xsd:annotation>
+               <xsd:documentation>Foreign Financial Institutions and Services </xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100262">
+            <xsd:annotation>
+               <xsd:documentation>Foreign Illicit Synthetic Opioid Suppliers</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100263">
+            <xsd:annotation>
+               <xsd:documentation>Global Jihad Support Network</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100264">
+            <xsd:annotation>
+               <xsd:documentation>Greek domestic extremist groups not listed at Priority 3</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100265">
+            <xsd:annotation>
+               <xsd:documentation>Harakat Sawa’d Misr</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100266">
+            <xsd:annotation>
+               <xsd:documentation>HezbeIslami Gulbuddin (HIG)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100267">
+            <xsd:annotation>
+               <xsd:documentation>Hizballah (Turkey)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100268">
+            <xsd:annotation>
+               <xsd:documentation>Horn of Africa extremist networks engaged in terrorism</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100269">
+            <xsd:annotation>
+               <xsd:documentation>Ibn Khattab Organization</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100270">
+            <xsd:annotation>
+               <xsd:documentation>IICT Tier 1 Islamic NGOs</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100271">
+            <xsd:annotation>
+               <xsd:documentation>IICT Tier 2 Islamic NGOs</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100272">
+            <xsd:annotation>
+               <xsd:documentation>IICT Tier 3 Islamic NGOs</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100273">
+            <xsd:annotation>
+               <xsd:documentation>IICT Tier 3 Terrorists Groups</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100274">
+            <xsd:annotation>
+               <xsd:documentation>IICT Tier 4 Islamic NGOs</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100275">
+            <xsd:annotation>
+               <xsd:documentation>IICT Tier 4 Terrorists Groups</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100276">
+            <xsd:annotation>
+               <xsd:documentation>India Drug Suppliers</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100277">
+            <xsd:annotation>
+               <xsd:documentation>Indonesian extremists, to include Jemaah Anshorut Tauhid (JAT) and Jemaah Islamiyah (JI)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100278">
+            <xsd:annotation>
+               <xsd:documentation>International Organized Crime Organizations</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100279">
+            <xsd:annotation>
+               <xsd:documentation>Islamic extremist elements associated with the now defunct Active Islamic Youth Organization (AIO)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100280">
+            <xsd:annotation>
+               <xsd:documentation>Islamic Fighting Force</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100281">
+            <xsd:annotation>
+               <xsd:documentation>Islamic State of Iraq and ash-Sham associated networks in Democratic Republic of the Congo (DRC) </xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100282">
+            <xsd:annotation>
+               <xsd:documentation>Islamic State of Iraq and ash-Sham associated networks in India</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100283">
+            <xsd:annotation>
+               <xsd:documentation>Islamic State of Iraq and ash-Sham associated networks in Indonesia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100284">
+            <xsd:annotation>
+               <xsd:documentation>Islamic State of Iraq and ash-Sham associated networks in Somalia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100285">
+            <xsd:annotation>
+               <xsd:documentation>Islamic State of Iraq and ash-Sham associated networks in Sudan</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100286">
+            <xsd:annotation>
+               <xsd:documentation>Islamic State of Iraq and ash-Sham associated networks in the Greater Sahara</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100287">
+            <xsd:annotation>
+               <xsd:documentation>Islamic State of Iraq and ash-Sham associated networks in the Philippines</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100288">
+            <xsd:annotation>
+               <xsd:documentation>Islamic State of Iraq and ash-Sham associated networks in Tunisia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100289">
+            <xsd:annotation>
+               <xsd:documentation>Israeli TCOs</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100290">
+            <xsd:annotation>
+               <xsd:documentation>Jamaat ud-Dawa al-Quran (JDQ)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100291">
+            <xsd:annotation>
+               <xsd:documentation>Jama'at Ul Fuqra (JUF)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100292">
+            <xsd:annotation>
+               <xsd:documentation>Jamaat ul-Mujahidin Bangladesh (JMB)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100293">
+            <xsd:annotation>
+               <xsd:documentation>Jaysh al-Muhammad (Iraq)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100294">
+            <xsd:annotation>
+               <xsd:documentation>Juarez Cartel</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100295">
+            <xsd:annotation>
+               <xsd:documentation>Laskhar-e Jhangvi al-Alami (LJA)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100296">
+            <xsd:annotation>
+               <xsd:documentation>Libyan Islamic Fighting Group</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100297">
+            <xsd:annotation>
+               <xsd:documentation>Mercy Malaysia—The Malaysian Medical Relief Society</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100298">
+            <xsd:annotation>
+               <xsd:documentation>Moroccan Islamic Fighting Group</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100299">
+            <xsd:annotation>
+               <xsd:documentation>Moroccan Salafya Jihadiya</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100300">
+            <xsd:annotation>
+               <xsd:documentation>Movement for the Emancipation of the Niger Delta</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100301">
+            <xsd:annotation>
+               <xsd:documentation>Movement of the Sons of the Sahara for Islamic Justice (MSJI)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100302">
+            <xsd:annotation>
+               <xsd:documentation>Mujahedin-E Khalq</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100303">
+            <xsd:annotation>
+               <xsd:documentation>Mujahidin Army (Iraq)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100304">
+            <xsd:annotation>
+               <xsd:documentation>Mujahidin Shura Council in the Environs of Jerusalem (Gaza Strip)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100305">
+            <xsd:annotation>
+               <xsd:documentation>Narcotics Kingpin Organizations</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100306">
+            <xsd:annotation>
+               <xsd:documentation>National Front for the Liberation of Corsica</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100307">
+            <xsd:annotation>
+               <xsd:documentation>Naxalites</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100308">
+            <xsd:annotation>
+               <xsd:documentation>Nigerian TCOs</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100309">
+            <xsd:annotation>
+               <xsd:documentation>Other TOC Entities of Significant Concern</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100310">
+            <xsd:annotation>
+               <xsd:documentation>Polisario Front</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100311">
+            <xsd:annotation>
+               <xsd:documentation>Protectors of the Salafist Call</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100312">
+            <xsd:annotation>
+               <xsd:documentation>Racially or Ethnically Motivated Violent Extremists (REMVE)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100313">
+            <xsd:annotation>
+               <xsd:documentation>Revolutionary Struggle</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100314">
+            <xsd:annotation>
+               <xsd:documentation>Salafia Jihadia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100315">
+            <xsd:annotation>
+               <xsd:documentation>Semion Mogilevich</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100316">
+            <xsd:annotation>
+               <xsd:documentation>Sunni-Arab Insurgents in Iraq</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100317">
+            <xsd:annotation>
+               <xsd:documentation>The Federation</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100318">
+            <xsd:annotation>
+               <xsd:documentation>The Saved Sect</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100319">
+            <xsd:annotation>
+               <xsd:documentation>Tijuana Cartel</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100320">
+            <xsd:annotation>
+               <xsd:documentation>TOC Entities of Greatest Concern</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100321">
+            <xsd:annotation>
+               <xsd:documentation>Transnational Organizations Posing Cyber Threats</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="100322">
+            <xsd:annotation>
+               <xsd:documentation>Unidentified Actor</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

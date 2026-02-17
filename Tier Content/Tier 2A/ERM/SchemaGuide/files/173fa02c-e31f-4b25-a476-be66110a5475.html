@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+      <title>Schema documentation for component SecurityAttributesGroup</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css"></link>
+      <script type="text/javascript" xml:space="preserve">
+         </script>
+   </head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_content" rowspan="1" colspan="1">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, annotationBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Annotations</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, attributesBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Attributes </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, diagramBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Diagrams</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Source</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Used by </span>
+                        </td>
+                     </tr>
+                  </table>
+                  <div align="right">
+                     <span>
+                        <input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close"></input>
+                     </span>
+                  </div>
+               </td>
+               <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+            </tr>
+         </table>
+      </div>
+      <a id="SecurityAttributesGroup" shape="rect"></a>
+      <div class="componentTitle">Attribute Group <span class="qname">SecurityAttributesGroup</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:ism</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_SecurityAttributesGroup" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_SecurityAttributesGroup');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_SecurityAttributesGroup" style="display:block">
+                              <div class="annotation">
+                                 				        
+                                 <p>The group of Information
+                                    					Security Marking attributes in which the use of attributes 'classification' and
+                                    					'ownerProducer' is required.
+                                 </p>
+                                 			
+                                 This group actually contains classification, ownerProducer, SCIcontrols, SARIdentifier,
+                                 
+                                 atomicEnergyMarkings, disseminationControls, displayOnlyTo, FGIsourceOpen, FGIsourceProtected,
+                                 releasableTo, nonICmarkings, classifiedBy, 
+                                 compilationReason, derivativelyClassifiedBy, classificationReason, nonUSControls,
+                                 derivedFrom, declassDate, declassEvent, and declassException
+                                 however for ease of reading in the Schemaguide only a placeholder attribute Schemaguide
+                                 is show here. All of the attributes with their
+                                 documentation are in the Schemaguide but they are not show in this attribute group
+                                 since that made the guide much harder to read.
+                                 
+                              </div>
+                              <div class="annotation">
+                                 				        
+                                 <p>This group is to be
+                                    					contrasted with group 'SecurityAttributesOptionGroup' in which use of those
+                                    					attributes is optional.
+                                 </p>
+                                 			      
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_SecurityAttributesGroup" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_SecurityAttributesGroup');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_SecurityAttributesGroup" style="display:block">
+                              <img alt="Diagram" border="0" src="img/854b3ad4-2877-4b43-9c15-0535d40e6b1a.png" usemap="#IC-ISM_xsd_Attribute_Group_SecurityAttributesGroup"></img>
+                              <map name="IC-ISM_xsd_Attribute_Group_SecurityAttributesGroup" id="IC-ISM_xsd_Attribute_Group_SecurityAttributesGroup">
+                                 <area alt="IC-ISM_xsd_Attribute_SchemaguideSecurityAttributesGroup.tmp#SchemaguideSecurityAttributesGroup" href="cc7301bd-93a9-499a-badd-8677980449be.html#SchemaguideSecurityAttributesGroup" coords="239,1,503,25" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Used by</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_usedBy_SecurityAttributesGroup" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_SecurityAttributesGroup');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="usedBy_SecurityAttributesGroup" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Elements </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="ERM_XML_xsd_Element_erm_AppliedBy.html#AppliedBy" target="mainFrame" title="urn:us:gov:ic:erm" onclick="updatePageTitle('Schema documentation for component erm:AppliedBy')" shape="rect">erm:AppliedBy</a>
+                                       </b>, <b>
+                                          <a href="ERM_XML_xsd_Element_erm_Authorizer.html#Authorizer" target="mainFrame" title="urn:us:gov:ic:erm" onclick="updatePageTitle('Schema documentation for component erm:Authorizer')" shape="rect">erm:Authorizer</a>
+                                       </b>, <b>
+                                          <a href="9950b4f3-4769-467e-ac57-e4a7af48e2ab.html#Justification" target="mainFrame" title="urn:us:gov:ic:erm" onclick="updatePageTitle('Schema documentation for component erm:Justification')" shape="rect">erm:Justification</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Complex Types </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="1f7a2f75-0260-4db5-9571-434000f3bdd9.html#LongStringWithSecurityType" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component LongStringWithSecurityType')" shape="rect">LongStringWithSecurityType</a>
+                                       </b>, <b>
+                                          <a href="842c1796-e172-49dd-8822-6ac1cc4ca0c6.html#NoticeExternalListType" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component NoticeExternalListType')" shape="rect">NoticeExternalListType</a>
+                                       </b>, <b>
+                                          <a href="f376189a-c884-4df9-adb7-20e206017b9d.html#NoticeListType" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component NoticeListType')" shape="rect">NoticeListType</a>
+                                       </b>, <b>
+                                          <a href="bc73861d-5c22-4cba-b7a5-511f959c5a81.html#ShortStringWithSecurityType" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component ShortStringWithSecurityType')" shape="rect">ShortStringWithSecurityType</a>
+                                       </b>, <b>
+                                          <a href="f312a7e8-aae4-4024-bd54-2d44f007a0f8.html#DispositionType" target="mainFrame" title="urn:us:gov:ic:erm" onclick="updatePageTitle('Schema documentation for component erm:DispositionType')" shape="rect">erm:DispositionType</a>
+                                       </b>, <b>
+                                          <a href="8bca63af-7cf3-4f2a-af04-681e8cf6df34.html#HoldType" target="mainFrame" title="urn:us:gov:ic:erm" onclick="updatePageTitle('Schema documentation for component erm:HoldType')" shape="rect">erm:HoldType</a>
+                                       </b>, <b>
+                                          <a href="21c280ec-10d9-4d71-8508-4578fc2635b9.html#AccessProfileType" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:AccessProfileType')" shape="rect">ntk:AccessProfileType</a>
+                                       </b>, <b>
+                                          <a href="c4985018-22a1-47d2-a325-0f095b38bb90.html#RequiresType" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:RequiresType')" shape="rect">ntk:RequiresType</a>
+                                       </b>, <b>
+                                          <a href="b9f72923-1bfe-4a2e-bb94-c3aec231f14b.html#TokenWithSecurityType" target="mainFrame" title="urn:us:gov:ic:ntk" onclick="updatePageTitle('Schema documentation for component ntk:TokenWithSecurityType')" shape="rect">ntk:TokenWithSecurityType</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Attribute Groups </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="4f487c95-640f-4ff8-b774-83879b376037.html#NoticeAttributesGroup" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component NoticeAttributesGroup')" shape="rect">NoticeAttributesGroup</a>
+                                       </b>, <b>
+                                          <a href="8176ef75-065c-47d4-8a5b-0b119b2658a7.html#NoticeExternalAttributesGroup" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component NoticeExternalAttributesGroup')" shape="rect">NoticeExternalAttributesGroup</a>
+                                       </b>, <b>
+                                          <a href="06fd6379-54c0-4c40-bdec-eeaabd84cd38.html#ResourceNodeAttributeGroup" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component ResourceNodeAttributeGroup')" shape="rect">ResourceNodeAttributeGroup</a>
+                                       </b>, <b>
+                                          <a href="03472d7b-245d-4729-92b2-f9c1108a9b28.html#ExternalResourceNodeAttributeGroup" target="mainFrame" title="urn:us:gov:ic:arh" onclick="updatePageTitle('Schema documentation for component arh:ExternalResourceNodeAttributeGroup')" shape="rect">arh:ExternalResourceNodeAttributeGroup</a>
+                                       </b>, <b>
+                                          <a href="c7c31faa-c7d6-4321-bd2b-1cf842ee563e.html#urn_us_gov_ic_arh_ResourceNodeAttributeGroup" target="mainFrame" title="urn:us:gov:ic:arh" onclick="updatePageTitle('Schema documentation for component arh:ResourceNodeAttributeGroup')" shape="rect">arh:ResourceNodeAttributeGroup</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Attributes</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_attributes_SecurityAttributesGroup" type="image" src="img/btM.gif" value="-" onclick="switchState('attributes_SecurityAttributesGroup');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="attributes_SecurityAttributesGroup" style="display:block">
+                              <table class="attributesTable">
+                                 <thead>
+                                    <tr>
+                                       <th rowspan="1" colspan="1">QName</th>
+                                       <th width="10%" rowspan="1" colspan="1">Type</th>
+                                       <th width="5%" rowspan="1" colspan="1">Use</th>
+                                       <th width="100%" rowspan="1" colspan="1">Annotation</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="cc7301bd-93a9-499a-badd-8677980449be.html#SchemaguideSecurityAttributesGroup" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component SchemaguideSecurityAttributesGroup')" shape="rect">SchemaguideSecurityAttributesGroup</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>xsd:NMTOKEN</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">
+                                          This attribute is only a placeholder so that all the ISM attributes are not shown
+                                          in the schemaGuide for every element. If you refer to the documentation of the 
+                                          attribute group it will say what attributes should be here.
+                                          
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_SecurityAttributesGroup" type="image" src="img/btM.gif" value="-" onclick="switchState('source_SecurityAttributesGroup');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_SecurityAttributesGroup" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:attributeGroup</span><span class="tAN"> name=</span><span class="tAV">"SecurityAttributesGroup"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xhtml:p</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The group of Information Security Marking attributes in which the use of attributes 'classification' and 'ownerProducer' is required.</span><span class="tEl">&lt;/xhtml:p&gt;</span><span class="tT" style="white-space:normal">This group actually contains classification, ownerProducer, SCIcontrols, SARIdentifier, atomicEnergyMarkings, disseminationControls, displayOnlyTo, FGIsourceOpen, FGIsourceProtected, releasableTo, nonICmarkings, classifiedBy, compilationReason, derivativelyClassifiedBy, classificationReason, nonUSControls, derivedFrom, declassDate, declassEvent, and declassException however for ease of reading in the Schemaguide only a placeholder attribute Schemaguide is show here. All of the attributes with their documentation are in the Schemaguide but they are not show in this attribute group since that made the guide much harder to read.</span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xhtml:p</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">This group is to be contrasted with group 'SecurityAttributesOptionGroup' in which use of those attributes is optional.</span><span class="tEl">&lt;/xhtml:p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> ref=</span><span class="tAV">"SchemaguideSecurityAttributesGroup"</span><span class="tAN"> use=</span><span class="tAV">"optional"</span><span class="tEl">/&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attributeGroup&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a xmlns:html="http://www.w3.org/1999/xhtml" href="../../Schema/ISM/IC-ISM.xsd">IC-ISM.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <h2 xmlns:html="http://www.w3.org/1999/xhtml" style=" font:italic bold 12px Georgia,serif;color:gray;font-size:14px;text-align:center;  width : 95%;">
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See Distribution Notice for details.
+       <a href="../index.html" target="_top">
+                Click Here
+            </a>
+      </h2>
+      <div class="footer"></div>
+      <script type="text/javascript" xml:space="preserve">
+         </script>
+   </body>
+</html>

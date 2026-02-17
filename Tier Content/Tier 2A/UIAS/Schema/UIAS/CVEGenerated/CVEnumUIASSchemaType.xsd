@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns="urn:us:gov:ic:cvenum:uias:schematype"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:uias:schematype"
+            version="202111">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumUIASSchemaType Version 2.1 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumUIASSchemaType.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumUIASSchemaType">
+      <xsd:annotation>
+         <xsd:documentation>(U) All valid SchemaTypes for saml:AttributeValue/@xsi:type in UIAS SAML saml:Attribute.
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumUIASSchemaType.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="adminOrganization">
+            <xsd:annotation>
+               <xsd:documentation>uias:adminOrganizationType</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="aICP">
+            <xsd:annotation>
+               <xsd:documentation>uias:aICPType</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ATOStatus">
+            <xsd:annotation>
+               <xsd:documentation>uias:ATOStatusType</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="auditRoutingOrganization">
+            <xsd:annotation>
+               <xsd:documentation>uias:auditRoutingOrganizationType</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="authorityCategory">
+            <xsd:annotation>
+               <xsd:documentation>uias:authorityCategoryType</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="certificateAuthority">
+            <xsd:annotation>
+               <xsd:documentation>uias:certificateAuthorityType</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="clearance">
+            <xsd:annotation>
+               <xsd:documentation>uias:clearanceType</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="countryOfAffiliation">
+            <xsd:annotation>
+               <xsd:documentation>uias:countryOfAffiliationType</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="digitalIdentifier">
+            <xsd:annotation>
+               <xsd:documentation>uias:digitalIdentifierType</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="dutyOrganization">
+            <xsd:annotation>
+               <xsd:documentation>uias:dutyOrganizationType</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="dutyOrganizationUnit">
+            <xsd:annotation>
+               <xsd:documentation>uias:dutyOrganizationUnitType</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="entitySecurityMark">
+            <xsd:annotation>
+               <xsd:documentation>uias:entitySecurityMarkType</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="entityType">
+            <xsd:annotation>
+               <xsd:documentation>uias:entityTypeType</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="fineAccessControls">
+            <xsd:annotation>
+               <xsd:documentation>uias:fineAccessControlsType</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="group">
+            <xsd:annotation>
+               <xsd:documentation>uias:groupType</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="handlingControls">
+            <xsd:annotation>
+               <xsd:documentation>uias:handlingControlsType</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="icNetworks">
+            <xsd:annotation>
+               <xsd:documentation>uias:icNetworksType</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="isICMember">
+            <xsd:annotation>
+               <xsd:documentation>uias:isICMemberType</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="lifeCycleStatus">
+            <xsd:annotation>
+               <xsd:documentation>uias:lifeCycleStatusType</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="originatingNetwork">
+            <xsd:annotation>
+               <xsd:documentation>uias:originatingNetworkType</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="region">
+            <xsd:annotation>
+               <xsd:documentation>uias:regionType</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="role">
+            <xsd:annotation>
+               <xsd:documentation>uias:roleType</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="topic">
+            <xsd:annotation>
+               <xsd:documentation>uias:topicType</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

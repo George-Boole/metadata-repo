@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/PMA/PMA_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron" title="Main PMA Schematron File" ?>
+<?xml-model href="../../Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-EDH/IC-EDH_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-TDF/IC-TDF_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IRM/IRM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/RevRecall/RevRecall_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-ID/IC-ID_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/VIRT/VIRT_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/MIME/MIME_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/ISMCAT/ISMCAT_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/USAgency/USAgency_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/PM/PM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron" title="Main PM Schematron File"?>
+<?xml-model href="../../Schematron/IC-GENC/IC-GENC_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<!-- All classification marks in this example are   -->
+<!-- for illustrative purposes only, there are no   -->
+<!-- actual classified data contained in this example -->
+<TrustedDataObject xmlns="urn:us:gov:ic:tdf"
+                   xmlns:tdf="urn:us:gov:ic:tdf"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   tdf:version="202111-IC-TDF.202111"
+                   xsi:schemaLocation="urn:us:gov:ic:irm ../../Schema/IRM/IC-IRM.xsd urn:us:gov:ic:tdf ../../Schema/IC-TDF/IC-TDF.xsd">
+  <HandlingAssertion tdf:scope="TDO">
+    <HandlingStatement>
+      <Edh xmlns="urn:us:gov:ic:edh"
+           xmlns:usagency="urn:us:gov:ic:usagency"
+           xmlns:icid="urn:us:gov:ic:id"
+           xmlns:edh="urn:us:gov:ic:edh"
+           xmlns:ism="urn:us:gov:ic:ism"
+           usagency:CESVersion="202207"
+           icid:DESVersion="202111"
+           edh:DESVersion="201903"
+           ism:DESVersion="202111.202211"
+           ism:ISMCATCESVersion="202211">
+        <icid:Identifier>guide://999990/MetaCard1</icid:Identifier>
+        <DataItemCreateDateTime>2010-05-25T00:00:00Z</DataItemCreateDateTime>
+        <ResponsibleEntity edh:role="Custodian">
+          <Country>USA</Country>
+          <Organization>USA.DNI</Organization>
+        </ResponsibleEntity>
+        <Security xmlns="urn:us:gov:ic:arh"
+                  ism:compliesWith="USGov USIC"
+                  ism:DESVersion="202111.202211"
+                  ism:ISMCATCESVersion="202211"
+                  ism:classification="S"
+                  ism:ownerProducer="USA"
+                  ism:disseminationControls="OC NF"
+                  ism:atomicEnergyMarkings="FRD"
+                  ism:classifiedBy="NGIC"
+                  ism:declassException="AEA"
+                  ism:classificationReason="Atomic Energy Act"
+                  ism:resourceElement="true"
+                  ism:createDate="2011-05-25">
+          <ntk:Access xmlns:ntk="urn:us:gov:ic:ntk"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">
+            <ntk:RequiresAllOf>
+              <ntk:AccessProfileList>
+                <ntk:AccessProfile ism:classification="U"
+                                   ism:ownerProducer="USA">
+                  <ntk:AccessPolicy>urn:us:gov:ic:aces:ntk:oc</ntk:AccessPolicy>
+                  <ntk:ProfileDes>urn:us:gov:ic:ntk:profile:agencydissem</ntk:ProfileDes>
+                  <ntk:VocabularyType ntk:name="organization:usa-agency"
+                                      ntk:sourceVersion="202207" />
+                  <ntk:AccessProfileValue ntk:qualifier="originator"
+                                          ntk:vocabulary="organization:usa-agency">USA.CIA</ntk:AccessProfileValue>
+                  <ntk:AccessProfileValue ntk:qualifier="dissemto"
+                                          ntk:vocabulary="organization:usa-agency">USA.CIA</ntk:AccessProfileValue>
+                </ntk:AccessProfile>
+              </ntk:AccessProfileList>
+            </ntk:RequiresAllOf>
+          </ntk:Access>
+          <NoticeList xmlns="urn:us:gov:ic:ism"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">
+            <ism:Notice ism:classification="U"
+                        ism:ownerProducer="USA"
+                        ism:noticeType="DS">
+              <ism:NoticeText ism:classification="U"
+                              ism:ownerProducer="USA">Distribution authorized to DoD, IAW 10 U.S.C. §§130 &amp; 455. Release authorized to
+                              U.S. DoD contractors IAW 48 C.F.R §252.245-7000. Refer other requests to: Headquarters, NGA, ATTN: Release
+                              Officer, Mail Stop D-120, 4600 Sangamore Road, Bethesda, MD 20816-5003. Destroy IAW DoD 5030.59. Removal of
+                              this caveat is prohibited.</ism:NoticeText>
+            </ism:Notice>
+            <ism:Notice ism:classification="U"
+                        ism:ownerProducer="USA"
+                        ism:noticeType="FRD">
+              <ism:NoticeText ism:classification="U"
+                              ism:ownerProducer="USA">Unauthorized disclosure subject to administrative and criminal sanctions. Handle as
+                              RESTRICTED DATA in foreign dissemination;</ism:NoticeText>
+              <ism:NoticeText ism:classification="U"
+                              ism:ownerProducer="USA">Section 144b, Atomic Energy Act of 1954.</ism:NoticeText>
+            </ism:Notice>
+          </NoticeList>
+        </Security>
+      </Edh>
+    </HandlingStatement>
+  </HandlingAssertion>
+  <HandlingAssertion tdf:scope="PAYL">
+    <HandlingStatement>
+      <ExternalEdh xmlns="urn:us:gov:ic:edh"
+                   xmlns:usagency="urn:us:gov:ic:usagency"
+                   xmlns:icid="urn:us:gov:ic:id"
+                   xmlns:edh="urn:us:gov:ic:edh"
+                   xmlns:ism="urn:us:gov:ic:ism"
+                   usagency:CESVersion="202207"
+                   icid:DESVersion="202111"
+                   edh:DESVersion="201903"
+                   ism:DESVersion="202111.202211"
+                   ism:ISMCATCESVersion="202211">
+        <icid:Identifier>guide://999990/DescribedItem1</icid:Identifier>
+        <DataItemCreateDateTime>2010-11-10T12:00:00-04:00</DataItemCreateDateTime>
+        <ResponsibleEntity edh:role="Custodian">
+          <Country>USA</Country>
+          <Organization>USA.DNI</Organization>
+        </ResponsibleEntity>
+        <ExternalSecurity xmlns="urn:us:gov:ic:arh"
+                          ism:classification="U"
+                          ism:ownerProducer="USA"
+                          ism:nonICmarkings="DS"
+                          ism:excludeFromRollup="true">
+          <ExternalAccess xmlns="urn:us:gov:ic:ntk"
+                          xmlns:ntk="urn:us:gov:ic:ntk"
+                          ntk:externalReference="true"
+                          ism:classification="U"
+                          ism:ownerProducer="USA">
+            <ntk:RequiresAnyOf>
+              <AccessProfileList>
+                <AccessProfile ism:classification="U"
+                               ism:ownerProducer="USA">
+                  <AccessPolicy>urn:us:gov:ic:aces:ntk:permissive</AccessPolicy>
+                  <ProfileDes>urn:us:gov:ic:ntk:profile:grp-ind</ProfileDes>
+                  <VocabularyType ntk:name="group:urn:us:gov:ic:aces:ntk:oc"
+                                  ntk:source="urn:us:gov:ic:aces:ntk:oc" />
+                  <AccessProfileValue ntk:vocabulary="group:urn:us:gov:ic:aces:ntk:oc">WISE/SpecialCompartment</AccessProfileValue>
+                </AccessProfile>
+              </AccessProfileList>
+            </ntk:RequiresAnyOf>
+          </ExternalAccess>
+          <NoticeExternalList xmlns="urn:us:gov:ic:ism"
+                              ism:classification="U"
+                              ism:ownerProducer="USA">
+            <NoticeExternal ism:externalNotice="true"
+                            ism:noticeType="DS"
+                            ism:classification="U"
+                            ism:ownerProducer="USA">
+              <ism:NoticeText ism:classification="U"
+                              ism:ownerProducer="USA">Distribution authorized to DoD, IAW 10 U.S.C. §§130 &amp; 455. Release authorized to
+                              U.S. DoD contractors IAW 48 C.F.R §252.245-7000. Refer other requests to: Headquarters, NGA, ATTN: Release
+                              Officer, Mail Stop D-120, 4600 Sangamore Road, Bethesda, MD 20816-5003. Destroy IAW DoD 5030.59. Removal of
+                              this caveat is prohibited.</ism:NoticeText>
+            </NoticeExternal>
+          </NoticeExternalList>
+        </ExternalSecurity>
+      </ExternalEdh>
+    </HandlingStatement>
+  </HandlingAssertion>
+  <HandlingAssertion tdf:scope="TDO">
+    <HandlingStatement>
+      <RevisionRecall xmlns="urn:us:gov:ic:revrecall"
+                      xmlns:rr="urn:us:gov:ic:revrecall"
+                      rr:DESVersion="202111.202205"
+                      rr:id="7"
+                      rr:type="ADMINISTRATIVE_RECALL"
+                      rr:dateTime="2010-11-10T12:00:00.0-04:00"
+                      rr:action="RETAIN_WARN">
+        <Security xmlns="urn:us:gov:ic:arh"
+                  xmlns:ism="urn:us:gov:ic:ism"
+                  ism:resourceElement="true"
+                  ism:createDate="2010-05-25"
+                  ism:classification="U"
+                  ism:ownerProducer="USA"
+                  ism:compliesWith="USGov USIC" />
+        <ProductTitle xmlns:ism="urn:us:gov:ic:ism"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">A cool document you can't read</ProductTitle>
+        <Reason xmlns:ism="urn:us:gov:ic:ism"
+                ism:classification="U"
+                ism:ownerProducer="USA">asdfasdf. asdfasdf.</Reason>
+        <POC xmlns:ism="urn:us:gov:ic:ism"
+             ism:classification="U"
+             ism:ownerProducer="USA">John Doe, john.doe@org.gov, 555-555-5555</POC>
+        <Link xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlns:ism="urn:us:gov:ic:ism"
+              xlink:type="locator"
+              xlink:href="asdfasdf"
+              ism:classification="U"
+              ism:ownerProducer="USA" />
+      </RevisionRecall>
+    </HandlingStatement>
+  </HandlingAssertion>
+  <Assertion tdf:scope="PAYL">
+    <StatementMetadata>
+      <Security xmlns="urn:us:gov:ic:arh"
+                xmlns:ism="urn:us:gov:ic:ism"
+                ism:classification="U"
+                ism:ownerProducer="USA"
+                ism:resourceElement="true"
+                ism:compliesWith="USGov USIC"
+                ism:createDate="2019-12-19" />
+    </StatementMetadata>
+    <StructuredStatement>
+      <ProductionMetricsAssertion xmlns="urn:us:gov:ic:pma"
+                                  xmlns:pma="urn:us:gov:ic:pma"
+                                  xmlns:pm="urn:us:gov:ic:pm"
+                                  pma:DESVersion="201903.201909"
+                                  pm:CESVersion="202211">
+        <ProductionMetric xmlns:ism="urn:us:gov:ic:ism"
+                          ism:classification="U"
+                          ism:ownerProducer="USA"
+                          pma:actor="AFG"
+                          pma:subject="FOOD" />
+      </ProductionMetricsAssertion>
+    </StructuredStatement>
+  </Assertion>
+  <Assertion tdf:scope="PAYL">
+    <StatementMetadata>
+      <Security xmlns="urn:us:gov:ic:arh"
+                xmlns:ism="urn:us:gov:ic:ism"
+                ism:compliesWith="USGov USIC"
+                ism:DESVersion="202111.202211"
+                ism:ISMCATCESVersion="202211"
+                ism:classification="S"
+                ism:ownerProducer="USA"
+                ism:disseminationControls="OC NF"
+                ism:atomicEnergyMarkings="FRD"
+                ism:classifiedBy="NGIC"
+                ism:declassException="AEA"
+                ism:classificationReason="Atomic Energy Act"
+                ism:resourceElement="true"
+                ism:createDate="2010-05-25">
+        <NoticeList xmlns="urn:us:gov:ic:ism"
+                    ism:classification="U"
+                    ism:ownerProducer="USA">
+          <ism:Notice ism:classification="U"
+                      ism:ownerProducer="USA"
+                      ism:noticeType="DS">
+            <ism:NoticeText ism:classification="U"
+                            ism:ownerProducer="USA">Distribution authorized to DoD, IAW 10 U.S.C. §§130 &amp; 455. Release authorized to
+                            U.S. DoD contractors IAW 48 C.F.R §252.245-7000. Refer other requests to: Headquarters, NGA, ATTN: Release
+                            Officer, Mail Stop D-120, 4600 Sangamore Road, Bethesda, MD 20816-5003. Destroy IAW DoD 5030.59. Removal of
+                            this caveat is prohibited.</ism:NoticeText>
+          </ism:Notice>
+          <ism:Notice ism:classification="U"
+                      ism:ownerProducer="USA"
+                      ism:noticeType="FRD">
+            <ism:NoticeText ism:classification="U"
+                            ism:ownerProducer="USA">Unauthorized disclosure subject to administrative and criminal sanctions. Handle as
+                            RESTRICTED DATA in foreign dissemination;</ism:NoticeText>
+            <ism:NoticeText ism:classification="U"
+                            ism:ownerProducer="USA">Section 144b, Atomic Energy Act of 1954.</ism:NoticeText>
+          </ism:Notice>
+          <Notice ism:noticeType="POC"
+                  ism:ownerProducer="USA"
+                  ism:classification="U">
+            <NoticeText ism:ownerProducer="USA"
+                        ism:classification="U">Bob Stuart 555-555-5555</NoticeText>
+          </Notice>
+        </NoticeList>
+      </Security>
+    </StatementMetadata>
+    <StructuredStatement>
+      <ICResourceMetadataPackage xmlns="urn:us:gov:ic:irm"
+                                 xmlns:usagency="urn:us:gov:ic:usagency"
+                                 xmlns:icid="urn:us:gov:ic:id"
+                                 xmlns:intdis="urn:us:gov:ic:intdis"
+                                 xmlns:mime="urn:us:gov:ic:mime"
+                                 xmlns:irm="urn:us:gov:ic:irm"
+                                 xmlns:genc="urn:us:gov:ic:icgenc"
+                                 xmlns:tspi="http://metadata.ces.mil/mdr/ns/GSIP/tspi/2.0"
+                                 xmlns:tspi-core="http://metadata.ces.mil/mdr/ns/GSIP/tspi/2.0/core"
+                                 xmlns:gml="http://www.opengis.net/gml/3.2"
+                                 xmlns:virt="urn:us:gov:ic:virt"
+                                 usagency:CESVersion="202207"
+                                 icid:DESVersion="202111"
+                                 intdis:CESVersion="201707"
+                                 mime:CESVersion="202010"
+                                 irm:DESVersion="202111"
+                                 genc:CESVersion="202111"
+                                 irm:compliesWith="USA_IC"
+                                 virt:DESVersion="202010.202205">
+        <metacardInfo>
+          <identifier irm:qualifier="IC-ID"
+                      irm:value="guide://9990/MetaCard1" />
+          <dates irm:created="2010-05-25"
+                 irm:receivedOn="2011-03-05" />
+          <publisher>
+            <organization irm:acronym="USA.USA">
+              <name>ARMY</name>
+              <subOrganization xmlns:ism="urn:us:gov:ic:ism"
+                               ism:classification="U"
+                               ism:ownerProducer="USA">NGIC</subOrganization>
+            </organization>
+          </publisher>
+          <creator>
+            <organization>
+              <name>DIA</name>
+            </organization>
+          </creator>
+          <publisher>
+            <organization>
+              <name>Fred</name>
+            </organization>
+          </publisher>
+        </metacardInfo>
+        <identifier irm:qualifier="IC-ID"
+                    irm:value="guide://9990/DescribedItem1" />
+        <title xmlns:ism="urn:us:gov:ic:ism"
+               ism:classification="U"
+               ism:ownerProducer="USA">A cool document you can't read</title>
+        <description xmlns:ism="urn:us:gov:ic:ism"
+                     ism:classification="U"
+                     ism:ownerProducer="USA"
+                     ism:nonICmarkings="DS">This is a nice doc</description>
+        <language irm:qualifier="urn:us:gov:ic:cvenum:irm:iso639-2:trigraph"
+                  irm:value="eng" />
+        <dates irm:created="2010-11-10T12:00:00.0-04:00"
+               irm:approvedOn="2010-01-20" />
+        <type xmlns:ism="urn:us:gov:ic:ism"
+              ism:classification="U"
+              ism:ownerProducer="USA"
+              irm:qualifier="urn:us:gov:ic:cvenum:intdis:inteldiscipline"
+              irm:value="SIGINT" />
+        <type xmlns:ism="urn:us:gov:ic:ism"
+              ism:classification="U"
+              ism:ownerProducer="USA"
+              irm:qualifier="urn:us:gov:ic:cvenum:intdis:inteldiscipline:component"
+              irm:value="MASINT:Geophysical" />
+        <type xmlns:ism="urn:us:gov:ic:ism"
+              ism:classification="U"
+              ism:ownerProducer="USA"
+              irm:qualifier="urn:us:gov:ic:cvenum:intdis:inteldiscipline:component"
+              irm:value="MASINT:NuclearRadiation" />
+        <type xmlns:ism="urn:us:gov:ic:ism"
+              ism:classification="S"
+              ism:disseminationControls="RELIDO"
+              ism:ownerProducer="USA"
+              irm:qualifier="urn:us:gov:ic:cvenum:intdis:inteldiscipline:component:technique"
+              irm:value="other:SpecialSecretSub" />
+        <type xmlns:ism="urn:us:gov:ic:ism"
+              ism:classification="U"
+              ism:ownerProducer="USA"
+              irm:qualifier="urn:us:gov:ic:cvenum:intdis:inteldiscipline"
+              irm:value="MASINT" />
+        <type xmlns:ism="urn:us:gov:ic:ism"
+              ism:classification="U"
+              ism:ownerProducer="USA"
+              irm:qualifier="urn:us:gov:ic:irm:productline"
+              irm:value="Report" />
+        <type xmlns:ism="urn:us:gov:ic:ism"
+              ism:classification="U"
+              ism:ownerProducer="USA"
+              irm:qualifier="urn:us:gov:ic:cvenum:irm:activity"
+              irm:value="crisis">A critical crisis activity</type>
+        <creator>
+          <organization irm:acronym="USA.DEA">
+            <name>DEA</name>
+          </organization>
+        </creator>
+        <publisher>
+          <organization>
+            <name>asdfasdf</name>
+          </organization>
+        </publisher>
+        <publisher>
+          <person>
+            <name>Bill</name>
+            <surname>Smith</surname>
+          </person>
+        </publisher>
+        <contributor>
+          <organization>
+            <name>No Such Agency</name>
+          </organization>
+        </contributor>
+        <creator>
+          <person>
+            <name>Fred</name>
+            <surname>Smith</surname>
+          </person>
+        </creator>
+        <format>
+          <mimeType>application/dni-irm+xml</mimeType>
+        </format>
+        <subjectCoverage>
+          <category irm:label="label0" />
+          <keyword irm:value="value3" />
+          <keyword irm:value="value4" />
+        </subjectCoverage>
+        <virtualCoverage virt:protocol="HTTP"
+                         virt:address="http://www.apple.com" />
+        <temporalCoverage>
+          <start>Unknown</start>
+          <end>2010-02-16</end>
+        </temporalCoverage>
+        <geospatialCoverage xmlns:ism="urn:us:gov:ic:ism"
+                            ism:classification="U"
+                            ism:ownerProducer="USA">
+          <geographicIdentifier>
+            <name>Bob's House</name>
+            <countryCode irm:codespace="ge:GENC:3:ed3"
+                         irm:code="CAN" />
+            <countryCode irm:codespace="ge:GENC:3:ed3"
+                         irm:code="AUS" />
+          </geographicIdentifier>
+          <boundingGeometry>
+            <!-- tspi:Polygon -->
+            <tspi:Polygon gml:id="PolygonGeodetic2DZoneMetreExample"
+                          srsName="http://metadata.ces.mil/mdr/ns/GSIP/crs/WGS84E_2D">
+              <gml:exterior>
+                <gml:LinearRing>
+                  <gml:pos>51.0667 -1.8</gml:pos>
+                  <gml:pos>52.0 -1.75</gml:pos>
+                  <gml:pos>52.75 -1.2</gml:pos>
+                  <gml:pos>51.25 -1.4667</gml:pos>
+                  <gml:pos>51.0667 -1.8</gml:pos>
+                </gml:LinearRing>
+              </gml:exterior>
+              <gml:interior>
+                <gml:LinearRing>
+                  <gml:pos>51.19 -1.78</gml:pos>
+                  <gml:pos>51.9 -1.73</gml:pos>
+                  <gml:pos>52.6 -1.3</gml:pos>
+                  <gml:pos>51.25 -1.51</gml:pos>
+                  <gml:pos>51.19 -1.78</gml:pos>
+                </gml:LinearRing>
+              </gml:interior>
+              <tspi-core:horizResolutionCategory>arcMinute</tspi-core:horizResolutionCategory>
+              <tspi-core:horizPresentation srsName="http://metadata.ces.mil/mdr/ns/GSIP/crs/WGS84E_UTM30N">
+                <!-- first position of the exterior ring -->
+                <tspi-core:zoneMetreLocation>
+                  <tspi-core:zoneColumn>30</tspi-core:zoneColumn>
+                  <tspi-core:hemisphere>north</tspi-core:hemisphere>
+                  <tspi-core:metreEasting>584082</tspi-core:metreEasting>
+                  <tspi-core:metreNorthing>
+                    <tspi-core:basicNorthing>5657923</tspi-core:basicNorthing>
+                  </tspi-core:metreNorthing>
+                </tspi-core:zoneMetreLocation>
+                <!-- second position of the exterior ring -->
+                <tspi-core:zoneMetreLocation>
+                  <tspi-core:zoneColumn>30</tspi-core:zoneColumn>
+                  <tspi-core:hemisphere>north</tspi-core:hemisphere>
+                  <tspi-core:metreEasting>585812</tspi-core:metreEasting>
+                  <tspi-core:metreNorthing>
+                    <tspi-core:basicNorthing>5761776</tspi-core:basicNorthing>
+                  </tspi-core:metreNorthing>
+                </tspi-core:zoneMetreLocation>
+                <!-- third position of the exterior ring -->
+                <tspi-core:zoneMetreLocation>
+                  <tspi-core:zoneColumn>30</tspi-core:zoneColumn>
+                  <tspi-core:hemisphere>north</tspi-core:hemisphere>
+                  <tspi-core:metreEasting>621490</tspi-core:metreEasting>
+                  <tspi-core:metreNorthing>
+                    <tspi-core:basicNorthing>5845980</tspi-core:basicNorthing>
+                  </tspi-core:metreNorthing>
+                </tspi-core:zoneMetreLocation>
+                <!-- fourth position of the exterior ring -->
+                <tspi-core:zoneMetreLocation>
+                  <tspi-core:zoneColumn>30</tspi-core:zoneColumn>
+                  <tspi-core:hemisphere>north</tspi-core:hemisphere>
+                  <tspi-core:metreEasting>607011</tspi-core:metreEasting>
+                  <tspi-core:metreNorthing>
+                    <tspi-core:basicNorthing>5678743</tspi-core:basicNorthing>
+                  </tspi-core:metreNorthing>
+                </tspi-core:zoneMetreLocation>
+                <!-- fifth (closure) position of the exterior ring -->
+                <tspi-core:zoneMetreLocation>
+                  <tspi-core:zoneColumn>30</tspi-core:zoneColumn>
+                  <tspi-core:hemisphere>north</tspi-core:hemisphere>
+                  <tspi-core:metreEasting>584082</tspi-core:metreEasting>
+                  <tspi-core:metreNorthing>
+                    <tspi-core:basicNorthing>5657923</tspi-core:basicNorthing>
+                  </tspi-core:metreNorthing>
+                </tspi-core:zoneMetreLocation>
+              </tspi-core:horizPresentation>
+            </tspi:Polygon>
+            <WKTGeometry>Polygon ((10 10, 10 20, 20 20, 20 15, 10 10))</WKTGeometry>
+          </boundingGeometry>
+        </geospatialCoverage>
+        <relatedResource irm:relationship="ads"
+                         irm:qualifier="asdf"
+                         irm:value="asdf">
+          <link xmlns:xlink="http://www.w3.org/1999/xlink"
+                xlink:type="locator"
+                xlink:href="asdf"
+                xlink:title="asdfasd"
+                xlink:label="asdf"
+                xlink:role="asdf" />
+        </relatedResource>
+        <resourceManagement />
+      </ICResourceMetadataPackage>
+    </StructuredStatement>
+  </Assertion>
+  <ReferenceValuePayload tdf:uri="guide://9990/test" />
+</TrustedDataObject>

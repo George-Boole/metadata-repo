@@ -1,0 +1,3092 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<cve:CVE xmlns:cve="urn:us:gov:ic:cve"
+         xmlns:ism="urn:us:gov:ic:ism"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         ism:compliesWith="USGov USIC"
+         ism:ownerProducer="USA"
+         ism:classification="U"
+         ism:DESVersion="202111"
+         ism:ISMCATCESVersion="202205"
+         ism:resourceElement="true"
+         CVEVersion="2.1"
+         specVersion="202111" 
+         ism:createDate="2011-09-01"
+         xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+  <cve:IRM>
+      <URN xmlns="urn:us:gov:ic:cve">urn:us:gov:ic:cvenum:irm:iso639-2:trigraph</URN>
+      <Title xmlns="urn:us:gov:ic:cve"
+             ism:classification="U"
+             ism:ownerProducer="USA">CVEnumIRMISO639-2Trigraph</Title>
+      <Description xmlns="urn:us:gov:ic:cve"
+                   ism:classification="U"
+                   ism:ownerProducer="USA">All currently valid ISO-639-2 Trigraphs, excluding collectives.</Description>
+      <cve:Created>2011-09-01T11:19:00-04:00</cve:Created>
+    
+      <Source xmlns="urn:us:gov:ic:cve"
+              ism:classification="U"
+              ism:ownerProducer="USA">ISO 639-3 http://www.loc.gov/standards/iso639-2</Source>
+      <PointOfContact xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">
+         <Name>Office IC CIO</Name>
+         <Email>ic-standards-support@odni.gov</Email>
+      </PointOfContact>
+  </cve:IRM>
+
+  <cve:Enumeration multivalue="false" ism:classification="U" ism:ownerProducer="USA">
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">aar</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Afar</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">abk</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Abkhazian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ace</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Achinese</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ach</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Acoli</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ada</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Adangme</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ady</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Adyghe</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">afa</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Afro-Asiatic languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">afh</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Afrihili</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">afr</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Afrikaans</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ain</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Ainu (Japan)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">aka</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Akan</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">akk</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Akkadian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">alb</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bibliographic applications trigraph for Albanian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ale</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Aleut</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">alg</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Algonquian languages</Description>
+     </Term>
+     
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">alt</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Southern Altai</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">amh</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Amharic</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ang</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Old English (ca. 450-1100)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">anp</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Angika</Description>
+      </Term>
+     
+        <Term xmlns="urn:us:gov:ic:cve"
+           ism:classification="U"
+           ism:ownerProducer="USA">
+           <Value ism:classification="U" ism:ownerProducer="USA">apa</Value>
+           <Description ism:classification="U" ism:ownerProducer="USA">Apache languages</Description>
+        </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ara</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Arabic</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">arc</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Official Aramaic (700-300 BCE)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">arg</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Aragonese</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">arm</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bibliographic applications trigraph for Armenian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">arn</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Mapudungun</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">arp</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Arapaho</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">art</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Artificial languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">arw</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Arawak</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">asm</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Assamese</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ast</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Asturian</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">ath</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Athapascan languages</Description>
+     </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">aus</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Australian languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ava</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Avaric</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ave</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Avestan</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">awa</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Awadhi</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">aym</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Aymara</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">aze</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Azerbaijani</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">bad</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Banda languages</Description>
+     </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">bai</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Bamileke languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">bak</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bashkir</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">bal</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Baluchi</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">bam</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bambara</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ban</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Balinese</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">baq</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bibliographic applications trigraph for Basque</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">bas</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Basa (Cameroon)</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">bat</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Baltic languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">bej</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Beja</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">bel</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Belarusian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">bem</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bemba (Zambia)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ben</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bengali</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">ber</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Berber languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">bho</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bhojpuri</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">bih</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Bihari languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">bik</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bikol</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">bin</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bini</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">bis</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bislama</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">bla</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Siksika</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">bnt</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Bantu (Other)</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">bod</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Terminology applications trigraph for Tibetan</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">bos</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bosnian</Description>
+      </Term>
+     
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">bra</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Braj</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">bre</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Breton</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">btk</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Batak languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">bua</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Buriat</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">bug</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Buginese</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">bul</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bulgarian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">bur</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bibliographic applications trigraph for Burmese</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">byn</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bilin</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">cad</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Caddo</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">cai</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Central American Indian languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">car</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Galibi Carib</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">cat</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Catalan</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">cau</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Caucasian languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ceb</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Cebuano</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">cel</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Celtic languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ces</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Terminology applications trigraph for Czech</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">cha</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Chamorro</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">chb</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Chibcha</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">che</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Chechen</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">chg</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Chagatai</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">chi</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bibliographic applications trigraph for Chinese</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">chk</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Chuukese</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">chm</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Mari (Russia)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">chn</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Chinook jargon</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">cho</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Choctaw</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">chp</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Chipewyan</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">chr</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Cherokee</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">chu</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Church Slavic</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">chv</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Chuvash</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">chy</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Cheyenne</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">cmc</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Chamic languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">cop</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Coptic</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">cor</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Cornish</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">cos</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Corsican</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">cpe</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Creoles and pidgins, English based</Description>
+     </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">cpf</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Creoles and pidgins, French-based </Description>
+     </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">cpp</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Creoles and pidgins, Portuguese-based </Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">cre</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Cree</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">crh</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Crimean Tatar</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">crp</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Creoles and pidgins </Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">csb</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kashubian</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">cus</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Cushitic languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">cym</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Terminology applications trigraph for Welsh</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">cze</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bibliographic applications trigraph for Czech</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">dak</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Dakota</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">dan</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Danish</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">dar</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Dargwa</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">day</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Land Dayak languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">del</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Delaware</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">den</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Slave (Athapascan)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">deu</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Terminology applications trigraph for German</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">dgr</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Dogrib</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">din</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Dinka</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">div</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Dhivehi</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">doi</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Dogri (macrolanguage)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">dsb</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Lower Sorbian</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">dra</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Dravidian languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">dua</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Duala</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">dum</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Middle Dutch (ca. 1050-1350)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">dut</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bibliographic applications trigraph for Dutch</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">dyu</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Dyula</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">dzo</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Dzongkha</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">efi</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Efik</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">egy</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Egyptian (Ancient)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">eka</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Ekajuk</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ell</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Terminology applications trigraph for Modern Greek (1453-)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">elx</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Elamite</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">eng</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">English</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">enm</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Middle English (1100-1500)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">epo</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Esperanto</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">est</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Estonian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">eus</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Terminology applications trigraph for Basque</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ewe</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Ewe</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ewo</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Ewondo</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">fan</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Fang (Equatorial Guinea)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">fao</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Faroese</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">fas</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Terminology applications trigraph for Persian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">fat</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Fanti</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">fij</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Fijian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">fil</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Filipino</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">fin</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Finnish</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">fiu</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Finno-Ugrian languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">fon</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Fon</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">fra</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Terminology applications trigraph for French</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">fre</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bibliographic applications trigraph for French</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">frm</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Middle French (ca. 1400-1600)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">fro</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Old French (842-ca. 1400)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">frr</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Northern Frisian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">frs</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Eastern Frisian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">fry</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Western Frisian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ful</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Fulah</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">fur</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Friulian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">gaa</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Ga</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">gay</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Gayo</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">gba</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Gbaya (Central African Republic)</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">gem</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Germanic languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">geo</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bibliographic applications trigraph for Georgian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ger</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bibliographic applications trigraph for German</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">gez</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Geez</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">gil</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Gilbertese</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">gla</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Scottish Gaelic</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">gle</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Irish</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">glg</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Galician</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">glv</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Manx</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">gmh</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Middle High German (ca. 1050-1500)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">goh</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Old High German (ca. 750-1050)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">gon</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Gondi</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">gor</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Gorontalo</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">got</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Gothic</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">grb</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Grebo</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">grc</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Ancient Greek (to 1453)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">gre</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bibliographic applications trigraph for Modern Greek (1453-)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">grn</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Guarani</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">gsw</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Swiss German</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">guj</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Gujarati</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">gwi</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Gwichʼin</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">hai</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Haida</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">hat</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Haitian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">hau</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Hausa</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">haw</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Hawaiian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">heb</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Hebrew</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">her</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Herero</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">hil</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Hiligaynon</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">him</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Himachali languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">hin</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Hindi</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">hit</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Hittite</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">hmn</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Hmong</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">hmo</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Hiri Motu</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">hrv</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Terminology applications trigraph for Croatian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">hsb</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Upper Sorbian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">hun</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Hungarian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">hup</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Hupa</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">hye</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Terminology applications trigraph for Armenian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">iba</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Iban</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ibo</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Igbo</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ice</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bibliographic applications trigraph for Icelandic</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ido</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Ido</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">iii</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Sichuan Yi</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">ijo</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Ijo languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">iku</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Inuktitut</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ile</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Interlingue</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ilo</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Iloko</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ina</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Interlingua (International Auxiliary Language Association)</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">inc</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Indic languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ind</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Indonesian</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">ine</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Indo-European languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">inh</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Ingush</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ipk</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Inupiaq</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">ira</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Iranian languages</Description>
+     </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">iro</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Iroquoian languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">isl</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Terminology applications trigraph for Icelandic</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ita</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Italian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">jav</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Javanese</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">jbo</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Lojban</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">jpn</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Japanese</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">jpr</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Judeo-Persian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">jrb</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Judeo-Arabic</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">kaa</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kara-Kalpak</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">kab</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kabyle</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">kac</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kachin</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">kal</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kalaallisut</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">kam</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kamba (Kenya)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">kan</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kannada</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">kas</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kashmiri</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">kar</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Karen languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">kat</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Terminology applications trigraph for Georgian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">kau</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kanuri</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">kaw</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kawi</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">kaz</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kazakh</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">kbd</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kabardian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">kha</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Khasi</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">khm</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Central Khmer</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">khi</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Khoisan languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">kho</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Khotanese</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">kik</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kikuyu</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">kin</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kinyarwanda</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">kir</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kirghiz</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">kmb</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kimbundu</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">kok</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Konkani (macrolanguage)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">kom</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Komi</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">kon</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kongo</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">kor</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Korean</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">kos</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kosraean</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">kpe</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kpelle</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">krc</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Karachay-Balkar</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">krl</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Karelian</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">kro</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Kru languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">kru</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kurukh</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">kua</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kuanyama</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">kum</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kumyk</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">kur</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kurdish</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">kut</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kutenai</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">lad</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Ladino</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">lah</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Lahnda</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">lam</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Lamba</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">lao</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Lao</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">lat</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Latin</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">lav</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Latvian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">lez</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Lezghian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">lim</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Limburgan</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">lin</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Lingala</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">lit</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Lithuanian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">lol</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Mongo</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">loz</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Lozi</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ltz</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Luxembourgish</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">lua</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Luba-Lulua</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">lub</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Luba-Katanga</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">lug</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Ganda</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">lui</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Luiseno</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">lun</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Lunda</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">luo</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Luo (Kenya and Tanzania)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">lus</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Lushai</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">mac</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bibliographic applications trigraph for Macedonian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">mad</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Madurese</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">mag</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Magahi</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">mah</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Marshallese</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">mai</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Maithili</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">mak</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Makasar</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">mal</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Malayalam</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">man</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Mandingo</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">mao</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bibliographic applications trigraph for Maori</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">map</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Austronesian languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">mar</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Marathi</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">mas</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Masai</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">may</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bibliographic applications trigraph for Malay (macrolanguage)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">mdf</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Moksha</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">mdr</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Mandar</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">men</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Mende (Sierra Leone)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">mga</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Middle Irish (900-1200)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">mic</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Mi'kmaq</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">min</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Minangkabau</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">mis</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Uncoded languages</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">mkd</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Terminology applications trigraph for Macedonian</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">mkh</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Mon-Khmer languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">mlg</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Malagasy</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">mlt</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Maltese</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">mnc</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Manchu</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">mni</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Manipuri</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">mno</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Manobo languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">moh</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Mohawk</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">mon</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Mongolian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">mos</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Mossi</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">mri</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Terminology applications trigraph for Maori</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">msa</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Terminology applications trigraph for Malay (macrolanguage)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">mul</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Multiple languages</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">mun</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Munda languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">mus</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Creek</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">mwl</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Mirandese</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">mwr</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Marwari</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">mya</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Terminology applications trigraph for Burmese</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">myn</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Mayan languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">myv</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Erzya</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">nah</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Nahuatl languages</Description>
+     </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">nai</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">North American Indian languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">nap</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Neapolitan</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">nau</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Nauru</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">nav</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Navajo</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">nbl</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">South Ndebele</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">nde</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">North Ndebele</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ndo</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Ndonga</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">nds</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Low German</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">nep</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Nepali</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">new</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Newari</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">nia</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Nias</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">nic</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Niger-Kordofanian languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">niu</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Niuean</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">nld</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Terminology applications trigraph for Dutch</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">nno</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Norwegian Nynorsk</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">nob</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Norwegian Bokmål</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">nog</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Nogai</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">non</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Old Norse</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">nor</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Norwegian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">nqo</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">N'Ko</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">nso</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Pedi</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">nub</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Nubian languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">nwc</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Classical Newari</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">nya</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Nyanja</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">nym</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Nyamwezi</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">nyn</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Nyankole</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">nyo</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Nyoro</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">nzi</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Nzima</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">oci</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Occitan (post 1500)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">oji</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Ojibwa</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ori</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Oriya</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">orm</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Oromo</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">osa</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Osage</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">oss</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Ossetian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ota</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Ottoman Turkish (1500-1928)</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">oto</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Otomian languages</Description>
+     </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">paa</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Papuan languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">pag</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Pangasinan</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">pal</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Pahlavi</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">pam</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Pampanga</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">pan</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Panjabi</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">pap</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Papiamento</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">pau</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Palauan</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">peo</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Old Persian (ca. 600-400 B.C.)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">per</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bibliographic applications trigraph for Persian</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">phi</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Philippine languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">phn</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Phoenician</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">pli</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Pali</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">pol</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Polish</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">pon</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Pohnpeian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">por</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Portuguese</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">pra</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Prakrit languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">pro</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Old Provençal (to 1500)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">pus</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Pushto</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">qaa-qtz</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Reserved for local use</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">que</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Quechua</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">raj</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Rajasthani</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">rap</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Rapanui</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">rar</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Rarotongan</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">roa</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Romance languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">roh</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Romansh</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">rom</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Romany</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ron</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Terminology applications trigraph for Romanian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">rum</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bibliographic applications trigraph for Romanian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">run</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Rundi</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">rup</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Macedo-Romanian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">rus</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Russian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">sad</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Sandawe</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">sag</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Sango</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">sah</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Yakut</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">sai</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">South American Indian (Other)</Description>
+     </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">sal</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Salishan languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">sam</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Samaritan Aramaic</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">san</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Sanskrit</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">sas</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Sasak</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">sat</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Santali</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">scc</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bibliographic applications trigraph for Serbian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">scn</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Sicilian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">sco</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Scots</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">scr</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bibliographic applications trigraph for Croatian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">sel</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Selkup</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">sem</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Semitic languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">sga</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Old Irish (to 900)</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">sgn</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Sign Languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">shn</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Shan</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">sid</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Sidamo</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">sin</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Sinhala</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">sio</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Siouan languages</Description>
+     </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">sit</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Sino-Tibetan languages</Description>
+     </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">sla</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Slavic languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">slk</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Terminology applications trigraph for Slovak</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">slo</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bibliographic applications trigraph for Slovak</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">slv</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Slovenian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">sma</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Southern Sami</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">sme</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Northern Sami</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">smi</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Sami languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">smj</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Lule Sami</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">smn</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Inari Sami</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">smo</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Samoan</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">sms</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Skolt Sami</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">sna</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Shona</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">snd</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Sindhi</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">snk</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Soninke</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">sog</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Sogdian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">som</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Somali</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">son</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Songhai languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">sot</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Southern Sotho</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">spa</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Spanish</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">sqi</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Terminology applications trigraph for Albanian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">srd</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Sardinian</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">ssa</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Nilo-Saharan languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">srn</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Sranan Tongo</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">srp</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Terminology applications trigraph for Serbian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">srr</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Serer</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ssw</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Swati</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">suk</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Sukuma</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">sun</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Sundanese</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">sus</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Susu</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">sux</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Sumerian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">swa</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Swahili (macrolanguage)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">swe</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Swedish</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">syc</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Classical Syriac</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">syr</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Syriac</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">tah</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Tahitian</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">tai</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Tai languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">tam</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Tamil</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">tat</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Tatar</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">tel</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Telugu</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">tem</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Timne</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ter</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Tereno</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">tet</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Tetum</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">tgk</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Tajik</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">tgl</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Tagalog</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">tha</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Thai</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">tib</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bibliographic applications trigraph for Tibetan</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">tig</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Tigre</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">tir</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Tigrinya</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">tiv</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Tiv</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">tkl</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Tokelau</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">tlh</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Klingon</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">tli</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Tlingit</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">tmh</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Tamashek</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">tog</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Tonga (Nyasa)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ton</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Tonga (Tonga Islands)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">tpi</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Tok Pisin</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">tsi</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Tsimshian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">tsn</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Tswana</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">tso</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Tsonga</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">tuk</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Turkmen</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">tum</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Tumbuka</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">tup</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Tupi languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">tur</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Turkish</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">tut</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Altaic languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">tvl</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Tuvalu</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">twi</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Twi</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">tyv</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Tuvinian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">udm</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Udmurt</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">uga</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Ugaritic</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">uig</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Uighur</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ukr</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Ukrainian</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">umb</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Umbundu</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">und</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Undetermined</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">urd</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Urdu</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">uzb</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Uzbek</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">vai</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Vai</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ven</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Venda</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">vie</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Vietnamese</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">vol</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Volapük</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">vot</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Votic</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">wak</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Wakashan languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">wal</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Wolaytta</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">war</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Waray (Philippines)</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">was</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Washo</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">wel</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Bibliographic applications trigraph for Welsh</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">wen</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Sorbian languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">wln</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Walloon</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">wol</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Wolof</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">xal</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Kalmyk</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">xho</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Xhosa</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">yao</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Yao</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">yap</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Yapese</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">yid</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Yiddish</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">ypk</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Yupik languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">yor</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Yoruba</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">zap</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Zapotec</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">zbl</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Blissymbols</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">zen</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Zenaga</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">zgh</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Standard Moroccan Tamazight</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">zha</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Zhuang</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">zho</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Terminology applications trigraph for Chinese</Description>
+      </Term>
+     <Term xmlns="urn:us:gov:ic:cve"
+        ism:classification="U"
+        ism:ownerProducer="USA">
+        <Value ism:classification="U" ism:ownerProducer="USA">znd</Value>
+        <Description ism:classification="U" ism:ownerProducer="USA">Zande languages</Description>
+     </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">zul</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Zulu</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">zun</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Zuni</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">zxx</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">No linguistic content</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">zza</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Zaza</Description>
+      </Term>
+  </cve:Enumeration>
+</cve:CVE>

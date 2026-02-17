@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns="urn:us:gov:ic:cvenum:pm:subject"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:pm:subject"
+            version="202211">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumPMSubject Version 2.1 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumPMSubject.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumPMSubject">
+      <xsd:annotation>
+         <xsd:documentation>(U) Production Metrics Subject: Alpha-sort by Topic Title
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumPMSubject.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="ACTM">
+            <xsd:annotation>
+               <xsd:documentation>Arms Control Treaty Monitoring</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ACWP">
+            <xsd:annotation>
+               <xsd:documentation>Advanced Conventional Weapons</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="BASE">
+            <xsd:annotation>
+               <xsd:documentation>Baseline</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CBWD">
+            <xsd:annotation>
+               <xsd:documentation>Weapons Development and Proliferation: Chemical and Biological</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CHTC">
+            <xsd:annotation>
+               <xsd:documentation>Conflict, Atrocities, and Humanitarian Crises</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CINT">
+            <xsd:annotation>
+               <xsd:documentation>Counterintelligence</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CNRE">
+            <xsd:annotation>
+               <xsd:documentation>Climate, Natural Resources, and Energy Security</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CRIM">
+            <xsd:annotation>
+               <xsd:documentation>Transnational Crime</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CYBR">
+            <xsd:annotation>
+               <xsd:documentation>Cyber Threats</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DEMG">
+            <xsd:annotation>
+               <xsd:documentation>Demographics, Migration, and Population Movements</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DEPS">
+            <xsd:annotation>
+               <xsd:documentation>Democracy, Political Stability, and Human Rights</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="DRUG">
+            <xsd:annotation>
+               <xsd:documentation>Illicit Drugs</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ECFS">
+            <xsd:annotation>
+               <xsd:documentation>Economic Stability and Threat Finance</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ECON">
+            <xsd:annotation>
+               <xsd:documentation>Economics, Trade, Investment, and Supply Chain Resilience</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ENRF">
+            <xsd:annotation>
+               <xsd:documentation>Environment, Natural Resources, and Food Security</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ENVR">
+            <xsd:annotation>
+               <xsd:documentation>Environment and Natural Resources</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="ESEC">
+            <xsd:annotation>
+               <xsd:documentation>Energy Security</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="FDND">
+            <xsd:annotation>
+               <xsd:documentation>Foreign Denial and Deception</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="FINT">
+            <xsd:annotation>
+               <xsd:documentation>Interference and Influence Efforts</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="FMCC">
+            <xsd:annotation>
+               <xsd:documentation>Foreign Military Combat Capabilities</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="FOOD">
+            <xsd:annotation>
+               <xsd:documentation>Agriculture and Food Security</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="FPLD">
+            <xsd:annotation>
+               <xsd:documentation>Foreign Policy and Leadership Intentions</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="FPOL">
+            <xsd:annotation>
+               <xsd:documentation>Foreign Policy Objectives and Relations with the United States</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HAPR">
+            <xsd:annotation>
+               <xsd:documentation>Hostage and Personnel Recovery Support</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HLTH">
+            <xsd:annotation>
+               <xsd:documentation>Infectious Disease and Health Security</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HREL">
+            <xsd:annotation>
+               <xsd:documentation>Humanitarian Disasters and Relief Operations</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HRWC">
+            <xsd:annotation>
+               <xsd:documentation>Human Rights and War Crimes</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HSEC">
+            <xsd:annotation>
+               <xsd:documentation>Homeland Security</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="INFR">
+            <xsd:annotation>
+               <xsd:documentation>Foreign Civilian Critical Infrastructure</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="LEAD">
+            <xsd:annotation>
+               <xsd:documentation>Leadership Intentions</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="POWS">
+            <xsd:annotation>
+               <xsd:documentation>Prisoners of War and Missing in Action</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SPCE">
+            <xsd:annotation>
+               <xsd:documentation>Foreign Space Threats and Operations</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SRCC">
+            <xsd:annotation>
+               <xsd:documentation>Regional Conflict and Crises</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="STCM">
+            <xsd:annotation>
+               <xsd:documentation>Strategic Competition</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TECH">
+            <xsd:annotation>
+               <xsd:documentation>Emerging and Disruptive Technologies</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TERR">
+            <xsd:annotation>
+               <xsd:documentation>Terrorism and Hostages</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TFIN">
+            <xsd:annotation>
+               <xsd:documentation>Threat Finance</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TRAD">
+            <xsd:annotation>
+               <xsd:documentation>International Trade</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="WDPR">
+            <xsd:annotation>
+               <xsd:documentation>Wrongful Detentions and Personnel Recovery</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="WMDB">
+            <xsd:annotation>
+               <xsd:documentation>WMD-Biological</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="WMDC">
+            <xsd:annotation>
+               <xsd:documentation>WMD-Chemical</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="WMDM">
+            <xsd:annotation>
+               <xsd:documentation>WMD-Missiles</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="WMDN">
+            <xsd:annotation>
+               <xsd:documentation>Weapons Development and Proliferation: Nuclear</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="WPNS">
+            <xsd:annotation>
+               <xsd:documentation>Weapons Development and Proliferation: Conventional</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,1868 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+      <title>Schema documentation for component irm:description</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css"></link>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+        var propertiesBoxes= new Array('properties_ApproximableDateType_description', 
+				'properties_ApproximableDateType_approximableDate', 
+				'properties_ApproximableDateType_searchableDate', 
+				'properties_ApproximableDateType_ApproximableDateType_searchableDate_start', 
+				'properties_ApproximableDateType_ApproximableDateType_searchableDate_end', 
+				'properties_ApproximableDateType_ApproximableDateType_approximableDate_approximation');
+var facetsBoxes= new Array('facets_ApproximableDateType_description', 
+				'facets_ApproximableDateType_ApproximableDateType_approximableDate_approximation');
+var usedByBoxes= new Array('usedBy_ApproximableDateType', 
+				'usedBy_ApproximableDateType_ApproximableDateType_approximableDate_approximation');
+var sourceBoxes= new Array('source_ApproximableDateType_description', 
+				'source_ApproximableDateType_approximableDate', 
+				'source_ApproximableDateType_searchableDate', 
+				'source_ApproximableDateType_ApproximableDateType_searchableDate_start', 
+				'source_ApproximableDateType_ApproximableDateType_searchableDate_end', 
+				'source_ApproximableDateType', 
+				'source_ApproximableDateType_ApproximableDateType_approximableDate_approximation');
+var instanceBoxes= new Array('instance_ApproximableDateType_searchableDate');
+var diagramBoxes= new Array('diagram_ApproximableDateType_description', 
+				'diagram_ApproximableDateType_approximableDate', 
+				'diagram_ApproximableDateType_searchableDate', 
+				'diagram_ApproximableDateType_ApproximableDateType_searchableDate_start', 
+				'diagram_ApproximableDateType_ApproximableDateType_searchableDate_end', 
+				'diagram_ApproximableDateType');
+var annotationBoxes= new Array('annotations_ApproximableDateType_description', 
+				'annotations_ApproximableDateType_approximableDate', 
+				'annotations_ApproximableDateType_searchableDate', 
+				'annotations_ApproximableDateType_ApproximableDateType_searchableDate_start', 
+				'annotations_ApproximableDateType_ApproximableDateType_searchableDate_end', 
+				'annotations_ApproximableDateType', 
+				'annotations_ApproximableDateType_ApproximableDateType_approximableDate_approximation');
+var attributesBoxes= new Array('attributes_ApproximableDateType_approximableDate');
+var modelBoxes= new Array('model_ApproximableDateType_searchableDate', 
+				'model_ApproximableDateType');
+
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                    //
+--></script>
+   </head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_content" rowspan="1" colspan="1">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, annotationBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Annotations</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, attributesBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Attributes </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, diagramBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Diagrams</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, facetsBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Facets </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, instanceBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Instances</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, modelBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Model </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, propertiesBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Properties </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Source</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Used by </span>
+                        </td>
+                     </tr>
+                  </table>
+                  <div align="right">
+                     <span>
+                        <input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close"></input>
+                     </span>
+                  </div>
+               </td>
+               <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+            </tr>
+         </table>
+      </div>
+      <a id="ApproximableDateType_description" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:ApproximableDateType')" shape="rect">irm:ApproximableDateType</a>
+            </b> / irm:description</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:irm</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_ApproximableDateType_description" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_ApproximableDateType_description');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_ApproximableDateType_description" style="display:block">
+                              <div class="annotation">? 
+                                 
+                                 <p data-ded="ded:Definition">ded:Definition: An
+                                    optional element of an ApproximableDateType (eg. acquiredOn) that allows
+                                    for a text description of the approximable date. A string describing a
+                                    date, such as "Ramadan 2010". This string is descriptive, but not
+                                    necessarily processable by search engines.</p>
+                                 
+                                 <p data-ded="ded:Obligation">ded:Obligation: (Optional)</p>
+                                 
+                                 <p data-ded="ded:Comment">ded:Comment: Use of only this element in an
+                                    ApproximableDateType does not provide any assurance of searchability. To
+                                    ensure that a IRM record can be searched for by date, used
+                                    searchableDate.</p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_ApproximableDateType_description" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_ApproximableDateType_description');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_ApproximableDateType_description" style="display:block">
+                              <img alt="Diagram" border="0" src="img/IC-IRM_xsd_Element_irm_description.png" usemap="#IC-IRM_xsd_Element_irm_description"></img>
+                              <map name="IC-IRM_xsd_Element_irm_description" id="IC-IRM_xsd_Element_irm_description">
+                                 <area alt="IC-IRM_xsd_Simple_Type_irm_simpleTokenType.tmp#simpleTokenType" href="418a61d6-572e-418e-b92f-74796375c1d5.html#simpleTokenType" coords="142,0,319,26" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="418a61d6-572e-418e-b92f-74796375c1d5.html#simpleTokenType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:simpleTokenType')" shape="rect">irm:simpleTokenType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_ApproximableDateType_description" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_ApproximableDateType_description');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_ApproximableDateType_description" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Facets</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_facets_ApproximableDateType_description" type="image" src="img/btM.gif" value="-" onclick="switchState('facets_ApproximableDateType_description');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="facets_ApproximableDateType_description" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">minLength</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>1</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_ApproximableDateType_description" type="image" src="img/btM.gif" value="-" onclick="switchState('source_ApproximableDateType_description');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_ApproximableDateType_description" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"description"</span><span class="tAN"> type=</span><span class="tAV">"irm:simpleTokenType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An optional element of an ApproximableDateType (eg. acquiredOn) that allows for a text description of the approximable date. A string describing a date, such as "Ramadan 2010". This string is descriptive, but not necessarily processable by search engines.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Optional)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Comment: Use of only this element in an ApproximableDateType does not provide any assurance of searchability. To ensure that a IRM record can be searched for by date, used searchableDate.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/IRM/IC-IRM.xsd">IC-IRM.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="ApproximableDateType_approximableDate" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:ApproximableDateType')" shape="rect">irm:ApproximableDateType</a>
+            </b> / irm:approximableDate</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:irm</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_ApproximableDateType_approximableDate" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_ApproximableDateType_approximableDate');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_ApproximableDateType_approximableDate" style="display:block">
+                              <div class="annotation">? 
+                                 
+                                 <p data-ded="ded:Definition">ded:Definition: An
+                                    optional element of ApproximableDateType (e.g. acquiredOn) that allows a
+                                    given date to be modified by approximation vocabulary. An ISO 8601 date
+                                    with an approximation attribute to add values such as "early". ISO 8601
+                                    allows for dates such as 2010-06; search engines have different
+                                    interpretations about when to return records marked as such.</p>
+                                 
+                                 <p data-ded="ded:Obligation">ded:Obligation: (Optional)</p>
+                                 
+                                 <p data-ded="ded:Comment">ded:Comment: Use of only this element in an
+                                    ApproximableDateType does not provide any assurance of searchability. To
+                                    ensure that a IRM record can be searched for by date, used
+                                    searchableDate.</p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_ApproximableDateType_approximableDate" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_ApproximableDateType_approximableDate');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_ApproximableDateType_approximableDate" style="display:block">
+                              <img alt="Diagram" border="0" src="img/df5edcc2-4fb3-40cb-9cd5-d208c537e57c.png" usemap="#IC-IRM_xsd_Element_irm_approximableDate"></img>
+                              <map name="IC-IRM_xsd_Element_irm_approximableDate" id="IC-IRM_xsd_Element_irm_approximableDate">
+                                 <area alt="IC-IRM_xsd_Simple_Type_irm_CombinedDateType.tmp#CombinedDateType" href="75479129-17d3-4516-8839-950254b3a0df.html#CombinedDateType" coords="182,2,370,28" shape="rect"></area>
+                                 <area alt="IC-IRM_xsd_Complex_Type_irm_ApproximableDateType.tmp#ApproximableDateType_ApproximableDateType_approximableDate_approximation" href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_ApproximableDateType_approximableDate_approximation" coords="196,132,328,156" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">extension of <b>
+                              <a href="75479129-17d3-4516-8839-950254b3a0df.html#CombinedDateType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CombinedDateType')" shape="rect">irm:CombinedDateType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type hierarchy</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <ul class="internal">
+                              <li class="internal">
+                                 <b>xsd:anySimpleType</b>
+                                 <ul class="internal">
+                                    <li class="internal">
+                                       <b>
+                                          <a href="75479129-17d3-4516-8839-950254b3a0df.html#CombinedDateType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CombinedDateType')" shape="rect">irm:CombinedDateType</a>
+                                       </b>
+                                    </li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_ApproximableDateType_approximableDate" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_ApproximableDateType_approximableDate');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_ApproximableDateType_approximableDate" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>complex</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Attributes</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_attributes_ApproximableDateType_approximableDate" type="image" src="img/btM.gif" value="-" onclick="switchState('attributes_ApproximableDateType_approximableDate');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="attributes_ApproximableDateType_approximableDate" style="display:block">
+                              <table class="attributesTable">
+                                 <thead>
+                                    <tr>
+                                       <th rowspan="1" colspan="1">QName</th>
+                                       <th width="10%" rowspan="1" colspan="1">Type</th>
+                                       <th width="5%" rowspan="1" colspan="1">Use</th>
+                                       <th width="100%" rowspan="1" colspan="1">Annotation</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_ApproximableDateType_approximableDate_approximation" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:approximation')" shape="rect">irm:approximation</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="63d0a85a-bd1d-4d6b-b54d-84b4c88270bd.html#DateApproximationEnumerationType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:DateApproximationEnumerationType')" shape="rect">irm:DateApproximationEnumerationType</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">? 
+                                          
+                                          <p data-ded="ded:Definition">ded:Definition: An optional attribute of
+                                             approximableDate that describes an approximation of the
+                                             date in approximableDate using a specific
+                                             vocabulary.</p>
+                                          
+                                          <p data-ded="ded:Obligation">ded:Obligation:
+                                             (Optional)</p>
+                                          
+                                          <p data-ded="ded:Comment">ded:Comment: Allowable values
+                                             are: 1st qtr, 2nd qtr, 3rd qtr, 4th qtr, circa, early,
+                                             mid, late.</p>
+                                          </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_ApproximableDateType_approximableDate" type="image" src="img/btM.gif" value="-" onclick="switchState('source_ApproximableDateType_approximableDate');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_ApproximableDateType_approximableDate" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"approximableDate"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An optional element of ApproximableDateType (e.g. acquiredOn) that allows a given date to be modified by approximation vocabulary. An ISO 8601 date with an approximation attribute to add values such as "early". ISO 8601 allows for dates such as 2010-06; search engines have different interpretations about when to return records marked as such.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Optional)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Comment: Use of only this element in an ApproximableDateType does not provide any assurance of searchability. To ensure that a IRM record can be searched for by date, used searchableDate.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:complexType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:simpleContent</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:extension</span><span class="tAN"> base=</span><span class="tAV">"irm:CombinedDateType"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"approximation"</span><span class="tAN"> type=</span><span class="tAV">"irm:DateApproximationEnumerationType"</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+              </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An optional attribute of approximableDate that describes an approximation of the date in approximableDate using a specific vocabulary.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Optional)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Comment: Allowable values are: 1st qtr, 2nd qtr, 3rd qtr, 4th qtr, circa, early, mid, late.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xsd:attribute&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:extension&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:simpleContent&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:complexType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/IRM/IC-IRM.xsd">IC-IRM.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="ApproximableDateType_searchableDate" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:ApproximableDateType')" shape="rect">irm:ApproximableDateType</a>
+            </b> / irm:searchableDate</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:irm</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_ApproximableDateType_searchableDate" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_ApproximableDateType_searchableDate');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_ApproximableDateType_searchableDate" style="display:block">
+                              <div class="annotation">? 
+                                 
+                                 <p data-ded="ded:Definition">ded:Definition: An
+                                    optional element of an ApproximableDateType (e.g. acquiredOn) that
+                                    allows a range of dates to be specified, covering the approximate time
+                                    being described. A range of dates covering the time period of the
+                                    approximable date. A search engine should be able to return IRM records
+                                    for queries in which the searched time period intersects this date
+                                    range.</p>
+                                 
+                                 <p data-ded="ded:Obligation">ded:Obligation: (Optional)</p>
+                                 
+                                 <p data-ded="ded:Comment"></p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_ApproximableDateType_searchableDate" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_ApproximableDateType_searchableDate');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_ApproximableDateType_searchableDate" style="display:block">
+                              <img alt="Diagram" border="0" src="img/4e92dc90-7ea8-483a-8f1a-9757dbc74d8e.png" usemap="#IC-IRM_xsd_Element_irm_searchableDate"></img>
+                              <map name="IC-IRM_xsd_Element_irm_searchableDate" id="IC-IRM_xsd_Element_irm_searchableDate">
+                                 <area alt="IC-IRM_xsd_Complex_Type_irm_ApproximableDateType.tmp#ApproximableDateType_ApproximableDateType_searchableDate_start" href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_ApproximableDateType_searchableDate_start" coords="239,2,297,26" shape="rect"></area>
+                                 <area alt="IC-IRM_xsd_Complex_Type_irm_ApproximableDateType.tmp#ApproximableDateType_ApproximableDateType_searchableDate_end" href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_ApproximableDateType_searchableDate_end" coords="239,105,291,129" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_ApproximableDateType_searchableDate" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_ApproximableDateType_searchableDate');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_ApproximableDateType_searchableDate" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>complex</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_ApproximableDateType_searchableDate" type="image" src="img/btM.gif" value="-" onclick="switchState('model_ApproximableDateType_searchableDate');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_ApproximableDateType_searchableDate" style="display:block">
+                              <b>
+                                 <a href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_ApproximableDateType_searchableDate_start" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:start{0,1}')" shape="rect">irm:start{0,1}</a>
+                              </b> , <b>
+                                 <a href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_ApproximableDateType_searchableDate_end" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:end{0,1}')" shape="rect">irm:end{0,1}</a>
+                              </b>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_ApproximableDateType_searchableDate_end" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:end')" shape="rect">irm:end</a>
+                           </b>, <b>
+                              <a href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_ApproximableDateType_searchableDate_start" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:start')" shape="rect">irm:start</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Instance</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_instance_ApproximableDateType_searchableDate" type="image" src="img/btM.gif" value="-" onclick="switchState('instance_ApproximableDateType_searchableDate');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="instance_ApproximableDateType_searchableDate" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;irm:searchableDate</span><span class="tT"> </span><span class="tAN">xmlns:irm=</span><span class="tAV">"urn:us:gov:ic:irm"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;irm:start</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/irm:start&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;irm:end</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/irm:end&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/irm:searchableDate&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_ApproximableDateType_searchableDate" type="image" src="img/btM.gif" value="-" onclick="switchState('source_ApproximableDateType_searchableDate');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_ApproximableDateType_searchableDate" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"searchableDate"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An optional element of an ApproximableDateType (e.g. acquiredOn) that allows a range of dates to be specified, covering the approximate time being described. A range of dates covering the time period of the approximable date. A search engine should be able to return IRM records for queries in which the searched time period intersects this date range.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Optional)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:complexType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:sequence</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"start"</span><span class="tAN"> type=</span><span class="tAV">"irm:CombinedDateType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+            </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: Required element of searchableDate. The first date of a range describing an approximable date.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Conditional) Required if searchableDate is present.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:element&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"end"</span><span class="tAN"> type=</span><span class="tAV">"irm:CombinedDateType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+            </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: Required element of searchableDate. The last date of a range describing an approximable date.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Conditional) Required if searchableDate is present.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:sequence&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:complexType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/IRM/IC-IRM.xsd">IC-IRM.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="ApproximableDateType_ApproximableDateType_searchableDate_start" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:ApproximableDateType')" shape="rect">irm:ApproximableDateType</a>
+            </b> / <b>
+               <a href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_searchableDate" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:searchableDate')" shape="rect">irm:searchableDate</a>
+            </b> / irm:start</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:irm</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_ApproximableDateType_ApproximableDateType_searchableDate_start" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_ApproximableDateType_ApproximableDateType_searchableDate_start');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_ApproximableDateType_ApproximableDateType_searchableDate_start" style="display:block">
+                              <div class="annotation">? 
+                                 
+                                 <p data-ded="ded:Definition">ded:Definition: Required element of searchableDate. The
+                                    first date of a range describing an approximable
+                                    date.</p>
+                                 
+                                 <p data-ded="ded:Obligation">ded:Obligation: (Conditional)
+                                    Required if searchableDate is present. </p>
+                                 
+                                 <p data-ded="ded:Comment"></p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_ApproximableDateType_ApproximableDateType_searchableDate_start" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_ApproximableDateType_ApproximableDateType_searchableDate_start');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_ApproximableDateType_ApproximableDateType_searchableDate_start" style="display:block">
+                              <img alt="Diagram" border="0" src="img/IC-IRM_xsd_Element_irm_start.png" usemap="#IC-IRM_xsd_Element_irm_start"></img>
+                              <map name="IC-IRM_xsd_Element_irm_start" id="IC-IRM_xsd_Element_irm_start">
+                                 <area alt="IC-IRM_xsd_Simple_Type_irm_CombinedDateType.tmp#CombinedDateType" href="75479129-17d3-4516-8839-950254b3a0df.html#CombinedDateType" coords="106,0,294,26" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="75479129-17d3-4516-8839-950254b3a0df.html#CombinedDateType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CombinedDateType')" shape="rect">irm:CombinedDateType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_ApproximableDateType_ApproximableDateType_searchableDate_start" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_ApproximableDateType_ApproximableDateType_searchableDate_start');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_ApproximableDateType_ApproximableDateType_searchableDate_start" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_ApproximableDateType_ApproximableDateType_searchableDate_start" type="image" src="img/btM.gif" value="-" onclick="switchState('source_ApproximableDateType_ApproximableDateType_searchableDate_start');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_ApproximableDateType_ApproximableDateType_searchableDate_start" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"start"</span><span class="tAN"> type=</span><span class="tAV">"irm:CombinedDateType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: Required element of searchableDate. The first date of a range describing an approximable date.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Conditional) Required if searchableDate is present.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/IRM/IC-IRM.xsd">IC-IRM.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="ApproximableDateType_ApproximableDateType_searchableDate_end" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:ApproximableDateType')" shape="rect">irm:ApproximableDateType</a>
+            </b> / <b>
+               <a href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_searchableDate" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:searchableDate')" shape="rect">irm:searchableDate</a>
+            </b> / irm:end</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:irm</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_ApproximableDateType_ApproximableDateType_searchableDate_end" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_ApproximableDateType_ApproximableDateType_searchableDate_end');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_ApproximableDateType_ApproximableDateType_searchableDate_end" style="display:block">
+                              <div class="annotation">? 
+                                 
+                                 <p data-ded="ded:Definition">ded:Definition: Required element of searchableDate. The
+                                    last date of a range describing an approximable
+                                    date.</p>
+                                 
+                                 <p data-ded="ded:Obligation">ded:Obligation: (Conditional)
+                                    Required if searchableDate is present. </p>
+                                 
+                                 <p data-ded="ded:Comment"></p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_ApproximableDateType_ApproximableDateType_searchableDate_end" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_ApproximableDateType_ApproximableDateType_searchableDate_end');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_ApproximableDateType_ApproximableDateType_searchableDate_end" style="display:block">
+                              <img alt="Diagram" border="0" src="img/IC-IRM_xsd_Element_irm_end.png" usemap="#IC-IRM_xsd_Element_irm_end"></img>
+                              <map name="IC-IRM_xsd_Element_irm_end" id="IC-IRM_xsd_Element_irm_end">
+                                 <area alt="IC-IRM_xsd_Simple_Type_irm_CombinedDateType.tmp#CombinedDateType" href="75479129-17d3-4516-8839-950254b3a0df.html#CombinedDateType" coords="100,0,288,26" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="75479129-17d3-4516-8839-950254b3a0df.html#CombinedDateType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:CombinedDateType')" shape="rect">irm:CombinedDateType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_ApproximableDateType_ApproximableDateType_searchableDate_end" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_ApproximableDateType_ApproximableDateType_searchableDate_end');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_ApproximableDateType_ApproximableDateType_searchableDate_end" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_ApproximableDateType_ApproximableDateType_searchableDate_end" type="image" src="img/btM.gif" value="-" onclick="switchState('source_ApproximableDateType_ApproximableDateType_searchableDate_end');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_ApproximableDateType_ApproximableDateType_searchableDate_end" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"end"</span><span class="tAN"> type=</span><span class="tAV">"irm:CombinedDateType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: Required element of searchableDate. The last date of a range describing an approximable date.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Conditional) Required if searchableDate is present.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/IRM/IC-IRM.xsd">IC-IRM.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="ApproximableDateType" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Complex Type <span class="qname">irm:ApproximableDateType</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:irm</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_ApproximableDateType" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_ApproximableDateType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_ApproximableDateType" style="display:block">
+                              <div class="annotation">? 
+                                 
+                                 <p> Type
+                                    used to model dates that are approximate, and may not be processable by search
+                                    engines. Use of the searchableDate is intended to inform search engines when
+                                    this record should be returned; without it, query matching is system-dependent.
+                                    This date can be obfuscated for security or other reasons. Example: The
+                                    information was received on 2010-06-14 but to reduce the risk of compromising
+                                    the source it is shown in a document as searchableDate
+                                    start="2010-05-01T00:00:00Z" end="2010-07-01T00:00:00Z" </p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_ApproximableDateType" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_ApproximableDateType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_ApproximableDateType" style="display:block">
+                              <img alt="Diagram" border="0" src="img/14dc25aa-2ad4-471e-b6cd-3ba9620115fd.png" usemap="#IC-IRM_xsd_Complex_Type_irm_ApproximableDateType"></img>
+                              <map name="IC-IRM_xsd_Complex_Type_irm_ApproximableDateType" id="IC-IRM_xsd_Complex_Type_irm_ApproximableDateType">
+                                 <area alt="IC-IRM_xsd_Complex_Type_irm_ApproximableDateType.tmp#ApproximableDateType_description" href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_description" coords="304,0,398,24" shape="rect"></area>
+                                 <area alt="IC-IRM_xsd_Complex_Type_irm_ApproximableDateType.tmp#ApproximableDateType_approximableDate" href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_approximableDate" coords="304,103,438,127" shape="rect"></area>
+                                 <area alt="IC-IRM_xsd_Complex_Type_irm_ApproximableDateType.tmp#ApproximableDateType_searchableDate" href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_searchableDate" coords="304,193,424,217" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Used by</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_usedBy_ApproximableDateType" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_ApproximableDateType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="usedBy_ApproximableDateType" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Elements </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="29c639f9-747f-4fe5-a984-af0f0e9b9857.html#DatesType_acquiredOn" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:DatesType/irm:acquiredOn')" shape="rect">irm:DatesType/irm:acquiredOn</a>
+                                       </b>, <b>
+                                          <a href="e01d6cd2-f007-4dd5-a884-f583d06c3800.html#TimePeriodType_approximableEnd" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:TimePeriodType/irm:approximableEnd')" shape="rect">irm:TimePeriodType/irm:approximableEnd</a>
+                                       </b>, <b>
+                                          <a href="e01d6cd2-f007-4dd5-a884-f583d06c3800.html#TimePeriodType_approximableStart" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:TimePeriodType/irm:approximableStart')" shape="rect">irm:TimePeriodType/irm:approximableStart</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_ApproximableDateType" type="image" src="img/btM.gif" value="-" onclick="switchState('model_ApproximableDateType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_ApproximableDateType" style="display:block">ALL(<b>
+                                 <a href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_description" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:description{0,1}')" shape="rect">irm:description{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_approximableDate" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:approximableDate{0,1}')" shape="rect">irm:approximableDate{0,1}</a>
+                              </b> 
+                              <b>
+                                 <a href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_searchableDate" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:searchableDate{0,1}')" shape="rect">irm:searchableDate{0,1}</a>
+                              </b>)</div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_approximableDate" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:approximableDate')" shape="rect">irm:approximableDate</a>
+                           </b>, <b>
+                              <a href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_description" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:description')" shape="rect">irm:description</a>
+                           </b>, <b>
+                              <a href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_searchableDate" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:searchableDate')" shape="rect">irm:searchableDate</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_ApproximableDateType" type="image" src="img/btM.gif" value="-" onclick="switchState('source_ApproximableDateType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_ApproximableDateType" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:complexType</span><span class="tAN"> name=</span><span class="tAV">"ApproximableDateType"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Type used to model dates that are approximate, and may not be processable by search engines. Use of the searchableDate is intended to inform search engines when this record should be returned; without it, query matching is system-dependent. This date can be obfuscated for security or other reasons. Example: The information was received on 2010-06-14 but to reduce the risk of compromising the source it is shown in a document as searchableDate start="2010-05-01T00:00:00Z" end="2010-07-01T00:00:00Z"</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:all</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"description"</span><span class="tAN"> type=</span><span class="tAV">"irm:simpleTokenType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An optional element of an ApproximableDateType (eg. acquiredOn) that allows for a text description of the approximable date. A string describing a date, such as "Ramadan 2010". This string is descriptive, but not necessarily processable by search engines.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Optional)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Comment: Use of only this element in an ApproximableDateType does not provide any assurance of searchability. To ensure that a IRM record can be searched for by date, used searchableDate.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"approximableDate"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An optional element of ApproximableDateType (e.g. acquiredOn) that allows a given date to be modified by approximation vocabulary. An ISO 8601 date with an approximation attribute to add values such as "early". ISO 8601 allows for dates such as 2010-06; search engines have different interpretations about when to return records marked as such.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Optional)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Comment: Use of only this element in an ApproximableDateType does not provide any assurance of searchability. To ensure that a IRM record can be searched for by date, used searchableDate.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:complexType</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:simpleContent</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xsd:extension</span><span class="tAN"> base=</span><span class="tAV">"irm:CombinedDateType"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"approximation"</span><span class="tAN"> type=</span><span class="tAV">"irm:DateApproximationEnumerationType"</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+                  </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An optional attribute of approximableDate that describes an approximation of the date in approximableDate using a specific vocabulary.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Optional)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Comment: Allowable values are: 1st qtr, 2nd qtr, 3rd qtr, 4th qtr, circa, early, mid, late.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/xsd:attribute&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xsd:extension&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xsd:simpleContent&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:complexType&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"searchableDate"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An optional element of an ApproximableDateType (e.g. acquiredOn) that allows a range of dates to be specified, covering the approximate time being described. A range of dates covering the time period of the approximable date. A search engine should be able to return IRM records for queries in which the searched time period intersects this date range.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Optional)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">/&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:complexType</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:sequence</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"start"</span><span class="tAN"> type=</span><span class="tAV">"irm:CombinedDateType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+                </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: Required element of searchableDate. The first date of a range describing an approximable date.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Conditional) Required if searchableDate is present.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">/&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xsd:element&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"end"</span><span class="tAN"> type=</span><span class="tAV">"irm:CombinedDateType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+                </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: Required element of searchableDate. The last date of a range describing an approximable date.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Conditional) Required if searchableDate is present.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">/&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xsd:element&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xsd:sequence&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:complexType&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:element&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:all&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:complexType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/IRM/IC-IRM.xsd">IC-IRM.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="ApproximableDateType_ApproximableDateType_approximableDate_approximation" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Attribute <span class="qname">
+            <b>
+               <a href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:ApproximableDateType')" shape="rect">irm:ApproximableDateType</a>
+            </b> / <b>
+               <a href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_approximableDate" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:approximableDate')" shape="rect">irm:approximableDate</a>
+            </b> / @irm:approximation</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:irm</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_ApproximableDateType_ApproximableDateType_approximableDate_approximation" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_ApproximableDateType_ApproximableDateType_approximableDate_approximation');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_ApproximableDateType_ApproximableDateType_approximableDate_approximation" style="display:block">
+                              <div class="annotation">? 
+                                 
+                                 <p data-ded="ded:Definition">ded:Definition: An optional attribute of
+                                    approximableDate that describes an approximation of the
+                                    date in approximableDate using a specific
+                                    vocabulary.</p>
+                                 
+                                 <p data-ded="ded:Obligation">ded:Obligation:
+                                    (Optional)</p>
+                                 
+                                 <p data-ded="ded:Comment">ded:Comment: Allowable values
+                                    are: 1st qtr, 2nd qtr, 3rd qtr, 4th qtr, circa, early,
+                                    mid, late.</p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="63d0a85a-bd1d-4d6b-b54d-84b4c88270bd.html#DateApproximationEnumerationType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:DateApproximationEnumerationType')" shape="rect">irm:DateApproximationEnumerationType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_ApproximableDateType_ApproximableDateType_approximableDate_approximation" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_ApproximableDateType_ApproximableDateType_approximableDate_approximation');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_ApproximableDateType_ApproximableDateType_approximableDate_approximation" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Facets</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_facets_ApproximableDateType_ApproximableDateType_approximableDate_approximation" type="image" src="img/btM.gif" value="-" onclick="switchState('facets_ApproximableDateType_ApproximableDateType_approximableDate_approximation');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="facets_ApproximableDateType_ApproximableDateType_approximableDate_approximation" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>1st qtr</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>2nd qtr</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>3rd qtr</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>4th qtr</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>circa</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>early</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>mid</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>late</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Used by</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_usedBy_ApproximableDateType_ApproximableDateType_approximableDate_approximation" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_ApproximableDateType_ApproximableDateType_approximableDate_approximation');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="usedBy_ApproximableDateType_ApproximableDateType_approximableDate_approximation" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Element </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="3703b250-9a98-41f0-bdb0-b589203ff5d8.html#ApproximableDateType_approximableDate" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:ApproximableDateType/irm:approximableDate')" shape="rect">irm:ApproximableDateType/irm:approximableDate</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_ApproximableDateType_ApproximableDateType_approximableDate_approximation" type="image" src="img/btM.gif" value="-" onclick="switchState('source_ApproximableDateType_ApproximableDateType_approximableDate_approximation');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_ApproximableDateType_ApproximableDateType_approximableDate_approximation" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> name=</span><span class="tAV">"approximation"</span><span class="tAN"> type=</span><span class="tAV">"irm:DateApproximationEnumerationType"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An optional attribute of approximableDate that describes an approximation of the date in approximableDate using a specific vocabulary.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Optional)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Comment: Allowable values are: 1st qtr, 2nd qtr, 3rd qtr, 4th qtr, circa, early, mid, late.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:attribute&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/IRM/IC-IRM.xsd">IC-IRM.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <h2 style=" font:italic bold 12px Georgia,serif;color:gray;font-size:14px;text-align:center;  width : 95%;">
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See Distribution Notice for details.
+       <a href="../index.html" target="_top">
+                Click Here
+            </a>
+      </h2>
+      <div class="footer"></div>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                //
+--></script>
+   </body>
+</html>

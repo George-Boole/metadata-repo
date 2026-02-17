@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<cve:CVE xmlns:cve="urn:us:gov:ic:cve"
+         xmlns:ism="urn:us:gov:ic:ism"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         ism:compliesWith="USGov USIC"
+         ism:ownerProducer="USA"
+         ism:classification="U"
+         ism:DESVersion="202111"
+         ism:ISMCATCESVersion="202205"
+         ism:resourceElement="true"
+         CVEVersion="2.1"
+         specVersion="202111" 
+         ism:createDate="2012-12-20"
+         xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+	  <cve:IRM>
+		    <URN xmlns="urn:us:gov:ic:cve">urn:us:gov:ic:cvenum:irm:positive:intel</URN>
+		    <Title xmlns="urn:us:gov:ic:cve"
+             ism:ownerProducer="USA"
+             ism:classification="U">CVEnumIRMPositiveIntel</Title>
+		    <Description xmlns="urn:us:gov:ic:cve"
+                   ism:ownerProducer="USA"
+                   ism:classification="U">All currently valid Positive Intel codes.
+	  		These values describe unavailability of finished intelligence information about a given topic, and 
+	  		are provided for applications in which some sort of statement must be made about each
+	  		node of a taxonomy, even when no substantive analysis is available. </Description>
+		    <cve:Created>2012-12-20T12:10:00-04:00</cve:Created>
+		    <Source xmlns="urn:us:gov:ic:cve"
+              ism:classification="U"
+              ism:ownerProducer="USA">IC-CIO</Source>
+		    <PointOfContact xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">
+			      <Name>Office IC CIO</Name>
+			      <Email>ic-standards-support@odni.gov</Email>
+		    </PointOfContact>
+	  </cve:IRM>
+
+	  <cve:Enumeration multivalue="false" ism:ownerProducer="USA" ism:classification="U">
+		    <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+		    	  <Value ism:classification="U" ism:ownerProducer="USA">Unknown</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">Unknown Positive Intel</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+		    	  <Value ism:classification="U" ism:ownerProducer="USA">Not.exist</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">No positive intelligence exists</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+		    	  <Value ism:classification="U" ism:ownerProducer="USA">Not.observed</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">No positive intelligence has been observed</Description>
+		    </Term>
+		    <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+			      <Value ism:classification="U"
+                ism:ownerProducer="USA"
+                regularExpression="true">other:\S{1,256}</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">Other positive intel. Must be the string 'other:' followed by the value specifying the other positive intelligence code.</Description>
+		    </Term>
+	  </cve:Enumeration>
+
+</cve:CVE>

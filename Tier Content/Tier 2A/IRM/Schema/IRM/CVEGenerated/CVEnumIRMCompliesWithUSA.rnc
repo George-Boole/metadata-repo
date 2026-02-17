@@ -1,0 +1,9 @@
+# UNCLASSIFIED
+default namespace = "urn:us:gov:ic:cvenum:irm:complies:usa"
+CVEnumIRMCompliesWithUSA.cve = 
+# (U) 
+"USA_DOD" | 
+# (U) 
+"USA_IC" | 
+# (U) 
+"USA_OtherUSG"

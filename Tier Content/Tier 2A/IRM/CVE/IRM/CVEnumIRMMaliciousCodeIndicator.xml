@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<cve:CVE xmlns:cve="urn:us:gov:ic:cve"
+         xmlns:ism="urn:us:gov:ic:ism"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         ism:compliesWith="USGov USIC"
+         ism:ownerProducer="USA"
+         ism:classification="U"
+         ism:DESVersion="202111"
+         ism:ISMCATCESVersion="202205"
+         ism:resourceElement="true"
+         CVEVersion="2.1"
+         specVersion="202111" 
+         ism:createDate="2011-09-01"
+         xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+    <cve:IRM>
+        <URN xmlns="urn:us:gov:ic:cve">urn:us:gov:ic:cvenum:irm:maliciouscodeindicator</URN>
+        <Title xmlns="urn:us:gov:ic:cve"
+             ism:classification="U"
+             ism:ownerProducer="USA">CVEnumIRMMaliciousCodeIndicator</Title>
+        <Description xmlns="urn:us:gov:ic:cve"
+                   ism:classification="U"
+                   ism:ownerProducer="USA">All valid values used to identify malicious code content.</Description>
+        <cve:Created>2012-07-06T11:19:00-04:00</cve:Created>
+        
+        <Source xmlns="urn:us:gov:ic:cve"
+              ism:classification="U"
+              ism:ownerProducer="USA">IC-CIO</Source>
+        <PointOfContact xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">
+         <Name>Office IC CIO</Name>
+         <Email>ic-standards-support@odni.gov</Email>
+      </PointOfContact>
+    </cve:IRM>
+    <cve:Enumeration multivalue="false" ism:classification="U" ism:ownerProducer="USA">
+        <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">MaliciousCodeFound</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Information resource has been evaluated and determined to contain malicious code. The resource should be handled with extreme caution.</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">MaliciousCodeNotFound</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Information resource has been evaluated and does not contain malicious code based on the best information known at the time of the evaluation. This determination may be revisited as malware detection capabilities improve over time.</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">SuspiciousIndicatorsFound</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Information resource has been evaluated and algorithms have determined that there is inconclusive evidence whether or not the resource contains malicious code. The resource should be handled with care.</Description>
+        </Term>
+        <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">Unevaluated</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Information resource has not been evaluated as to whether or not the resource contains malicious code. Could be used as a default value for systems where this is mandatory. No assumptions should be made as to the safety of the resource.</Description>
+        </Term>
+    </cve:Enumeration>
+</cve:CVE>

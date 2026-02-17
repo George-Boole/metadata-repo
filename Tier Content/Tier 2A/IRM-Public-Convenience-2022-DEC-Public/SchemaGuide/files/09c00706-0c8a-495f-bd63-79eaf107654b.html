@@ -1,0 +1,1445 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+      <title>Schema documentation for component irm:name</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css"></link>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+        var propertiesBoxes= new Array('properties_OrganizationType_name', 
+				'properties_OrganizationType_phone', 
+				'properties_OrganizationType_email', 
+				'properties_OrganizationType_subOrganization');
+var facetsBoxes= new Array('facets_OrganizationType_name', 
+				'facets_OrganizationType_phone', 
+				'facets_OrganizationType_email');
+var usedByBoxes= new Array('usedBy_OrganizationType');
+var sourceBoxes= new Array('source_OrganizationType_name', 
+				'source_OrganizationType_phone', 
+				'source_OrganizationType_email', 
+				'source_OrganizationType_subOrganization', 
+				'source_OrganizationType');
+var diagramBoxes= new Array('diagram_OrganizationType_name', 
+				'diagram_OrganizationType_phone', 
+				'diagram_OrganizationType_email', 
+				'diagram_OrganizationType_subOrganization', 
+				'diagram_OrganizationType');
+var annotationBoxes= new Array('annotations_OrganizationType_name', 
+				'annotations_OrganizationType_phone', 
+				'annotations_OrganizationType_email', 
+				'annotations_OrganizationType_subOrganization', 
+				'annotations_OrganizationType');
+var attributesBoxes= new Array('attributes_OrganizationType_subOrganization', 
+				'attributes_OrganizationType');
+var modelBoxes= new Array('model_OrganizationType');
+
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                    //
+--></script>
+   </head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_content" rowspan="1" colspan="1">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, annotationBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Annotations</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, attributesBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Attributes </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, diagramBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Diagrams</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, facetsBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Facets </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, modelBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Model </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, propertiesBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Properties </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Source</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Used by </span>
+                        </td>
+                     </tr>
+                  </table>
+                  <div align="right">
+                     <span>
+                        <input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close"></input>
+                     </span>
+                  </div>
+               </td>
+               <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+            </tr>
+         </table>
+      </div>
+      <a id="OrganizationType_name" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="09c00706-0c8a-495f-bd63-79eaf107654b.html#OrganizationType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:OrganizationType')" shape="rect">irm:OrganizationType</a>
+            </b> / irm:name</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:irm</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_OrganizationType_name" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_OrganizationType_name');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_OrganizationType_name" style="display:block">
+                              <div class="annotation">
+                                 
+                                 <p data-ded="ded:Definition">ded:Definition: An element within organization
+                                    that contains the name of the organization.</p>
+                                 
+                                 <p data-ded="ded:Obligation">ded:Obligation: (Conditional) Mandatory if
+                                    organization is used.</p>
+                                 
+                                 <p data-ded="ded:Comment">ded:Comment: There is no maximum number of name
+                                    elements.</p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_OrganizationType_name" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_OrganizationType_name');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_OrganizationType_name" style="display:block">
+                              <img alt="Diagram" border="0" src="img/IC-IRM_xsd_Element_irm_name.png" usemap="#IC-IRM_xsd_Element_irm_name"></img>
+                              <map name="IC-IRM_xsd_Element_irm_name" id="IC-IRM_xsd_Element_irm_name">
+                                 <area alt="IC-IRM_xsd_Simple_Type_irm_simpleTokenType.tmp#simpleTokenType" href="418a61d6-572e-418e-b92f-74796375c1d5.html#simpleTokenType" coords="111,0,288,26" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="418a61d6-572e-418e-b92f-74796375c1d5.html#simpleTokenType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:simpleTokenType')" shape="rect">irm:simpleTokenType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_OrganizationType_name" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_OrganizationType_name');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_OrganizationType_name" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">maxOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>unbounded</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Facets</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_facets_OrganizationType_name" type="image" src="img/btM.gif" value="-" onclick="switchState('facets_OrganizationType_name');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="facets_OrganizationType_name" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">minLength</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>1</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_OrganizationType_name" type="image" src="img/btM.gif" value="-" onclick="switchState('source_OrganizationType_name');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_OrganizationType_name" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"name"</span><span class="tAN"> type=</span><span class="tAV">"irm:simpleTokenType"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An element within organization that contains the name of the organization.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Conditional) Mandatory if organization is used.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Comment: There is no maximum number of name elements.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/IRM/IC-IRM.xsd">IC-IRM.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="OrganizationType_phone" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="09c00706-0c8a-495f-bd63-79eaf107654b.html#OrganizationType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:OrganizationType')" shape="rect">irm:OrganizationType</a>
+            </b> / irm:phone</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:irm</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_OrganizationType_phone" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_OrganizationType_phone');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_OrganizationType_phone" style="display:block">
+                              <div class="annotation">? 
+                                 
+                                 <p data-ded="ded:Definition">ded:Definition: An
+                                    element within organization that contains a telephone number. A
+                                    telephone number. Optional. This value must include country code and
+                                    area code, when applicable.</p>
+                                 
+                                 <p data-ded="ded:Obligation">ded:Obligation: (Optional)</p>
+                                 
+                                 <p data-ded="ded:Comment">ded:Comment: A telephone number at which the
+                                    organization can be contacted. There is no maximum number of phone
+                                    elements.</p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_OrganizationType_phone" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_OrganizationType_phone');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_OrganizationType_phone" style="display:block">
+                              <img alt="Diagram" border="0" src="img/IC-IRM_xsd_Element_irm_phone.png" usemap="#IC-IRM_xsd_Element_irm_phone"></img>
+                              <map name="IC-IRM_xsd_Element_irm_phone" id="IC-IRM_xsd_Element_irm_phone">
+                                 <area alt="IC-IRM_xsd_Simple_Type_irm_simpleTokenType.tmp#simpleTokenType" href="418a61d6-572e-418e-b92f-74796375c1d5.html#simpleTokenType" coords="114,0,291,26" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="418a61d6-572e-418e-b92f-74796375c1d5.html#simpleTokenType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:simpleTokenType')" shape="rect">irm:simpleTokenType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_OrganizationType_phone" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_OrganizationType_phone');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_OrganizationType_phone" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">maxOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>unbounded</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Facets</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_facets_OrganizationType_phone" type="image" src="img/btM.gif" value="-" onclick="switchState('facets_OrganizationType_phone');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="facets_OrganizationType_phone" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">minLength</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>1</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_OrganizationType_phone" type="image" src="img/btM.gif" value="-" onclick="switchState('source_OrganizationType_phone');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_OrganizationType_phone" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"phone"</span><span class="tAN"> type=</span><span class="tAV">"irm:simpleTokenType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An element within organization that contains a telephone number. A telephone number. Optional. This value must include country code and area code, when applicable.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Optional)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Comment: A telephone number at which the organization can be contacted. There is no maximum number of phone elements.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/IRM/IC-IRM.xsd">IC-IRM.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="OrganizationType_email" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="09c00706-0c8a-495f-bd63-79eaf107654b.html#OrganizationType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:OrganizationType')" shape="rect">irm:OrganizationType</a>
+            </b> / irm:email</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:irm</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_OrganizationType_email" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_OrganizationType_email');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_OrganizationType_email" style="display:block">
+                              <div class="annotation">? 
+                                 
+                                 <p data-ded="ded:Definition">ded:Definition: An
+                                    element within organization that contains an address for electronic
+                                    email. An address for electronic mail.</p>
+                                 
+                                 <p data-ded="ded:Obligation">ded:Obligation: (Optional)</p>
+                                 
+                                 <p data-ded="ded:Comment">ded:Comment: There is no maximum number of email
+                                    elements.</p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_OrganizationType_email" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_OrganizationType_email');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_OrganizationType_email" style="display:block">
+                              <img alt="Diagram" border="0" src="img/IC-IRM_xsd_Element_irm_email.png" usemap="#IC-IRM_xsd_Element_irm_email"></img>
+                              <map name="IC-IRM_xsd_Element_irm_email" id="IC-IRM_xsd_Element_irm_email">
+                                 <area alt="IC-IRM_xsd_Simple_Type_irm_simpleTokenType.tmp#simpleTokenType" href="418a61d6-572e-418e-b92f-74796375c1d5.html#simpleTokenType" coords="110,0,287,26" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="418a61d6-572e-418e-b92f-74796375c1d5.html#simpleTokenType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:simpleTokenType')" shape="rect">irm:simpleTokenType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_OrganizationType_email" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_OrganizationType_email');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_OrganizationType_email" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>simple</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">maxOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>unbounded</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Facets</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_facets_OrganizationType_email" type="image" src="img/btM.gif" value="-" onclick="switchState('facets_OrganizationType_email');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="facets_OrganizationType_email" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">minLength</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>1</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_OrganizationType_email" type="image" src="img/btM.gif" value="-" onclick="switchState('source_OrganizationType_email');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_OrganizationType_email" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"email"</span><span class="tAN"> type=</span><span class="tAV">"irm:simpleTokenType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An element within organization that contains an address for electronic email. An address for electronic mail.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Optional)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Comment: There is no maximum number of email elements.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/IRM/IC-IRM.xsd">IC-IRM.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="OrganizationType_subOrganization" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="09c00706-0c8a-495f-bd63-79eaf107654b.html#OrganizationType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:OrganizationType')" shape="rect">irm:OrganizationType</a>
+            </b> / irm:subOrganization</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:irm</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_OrganizationType_subOrganization" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_OrganizationType_subOrganization');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_OrganizationType_subOrganization" style="display:block">
+                              <div class="annotation">? 
+                                 
+                                 <p data-ded="ded:Definition">ded:Definition: An
+                                    element within organization that contains a further refinement of the
+                                    organization.</p>
+                                 
+                                 <p data-ded="ded:Obligation">ded:Obligation: (Optional)</p>
+                                 
+                                 <p data-ded="ded:Comment">ded:Comment: There is no maximum number of
+                                    subOrganization elements.</p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_OrganizationType_subOrganization" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_OrganizationType_subOrganization');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_OrganizationType_subOrganization" style="display:block">
+                              <img alt="Diagram" border="0" src="img/fd652a5e-a6ed-430b-9dc5-79136f0641f5.png" usemap="#IC-IRM_xsd_Element_irm_subOrganization"></img>
+                              <map name="IC-IRM_xsd_Element_irm_subOrganization" id="IC-IRM_xsd_Element_irm_subOrganization">
+                                 <area alt="IC-IRM_xsd_Simple_Type_irm_simpleTokenType.tmp#simpleTokenType" href="418a61d6-572e-418e-b92f-74796375c1d5.html#simpleTokenType" coords="171,2,348,28" shape="rect"></area>
+                                 <area alt="IC-IRM_xsd_Attribute_Group_irm_SecurityAttributesGroup.tmp#SecurityAttributesGroup" href="325ac2aa-c3cb-4685-8b6c-f6d93619898e.html#SecurityAttributesGroup" coords="188,122,402,148" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">extension of <b>
+                              <a href="418a61d6-572e-418e-b92f-74796375c1d5.html#simpleTokenType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:simpleTokenType')" shape="rect">irm:simpleTokenType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type hierarchy</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <ul class="internal">
+                              <li class="internal">
+                                 <b>xsd:token</b>
+                                 <ul class="internal">
+                                    <li class="internal">
+                                       <b>
+                                          <a href="418a61d6-572e-418e-b92f-74796375c1d5.html#simpleTokenType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:simpleTokenType')" shape="rect">irm:simpleTokenType</a>
+                                       </b>
+                                    </li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_OrganizationType_subOrganization" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_OrganizationType_subOrganization');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_OrganizationType_subOrganization" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>complex</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">minOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>0</b>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">maxOccurs</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>unbounded</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Attributes</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_attributes_OrganizationType_subOrganization" type="image" src="img/btM.gif" value="-" onclick="switchState('attributes_OrganizationType_subOrganization');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="attributes_OrganizationType_subOrganization" style="display:block">
+                              <table class="attributesTable">
+                                 <thead>
+                                    <tr>
+                                       <th rowspan="1" colspan="1">QName</th>
+                                       <th width="10%" rowspan="1" colspan="1">Type</th>
+                                       <th width="5%" rowspan="1" colspan="1">Use</th>
+                                       <th width="100%" rowspan="1" colspan="1">Annotation</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="ac2b610a-f898-482b-922b-2e61784e2117.html#SchemaguideSecurityAttributesGroup" target="mainFrame" title="urn:us:gov:ic:ism" onclick="updatePageTitle('Schema documentation for component SchemaguideSecurityAttributesGroup')" shape="rect">SchemaguideSecurityAttributesGroup</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>xsd:NMTOKEN</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">
+                                          This attribute is only a placeholder so that all the ISM attributes are not shown
+                                          in the schemaGuide for every element. If you refer to the documentation of the 
+                                          attribute group it will say what attributes should be here.
+                                          </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_OrganizationType_subOrganization" type="image" src="img/btM.gif" value="-" onclick="switchState('source_OrganizationType_subOrganization');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_OrganizationType_subOrganization" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"subOrganization"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An element within organization that contains a further refinement of the organization.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Optional)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Comment: There is no maximum number of subOrganization elements.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:complexType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:simpleContent</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:extension</span><span class="tAN"> base=</span><span class="tAV">"irm:simpleTokenType"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:attributeGroup</span><span class="tAN"> ref=</span><span class="tAV">"irm:SecurityAttributesGroup"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:extension&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:simpleContent&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:complexType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/IRM/IC-IRM.xsd">IC-IRM.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="OrganizationType" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Complex Type <span class="qname">irm:OrganizationType</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:irm</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_OrganizationType" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_OrganizationType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_OrganizationType" style="display:block">
+                              <div class="annotation">? 
+                                 
+                                 <p> The
+                                    type used to model the irm:Organization element. </p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_OrganizationType" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_OrganizationType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_OrganizationType" style="display:block">
+                              <img alt="Diagram" border="0" src="img/ee7bf07a-3927-4bfd-8021-033c4686e1f4.png" usemap="#IC-IRM_xsd_Complex_Type_irm_OrganizationType"></img>
+                              <map name="IC-IRM_xsd_Complex_Type_irm_OrganizationType" id="IC-IRM_xsd_Complex_Type_irm_OrganizationType">
+                                 <area alt="IC-IRM_xsd_Attribute_irm_acronym.tmp#acronym" href="IC-IRM_xsd_Attribute_irm_acronym.html#acronym" coords="215,38,338,62" shape="rect"></area>
+                                 <area alt="IC-IRM_xsd_Complex_Type_irm_OrganizationType.tmp#OrganizationType_name" href="09c00706-0c8a-495f-bd63-79eaf107654b.html#OrganizationType_name" coords="294,135,357,159" shape="rect"></area>
+                                 <area alt="IC-IRM_xsd_Complex_Type_irm_OrganizationType.tmp#OrganizationType_phone" href="09c00706-0c8a-495f-bd63-79eaf107654b.html#OrganizationType_phone" coords="294,238,360,262" shape="rect"></area>
+                                 <area alt="IC-IRM_xsd_Complex_Type_irm_OrganizationType.tmp#OrganizationType_email" href="09c00706-0c8a-495f-bd63-79eaf107654b.html#OrganizationType_email" coords="294,341,356,365" shape="rect"></area>
+                                 <area alt="IC-IRM_xsd_Complex_Type_irm_OrganizationType.tmp#OrganizationType_subOrganization" href="09c00706-0c8a-495f-bd63-79eaf107654b.html#OrganizationType_subOrganization" coords="294,444,417,468" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Used by</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_usedBy_OrganizationType" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_OrganizationType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="usedBy_OrganizationType" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Element </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="IC-IRM_xsd_Element_irm_organization.html#organization" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:organization')" shape="rect">irm:organization</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_OrganizationType" type="image" src="img/btM.gif" value="-" onclick="switchState('model_OrganizationType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_OrganizationType" style="display:block">
+                              <b>
+                                 <a href="09c00706-0c8a-495f-bd63-79eaf107654b.html#OrganizationType_name" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:name+')" shape="rect">irm:name+</a>
+                              </b> , <b>
+                                 <a href="09c00706-0c8a-495f-bd63-79eaf107654b.html#OrganizationType_phone" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:phone*')" shape="rect">irm:phone*</a>
+                              </b> , <b>
+                                 <a href="09c00706-0c8a-495f-bd63-79eaf107654b.html#OrganizationType_email" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:email*')" shape="rect">irm:email*</a>
+                              </b> , <b>
+                                 <a href="09c00706-0c8a-495f-bd63-79eaf107654b.html#OrganizationType_subOrganization" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:subOrganization*')" shape="rect">irm:subOrganization*</a>
+                              </b>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="09c00706-0c8a-495f-bd63-79eaf107654b.html#OrganizationType_email" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:email')" shape="rect">irm:email</a>
+                           </b>, <b>
+                              <a href="09c00706-0c8a-495f-bd63-79eaf107654b.html#OrganizationType_name" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:name')" shape="rect">irm:name</a>
+                           </b>, <b>
+                              <a href="09c00706-0c8a-495f-bd63-79eaf107654b.html#OrganizationType_phone" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:phone')" shape="rect">irm:phone</a>
+                           </b>, <b>
+                              <a href="09c00706-0c8a-495f-bd63-79eaf107654b.html#OrganizationType_subOrganization" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:subOrganization')" shape="rect">irm:subOrganization</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Attributes</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_attributes_OrganizationType" type="image" src="img/btM.gif" value="-" onclick="switchState('attributes_OrganizationType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="attributes_OrganizationType" style="display:block">
+                              <table class="attributesTable">
+                                 <thead>
+                                    <tr>
+                                       <th rowspan="1" colspan="1">QName</th>
+                                       <th width="10%" rowspan="1" colspan="1">Type</th>
+                                       <th width="5%" rowspan="1" colspan="1">Use</th>
+                                       <th width="100%" rowspan="1" colspan="1">Annotation</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="IC-IRM_xsd_Attribute_irm_acronym.html#acronym" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:acronym')" shape="rect">irm:acronym</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="418a61d6-572e-418e-b92f-74796375c1d5.html#simpleTokenType" target="mainFrame" title="urn:us:gov:ic:irm" onclick="updatePageTitle('Schema documentation for component irm:simpleTokenType')" shape="rect">irm:simpleTokenType</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">? 
+                                          
+                                          <p data-ded="ded:Definition">ded:Definition: An attribute of organization that
+                                             contains the acronym of the organization if there is an acronym.</p>
+                                          
+                                          <p data-ded="ded:Obligation">ded:Obligation: (Optional)</p>
+                                          
+                                          <p data-ded="ded:Comment">ded:Comment: Where there is only an acronym for an organization populate both
+                                             the name element and acronym attribute with that acronym.</p>
+                                          </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_OrganizationType" type="image" src="img/btM.gif" value="-" onclick="switchState('source_OrganizationType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_OrganizationType" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xsd:complexType</span><span class="tAN"> name=</span><span class="tAV">"OrganizationType"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The type used to model the irm:Organization element.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:sequence</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"name"</span><span class="tAN"> type=</span><span class="tAV">"irm:simpleTokenType"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An element within organization that contains the name of the organization.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Conditional) Mandatory if organization is used.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Comment: There is no maximum number of name elements.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"phone"</span><span class="tAN"> type=</span><span class="tAV">"irm:simpleTokenType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An element within organization that contains a telephone number. A telephone number. Optional. This value must include country code and area code, when applicable.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Optional)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Comment: A telephone number at which the organization can be contacted. There is no maximum number of phone elements.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"email"</span><span class="tAN"> type=</span><span class="tAV">"irm:simpleTokenType"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An element within organization that contains an address for electronic email. An address for electronic mail.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Optional)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Comment: There is no maximum number of email elements.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xsd:element</span><span class="tAN"> name=</span><span class="tAV">"subOrganization"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:documentation</span><span class="tEl">&gt;</span><span class="tEn">&amp;#x2028;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Definition"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Definition: An element within organization that contains a further refinement of the organization.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Obligation"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Obligation: (Optional)</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tAN"> data-ded=</span><span class="tAV">"ded:Comment"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">ded:Comment: There is no maximum number of subOrganization elements.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xsd:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:annotation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xsd:complexType</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xsd:simpleContent</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xsd:extension</span><span class="tAN"> base=</span><span class="tAV">"irm:simpleTokenType"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xsd:attributeGroup</span><span class="tAN"> ref=</span><span class="tAV">"irm:SecurityAttributesGroup"</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xsd:extension&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xsd:simpleContent&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xsd:complexType&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xsd:element&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xsd:sequence&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xsd:attribute</span><span class="tAN"> ref=</span><span class="tAV">"irm:acronym"</span><span class="tAN"> use=</span><span class="tAV">"optional"</span><span class="tEl">/&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xsd:complexType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/IRM/IC-IRM.xsd">IC-IRM.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <h2 style=" font:italic bold 12px Georgia,serif;color:gray;font-size:14px;text-align:center;  width : 95%;">
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See Distribution Notice for details.
+       <a href="../index.html" target="_top">
+                Click Here
+            </a>
+      </h2>
+      <div class="footer"></div>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                //
+--></script>
+   </body>
+</html>

@@ -1,0 +1,1067 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+      <title>Schema documentation for component HandlingStatement</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css"></link>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+        var propertiesBoxes= new Array('properties_HandlingAssertionType_HandlingStatement', 
+				'properties_HandlingAssertionType_appliesToState');
+var facetsBoxes= new Array('facets_HandlingAssertionType_appliesToState');
+var usedByBoxes= new Array('usedBy_HandlingAssertionType', 
+				'usedBy_HandlingAssertionType_appliesToState');
+var sourceBoxes= new Array('source_HandlingAssertionType_HandlingStatement', 
+				'source_HandlingAssertionType', 
+				'source_HandlingAssertionType_appliesToState');
+var instanceBoxes= new Array('instance_HandlingAssertionType_HandlingStatement');
+var diagramBoxes= new Array('diagram_HandlingAssertionType_HandlingStatement', 
+				'diagram_HandlingAssertionType');
+var annotationBoxes= new Array('annotations_HandlingAssertionType_HandlingStatement', 
+				'annotations_HandlingAssertionType', 
+				'annotations_HandlingAssertionType_appliesToState');
+var attributesBoxes= new Array('attributes_HandlingAssertionType');
+var modelBoxes= new Array('model_HandlingAssertionType_HandlingStatement', 
+				'model_HandlingAssertionType');
+
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                    //
+--></script>
+   </head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_content" rowspan="1" colspan="1">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, annotationBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Annotations</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, attributesBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Attributes </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, diagramBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Diagrams</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, facetsBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Facets </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, instanceBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Instances</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, modelBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Model </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, propertiesBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Properties </span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Source</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" colspan="1">
+                           <span>
+                              <input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control"></input>
+                           </span>
+                           <span class="globalControlName">Used by </span>
+                        </td>
+                     </tr>
+                  </table>
+                  <div align="right">
+                     <span>
+                        <input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close"></input>
+                     </span>
+                  </div>
+               </td>
+               <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+               <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+               <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+            </tr>
+         </table>
+      </div>
+      <a id="HandlingAssertionType_HandlingStatement" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Element <span class="qname">
+            <b>
+               <a href="2e97ad33-f1c0-4221-8a0b-e1dfea58d6c6.html#HandlingAssertionType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component HandlingAssertionType')" shape="rect">HandlingAssertionType</a>
+            </b> / HandlingStatement</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:tdf</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_HandlingAssertionType_HandlingStatement" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_HandlingAssertionType_HandlingStatement');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_HandlingAssertionType_HandlingStatement" style="display:block">
+                              <div class="annotation">
+                                 
+                                 <p>Intended for access,
+                                    rights, and/or handling instructions that apply to the scope of the
+                                    assertion.</p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_HandlingAssertionType_HandlingStatement" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_HandlingAssertionType_HandlingStatement');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_HandlingAssertionType_HandlingStatement" style="display:block">
+                              <img alt="Diagram" border="0" src="img/IC-TDF_xsd_Element_HandlingStatement.png" usemap="#IC-TDF_xsd_Element_HandlingStatement"></img>
+                              <map name="IC-TDF_xsd_Element_HandlingStatement" id="IC-TDF_xsd_Element_HandlingStatement">
+                                 <area alt="IC-EDH_xsd_Element_edh_Edh.tmp#Edh" href="IC-EDH_xsd_Element_edh_Edh.html#Edh" coords="405,40,482,64" shape="rect"></area>
+                                 <area alt="IC-EDH_xsd_Element_edh_ExternalEdh.tmp#ExternalEdh" href="IC-EDH_xsd_Element_edh_ExternalEdh.html#ExternalEdh" coords="405,130,528,154" shape="rect"></area>
+                                 <area alt="RevRecall_XML_xsd_Element_rr_RevisionRecall.tmp#RevisionRecall" href="a82bbeb2-e8a3-4237-bfdf-6407e2a0ef01.html#RevisionRecall" coords="405,220,530,244" shape="rect"></area>
+                                 <area alt="IC-TDF_xsd_Complex_Type_HandlingStatementType.tmp#HandlingStatementType" href="a25f09c3-1eb3-4412-b966-99a10df2e89b.html#HandlingStatementType" coords="252,3,438,25" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="a25f09c3-1eb3-4412-b966-99a10df2e89b.html#HandlingStatementType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component HandlingStatementType')" shape="rect">HandlingStatementType</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_HandlingAssertionType_HandlingStatement" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_HandlingAssertionType_HandlingStatement');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_HandlingAssertionType_HandlingStatement" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">content</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>complex</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_HandlingAssertionType_HandlingStatement" type="image" src="img/btM.gif" value="-" onclick="switchState('model_HandlingAssertionType_HandlingStatement');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_HandlingAssertionType_HandlingStatement" style="display:block">(<b>
+                                 <a href="IC-EDH_xsd_Element_edh_Edh.html#Edh" target="mainFrame" title="urn:us:gov:ic:edh" onclick="updatePageTitle('Schema documentation for component edh:Edh')" shape="rect">edh:Edh</a>
+                              </b> | <b>
+                                 <a href="IC-EDH_xsd_Element_edh_ExternalEdh.html#ExternalEdh" target="mainFrame" title="urn:us:gov:ic:edh" onclick="updatePageTitle('Schema documentation for component edh:ExternalEdh')" shape="rect">edh:ExternalEdh</a>
+                              </b> | <b>
+                                 <a href="a82bbeb2-e8a3-4237-bfdf-6407e2a0ef01.html#RevisionRecall" target="mainFrame" title="urn:us:gov:ic:revrecall" onclick="updatePageTitle('Schema documentation for component rr:RevisionRecall{0,1}')" shape="rect">rr:RevisionRecall{0,1}</a>
+                              </b>)</div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="IC-EDH_xsd_Element_edh_Edh.html#Edh" target="mainFrame" title="urn:us:gov:ic:edh" onclick="updatePageTitle('Schema documentation for component edh:Edh')" shape="rect">edh:Edh</a>
+                           </b>, <b>
+                              <a href="IC-EDH_xsd_Element_edh_ExternalEdh.html#ExternalEdh" target="mainFrame" title="urn:us:gov:ic:edh" onclick="updatePageTitle('Schema documentation for component edh:ExternalEdh')" shape="rect">edh:ExternalEdh</a>
+                           </b>, <b>
+                              <a href="a82bbeb2-e8a3-4237-bfdf-6407e2a0ef01.html#RevisionRecall" target="mainFrame" title="urn:us:gov:ic:revrecall" onclick="updatePageTitle('Schema documentation for component rr:RevisionRecall')" shape="rect">rr:RevisionRecall</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Instance</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_instance_HandlingAssertionType_HandlingStatement" type="image" src="img/btM.gif" value="-" onclick="switchState('instance_HandlingAssertionType_HandlingStatement');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="instance_HandlingAssertionType_HandlingStatement" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;HandlingStatement</span><span class="tT"> </span><span class="tAN">xmlns=</span><span class="tAV">"urn:us:gov:ic:tdf"</span><span class="tT"> </span><span class="tAN">xmlns:edh=</span><span class="tAV">"urn:us:gov:ic:edh"</span><span class="tT"> </span><span class="tAN">xmlns:rr=</span><span class="tAV">"urn:us:gov:ic:revrecall"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;edh:Edh</span><span class="tT"> </span><span class="tAN">usagency:CESVersion=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">edh:DESVersion=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">DESVersion=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">ntk:DESVersion=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">arh:DESVersion=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">icid:DESVersion=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">ISMCATCESVersion=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/edh:Edh&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;edh:ExternalEdh</span><span class="tT"> </span><span class="tAN">usagency:CESVersion=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">edh:DESVersion=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">DESVersion=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">ntk:DESVersion=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">arh:DESVersion=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">icid:DESVersion=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">ISMCATCESVersion=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/edh:ExternalEdh&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;rr:RevisionRecall</span><span class="tT"> </span><span class="tAN">rr:action=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">rr:dateTime=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">rr:DESVersion=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">rr:id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">rr:type=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/rr:RevisionRecall&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/HandlingStatement&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_HandlingAssertionType_HandlingStatement" type="image" src="img/btM.gif" value="-" onclick="switchState('source_HandlingAssertionType_HandlingStatement');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_HandlingAssertionType_HandlingStatement" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"HandlingStatement"</span><span class="tAN"> type=</span><span class="tAV">"HandlingStatementType"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Intended for access, rights, and/or handling instructions that apply to the scope of the assertion.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/IC-TDF/IC-TDF.xsd">IC-TDF.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="HandlingAssertionType" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Complex Type <span class="qname">HandlingAssertionType</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:tdf</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_HandlingAssertionType" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_HandlingAssertionType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_HandlingAssertionType" style="display:block">
+                              <div class="annotation">
+                                 
+                                 <p>The group of elements intended 
+                                    for access,  rights, and/or handling instructions that apply to the scope of the 
+                                    assertion. </p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Diagram</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_diagram_HandlingAssertionType" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_HandlingAssertionType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td class="diagram" rowspan="1" colspan="1">
+                           <div id="diagram_HandlingAssertionType" style="display:block">
+                              <img alt="Diagram" border="0" src="img/c3f68279-a645-469e-8d7e-de7796be9ea5.png" usemap="#IC-TDF_xsd_Complex_Type_HandlingAssertionType"></img>
+                              <map name="IC-TDF_xsd_Complex_Type_HandlingAssertionType" id="IC-TDF_xsd_Complex_Type_HandlingAssertionType">
+                                 <area alt="IC-TDF_xsd_Attribute_scope.tmp#scope" href="IC-TDF_xsd_Attribute_scope.html#scope" coords="247,38,448,80" shape="rect"></area>
+                                 <area alt="IC-TDF_xsd_Attribute_id.tmp#urn_us_gov_ic_tdf_id" href="IC-TDF_xsd_Attribute_id.html#urn_us_gov_ic_tdf_id" coords="247,133,341,175" shape="rect"></area>
+                                 <area alt="IC-TDF_xsd_Complex_Type_HandlingAssertionType.tmp#HandlingAssertionType_appliesToState" href="2e97ad33-f1c0-4221-8a0b-e1dfea58d6c6.html#HandlingAssertionType_appliesToState" coords="247,241,514,283" shape="rect"></area>
+                                 <area alt="IC-TDF_xsd_Complex_Type_HandlingAssertionType.tmp#HandlingAssertionType_HandlingStatement" href="2e97ad33-f1c0-4221-8a0b-e1dfea58d6c6.html#HandlingAssertionType_HandlingStatement" coords="304,343,505,385" shape="rect"></area>
+                                 <area alt="IC-TDF_xsd_Element_Group_BindingGroup.tmp#BindingGroup_Binding" href="1b7babf8-4d17-46a0-a609-4be4c01afc38.html#BindingGroup_Binding" coords="411,482,546,524" shape="rect"></area>
+                                 <area alt="IC-TDF_xsd_Element_Group_BindingGroup.tmp#BindingGroup_ReferenceList" href="1b7babf8-4d17-46a0-a609-4be4c01afc38.html#BindingGroup_ReferenceList" coords="411,577,581,619" shape="rect"></area>
+                                 <area alt="IC-TDF_xsd_Element_Group_BindingGroup.tmp#BindingGroup" href="1b7babf8-4d17-46a0-a609-4be4c01afc38.html#BindingGroup" coords="307,441,439,467" shape="rect"></area>
+                              </map>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Used by</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_usedBy_HandlingAssertionType" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_HandlingAssertionType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="usedBy_HandlingAssertionType" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Element </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="aaba9829-a17f-4dfa-b832-ba6d3ab32e8a.html#AssertionGroup_HandlingAssertion" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component AssertionGroup/HandlingAssertion')" shape="rect">AssertionGroup/HandlingAssertion</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Model</b>
+                           <div class="floatRight">
+                              <input id="button_model_HandlingAssertionType" type="image" src="img/btM.gif" value="-" onclick="switchState('model_HandlingAssertionType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="model_HandlingAssertionType" style="display:block">
+                              <b>
+                                 <a href="2e97ad33-f1c0-4221-8a0b-e1dfea58d6c6.html#HandlingAssertionType_HandlingStatement" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component HandlingStatement')" shape="rect">HandlingStatement</a>
+                              </b> , (<b>
+                                 <a href="1b7babf8-4d17-46a0-a609-4be4c01afc38.html#BindingGroup_Binding" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component Binding+')" shape="rect">Binding+</a>
+                              </b> | <b>
+                                 <a href="1b7babf8-4d17-46a0-a609-4be4c01afc38.html#BindingGroup_ReferenceList" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component ReferenceList')" shape="rect">ReferenceList</a>
+                              </b>)</div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Children</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="1b7babf8-4d17-46a0-a609-4be4c01afc38.html#BindingGroup_Binding" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component Binding')" shape="rect">Binding</a>
+                           </b>, <b>
+                              <a href="2e97ad33-f1c0-4221-8a0b-e1dfea58d6c6.html#HandlingAssertionType_HandlingStatement" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component HandlingStatement')" shape="rect">HandlingStatement</a>
+                           </b>, <b>
+                              <a href="1b7babf8-4d17-46a0-a609-4be4c01afc38.html#BindingGroup_ReferenceList" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component ReferenceList')" shape="rect">ReferenceList</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Attributes</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_attributes_HandlingAssertionType" type="image" src="img/btM.gif" value="-" onclick="switchState('attributes_HandlingAssertionType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="attributes_HandlingAssertionType" style="display:block">
+                              <table class="attributesTable">
+                                 <thead>
+                                    <tr>
+                                       <th rowspan="1" colspan="1">QName</th>
+                                       <th width="10%" rowspan="1" colspan="1">Type</th>
+                                       <th width="5%" rowspan="1" colspan="1">Use</th>
+                                       <th width="100%" rowspan="1" colspan="1">Annotation</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="2e97ad33-f1c0-4221-8a0b-e1dfea58d6c6.html#HandlingAssertionType_appliesToState" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component appliesToState')" shape="rect">appliesToState</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="b40197d4-26d5-4986-b031-e352406ad56e.html#CVEnumTDFAppliesToState" target="mainFrame" title="urn:us:gov:ic:cvenum:tdf:state" onclick="updatePageTitle('Schema documentation for component CVEnumTDFAppliesToState')" shape="rect">CVEnumTDFAppliesToState</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">
+                                          
+                                          <p>Used to indicate if the
+                                             statement metadata applies to encrypted or unencrypted data. If a TDO
+                                             payload or assertion statement is encrypted, there are in fact two
+                                             potentially different markings needed for decision making, analysis and
+                                             querying, one describing the handling required for the encrypted blob, and
+                                             the other for the handling required for the unencrypted (and in effect
+                                             external) state. In cases where statements and/or payloads are encrypted,
+                                             allow handling assertions and statement metadata elements to indicate
+                                             whether their marks apply to the encrypted blob state vs. actual data by
+                                             using an attribute appliesToState</p>
+                                          </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="IC-TDF_xsd_Attribute_id.html#urn_us_gov_ic_tdf_id" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component id')" shape="rect">id</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>xs:ID</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">optional</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">
+                                          
+                                          <p> A unique local identifier
+                                             used for binding and signing purposes. Not guaranteed to be unique across
+                                             multiple TDC/TDOs but must be unique within a single instance of
+                                             either.</p>
+                                          </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="IC-TDF_xsd_Attribute_scope.html#scope" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component scope')" shape="rect">scope</a>
+                                       </b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">restriction of <b>xs:string</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">required</td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">
+                                          
+                                          <p> The grouping of objects to
+                                             which the assertion applies. Please see the "Assertion Scopes" section in the
+                                             DES document for more information. </p>
+                                          </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_HandlingAssertionType" type="image" src="img/btM.gif" value="-" onclick="switchState('source_HandlingAssertionType');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_HandlingAssertionType" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:complexType</span><span class="tAN"> name=</span><span class="tAV">"HandlingAssertionType"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">The group of elements intended for access, rights, and/or handling instructions that apply to the scope of the assertion.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"HandlingStatement"</span><span class="tAN"> type=</span><span class="tAV">"HandlingStatementType"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Intended for access, rights, and/or handling instructions that apply to the scope of the assertion.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:group</span><span class="tAN"> ref=</span><span class="tAV">"BindingGroup"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:attribute</span><span class="tAN"> ref=</span><span class="tAV">"scope"</span><span class="tAN"> use=</span><span class="tAV">"required"</span><span class="tEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:attribute</span><span class="tAN"> ref=</span><span class="tAV">"id"</span><span class="tAN"> use=</span><span class="tAV">"optional"</span><span class="tEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:attribute</span><span class="tAN"> name=</span><span class="tAV">"appliesToState"</span><span class="tAN"> type=</span><span class="tAV">"tdfstate:CVEnumTDFAppliesToState"</span><span class="tAN"> use=</span><span class="tAV">"optional"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Used to indicate if the statement metadata applies to encrypted or unencrypted data. If a TDO payload or assertion statement is encrypted, there are in fact two potentially different markings needed for decision making, analysis and querying, one describing the handling required for the encrypted blob, and the other for the handling required for the unencrypted (and in effect external) state. In cases where statements and/or payloads are encrypted, allow handling assertions and statement metadata elements to indicate whether their marks apply to the encrypted blob state vs. actual data by using an attribute appliesToState</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:attribute&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:complexType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/IC-TDF/IC-TDF.xsd">IC-TDF.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <a id="HandlingAssertionType_appliesToState" shape="rect"><!--
+
+--></a>
+      <div class="componentTitle">Attribute <span class="qname">
+            <b>
+               <a href="2e97ad33-f1c0-4221-8a0b-e1dfea58d6c6.html#HandlingAssertionType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component HandlingAssertionType')" shape="rect">HandlingAssertionType</a>
+            </b> / @appliesToState</span>
+      </div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineTop" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerTopRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_content" rowspan="1" colspan="1">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Namespace</b>
+                        </td>
+                        <td rowspan="1" colspan="1">urn:us:gov:ic:tdf</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Annotations</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_annotations_HandlingAssertionType_appliesToState" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_HandlingAssertionType_appliesToState');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="annotations_HandlingAssertionType_appliesToState" style="display:block">
+                              <div class="annotation">
+                                 
+                                 <p>Used to indicate if the
+                                    statement metadata applies to encrypted or unencrypted data. If a TDO
+                                    payload or assertion statement is encrypted, there are in fact two
+                                    potentially different markings needed for decision making, analysis and
+                                    querying, one describing the handling required for the encrypted blob, and
+                                    the other for the handling required for the unencrypted (and in effect
+                                    external) state. In cases where statements and/or payloads are encrypted,
+                                    allow handling assertions and statement metadata elements to indicate
+                                    whether their marks apply to the encrypted blob state vs. actual data by
+                                    using an attribute appliesToState</p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Type</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <b>
+                              <a href="b40197d4-26d5-4986-b031-e352406ad56e.html#CVEnumTDFAppliesToState" target="mainFrame" title="urn:us:gov:ic:cvenum:tdf:state" onclick="updatePageTitle('Schema documentation for component CVEnumTDFAppliesToState')" shape="rect">CVEnumTDFAppliesToState</a>
+                           </b>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Properties</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_properties_HandlingAssertionType_appliesToState" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_HandlingAssertionType_appliesToState');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="properties_HandlingAssertionType_appliesToState" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;" rowspan="1" colspan="1">use</td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>optional</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Facets</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_facets_HandlingAssertionType_appliesToState" type="image" src="img/btM.gif" value="-" onclick="switchState('facets_HandlingAssertionType_appliesToState');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="facets_HandlingAssertionType_appliesToState" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>encrypted</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Data that has been encrypted.
+                                          			</div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">enumeration</td>
+                                    <td width="30%" rowspan="1" colspan="1">
+                                       <b>unencrypted</b>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="annotation">Data in plain text.
+                                          		    </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Used by</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_usedBy_HandlingAssertionType_appliesToState" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_HandlingAssertionType_appliesToState');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="usedBy_HandlingAssertionType_appliesToState" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn" rowspan="1" colspan="1">Complex Type </td>
+                                    <td rowspan="1" colspan="1">
+                                       <b>
+                                          <a href="2e97ad33-f1c0-4221-8a0b-e1dfea58d6c6.html#HandlingAssertionType" target="mainFrame" title="urn:us:gov:ic:tdf" onclick="updatePageTitle('Schema documentation for component HandlingAssertionType')" shape="rect">HandlingAssertionType</a>
+                                       </b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <div class="floatLeft">
+                              <b>Source</b>
+                           </div>
+                           <div class="floatRight">
+                              <input id="button_source_HandlingAssertionType_appliesToState" type="image" src="img/btM.gif" value="-" onclick="switchState('source_HandlingAssertionType_appliesToState');" class="control"></input>
+                           </div>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <div id="source_HandlingAssertionType_appliesToState" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%" rowspan="1" colspan="1">
+                                       <pre xml:space="preserve"><span class="tEl">&lt;xs:attribute</span><span class="tAN"> name=</span><span class="tAV">"appliesToState"</span><span class="tAN"> type=</span><span class="tAV">"tdfstate:CVEnumTDFAppliesToState"</span><span class="tAN"> use=</span><span class="tAV">"optional"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;p</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.w3.org/1999/xhtml"</span><span class="tAN"> ism:classification=</span><span class="tAV">"U"</span><span class="tAN"> ism:ownerProducer=</span><span class="tAV">"USA"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Used to indicate if the statement metadata applies to encrypted or unencrypted data. If a TDO payload or assertion statement is encrypted, there are in fact two potentially different markings needed for decision making, analysis and querying, one describing the handling required for the encrypted blob, and the other for the handling required for the unencrypted (and in effect external) state. In cases where statements and/or payloads are encrypted, allow handling assertions and statement metadata elements to indicate whether their marks apply to the encrypted blob state vs. actual data by using an attribute appliesToState</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:attribute&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn" rowspan="1" colspan="1">
+                           <b>Schema location</b>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                           <a href="../../Schema/IC-TDF/IC-TDF.xsd">IC-TDF.xsd</a> Copy and paste this link to your file browser, clicking the link MAY open in the browser. Opening in an XML aware editor is best. 
+    </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight" rowspan="1" colspan="1"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft" rowspan="1" colspan="1"></td>
+            <td class="rt_lineBottom" rowspan="1" colspan="1"></td>
+            <td class="rt_cornerBottomRight" rowspan="1" colspan="1"></td>
+         </tr>
+      </table>
+      <h2 style=" font:italic bold 12px Georgia,serif;color:gray;font-size:14px;text-align:center;  width : 95%;">
+           This document has been approved for Public Release by the Office of the Director of National Intelligence. See Distribution Notice for details.
+       <a href="../index.html" target="_top">
+                Click Here
+            </a>
+      </h2>
+      <div class="footer"></div>
+      <script type="text/javascript" xml:space="preserve"><!--
+
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                //
+--></script>
+   </body>
+</html>

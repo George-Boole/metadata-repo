@@ -1,0 +1,35 @@
+# UNCLASSIFIED
+default namespace = "urn:us:gov:ic:cvenum:virt:network"
+CVEnumVIRTNetworkName.cve = 
+# (U) 
+"NIPRNet" | 
+# (U) 
+"SIPRNet" | 
+# (U) 
+"JWICS" | 
+# (U) 
+"ADSN" | 
+# (U) 
+"StoneGhost" | 
+# (U) 
+"LOCE" | 
+# (U) 
+"CRONOS" | 
+# (U) 
+"ACSS" | 
+# (U) 
+"IMIS" | 
+# (U) 
+"NSANET" | 
+# (U) 
+"QNET" | 
+# (U) 
+"5EE" | 
+# (U) 
+"BICES" | 
+# (U) 
+"CFBLNet" | 
+# (U) 
+"DDTE" | 
+# (U) 
+"other:\S{1,256}"

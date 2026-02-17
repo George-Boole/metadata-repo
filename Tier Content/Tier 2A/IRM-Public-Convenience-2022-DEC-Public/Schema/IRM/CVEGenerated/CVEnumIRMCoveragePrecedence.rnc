@@ -1,0 +1,7 @@
+# UNCLASSIFIED
+default namespace = "urn:us:gov:ic:cvenum:irm:coverage:precedence"
+CVEnumIRMCoveragePrecedence.cve = 
+# (U) 
+"Primary" | 
+# (U) 
+"Secondary"

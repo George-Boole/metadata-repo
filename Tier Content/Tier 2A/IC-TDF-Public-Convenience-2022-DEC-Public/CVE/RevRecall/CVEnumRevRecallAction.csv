@@ -1,0 +1,11 @@
+﻿"ValueClassification","Value","DescriptionClassification","Description","DeprecationDate"
+"(U) ","PURGE","(U) ","Immediately remove and destroy all copies of the revision of
+                the product that has been revised or recalled.",
+"(U) ","RETAIN_WARN","(U) ","Retain the existing copies of the revision of the product
+                but indicate that it is not the latest revision.",
+"(U) ","RETAIN_HIDE","(U) ","Retain the existing copies of the revision of the product
+                but prevent access and distribution.",
+"(U) ","MANUAL_INSTRUCTION","(U) ","The action to be taken as a result of the
+                revision or recall requires manual intervention by a human to read and follow the
+                included instructions.",
+

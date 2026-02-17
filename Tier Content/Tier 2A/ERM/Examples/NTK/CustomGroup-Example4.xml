@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/NTK/NTK_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<!-- All classification marks in this example are   -->
+<!-- for illustrative purposes only, there are no   -->
+<!-- actual classified data contained in this example -->
+<test:root xmlns:test="test:ntk"
+           xmlns:ism="urn:us:gov:ic:ism"
+           xmlns:ntk="urn:us:gov:ic:ntk"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           ism:compliesWith="USGov USIC"
+           ism:resourceElement="true"
+           ntk:DESVersion="201508"
+           ism:createDate="9999-11-11"
+           ism:DESVersion="201609.201707"
+           ism:ISMCATCESVersion="201709"
+           ism:classification="U"
+           ism:ownerProducer="USA"
+           xsi:schemaLocation="test:ntk ./test_ntk.xsd">
+   <ntk:Access ism:classification="U" ism:ownerProducer="USA">
+      <ntk:RequiresAllOf><!-- Sample file restricting use to the people in SourceForge who 
+                 are members of the Wheel or SuperUser groups in the Bob LDAP 
+                 and to the people who are members of the Admin or bob groups 
+                 in Chris_LDAP. Also demonstrating how multiple systems can be 
+                 listed in a portion-->
+         <AccessProfileList xmlns="urn:us:gov:ic:ntk">
+            <AccessProfile ism:classification="U" ism:ownerProducer="USA">
+               <AccessPolicy>urn:us:gov:ic:aces:ntk:permissive</AccessPolicy>
+               <ProfileDes>urn:us:gov:ic:ntk:profile:grp-ind</ProfileDes>
+               <VocabularyType ntk:name="group:bob_ldap" ntk:source="Bob_LDAP"/>
+               <AccessProfileValue ntk:vocabulary="group:bob_ldap">Wheel</AccessProfileValue>
+               <AccessProfileValue ntk:vocabulary="group:bob_ldap">SuperUser</AccessProfileValue>
+            </AccessProfile>
+         </AccessProfileList>
+         <ntk:RequiresAnyOf>
+            <AccessProfileList xmlns="urn:us:gov:ic:ntk">
+               <AccessProfile ism:classification="U" ism:ownerProducer="USA">
+                  <AccessPolicy>urn:us:gov:ic:aces:ntk:permissive</AccessPolicy>
+                  <ProfileDes>urn:us:gov:ic:ntk:profile:grp-ind</ProfileDes>
+                  <VocabularyType ntk:name="group:chris_ldap" ntk:source="Chris_LDAP"/>
+                  <AccessProfileValue ntk:vocabulary="group:chris_ldap">Admin</AccessProfileValue>
+                  <AccessProfileValue ntk:vocabulary="group:chris_ldap">bob</AccessProfileValue>
+               </AccessProfile>
+            </AccessProfileList>
+         </ntk:RequiresAnyOf>
+      </ntk:RequiresAllOf>
+   </ntk:Access>
+   <test:portion ism:classification="U" ism:ownerProducer="USA"/>
+</test:root>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/NTK/NTK_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/ARH/ARH_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!-- Distro Statement: Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<!-- All classification marks in this example are   
+ 	 for illustrative purposes only, there are no   
+      actual classified data contained in this example -->
+<test:root xmlns:test="test:arh"
+           xmlns:arh="urn:us:gov:ic:arh"
+           xmlns:ntk="urn:us:gov:ic:ntk"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           arh:DESVersion="3"
+           ntk:DESVersion="201508"
+           xsi:schemaLocation="test:arh ./test_arh.xsd urn:us:gov:ic:arh ../../Schema/ARH/IC-ARH.xsd">
+   <arh:ExternalSecurity xmlns:ism="urn:us:gov:ic:ism"
+                         ism:compliesWith="USGov USIC"
+                         ism:DESVersion="201609.201707"
+                         ism:ISMCATCESVersion="201709"
+                         ism:resourceElement="true"
+                         ism:createDate="2006-05-04"
+                         ism:classification="U"
+                         ism:ownerProducer="USA"
+                         ism:excludeFromRollup="true">
+      <ntk:ExternalAccess ntk:externalReference="true"
+                          ism:classification="U"
+                          ism:ownerProducer="USA">
+         <ntk:RequiresAnyOf>
+            <AccessProfileList xmlns="urn:us:gov:ic:ntk">
+               <AccessProfile ism:classification="U" ism:ownerProducer="USA">
+                  <AccessPolicy>urn:us:gov:ic:aces:ntk:permissive</AccessPolicy>
+                  <ProfileDes>urn:us:gov:ic:ntk:profile:grp-ind</ProfileDes>
+                  <VocabularyType ntk:name="individual:unclasssourceforge"
+                                  ntk:source="UnclassSourceForge"/>
+                  <AccessProfileValue ntk:vocabulary="individual:unclasssourceforge">bobstuart</AccessProfileValue>
+                  <AccessProfileValue ntk:vocabulary="individual:unclasssourceforge">ssun</AccessProfileValue>
+                  <AccessProfileValue ntk:vocabulary="individual:unclasssourceforge">cjhodges</AccessProfileValue>
+                  <AccessProfileValue ntk:vocabulary="individual:unclasssourceforge">cgilsenan</AccessProfileValue>
+               </AccessProfile>
+            </AccessProfileList>
+         </ntk:RequiresAnyOf>
+      </ntk:ExternalAccess>
+      <ism:NoticeExternalList ism:classification="U" ism:ownerProducer="USA">
+         <ism:NoticeExternal ism:classification="U"
+                             ism:ownerProducer="USA"
+                             ism:unregisteredNoticeType="Holiday"
+                             ism:externalNotice="true">
+            <ism:NoticeText ism:classification="U" ism:ownerProducer="USA">Memorial day is on May 28th 2012</ism:NoticeText>
+         </ism:NoticeExternal>
+         <ism:NoticeExternal ism:classification="U"
+                             ism:ownerProducer="USA"
+                             ism:unregisteredNoticeType="Holiday"
+                             ism:externalNotice="true">
+            <ism:NoticeText ism:classification="U" ism:ownerProducer="USA">The next Holiday will be July 4th 2012</ism:NoticeText>
+         </ism:NoticeExternal>
+      </ism:NoticeExternalList>
+   </arh:ExternalSecurity>
+</test:root>

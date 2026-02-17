@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns="urn:us:gov:ic:cvenum:intdis:inteldiscipline"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:intdis:inteldiscipline"
+            version="201707">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumIntelDiscipline Version 2.1 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumIntelDiscipline.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumIntelDiscipline">
+      <xsd:annotation>
+         <xsd:documentation>(U) All currently valid Intelligence Discipline codes.
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumIntelDiscipline.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="APP">
+            <xsd:annotation>
+               <xsd:documentation>Digital Analytics Intelligence (Applications)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CI">
+            <xsd:annotation>
+               <xsd:documentation>Counterintelligence</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GEOINT">
+            <xsd:annotation>
+               <xsd:documentation>Geospatial Intelligence (consists of imagery, IMINT, and geospatial information)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HUMINT">
+            <xsd:annotation>
+               <xsd:documentation>Human Source Intelligence</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MASINT">
+            <xsd:annotation>
+               <xsd:documentation>Measurement and Signature Intelligence</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="OSINT">
+            <xsd:annotation>
+               <xsd:documentation>Open-Source Intelligence</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SIGINT">
+            <xsd:annotation>
+               <xsd:documentation>Signals Intelligence (consists of COMINT, ELINT, and FISINT)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TECHINT">
+            <xsd:annotation>
+               <xsd:documentation>Foreign Scientific/Technological Intelligence</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

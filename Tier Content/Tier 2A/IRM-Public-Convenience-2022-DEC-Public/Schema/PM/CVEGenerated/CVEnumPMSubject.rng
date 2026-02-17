@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:pm:subject">
+   <define name="CVEnumPMSubject.cve">
+      <choice>
+         <value>ACTM</value>
+         <value>ACWP</value>
+         <value>BASE</value>
+         <value>CBWD</value>
+         <value>CHTC</value>
+         <value>CINT</value>
+         <value>CNRE</value>
+         <value>CRIM</value>
+         <value>CYBR</value>
+         <value>DEMG</value>
+         <value>DEPS</value>
+         <value>DRUG</value>
+         <value>ECFS</value>
+         <value>ECON</value>
+         <value>ENRF</value>
+         <value>ENVR</value>
+         <value>ESEC</value>
+         <value>FDND</value>
+         <value>FINT</value>
+         <value>FMCC</value>
+         <value>FOOD</value>
+         <value>FPLD</value>
+         <value>FPOL</value>
+         <value>HAPR</value>
+         <value>HLTH</value>
+         <value>HREL</value>
+         <value>HRWC</value>
+         <value>HSEC</value>
+         <value>INFR</value>
+         <value>LEAD</value>
+         <value>POWS</value>
+         <value>SPCE</value>
+         <value>SRCC</value>
+         <value>STCM</value>
+         <value>TECH</value>
+         <value>TERR</value>
+         <value>TFIN</value>
+         <value>TRAD</value>
+         <value>WDPR</value>
+         <value>WMDB</value>
+         <value>WMDC</value>
+         <value>WMDM</value>
+         <value>WMDN</value>
+         <value>WPNS</value>
+      </choice>
+   </define>
+</grammar>

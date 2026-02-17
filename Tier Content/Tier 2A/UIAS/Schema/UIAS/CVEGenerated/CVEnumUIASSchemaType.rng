@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:uias:schematype">
+   <define name="CVEnumUIASSchemaType.cve">
+      <choice>
+         <value>adminOrganization</value>
+         <value>aICP</value>
+         <value>ATOStatus</value>
+         <value>auditRoutingOrganization</value>
+         <value>authorityCategory</value>
+         <value>certificateAuthority</value>
+         <value>clearance</value>
+         <value>countryOfAffiliation</value>
+         <value>digitalIdentifier</value>
+         <value>dutyOrganization</value>
+         <value>dutyOrganizationUnit</value>
+         <value>entitySecurityMark</value>
+         <value>entityType</value>
+         <value>fineAccessControls</value>
+         <value>group</value>
+         <value>handlingControls</value>
+         <value>icNetworks</value>
+         <value>isICMember</value>
+         <value>lifeCycleStatus</value>
+         <value>originatingNetwork</value>
+         <value>region</value>
+         <value>role</value>
+         <value>topic</value>
+      </choice>
+   </define>
+</grammar>

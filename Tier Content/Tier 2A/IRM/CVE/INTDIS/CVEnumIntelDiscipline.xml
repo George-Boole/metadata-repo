@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<cve:CVE xmlns:cve="urn:us:gov:ic:cve" xmlns:ism="urn:us:gov:ic:ism"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ism:compliesWith="USGov USIC"
+	ism:ownerProducer="USA" ism:classification="U" ism:DESVersion="202111"
+	ism:ISMCATCESVersion="202205" ism:resourceElement="true" CVEVersion="2.1" specVersion="201707" 
+	ism:createDate="2011-09-01" xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+	<cve:IRM>
+		<URN xmlns="urn:us:gov:ic:cve">urn:us:gov:ic:cvenum:intdis:inteldiscipline</URN>
+		<Title xmlns="urn:us:gov:ic:cve" ism:ownerProducer="USA" ism:classification="U">CVEnumIntelDiscipline</Title>
+		<Description xmlns="urn:us:gov:ic:cve" ism:ownerProducer="USA" ism:classification="U">All currently valid Intelligence Discipline codes.</Description>
+		<cve:Created>2015-03-24T18:19:00-05:00</cve:Created>
+
+		<Source ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">Joint Chiefs of Staff Pub 2.0: Appendix B - Intelligence Disciplines -  http://www.dtic.mil/doctrine/new_pubs/jp2_0.pdf</Source>
+		<Source ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">Deputy Director of National Intelligence for Intelligence Integration (DDII)</Source>
+		<PointOfContact ism:classification="U" ism:ownerProducer="USA" xmlns="urn:us:gov:ic:cve">
+			<Name>Office IC CIO</Name>
+			<Email>ic-standards-support@odni.gov</Email>
+		</PointOfContact>
+	</cve:IRM>
+	<cve:Enumeration multivalue="false" ism:ownerProducer="USA" ism:classification="U">
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">APP</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Digital Analytics Intelligence (Applications)</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">CI</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Counterintelligence</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">GEOINT</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Geospatial Intelligence (consists of imagery, IMINT, and geospatial information)</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">HUMINT</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Human Source Intelligence</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">MASINT</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Measurement and Signature Intelligence</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">OSINT</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Open-Source Intelligence</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">SIGINT</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Signals Intelligence (consists of COMINT, ELINT, and FISINT)</Description>
+		</Term>
+		<Term xmlns="urn:us:gov:ic:cve" ism:classification="U" ism:ownerProducer="USA">
+			<Value ism:classification="U" ism:ownerProducer="USA">TECHINT</Value>
+			<Description ism:classification="U" ism:ownerProducer="USA">Foreign Scientific/Technological Intelligence</Description>
+		</Term>
+	</cve:Enumeration>
+</cve:CVE>

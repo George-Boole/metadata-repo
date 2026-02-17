@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/NTK/NTK_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/ARH/ARH_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-EDH/IC-EDH_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-TDF/IC-TDF_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/RevRecall/RevRecall_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-ID/IC-ID_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+        -->
+<!-- All classification marks in this example are     -->
+<!-- for illustrative purposes only, there are no     -->
+<!-- actual classified data contained in this example -->
+<!-- An example document fragment. This is example file is Schema valid
+   but does not represent a complete document. It only represents enough to show how
+   to use the Revision recall indicator in one of the many ways it could be used.
+-->
+<TrustedDataObject xmlns="urn:us:gov:ic:tdf"
+                   xmlns:tdf="urn:us:gov:ic:tdf"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   tdf:version="201412.201707"
+                   xsi:schemaLocation="http://www.w3.org/1999/xlink ../../Schema/w3/1999/xlink/xlink.xsd urn:us:gov:ic:revrecall ../../Schema/RevRecall/RevRecall_XML.xsd urn:us:gov:ic:tdf ../../Schema/IC-TDF/IC-TDF.xsd">
+   <HandlingAssertion tdf:scope="TDO">
+      <HandlingStatement>
+         <Edh xmlns="urn:us:gov:ic:edh"
+              xmlns:usagency="urn:us:gov:ic:usagency"
+              xmlns:icid="urn:us:gov:ic:id"
+              xmlns:edh="urn:us:gov:ic:edh"
+              xmlns:ism="urn:us:gov:ic:ism"
+              xmlns:ntk="urn:us:gov:ic:ntk"
+              xmlns:arh="urn:us:gov:ic:arh"
+              usagency:CESVersion="201609"
+              icid:DESVersion="1"
+              edh:DESVersion="201609"
+              ism:DESVersion="201609.201707"
+              ism:ISMCATCESVersion="201709"
+              ntk:DESVersion="201508"
+              arh:DESVersion="3">
+            <icid:Identifier>guide://999990/DNI-1</icid:Identifier>
+            <DataItemCreateDateTime>2006-04-25T00:00:00Z</DataItemCreateDateTime>
+            <ResponsibleEntity edh:role="Custodian">
+               <Country>USA</Country>
+               <Organization>DNI</Organization>
+            </ResponsibleEntity>
+            <Security xmlns="urn:us:gov:ic:arh"
+                      ism:compliesWith="USGov USIC"
+                      ism:DESVersion="201609.201707"
+                      ism:ISMCATCESVersion="201709"
+                      ism:ownerProducer="USA"
+                      ism:classification="S"
+                      ism:disseminationControls="NF"
+                      ism:derivativelyClassifiedBy="DNI"
+                      ism:derivedFrom="Multiple Sources"
+                      ism:declassDate="2031-05-04"
+                      ism:resourceElement="true"
+                      ism:createDate="2006-05-04"/>
+         </Edh>
+      </HandlingStatement>
+   </HandlingAssertion>
+   <HandlingAssertion tdf:scope="PAYL">
+      <HandlingStatement>
+         <ExternalEdh xmlns="urn:us:gov:ic:edh"
+                      xmlns:usagency="urn:us:gov:ic:usagency"
+                      xmlns:edh="urn:us:gov:ic:edh"
+                      xmlns:ism="urn:us:gov:ic:ism"
+                      xmlns:ntk="urn:us:gov:ic:ntk"
+                      xmlns:arh="urn:us:gov:ic:arh"
+                      xmlns:icid="urn:us:gov:ic:id"
+                      usagency:CESVersion="201609"
+                      edh:DESVersion="201609"
+                      ism:DESVersion="201609.201707"
+                      ism:ISMCATCESVersion="201709"
+                      ntk:DESVersion="201508"
+                      arh:DESVersion="3"
+                      icid:DESVersion="1">
+            <icid:Identifier>guide://999990/DNI-Doc-1</icid:Identifier>
+            <DataItemCreateDateTime>2009-11-10T12:00:00-04:00</DataItemCreateDateTime>
+            <ResponsibleEntity edh:role="Custodian">
+               <Country>USA</Country>
+               <Organization>DNI</Organization>
+            </ResponsibleEntity>
+            <ExternalSecurity xmlns="urn:us:gov:ic:arh"
+                              ism:classification="U"
+                              ism:ownerProducer="USA"
+                              ism:excludeFromRollup="true"/>
+         </ExternalEdh>
+      </HandlingStatement>
+   </HandlingAssertion>
+   <HandlingAssertion tdf:scope="TDO">
+      <HandlingStatement>
+         <RevisionRecall xmlns="urn:us:gov:ic:revrecall"
+                         xmlns:rr="urn:us:gov:ic:revrecall"
+                         rr:DESVersion="201412"
+                         rr:id="1"
+                         rr:type="SUBSTANTIVE_REVISION"
+                         rr:dateTime="2009-11-10T12:00:00.0-04:00"
+                         rr:action="MANUAL_INSTRUCTION">
+            <Security xmlns="urn:us:gov:ic:arh"
+                      xmlns:ism="urn:us:gov:ic:ism"
+                      ism:classification="S"
+                      ism:ownerProducer="USA"
+                      ism:disseminationControls="REL"
+                      ism:releasableTo="USA FVEY"/>
+            <rr:ProductTitle xmlns:ism="urn:us:gov:ic:ism"
+                             ism:classification="U"
+                             ism:ownerProducer="USA">Some
+               Title</rr:ProductTitle>
+            <rr:Reason xmlns:ism="urn:us:gov:ic:ism"
+                       ism:classification="S"
+                       ism:ownerProducer="USA"
+                       ism:disseminationControls="REL"
+                       ism:releasableTo="USA FVEY">This is the reason for the revision or recall.</rr:Reason>
+            <rr:POC xmlns:ism="urn:us:gov:ic:ism"
+                    ism:classification="U"
+                    ism:ownerProducer="USA">John Doe,
+               john.doe@org.gov, 555-555-5555</rr:POC>
+            <rr:ActionInstruction xmlns:ism="urn:us:gov:ic:ism"
+                                  ism:ownerProducer="USA"
+                                  ism:classification="U">This is where instructions are included with
+               @revisionAction="MANUAL_INSTRUCTION".</rr:ActionInstruction>
+         </RevisionRecall>
+      </HandlingStatement>
+   </HandlingAssertion>
+   <ReferenceValuePayload tdf:uri="guide://9990/test"/>
+</TrustedDataObject>

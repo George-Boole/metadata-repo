@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<define name="CVEnumTDFAppliesToState.att">
+   <attribute name="CVEnumTDFAppliesToState">
+      <choice>
+         <value>encrypted</value>
+         <value>unencrypted</value>
+      </choice>
+   </attribute>
+</define>

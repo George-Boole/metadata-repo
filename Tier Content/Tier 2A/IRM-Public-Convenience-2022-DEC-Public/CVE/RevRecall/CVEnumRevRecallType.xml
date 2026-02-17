@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<CVE xmlns="urn:us:gov:ic:cve" xmlns:ism="urn:us:gov:ic:ism"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ism:compliesWith="USGov USIC"
+    ism:ownerProducer="USA" ism:classification="U" ism:DESVersion="202111"
+    ism:ISMCATCESVersion="202205" ism:resourceElement="true" CVEVersion="2" specVersion="202111.202205"
+    ism:createDate="2012-11-09" xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+    <IRM>
+        <URN>urn:us:gov:ic:cvenum:revrecall:type</URN>
+        <Title ism:ownerProducer="USA" ism:classification="U">CVEnumRevRecallType</Title>
+        <Description ism:ownerProducer="USA" ism:classification="U">Types to be associated with a Revision/Recall.</Description>
+        <cve:Created xmlns:cve="urn:us:gov:ic:cve">2013-12-17T15:52:00-05:00</cve:Created>
+
+        <Source ism:classification="U" ism:ownerProducer="USA">IC-CIO</Source>
+        <PointOfContact ism:classification="U" ism:ownerProducer="USA">
+            <Name>Office IC CIO</Name>
+            <Email>ic-standards-support@odni.gov</Email>
+        </PointOfContact>
+    </IRM>
+
+    <Enumeration multivalue="false" ism:ownerProducer="USA" ism:classification="U">
+
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">ADMINISTRATIVE_RECALL</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Notify recipients that a product has been withdrawn due to
+                significant but non-substantive technical, legal, or policy issues (but is not used for a FISA-compliance recall); 
+                e.g., compromise of sources and methods, identification of US person, improper classification.</Description>
+        </Term>
+
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">ADMINISTRATIVE_REVISION</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Notify recipients that a modification has been made that does
+   			       not affect the substance of the original product; e.g., misspellings, typographical
+   			       errors, additional recipients.</Description>
+        </Term>
+        
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">FISA_COMPLIANCE_RECALL</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Notify recipients that a product has been recalled 
+                specifically for a FISA-compliance reason. </Description>
+        </Term>
+        
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">SUBSTANTIVE_RECALL</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Notify recipients that a product has been withdrawn due to
+                significant concerns about the accuracy of the information, the integrity of the
+                source, or the soundness of the analytic judgments.</Description>
+        </Term>
+
+        <Term ism:classification="U" ism:ownerProducer="USA">
+            <Value ism:classification="U" ism:ownerProducer="USA">SUBSTANTIVE_REVISION</Value>
+            <Description ism:classification="U" ism:ownerProducer="USA">Notify recipients that a change has been made that does
+                affect the substance of the original product but does not invalidate it; e.g.,
+                dropped words or sentences, inaccurate paragraphs or comments, minor analytic
+                judgments.</Description>
+        </Term>
+    </Enumeration>
+</CVE>

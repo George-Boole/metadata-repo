@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-EDH/IC-EDH_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-TDF/IC-TDF_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-ID/IC-ID_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/USAgency/USAgency_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/PMA/PMA_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/PM/PM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!-- All classification marks in this example are   -->
+<!-- for illustrative purposes only, there are no   -->
+<!-- actual classified data contained in this example -->
+<TrustedDataObject xmlns="urn:us:gov:ic:tdf"
+                   xmlns:tdf="urn:us:gov:ic:tdf"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   tdf:version="202111-IC-TDF.202111"
+                   xsi:schemaLocation="urn:us:gov:ic:tdf ../../Schema/IC-TDF/IC-TDF.xsd">
+  <HandlingAssertion tdf:scope="TDO">
+    <HandlingStatement>
+      <Edh xmlns="urn:us:gov:ic:edh"
+           xmlns:usagency="urn:us:gov:ic:usagency"
+           xmlns:icid="urn:us:gov:ic:id"
+           xmlns:edh="urn:us:gov:ic:edh"
+           xmlns:ism="urn:us:gov:ic:ism"
+           xmlns:ntk="urn:us:gov:ic:ntk"
+           xmlns:arh="urn:us:gov:ic:arh"
+           usagency:CESVersion="202207"
+           icid:DESVersion="202111"
+           edh:DESVersion="201903"
+           ism:DESVersion="202111.202211"
+           ism:ISMCATCESVersion="202211">
+        <icid:Identifier>guide://999990/93b02e0f-a9b3-46c0-b4ed-4e4629cc5182</icid:Identifier>
+        <DataItemCreateDateTime>2008-01-01T20:00:00Z</DataItemCreateDateTime>
+        <ResponsibleEntity edh:role="Custodian">
+          <Country>USA</Country>
+          <Organization>USA.DNI</Organization>
+        </ResponsibleEntity>
+        <Security xmlns="urn:us:gov:ic:arh"
+                  ism:compliesWith="USGov"
+                  ism:DESVersion="202111.202211"
+                  ism:ISMCATCESVersion="202211"
+                  ism:classification="U"
+                  ism:ownerProducer="USA"
+                  ism:resourceElement="true"
+                  ism:createDate="2008-09-09" />
+      </Edh>
+    </HandlingStatement>
+  </HandlingAssertion>
+  <HandlingAssertion tdf:scope="PAYL">
+    <HandlingStatement>
+      <ExternalEdh xmlns="urn:us:gov:ic:edh"
+                   xmlns:usagency="urn:us:gov:ic:usagency"
+                   xmlns:icid="urn:us:gov:ic:id"
+                   xmlns:edh="urn:us:gov:ic:edh"
+                   xmlns:ism="urn:us:gov:ic:ism"
+                   xmlns:ntk="urn:us:gov:ic:ntk"
+                   xmlns:arh="urn:us:gov:ic:arh"
+                   usagency:CESVersion="202207"
+                   icid:DESVersion="202111"
+                   edh:DESVersion="201903"
+                   ism:DESVersion="202111.202211"
+                   ism:ISMCATCESVersion="202211">
+        <icid:Identifier>guide://999990/93b02e0f-a9b3-46c0-b4ed-4e4629cc5182</icid:Identifier>
+        <DataItemCreateDateTime>2012-10-29T14:04:27.249-04:00</DataItemCreateDateTime>
+        <ResponsibleEntity edh:role="Custodian">
+          <Country>USA</Country>
+          <Organization>USA.DIA</Organization>
+        </ResponsibleEntity>
+        <ExternalSecurity xmlns="urn:us:gov:ic:arh"
+                          ism:classification="U"
+                          ism:ownerProducer="USA"
+                          ism:excludeFromRollup="true" />
+      </ExternalEdh>
+    </HandlingStatement>
+  </HandlingAssertion>
+  <tdf:Assertion tdf:scope="TDO">
+    <tdf:StatementMetadata>
+      <arh:Security xmlns:arh="urn:us:gov:ic:arh"
+                    xmlns:ism="urn:us:gov:ic:ism"
+                    ism:classification="U"
+                    ism:ownerProducer="USA"
+                    ism:resourceElement="true"
+                    ism:compliesWith="USGov"
+                    ism:createDate="2019-12-19" />
+    </tdf:StatementMetadata>
+    <tdf:StructuredStatement>
+      <pma:ProductionMetricsAssertion xmlns:pma="urn:us:gov:ic:pma"
+                                      xmlns:pm="urn:us:gov:ic:pm"
+                                      pma:DESVersion="201903.201909"
+                                      pm:CESVersion="202211">
+        <pma:ProductionMetric xmlns:ism="urn:us:gov:ic:ism"
+                              ism:classification="U"
+                              ism:ownerProducer="USA"
+                              pma:actor="AFG"
+                              pma:subject="FOOD"
+                              pma:location="LeoOrbit" />
+        <pma:ProductionMetric xmlns:ism="urn:us:gov:ic:ism"
+                              ism:classification="U"
+                              ism:ownerProducer="USA"
+                              pma:actor="LBY"
+                              pma:subject="CYBR" />
+      </pma:ProductionMetricsAssertion>
+    </tdf:StructuredStatement>
+  </tdf:Assertion>
+  <tdf:StringPayload>Example Production Metrics Assertion (PMA) Payload String.</tdf:StringPayload>
+</TrustedDataObject>

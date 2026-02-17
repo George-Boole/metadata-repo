@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns="urn:us:gov:ic:cvenum:mime:type"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:mime:type"
+            version="202010">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumMIMELegacyType Version 2.1 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumMIMELegacyType.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumMIMELegacyType">
+      <xsd:annotation>
+         <xsd:documentation>(U) All currently valid legacy media types. 
+            These are media types that do not fall into the category of IANA media types (including deprecated media types) 
+            or DNI unique media types. These were media types that existed in PUBS/IRM prior to the creation of MIME.CES.
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumMIMELegacyType.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:union>
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:token">
+               <xsd:pattern value="[A-Za-z0-9!#$&amp;.+\-^_]{1,127}/[A-Za-z0-9!#$&amp;.+\-^_]{1,127}">
+                  <xsd:annotation>
+                     <xsd:documentation>Media Type Wildcard</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:pattern>
+            </xsd:restriction>
+         </xsd:simpleType>
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:token">
+               <xsd:enumeration value="application/vnd.openofficeorg.extension">
+                  <xsd:annotation>
+                     <xsd:documentation>application/vnd.openofficeorg.extension</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="application/xhtml-voice+xml">
+                  <xsd:annotation>
+                     <xsd:documentation>application/xhtml-voice+xml</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="application/x-autocad">
+                  <xsd:annotation>
+                     <xsd:documentation>application/x-autocad</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+            </xsd:restriction>
+         </xsd:simpleType>
+      </xsd:union>
+   </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,6 @@
+﻿"ValueClassification","Value","DescriptionClassification","Description","DeprecationDate"
+"(U) ","Unknown","(U) ","Unknown Positive Intel",
+"(U) ","Not.exist","(U) ","No positive intelligence exists",
+"(U) ","Not.observed","(U) ","No positive intelligence has been observed",
+"(U) ","other:\S{1,256}","(U) ","Other positive intel. Must be the string 'other:' followed by the value specifying the other positive intelligence code.",
+

@@ -1,0 +1,949 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This is a generated file. DO NOT EDIT!-->
+<cve:CVE xmlns="urn:us:gov:ic:cve"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:cve="urn:us:gov:ic:cve"
+         xmlns:ism="urn:us:gov:ic:ism"
+       
+         ism:ownerProducer="USA"
+         ism:classification="U"
+         ism:DESVersion="202111"
+         ism:ISMCATCESVersion="202205"
+         ism:resourceElement="true"
+         ism:compliesWith="USGov USIC"
+         CVEVersion="2.1"
+         specVersion="202111"
+         ism:createDate="2021-05-03"
+         xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+   <cve:IRM>
+      <cve:URN>urn:us:gov:ic:cvenum:irm:waterBody</cve:URN>
+      <cve:Title ism:ownerProducer="USA" ism:classification="U">CVEnumIRMWaterBody</cve:Title>
+      <cve:Description ism:ownerProducer="USA" ism:classification="U">CWW Water Body Codes
+         sorted alphabetically.</cve:Description>
+      <Created>2021-05-03T14:59:44.64-04:00</Created>
+      <cve:Source ism:classification="U" ism:ownerProducer="USA">IRM
+         http://geo.aitcnet.org/NSGREG/irm</cve:Source>
+      <cve:PointOfContact ism:classification="U" ism:ownerProducer="USA">
+         <cve:Name>Office IC CIO</cve:Name>
+         <cve:Email>ic-standards-support@odni.gov</cve:Email>
+      </cve:PointOfContact>
+   </cve:IRM>
+   <cve:Enumeration 
+                    multivalue="false"
+                    ism:ownerProducer="USA"
+                    ism:classification="U">
+      <cve:Term ism:classification="U"
+                ism:ownerProducer="USA"
+                cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">1AA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Artic Ocean</cve:Description>
+      </cve:Term>
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">1BA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Barents Sea</cve:Description>
+      </cve:Term>     
+     <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">1CA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Beaufort Sea</cve:Description>
+      </cve:Term>     
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">1CB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Amundsen Gulf</cve:Description>
+      </cve:Term>     
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">1CC</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Cumberland Sound</cve:Description>
+      </cve:Term>     
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">1CD</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Foxe Basin</cve:Description>
+      </cve:Term>     
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">1CE</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Gulf of Botthia</cve:Description>
+      </cve:Term>     
+    <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">1CF</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Hudson Bay</cve:Description>
+      </cve:Term>  
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">1CG</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Hudson Strait</cve:Description>
+      </cve:Term>  
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">1CH</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">James Bay</cve:Description>
+      </cve:Term>  
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">1CJ</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Larsen Sound</cve:Description>
+      </cve:Term>  
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">1CK</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">McClure Strait</cve:Description>
+      </cve:Term>  
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">1CL</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">MClintock Channel</cve:Description>
+      </cve:Term>  
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">1CM</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Northwest Passage</cve:Description>
+      </cve:Term>  
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">1CN</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Prince Gustav Adolf Sea</cve:Description>
+      </cve:Term>  
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">1CP</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Queen Maud Gulf</cve:Description>
+      </cve:Term>  
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">1CQ</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Viscount Melville Sound</cve:Description>
+      </cve:Term>  
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">1DA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Chukchi Sea</cve:Description>
+      </cve:Term>  
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">1EA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">East Siberian Sea</cve:Description>
+      </cve:Term>  
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">1FA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Greenland Sea</cve:Description>
+      </cve:Term>  
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">1GA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Kara Sea</cve:Description>
+      </cve:Term>  
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">1HA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Laptev Sea</cve:Description>
+      </cve:Term> 
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">1JA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Lincoln Sea</cve:Description>
+      </cve:Term> 
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">1JB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Kane Basin</cve:Description>
+      </cve:Term> 
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">1JC</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Baffin Bay</cve:Description>
+      </cve:Term> 
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">1JD</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">David Strait</cve:Description>
+      </cve:Term> 
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">1KA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Norwegian Sea</cve:Description>
+      </cve:Term> 
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">1LA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">White Sea</cve:Description>
+      </cve:Term> 
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">2AA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">North Pacific Ocean</cve:Description>
+      </cve:Term> 
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">2AB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Bohol Sea</cve:Description>
+      </cve:Term> 
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">2AC</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Cook Inlet</cve:Description>
+      </cve:Term> 
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">2AD</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Gulf of Alaska</cve:Description>
+      </cve:Term>
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">2AE</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Gulf of California</cve:Description>
+      </cve:Term>
+   <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">2AF</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Gulf of Panama</cve:Description>
+      </cve:Term>
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">2AG</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Hecate Strait</cve:Description>
+    </cve:Term><cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">2AH</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Queen Charlotte Sound</cve:Description>
+      </cve:Term>
+  <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">2BA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Berin Sea</cve:Description>
+      </cve:Term>
+  <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">2BB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Bering Strait</cve:Description>
+      </cve:Term>
+ <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">2BC</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Anadyrskiy Zaliv Strait</cve:Description>
+      </cve:Term>
+ <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">2BD</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Bristol Bay</cve:Description>
+      </cve:Term>
+ <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">2CA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Celebes Sea</cve:Description>
+      </cve:Term>
+ <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">2DA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">East China Sea</cve:Description>
+      </cve:Term>
+ <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">2DB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Taiwan Strait</cve:Description>
+      </cve:Term>
+ <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">2EA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Philipine Sea</cve:Description>
+      </cve:Term>
+  <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">2EB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Luzon Strait</cve:Description>
+      </cve:Term>
+  <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">2FA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Sea of Japan</cve:Description>
+      </cve:Term>
+ <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">2FB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Korea Strait</cve:Description>
+      </cve:Term>
+ <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">2FC</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Tatar Strait</cve:Description>
+      </cve:Term>
+  <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">2FD</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Tsushima Strait</cve:Description>
+      </cve:Term>
+ <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+ <cve:Value ism:classification="U" ism:ownerProducer="USA">2GA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Sea of Okhotsk</cve:Description>
+      </cve:Term>
+ <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+<cve:Value ism:classification="U" ism:ownerProducer="USA">2GB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Zaliv Shelikhova</cve:Description>
+      </cve:Term>
+ <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">2HA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">South China Sea</cve:Description>
+      </cve:Term>
+ <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">2HB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Gulf of Thailand</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">2HC</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Gulf of Tonkin</cve:Description>
+      </cve:Term>
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">2JA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Sulu Sea</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">2KA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Yellow Sea</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">2KB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Bo Hai</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">2KC</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Korea Bay</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">3AA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">South Pacific Ocean</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">3AB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Teluk Cenderawasih</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">3BA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Arafura Sea</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">3BB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Gulf of Carpentaria</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">3BC</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Torres Strait</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">3CA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Bali Sea</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">3DA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Banda Sea</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">3DB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Teluk Bone</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">3EA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Bellingshausen Sea</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">3FA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Bismarck Sea</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">3GA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Coral Sea</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">3GB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Gulf of Papua</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">3HA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Flores Sea</cve:Description>
+      </cve:Term>
+ <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">3JA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Halmahera Sea</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">3JB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Makassar Strait Sea</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">3KA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Java Sea</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">3KB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Selat Karimata</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">3LA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Maluku Sea</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">3LB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Teluk Tomini</cve:Description>
+      </cve:Term>
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">3MA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Natuna Sea</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">3NA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Seram Sea</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">3PA</cve:Value>
+   <cve:Description ism:classification="U" ism:ownerProducer="USA">Solomon Sea</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">3QA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Tasman Sea</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">3QB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Bass Strait</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">3QC</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Cook Strait</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">4AA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">North Atlantic Ocean</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">4AB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Bay of Biscay</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">4AC</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Bay of Fundy</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">4AD</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Bight of Benin</cve:Description>
+      </cve:Term>
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">4AE</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Bristol Channel</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">4AF</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Denmark Strait</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">4AG</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">English Channel</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">4AH</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Gulf of Guinea</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">4AJ</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Gulf of Mexico</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">4AK</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Straits of Florida</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">4BA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Baltic Sea</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">4BB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Gulf of Bothnia</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">4BC</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Gulf of Finland</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">4BD</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Gulf of Riga</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">4CA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Carribaen Sea</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">4CB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Mona Sea</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">4DA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Celtic Sea</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">4EA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Irish Sea</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">4FA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Labrador Sea</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">4GA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">North Sea</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">4GB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Kattegat Sea</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">4GC</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Skagerak</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">5AA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">South Atlantic Ocean</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">5AB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">San Jorge Gulf</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">5AC</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">San Matias Gulf</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">5AD</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Rio De La Plata</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">5BA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Scotia Sea</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">5BB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Drake Passage</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">6AA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Mediterranean Sea</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">6AB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Gulf Lion</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">6AC</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Gulf of Sidra</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">6AD</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Strait of Gibraltar</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">6BA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Adriatic Sea</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">6CA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Aegean Sea</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">6DA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Balearic Sea</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">6EA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Black Sea</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">6FA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Caspian Sea</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">6GA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Ionian Sea</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">6GB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Golfo Di Taranto</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">6HA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Ligurian Sea</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">6JA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Sea of Azov</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">6KA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Sea of Marmara</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">6LA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Tyrrhenian Sea</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">7AA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Indian Ocean</cve:Description>
+      </cve:Term>     
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">7AB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Bay of Bengal</cve:Description>
+      </cve:Term>       
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">7AC</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Great Australian Bight</cve:Description>
+      </cve:Term>       
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">7AD</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Mozambique Channel</cve:Description>
+      </cve:Term>       
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">7AE</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Palk Strait</cve:Description>
+      </cve:Term>       
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">7AF</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Spencer Gulf</cve:Description>
+      </cve:Term>       
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">7BA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Andaman Sea</cve:Description>
+      </cve:Term>       
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">7BB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Strait of Malacca</cve:Description>
+      </cve:Term>       
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">7CA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Arabian Sea</cve:Description>
+      </cve:Term>       
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">7CB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Gulf of Aden</cve:Description>
+      </cve:Term>       
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">7CC</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Gulf of Oman</cve:Description>
+      </cve:Term>       
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">7CD</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Strait of Hormuz</cve:Description>
+      </cve:Term>       
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">7CE</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Persian Gulf</cve:Description>
+      </cve:Term>       
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">7DA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Laccadive Sea</cve:Description>
+      </cve:Term>       
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">7EA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Red Sea</cve:Description>
+      </cve:Term>       
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">7EB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Gulf of Aqaba</cve:Description>
+      </cve:Term>       
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">7EC</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Gulf of Suez</cve:Description>
+      </cve:Term>       
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">7FA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Savu Sea</cve:Description>
+      </cve:Term>       
+      <cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">7GA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Timor Sea</cve:Description>
+      </cve:Term>       
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">7GB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Joseph Bonaparte Gulf</cve:Description>
+      </cve:Term>       
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">8AA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Southern Ocean</cve:Description>
+      </cve:Term>       
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">8AB</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Bransfield Strait</cve:Description>
+      </cve:Term>       
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">8BA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Amundsen Sea</cve:Description>
+      </cve:Term>       
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">8CA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Bellingshausen Sea</cve:Description>
+      </cve:Term>       
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">8DA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Ross Sea</cve:Description>
+      </cve:Term>       
+<cve:Term ism:classification="U"
+         ism:ownerProducer="USA"
+         cve:codespace="wb:CWW:3:ed1">
+         <cve:Value ism:classification="U" ism:ownerProducer="USA">8EA</cve:Value>
+         <cve:Description ism:classification="U" ism:ownerProducer="USA">Weddell Sea</cve:Description>
+      </cve:Term>       
+
+ 
+   </cve:Enumeration>
+</cve:CVE>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/PMA/PMA_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron" title="Main PMA Schematron File" ?>
+<?xml-model href="../../Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-EDH/IC-EDH_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-TDF/IC-TDF_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IRM/IRM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-ID/IC-ID_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/USAgency/USAgency_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/PM/PM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron" title="Main PM Schematron File"?>
+<?xml-model href="../../Schematron/ISMCAT/ISMCAT_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!-- Distro Statement: Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<!-- All classification marks in this example are   
+         for illustrative purposes only, there are no   
+      actual classified data contained in this example -->
+<TrustedDataObject xmlns="urn:us:gov:ic:tdf"
+                   xmlns:tdf="urn:us:gov:ic:tdf"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   tdf:version="202111-IC-TDF.202111"
+                   xsi:schemaLocation="urn:us:gov:ic:irm ../../Schema/IRM/IC-IRM.xsd urn:us:gov:ic:tdf ../../Schema/IC-TDF/IC-TDF.xsd">
+  <HandlingAssertion tdf:scope="TDO">
+    <HandlingStatement>
+      <Edh xmlns="urn:us:gov:ic:edh"
+           xmlns:usagency="urn:us:gov:ic:usagency"
+           xmlns:icid="urn:us:gov:ic:id"
+           xmlns:edh="urn:us:gov:ic:edh"
+           xmlns:ism="urn:us:gov:ic:ism"
+           usagency:CESVersion="202207"
+           icid:DESVersion="202111"
+           edh:DESVersion="201903"
+           ism:DESVersion="202111.202211"
+           ism:ISMCATCESVersion="202211">
+        <icid:Identifier>guide://999990/4A07150C-CD51-11E0-B0DC-FF99F5AFA469</icid:Identifier>
+        <DataItemCreateDateTime>2012-03-30T00:00:00Z</DataItemCreateDateTime>
+        <ResponsibleEntity edh:role="Custodian">
+          <Country>USA</Country>
+          <Organization>USA.DNI</Organization>
+        </ResponsibleEntity>
+        <Security xmlns="urn:us:gov:ic:arh"
+                  ism:compliesWith="USGov USIC"
+                  ism:DESVersion="202111.202211"
+                  ism:ISMCATCESVersion="202211"
+                  ism:classification="U"
+                  ism:ownerProducer="USA"
+                  ism:resourceElement="true"
+                  ism:createDate="2012-03-30" />
+      </Edh>
+    </HandlingStatement>
+  </HandlingAssertion>
+  <HandlingAssertion tdf:scope="PAYL">
+    <HandlingStatement>
+      <ExternalEdh xmlns="urn:us:gov:ic:edh"
+                   xmlns:usagency="urn:us:gov:ic:usagency"
+                   xmlns:icid="urn:us:gov:ic:id"
+                   xmlns:edh="urn:us:gov:ic:edh"
+                   xmlns:ism="urn:us:gov:ic:ism"
+                   usagency:CESVersion="202207"
+                   icid:DESVersion="202111"
+                   edh:DESVersion="201903"
+                   ism:DESVersion="202111.202211"
+                   ism:ISMCATCESVersion="202211">
+        <icid:Identifier>guide://999990/4A07150C-CD51-11E0-B0DC-FF99F5AFA470</icid:Identifier>
+        <DataItemCreateDateTime>2011-08-23T06:29:33Z</DataItemCreateDateTime>
+        <ResponsibleEntity edh:role="Custodian">
+          <Country>USA</Country>
+          <Organization>USA.DNI</Organization>
+        </ResponsibleEntity>
+        <ExternalSecurity xmlns="urn:us:gov:ic:arh"
+                          ism:classification="U"
+                          ism:ownerProducer="USA"
+                          ism:excludeFromRollup="true" />
+      </ExternalEdh>
+    </HandlingStatement>
+  </HandlingAssertion>
+  <Assertion tdf:scope="PAYL">
+    <StatementMetadata>
+      <Security xmlns="urn:us:gov:ic:arh"
+                xmlns:ism="urn:us:gov:ic:ism"
+                ism:classification="U"
+                ism:ownerProducer="USA"
+                ism:resourceElement="true"
+                ism:compliesWith="USGov USIC"
+                ism:createDate="2019-12-19" />
+    </StatementMetadata>
+    <StructuredStatement>
+      <ProductionMetricsAssertion xmlns="urn:us:gov:ic:pma"
+                                  xmlns:pma="urn:us:gov:ic:pma"
+                                  xmlns:pm="urn:us:gov:ic:pm"
+                                  pma:DESVersion="201903.201909"
+                                  pm:CESVersion="202211">
+        <ProductionMetric xmlns:ism="urn:us:gov:ic:ism"
+                          ism:classification="U"
+                          ism:ownerProducer="USA"
+                          pma:actor="AFG"
+                          pma:subject="FOOD" />
+      </ProductionMetricsAssertion>
+    </StructuredStatement>
+  </Assertion>
+  <Assertion tdf:scope="PAYL">
+    <StatementMetadata>
+      <Security xmlns="urn:us:gov:ic:arh"
+                xmlns:ism="urn:us:gov:ic:ism"
+                ism:compliesWith="USGov USIC"
+                ism:DESVersion="202111.202211"
+                ism:ISMCATCESVersion="202211"
+                ism:resourceElement="true"
+                ism:createDate="2012-03-30"
+                ism:classification="U"
+                ism:ownerProducer="USA" />
+    </StatementMetadata>
+    <StructuredStatement>
+      <ICResourceMetadataPackage xmlns="urn:us:gov:ic:irm"
+                                 xmlns:usagency="urn:us:gov:ic:usagency"
+                                 xmlns:icid="urn:us:gov:ic:id"
+                                 xmlns:irm="urn:us:gov:ic:irm"
+                                 usagency:CESVersion="202207"
+                                 icid:DESVersion="202111"
+                                 irm:DESVersion="202111"
+                                 irm:compliesWith="USA_IC">
+        <metacardInfo xmlns:ism="urn:us:gov:ic:ism"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">
+          <identifier irm:qualifier="IC-ID"
+                      irm:value="guide://9990/4A07150C-CD51-11E0-B0DC-FF99F5AFA469" />
+          <dates irm:created="2012-03-30" />
+          <publisher>
+            <organization>
+              <name>IC-CIO</name>
+            </organization>
+          </publisher>
+        </metacardInfo>
+        <identifier irm:qualifier="IC-ID"
+                    irm:value="guide://9990/4A07150C-CD51-11E0-B0DC-FF99F5AFA470" />
+        <title xmlns:ism="urn:us:gov:ic:ism"
+               ism:classification="U"
+               ism:ownerProducer="USA">A document</title>
+        <dates irm:created="2011-08-23T06:29:33Z" />
+        <creator>
+          <organization irm:acronym="USA.NSA">
+            <name>NSA</name>
+          </organization>
+        </creator>
+        <subjectCoverage>
+          <category irm:label="label 0" />
+          <keyword irm:value="value 3" />
+          <keyword irm:value="value 4" />
+        </subjectCoverage>
+      </ICResourceMetadataPackage>
+    </StructuredStatement>
+  </Assertion>
+  <ReferenceValuePayload tdf:uri="guide://9990/test" />
+</TrustedDataObject>

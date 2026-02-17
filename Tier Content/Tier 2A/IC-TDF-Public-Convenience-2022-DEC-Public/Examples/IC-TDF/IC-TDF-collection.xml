@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/IC-EDH/IC-EDH_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-ID/IC-ID_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/USAgency/USAgency_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-TDF/IC-TDF_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/BASE-TDF/BASE-TDF_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!-- Distro Statement: Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<!-- All classification marks in this example are   
+         for illustrative purposes only, there are no   
+      actual classified data contained in this example -->
+<TrustedDataCollection xmlns="urn:us:gov:ic:tdf"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                       xmlns:tdf="urn:us:gov:ic:tdf"
+                       xsi:schemaLocation="urn:us:gov:ic:tdf ../../Schema/IC-TDF/IC-TDF.xsd"
+                       tdf:version="202111-IC-TDF.202111">
+  <tdf:HandlingAssertion tdf:scope="TDC">
+    <tdf:HandlingStatement>
+      <edh:Edh xmlns:edh="urn:us:gov:ic:edh"
+               xmlns:usagency="urn:us:gov:ic:usagency"
+               xmlns:icid="urn:us:gov:ic:id"
+               xmlns:ism="urn:us:gov:ic:ism"
+               usagency:CESVersion="202207"
+               icid:DESVersion="202111"
+               edh:DESVersion="201903"
+               ism:DESVersion="202111.202211"
+               ism:ISMCATCESVersion="202211">
+        <icid:Identifier>guide://999002/EdhExample</icid:Identifier>
+        <edh:DataItemCreateDateTime>2012-05-29T09:00:00Z</edh:DataItemCreateDateTime>
+        <edh:ResponsibleEntity edh:role="Custodian">
+          <edh:Country>USA</edh:Country>
+          <edh:Organization>USA.DNI</edh:Organization>
+        </edh:ResponsibleEntity>
+        <arh:Security xmlns:arh="urn:us:gov:ic:arh"
+                      ism:compliesWith="USGov USIC"
+                      ism:resourceElement="true"
+                      ism:createDate="2012-05-29"
+                      ism:classification="U"
+                      ism:ownerProducer="USA" />
+      </edh:Edh>
+    </tdf:HandlingStatement>
+  </tdf:HandlingAssertion>
+  <tdf:Assertion tdf:scope="TDC">
+    <tdf:StringStatement>I am an example assertion about this TDC</tdf:StringStatement>
+  </tdf:Assertion>
+  <TrustedDataObject>
+    <tdf:HandlingAssertion tdf:scope="TDO">
+      <tdf:HandlingStatement>
+        <edh:Edh xmlns:edh="urn:us:gov:ic:edh"
+                 xmlns:ism="urn:us:gov:ic:ism"
+                 xmlns:usagency="urn:us:gov:ic:usagency"
+                 xmlns:icid="urn:us:gov:ic:id"
+                 ism:ISMCATCESVersion="202211"
+                 usagency:CESVersion="202207"
+                 icid:DESVersion="202111">
+          <icid:Identifier>guide://999990/TdoExample</icid:Identifier>
+          <edh:DataItemCreateDateTime>2012-05-29T09:00:00Z</edh:DataItemCreateDateTime>
+          <edh:ResponsibleEntity edh:role="Custodian">
+            <edh:Country>USA</edh:Country>
+            <edh:Organization>USA.DIA</edh:Organization>
+          </edh:ResponsibleEntity>
+          <arh:Security xmlns:arh="urn:us:gov:ic:arh"
+                        ism:compliesWith="USGov USIC"
+                        ism:resourceElement="true"
+                        ism:createDate="2012-05-29"
+                        ism:classification="U"
+                        ism:ownerProducer="USA" />
+        </edh:Edh>
+      </tdf:HandlingStatement>
+    </tdf:HandlingAssertion>
+    <tdf:HandlingAssertion tdf:scope="PAYL">
+      <tdf:HandlingStatement>
+        <edh:ExternalEdh xmlns:edh="urn:us:gov:ic:edh"
+                         xmlns:ism="urn:us:gov:ic:ism"
+                         xmlns:usagency="urn:us:gov:ic:usagency"
+                         xmlns:icid="urn:us:gov:ic:id"
+                         ism:ISMCATCESVersion="202211"
+                         usagency:CESVersion="202207"
+                         icid:DESVersion="202111">
+          <icid:Identifier>guide://999990/EdhExample</icid:Identifier>
+          <edh:DataItemCreateDateTime>2012-05-29T09:00:00Z</edh:DataItemCreateDateTime>
+          <edh:ResponsibleEntity edh:role="Custodian">
+            <edh:Country>USA</edh:Country>
+            <edh:Organization>USA.DIA</edh:Organization>
+          </edh:ResponsibleEntity>
+          <arh:ExternalSecurity xmlns:arh="urn:us:gov:ic:arh"
+                                ism:compliesWith="USGov USIC"
+                                ism:resourceElement="true"
+                                ism:createDate="2012-05-29"
+                                ism:classification="S"
+                                ism:ownerProducer="USA"
+                                ism:declassDate="2035-10-10"
+                                ism:derivedFrom="multiple sources"
+                                ism:derivativelyClassifiedBy="1.4(c)"
+                                ism:excludeFromRollup="true"
+                                ism:disseminationControls="RELIDO" />
+        </edh:ExternalEdh>
+      </tdf:HandlingStatement>
+    </tdf:HandlingAssertion>
+    <tdf:Assertion tdf:scope="PAYL">
+      <tdf:StringStatement>I am assertion about the payload. This payload is just an example to show usage of the IC-TDF
+      schema</tdf:StringStatement>
+    </tdf:Assertion>
+    <tdf:ReferenceValuePayload tdf:uri="http://example/reference/payload" />
+  </TrustedDataObject>
+  <TrustedDataObject>
+    <tdf:HandlingAssertion tdf:scope="TDO">
+      <tdf:HandlingStatement>
+        <edh:Edh xmlns:edh="urn:us:gov:ic:edh"
+                 xmlns:ism="urn:us:gov:ic:ism"
+                 xmlns:usagency="urn:us:gov:ic:usagency"
+                 xmlns:icid="urn:us:gov:ic:id"
+                 ism:ISMCATCESVersion="202211"
+                 usagency:CESVersion="202207"
+                 icid:DESVersion="202111">
+          <icid:Identifier>guide://999990/TdoExample2</icid:Identifier>
+          <edh:DataItemCreateDateTime>2012-05-29T09:00:00Z</edh:DataItemCreateDateTime>
+          <edh:ResponsibleEntity edh:role="Custodian">
+            <edh:Country>USA</edh:Country>
+            <edh:Organization>USA.DIA</edh:Organization>
+          </edh:ResponsibleEntity>
+          <arh:Security xmlns:arh="urn:us:gov:ic:arh"
+                        ism:compliesWith="USGov USIC"
+                        ism:resourceElement="true"
+                        ism:createDate="2012-05-29"
+                        ism:classification="U"
+                        ism:ownerProducer="USA" />
+        </edh:Edh>
+      </tdf:HandlingStatement>
+    </tdf:HandlingAssertion>
+    <tdf:HandlingAssertion tdf:scope="PAYL">
+      <tdf:HandlingStatement>
+        <edh:ExternalEdh xmlns:edh="urn:us:gov:ic:edh"
+                         xmlns:ism="urn:us:gov:ic:ism"
+                         xmlns:usagency="urn:us:gov:ic:usagency"
+                         xmlns:icid="urn:us:gov:ic:id"
+                         icid:DESVersion="202111"
+                         ism:ISMCATCESVersion="202211"
+                         usagency:CESVersion="202207">
+          <icid:Identifier>guide://999990/EdhExample2</icid:Identifier>
+          <edh:DataItemCreateDateTime>2012-05-29T09:00:00Z</edh:DataItemCreateDateTime>
+          <edh:ResponsibleEntity edh:role="Custodian">
+            <edh:Country>USA</edh:Country>
+            <edh:Organization>USA.DIA</edh:Organization>
+          </edh:ResponsibleEntity>
+          <arh:ExternalSecurity xmlns:arh="urn:us:gov:ic:arh"
+                                ism:compliesWith="USGov USIC"
+                                ism:resourceElement="true"
+                                ism:createDate="2012-05-29"
+                                ism:classification="S"
+                                ism:ownerProducer="USA"
+                                ism:declassDate="2035-10-10"
+                                ism:derivedFrom="multiple sources"
+                                ism:derivativelyClassifiedBy="1.4(c)"
+                                ism:excludeFromRollup="true"
+                                ism:disseminationControls="RELIDO" />
+        </edh:ExternalEdh>
+      </tdf:HandlingStatement>
+    </tdf:HandlingAssertion>
+    <tdf:Assertion tdf:scope="PAYL">
+      <tdf:StringStatement>I am assertion about the payload. This payload is just an example to show usage of the IC-TDF
+      schema</tdf:StringStatement>
+    </tdf:Assertion>
+    <tdf:ReferenceValuePayload tdf:uri="http://example/reference/payload" />
+  </TrustedDataObject>
+</TrustedDataCollection>

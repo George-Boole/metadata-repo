@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?ICEA pattern?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<sch:pattern xmlns:ism="urn:us:gov:ic:ism"
+             xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+             id="IC-TDF-ID-00003">
+    <sch:p class="ruleText"
+           ism:ownerProducer="USA"
+           ism:classification="U">[IC-TDF-ID-00003][Error] For element TrustedDataObject, there must be at least one element HandlingAssertion which
+           specifies attribute scope containing [PAYL]. Human Readable: There must exist at least one handling marking for the payload.</sch:p>
+    <sch:p class="codeDesc"
+           ism:ownerProducer="USA"
+           ism:classification="U">For each TrustedDataObject, this rule ensures that the count of HandlingAssertion element which specify attribute
+           scope containing [PAYL] is greater than or equal to 1.</sch:p>
+    <sch:rule id="IC-TDF-ID-00003-R1"
+              context="tdf:TrustedDataObject">
+        <sch:assert test="count(child::tdf:HandlingAssertion[util:containsAnyOfTheTokens(@tdf:scope, ('PAYL'))])&gt;= 1"
+                    flag="error"
+                    role="error">[IC-TDF-ID-00003][Error] For element TrustedDataObject, there must be at least one element HandlingAssertion which
+                    specifies attribute scope containing [PAYL]. Human Readable: There must exist at least one handling marking for the
+                    payload.</sch:assert>
+    </sch:rule>
+</sch:pattern>

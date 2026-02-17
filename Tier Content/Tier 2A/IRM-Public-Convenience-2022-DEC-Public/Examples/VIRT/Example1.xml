@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/VIRT/VIRT_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<!-- All classification marks in this example are   -->
+<!-- for illustrative purposes only, there are no   -->
+<!-- actual classified data contained in this example -->
+<test:root xmlns:test="test:virt"
+           xmlns:ism="urn:us:gov:ic:ism"
+           xmlns:virt="urn:us:gov:ic:virt"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           ism:compliesWith="USGov USIC"
+           ism:resourceElement="true"
+           ism:createDate="9999-11-11"
+           ism:DESVersion="202111.202211"
+           ism:ISMCATCESVersion="202211"
+           ism:classification="U"
+           ism:ownerProducer="USA"
+           virt:DESVersion="202010.202205"
+           xsi:schemaLocation="test:virt ./test_virt.xsd">
+  <virt:VirtualCoverage ism:classification="U"
+                        ism:ownerProducer="USA"
+                        virt:protocol="IP"
+                        virt:network="JWICS" />
+</test:root>

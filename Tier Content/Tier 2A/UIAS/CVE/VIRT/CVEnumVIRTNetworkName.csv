@@ -1,0 +1,37 @@
+﻿"ValueClassification","Value","DescriptionClassification","Description","DeprecationDate"
+"(U) ","NIPRNet","(U) ","DISA Non-classified IP Router Network
+			",
+"(U) ","SIPRNet","(U) ","DoD and DoS Secret Internet Protocol Router Network
+   		    ",
+"(U) ","JWICS","(U) ","Joint Worldwide Intelligence Communications System 
+   	            (JWICS) highside network.
+   	        ",
+"(U) ","ADSN","(U) ","ADSN Network
+   	        ",
+"(U) ","StoneGhost","(U) ","DIA Top Secret Sensitive 
+   	            Compartmented Information Network
+   	        ",
+"(U) ","LOCE","(U) "," Linked Operations-Intelligence Centers Europe
+   	            (LOCE) Network is a USEUCOM system supporting joint forces with communications
+   	        ",
+"(U) ","CRONOS","(U) ","Crisis Response Operations in NATO Operating Systems 
+   	            (CRONOS) is a system of interconnected computer networks used by NATO to transmit classified information
+   	        ",
+"(U) ","ACSS","(U) ","Allied Collaborative Shared Services
+   			",
+"(U) ","IMIS","(U) ","Integrated Management Information System
+   			",
+"(U) ","NSANET","(U) ","The National Security Agency Intranet
+   			",
+"(U) ","QNET","(U) ","Quintipartite Network
+   			",
+"(U) ","5EE","(U) ","Five Eyes Enterprise
+   			",
+"(U) ","BICES","(U) ","Battlefield Information Collection and Exploitation Systems
+   			",
+"(U) ","CFBLNet","(U) ","Combined Federated Battle Laboratories Network
+   			",
+"(U) ","DDTE","(U) ","Distributed Development and Test Enterprise
+   			",
+"(U) ","other:\S{1,256}","(U) ","Other Network",
+

@@ -1,0 +1,6 @@
+﻿"ValueClassification","Value","DescriptionClassification","Description","DeprecationDate"
+"(U) ","MaliciousCodeFound","(U) ","Information resource has been evaluated and determined to contain malicious code. The resource should be handled with extreme caution.",
+"(U) ","MaliciousCodeNotFound","(U) ","Information resource has been evaluated and does not contain malicious code based on the best information known at the time of the evaluation. This determination may be revisited as malware detection capabilities improve over time.",
+"(U) ","SuspiciousIndicatorsFound","(U) ","Information resource has been evaluated and algorithms have determined that there is inconclusive evidence whether or not the resource contains malicious code. The resource should be handled with care.",
+"(U) ","Unevaluated","(U) ","Information resource has not been evaluated as to whether or not the resource contains malicious code. Could be used as a default value for systems where this is mandatory. No assumptions should be made as to the safety of the resource.",
+

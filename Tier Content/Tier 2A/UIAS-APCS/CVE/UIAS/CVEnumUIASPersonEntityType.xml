@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<cve:CVE xmlns:cve="urn:us:gov:ic:cve"
+         xmlns:ism="urn:us:gov:ic:ism"
+         xmlns:uias="urn:us:gov:ic:uias"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         ism:compliesWith="USGov USIC"
+         ism:ownerProducer="USA"
+         ism:classification="U"
+         ism:DESVersion="202111"
+         ism:resourceElement="true"
+         ism:ISMCATCESVersion="202205"
+         CVEVersion="2.1"
+         specVersion="202111"
+         ism:createDate="2016-09-24"
+         xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+
+	  <cve:IRM>
+	       <URN xmlns="urn:us:gov:ic:cve">urn:us:gov:ic:cvenum:uias:personentitytype</URN>
+		    <Title xmlns="urn:us:gov:ic:cve"
+             ism:ownerProducer="USA"
+             ism:classification="U">CVEnumUIASPersonEntityType</Title>
+		    <Description xmlns="urn:us:gov:ic:cve"
+                   ism:ownerProducer="USA"
+                   ism:classification="U">All valid values for person entity type from UIAS specification.</Description>
+
+	      <cve:Created>2016-09-25T19:10:00-04:00</cve:Created>
+
+		    <Source xmlns="urn:us:gov:ic:cve"
+              ism:classification="U"
+              ism:ownerProducer="USA">Unified Identity Attribute Set.</Source>
+		    <PointOfContact xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">
+			      <Name>Office IC CIO</Name>
+			      <Email>ic-standards-support@odni.gov</Email>
+		    </PointOfContact>
+	  </cve:IRM>
+
+	  <Enumeration xmlns="urn:us:gov:ic:cve"
+                ism:classification="U"
+                multivalue="false"
+                ism:ownerProducer="USA">
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">CTR</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">
+	  			Contractor (Person)
+	  		</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">GOV</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">
+				Government civilian employee (Person)
+			</Description>
+		    </Term>
+      <Term ism:classification="U" ism:ownerProducer="USA">
+			      <Value ism:classification="U" ism:ownerProducer="USA">MIL</Value>
+			      <Description ism:classification="U" ism:ownerProducer="USA">
+	  			Military service member (Person)
+	  		</Description>
+		    </Term>
+   </Enumeration>
+</cve:CVE>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<define name="CVEnumTDFHashAlgorithm.att">
+   <attribute name="CVEnumTDFHashAlgorithm">
+      <choice>
+         <value>SHA1</value>
+         <value>SHA256</value>
+         <value>SHA384</value>
+         <value>SHA512</value>
+      </choice>
+   </attribute>
+</define>

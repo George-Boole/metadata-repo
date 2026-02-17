@@ -1,0 +1,11 @@
+"ValueClassification","Value","DescriptionClassification","Description"
+"(U) ","SHA(1|256|384|512)withRSA","(U) ","Signature algorithm with a Secure Hash Algorithm (SHA-*) and the RSA encryption algorithm as defined in the OSI Interoperability Workshop, using the padding conventions described in  
+   				http://www.rsasecurity.com/rsalabs/pkcs.  The SHA digest length in bits is indicated by the integer immediately following SHA."
+"(U) ","SHA(1|256|384|512)withRSAand[A-Z]+[0-9]*","(U) ","Use of Secure Hash Algorithms with RSA and Mask Functions.  For new signature schemes defined in PKCS1 v 2.0 for which the DigestwithEncryption form is insufficient, DigestwithEncryptionandMaskFunction can be used to form a name.
+   				Here, maskFucntion is a mask generation function such as MGF1. Example: SHA1withRSAandMGF1.
+   			"
+"(U) ","SHA(1|256|384|512)withECDSA","(U) ","Signature algorithm with Secure Hash Algorithm (SHA-*) and ECDSA as defined in ANSI X9.62. Note: SHA1withECDSA is sometimes referred to simply as ECDSA, however this is an ambiguous and should not be used. The formal name SHA1withECDSA should be used. "
+"(U) ","SHA(1|256|384|512)withECDSAand[A-Z]+[0-9]*","(U) ","Use of Secure Hash Algorithms with ECDSA and Mask Functions.  For new signature schemes defined in PKCS1 v 2.0 for which the DigestwithEncryption form is insufficient, DigestwithEncryptionandMaskFunction can be used to form a name.
+   				Here, maskFucntion is a mask generation function such as MGF1. Example: SHA1withECDSAandMGF1.
+   			"
+

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/BASE-TDF/BASE-TDF_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron" title="Main BASE-TDF Schematron File" ?>
+<?xml-model href="../../Schematron/IC-SF/IC-SF_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!-- This passing test has encryption and has both ContentEncodedHashVerification and ContentDecodedHashVerification so should pass.-->
+<tdf:TrustedDataObject xmlns="urn:us:gov:ic:tdf"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                       xmlns:tdf="urn:us:gov:ic:tdf"
+                       xmlns:sf="urn:us:gov:ic:sf"
+                       xmlns:sfhashv="urn:us:gov:ic:sf:hashverification"
+                       xsi:schemaLocation="urn:us:gov:ic:tdf ../../Schema/BASE-TDF/BASE-TDF.xsd urn:us:gov:ic:sf:hashverification ../../Schema/IC-SF/HashVerification.xsd"
+                       sf:DESVersion="202111"
+                       tdf:version="202111">
+  <tdf:Assertion tdf:id="myID"
+                 tdf:scope="TDO">
+    <tdf:StatementMetadata>
+      <anyOtherElement xmlns="urn:fake:record" />
+    </tdf:StatementMetadata>
+    <tdf:EncryptionInformation>
+      <tdf:KeyAccess>
+        <tdf:AttachedKey>
+          <tdf:KeyValue>abcdefghijklmnop</tdf:KeyValue>
+        </tdf:AttachedKey>
+      </tdf:KeyAccess>
+      <tdf:EncryptionMethod tdf:algorithm="SHA-256" />
+    </tdf:EncryptionInformation>
+    <tdf:ReferenceStatement tdf:uri="http://355.355.355.355/thing.txt"
+                            tdf:isEncrypted="true">
+      <tdf:ReferenceValueBlock tdf:uri="http://355.355.355.355/thing.txt.p01"
+                               sfhashv:block="1" />
+      <tdf:ReferenceValueBlock tdf:uri="http://355.355.355.355/thing.txt.p02"
+                               sfhashv:block="2" />
+      <sfhashv:ContentEncodedHashVerification sfhashv:hashType="SHA-256">
+        <sfhashv:TotalHash sfhashv:blockSize="134217728"
+                           sfhashv:totalBlocks="2">a8cd34e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3</sfhashv:TotalHash>
+        <sfhashv:BlockHash sfhashv:block="1">e1232c608aa3e28350cebc98e47dfe784f966bd027ea376b7d4700fe6b07ea3d</sfhashv:BlockHash>
+        <sfhashv:BlockHash sfhashv:block="2">f9fa8e46bd027ea376b7d47dc0758a48a4f96e68fe78e064700f700fe6b07ea3</sfhashv:BlockHash>
+      </sfhashv:ContentEncodedHashVerification>
+      <sfhashv:ContentDecodedHashVerification sfhashv:hashType="SHA-256">
+        <sfhashv:TotalHash sfhashv:blockSize="134217728"
+                           sfhashv:totalBlocks="2">1e9e34e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3</sfhashv:TotalHash>
+        <sfhashv:BlockHash sfhashv:block="1">4e5e608aa3e28350cebc98e47dfe784f966bd027ea376b7d4700fe6b07ea3d</sfhashv:BlockHash>
+        <sfhashv:BlockHash sfhashv:block="2">2e3e8e46bd027ea376b7d47dc0758a48a4f96e68fe78e064700f700fe6b07ea3</sfhashv:BlockHash>
+      </sfhashv:ContentDecodedHashVerification>
+    </tdf:ReferenceStatement>
+    <tdf:Binding>
+      <tdf:Signer tdf:subject="*.example.com"
+                  tdf:issuer="DNAnexus CA" />
+      <tdf:SignatureValue tdf:signatureAlgorithm="SHA256withRSA"
+                          tdf:normalizationMethod="http://www.w3.org/TR/xml-c14n11"
+                          tdf:includesStatementMetadata="false">
+                          9506118b839dde42bb20baca7b717854d8d0eaa2f22fd4ddcc33ac84c225226f3470de3bb4983eb608a04cb0349a4f2d83f62a43f1aa9e192d0c34bf33dee712c8860e884942ab5bee2dfb01ecc4597958b84e5693ee41adc7b5fe71c27e9a928f6def8d4e6f4d74195d7f1d232d6050176e070980ea02de15578d9a87398328</tdf:SignatureValue>
+    </tdf:Binding>
+  </tdf:Assertion>
+  <tdf:StringPayload>ad32s9a</tdf:StringPayload>
+</tdf:TrustedDataObject>

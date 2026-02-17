@@ -1,0 +1,7 @@
+# UNCLASSIFIED
+default namespace = "urn:us:gov:ic:cvenum:tdf:state"
+CVEnumTDFAppliesToState.cve = 
+# (U) 
+"encrypted" | 
+# (U) 
+"unencrypted"

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns="urn:us:gov:ic:cvenum:mime:type"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:mime:type"
+            version="202010">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumMIMEICType Version 2.1 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumMIMEICType.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumMIMEICType">
+      <xsd:annotation>
+         <xsd:documentation>(U) All currently valid DNI unique media types.
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumMIMEICType.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="application/dni-arh+xml">
+            <xsd:annotation>
+               <xsd:documentation>application/dni-arh+xml</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="application/dni-audit+xml">
+            <xsd:annotation>
+               <xsd:documentation>application/dni-audit+xml</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="application/dni-edh+xml">
+            <xsd:annotation>
+               <xsd:documentation>application/dni-edh+xml</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="application/dni-irm+xml">
+            <xsd:annotation>
+               <xsd:documentation>application/dni-irm+xml</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="application/dni-mat+xml">
+            <xsd:annotation>
+               <xsd:documentation>application/dni-mat+xml</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="application/dni-pubs+xml">
+            <xsd:annotation>
+               <xsd:documentation>application/dni-pubs+xml</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="application/dni-tdf+xml">
+            <xsd:annotation>
+               <xsd:documentation>application/dni-tdf+xml</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

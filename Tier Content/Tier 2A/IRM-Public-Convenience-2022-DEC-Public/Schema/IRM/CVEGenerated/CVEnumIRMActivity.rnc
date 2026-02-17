@@ -1,0 +1,9 @@
+# UNCLASSIFIED
+default namespace = "urn:us:gov:ic:cvenum:irm:activity"
+CVEnumIRMActivity.cve = 
+# (U) 
+"crisis" | 
+# (U) 
+"exercise" | 
+# (U) 
+"operation"

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><?ICEA pattern?><sch:pattern xmlns:sch="http://purl.oclc.org/dsdl/schematron" id="ISM-ID-00240">
+    <sch:p class="ruleText">
+        [ISM-ID-00240][Error] If ISM_USDOD_RESOURCE and attribute noticeType of
+        ISM_RESOURCE_ELEMENT contains the token [DoD-Dist-A], then any element
+        which contributes to rollup should not have an attribute
+        @atomicEnergyMarkings present.
+        
+        Human Readable: Distribution statement A (Public Release) is incompatible 
+        with @atomicEnergyMarkings.
+    </sch:p>
+    <sch:p class="codeDesc">
+    	If the document is an ISM_USDOD_RESOURCE and the attribute
+    	noticeType of ISM_RESOURCE_ELEMENT contains the token [DoD-Dist-A], for
+    	each element which specifies attribute ism:atomicEnergyMarkings this rule ensures that attribute 
+    	ism:atomicEnergyMarkings is not present.
+    </sch:p>
+	  <sch:rule id="ISM-ID-00240-R1" context="*[$ISM_USDOD_RESOURCE and util:containsAnyOfTheTokens($ISM_RESOURCE_ELEMENT/@ism:noticeType, ('DoD-Dist-A'))                  and not (@ism:excludeFromRollup=true())]">
+        <sch:assert test="not(@ism:atomicEnergyMarkings)" flag="error" role="error"> 
+            [ISM-ID-00240][Error] If ISM_USDOD_RESOURCE and attribute noticeType of
+            ISM_RESOURCE_ELEMENT contains the token [DoD-Dist-A], then any element
+            which contributes to rolluop should not have an attribute
+            @atomicEnergyMarkings present.
+            
+            Human Readable: Distribution statement A (Public Release) is incompatible 
+            with presence of @atomicEnergyMarkings.
+        </sch:assert>
+    </sch:rule>
+</sch:pattern>

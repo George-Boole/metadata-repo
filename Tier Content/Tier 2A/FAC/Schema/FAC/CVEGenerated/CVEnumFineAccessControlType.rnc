@@ -1,0 +1,59 @@
+# UNCLASSIFIED
+default namespace = "urn:us:gov:ic:cvenum:fac:fineaccesscontroltype"
+CVEnumFineAccessControlType.cve = list { 
+# (U) 
+"RD"?, 
+# (U) 
+"CNWDI"?, 
+# (U) 
+"NATO-C"?, 
+# (U) 
+"NATO-TS"?, 
+# (U) 
+"NATO-R"?, 
+# (U) 
+"NATO-S"?, 
+# (U) 
+"NATO-ATOMAL"?, 
+# (U) 
+"NATO-BALK"?, 
+# (U) 
+"NATO-BOHEMIA"?, 
+# (U) 
+"HCS-X"?, 
+# (U) 
+"HCS-O"?, 
+# (U) 
+"HCS-P"?, 
+# (U) 
+"TK"?, 
+# (U) 
+"BUR"?, 
+# (U) 
+"BUR-BLG"?, 
+# (U) 
+"BUR-DTP"?, 
+# (U) 
+"BUR-WRG"?, 
+# (U) 
+"HCS"?, 
+# (U) 
+"KLM"?, 
+# (U) 
+"KLM-R"?, 
+# (U) 
+"MVL"?, 
+# (U) 
+"SI"?, 
+# (U) 
+"SI-EU"?, 
+# (U) 
+"SI-G"?, 
+# (U) 
+"SI-NK"?, 
+# (U) 
+"TK-BLFH"?, 
+# (U) 
+"TK-IDIT"?, 
+# (U) 
+"TK-KAND"? } 

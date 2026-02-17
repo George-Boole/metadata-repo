@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns:irmcovpre="urn:us:gov:ic:cvenum:irm:coverage:precedence"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:irm:coverage:precedence"
+            version="202111">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumIRMCoveragePrecedence Version 2.1 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumIRMCoveragePrecedence.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumIRMCoveragePrecedence">
+      <xsd:annotation>
+         <xsd:documentation>(U) All valid values that indicates priority claimed or received as a result of preeminence. Denotes that the code applies to a country discussed in the publication, but not the primary subject.
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumIRMCoveragePrecedence.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="Primary">
+            <xsd:annotation>
+               <xsd:documentation>Primary focus when an 
+            intelligence product covers two or more countries</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="Secondary">
+            <xsd:annotation>
+               <xsd:documentation>Secondary focus when an 
+            intelligence product covers two or more countries</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

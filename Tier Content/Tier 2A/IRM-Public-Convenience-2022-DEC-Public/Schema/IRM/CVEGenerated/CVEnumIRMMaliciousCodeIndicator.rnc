@@ -1,0 +1,11 @@
+# UNCLASSIFIED
+default namespace = "urn:us:gov:ic:cvenum:irm:maliciouscodeindicator"
+CVEnumIRMMaliciousCodeIndicator.cve = 
+# (U) 
+"MaliciousCodeFound" | 
+# (U) 
+"MaliciousCodeNotFound" | 
+# (U) 
+"SuspiciousIndicatorsFound" | 
+# (U) 
+"Unevaluated"

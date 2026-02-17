@@ -1,0 +1,1 @@
+CVEnumTDFAppliesToState.att = attribute CVEnumTDFAppliesToState { "encrypted" | "unencrypted" } 

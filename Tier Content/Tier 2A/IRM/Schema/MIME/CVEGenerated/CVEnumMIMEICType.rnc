@@ -1,0 +1,17 @@
+# UNCLASSIFIED
+default namespace = "urn:us:gov:ic:cvenum:mime:type"
+CVEnumMIMEICType.cve = 
+# (U) 
+"application/dni-arh+xml" | 
+# (U) 
+"application/dni-audit+xml" | 
+# (U) 
+"application/dni-edh+xml" | 
+# (U) 
+"application/dni-irm+xml" | 
+# (U) 
+"application/dni-mat+xml" | 
+# (U) 
+"application/dni-pubs+xml" | 
+# (U) 
+"application/dni-tdf+xml"

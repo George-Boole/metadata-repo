@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../BuildDependencies/ISM/Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<xsd:schema xmlns="urn:us:gov:ic:cvenum:intdis:inteldiscipline:component"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            xml:lang="en"
+            targetNamespace="urn:us:gov:ic:cvenum:intdis:inteldiscipline:component"
+            version="201707">
+   <xsd:annotation>
+      <xsd:documentation>
+                    The W3C XML Schema fragment encoding types for CVEnumIntelDisciplineComponent Version 2.1 controlled vocabulary enumerations. This file is generated, so edits should be made to the CVEnumIntelDisciplineComponent.xml CVE it is based on, instead of here.
+                </xsd:documentation>
+   </xsd:annotation>
+   <!--*************************************************************-->
+   <!--Generated TYPE DEFINITIONS ..................................-->
+   <!--*************************************************************-->
+   <xsd:simpleType name="CVEnumIntelDisciplineComponent">
+      <xsd:annotation>
+         <xsd:documentation>(U) All currently valid Intel Discipline Component codes.
+                         PERMISSIBLE VALUES
+                         
+                         The permissible values for this simple type are defined in the Controlled Value Enumeration:
+                         
+                         CVEnumIntelDisciplineComponent.xml
+                         
+                     </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+         <xsd:enumeration value="APP:I2">
+            <xsd:annotation>
+               <xsd:documentation>APP Domain: Identify Intelligence</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="APP:DOMEX">
+            <xsd:annotation>
+               <xsd:documentation>APP Domain: Document and Media Exploitation</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="APP:BEI">
+            <xsd:annotation>
+               <xsd:documentation>APP Domain: Bio-metrics Enabled Intelligence</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="APP:FEI">
+            <xsd:annotation>
+               <xsd:documentation>APP Domain: Forensics Enabled Intelligence</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CI:Collection">
+            <xsd:annotation>
+               <xsd:documentation>CI Domain: Collection</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CI:AnalysisAndProduction">
+            <xsd:annotation>
+               <xsd:documentation>CI Domain: Analysis and Production</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CI:Investigations">
+            <xsd:annotation>
+               <xsd:documentation>CI Domain: Investigations</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CI:Operations">
+            <xsd:annotation>
+               <xsd:documentation>CI Domain: Operations</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="CI:FunctionalServices">
+            <xsd:annotation>
+               <xsd:documentation>CI Domain: Functional Services</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GEOINT:Imagery">
+            <xsd:annotation>
+               <xsd:documentation>GEOINT Domain: Imagery</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GEOINT:IMINT">
+            <xsd:annotation>
+               <xsd:documentation>GEOINT Domain: Imagery Intelligence</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GEOINT:IMINT:EO">
+            <xsd:annotation>
+               <xsd:documentation>GEOINT Domain: Imagery Intelligence (Electro-optical)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GEOINT:IMINT:EO:Panchromatic">
+            <xsd:annotation>
+               <xsd:documentation>GEOINT Domain: Imagery Intelligence (Electro-optical, Panchromatic)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GEOINT:IMINT:EO:IR">
+            <xsd:annotation>
+               <xsd:documentation>GEOINT Domain: Imagery Intelligence (Electro-optical, Infrared)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GEOINT:IMINT:EO:Spectral">
+            <xsd:annotation>
+               <xsd:documentation>GEOINT Domain: Imagery Intelligence (Electro-optical, Spectral)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GEOINT:IMINT:EO:Spectral:MSI">
+            <xsd:annotation>
+               <xsd:documentation>GEOINT Domain: Imagery Intelligence (Electro-optical, Spectral, Multi)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GEOINT:IMINT:EO:Spectral:HSI">
+            <xsd:annotation>
+               <xsd:documentation>GEOINT Domain: Imagery Intelligence (Electro-optical, Spectral, Hyper)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GEOINT:IMINT:Radar">
+            <xsd:annotation>
+               <xsd:documentation>GEOINT Domain: Imagery Intelligence (Radar)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GEOINT:IMINT:Lidar">
+            <xsd:annotation>
+               <xsd:documentation>GEOINT Domain: Imagery Intelligence (Lidar)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="GEOINT:GeospatialInformation">
+            <xsd:annotation>
+               <xsd:documentation>GEOINT Domain: Geospatial Information</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HUMINT:Interrogation">
+            <xsd:annotation>
+               <xsd:documentation>HUMINT Domain: Interrogation</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HUMINT:SourceOperations">
+            <xsd:annotation>
+               <xsd:documentation>HUMINT Domain: Source Operations</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HUMINT:SourceOperations:WalkIn">
+            <xsd:annotation>
+               <xsd:documentation>HUMINT Domain: Source Operations (Walk-In)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HUMINT:SourceOperations:Developed">
+            <xsd:annotation>
+               <xsd:documentation>HUMINT Domain: Source Operations (Developed Sources)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HUMINT:SourceOperations:Unwitting">
+            <xsd:annotation>
+               <xsd:documentation>HUMINT Domain: Source Operations (Unwitting Persons)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HUMINT:Debriefing">
+            <xsd:annotation>
+               <xsd:documentation>HUMINT Domain: Debriefing</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HUMINT:Debriefing:FriendlyForces">
+            <xsd:annotation>
+               <xsd:documentation>HUMINT Domain: Debriefing (Friendly Forces Personnel)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HUMINT:Debriefing:RefugeesOrDisplaced">
+            <xsd:annotation>
+               <xsd:documentation>HUMINT Domain: Debriefing (Refugees or Displaced Persons)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HUMINT:Debriefing:Returnees">
+            <xsd:annotation>
+               <xsd:documentation>HUMINT Domain: Debriefing (Returnees)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="HUMINT:Debriefing:Volunteers">
+            <xsd:annotation>
+               <xsd:documentation>HUMINT Domain: Debriefing (Volunteers)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MASINT:EO">
+            <xsd:annotation>
+               <xsd:documentation>MASINT Domain: Electro-optical</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MASINT:Geophysical">
+            <xsd:annotation>
+               <xsd:documentation>MASINT Domain: Geophysical</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MASINT:Materials">
+            <xsd:annotation>
+               <xsd:documentation>MASINT Domain: Materials</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MASINT:NuclearRadiation">
+            <xsd:annotation>
+               <xsd:documentation>MASINT Domain: Nuclear Radiation</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MASINT:Radar">
+            <xsd:annotation>
+               <xsd:documentation>MASINT Domain: Radar</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="MASINT:RF">
+            <xsd:annotation>
+               <xsd:documentation>MASINT Domain: Radio Frequency</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="OSINT:Academia">
+            <xsd:annotation>
+               <xsd:documentation>OSINT Domain: Academia</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="OSINT:Interagency">
+            <xsd:annotation>
+               <xsd:documentation>OSINT Domain: Interagency</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="OSINT:Newspapers/Periodicals">
+            <xsd:annotation>
+               <xsd:documentation>OSINT Domain: Newspapers/Periodicals</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="OSINT:DueDiligence">
+            <xsd:annotation>
+               <xsd:documentation>OSINT Domain: Due Diligence</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="OSINT:MediaBroadcasts">
+            <xsd:annotation>
+               <xsd:documentation>OSINT Domain: Media Broadcasts</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="OSINT:Internet">
+            <xsd:annotation>
+               <xsd:documentation>OSINT Domain: Internet</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="OSINT:AlternativeCollections">
+            <xsd:annotation>
+               <xsd:documentation>OSINT Domain: Alternative Collections</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SIGINT:COMINT">
+            <xsd:annotation>
+               <xsd:documentation>SIGINT Domain: Communications Intelligence</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SIGINT:ELINT">
+            <xsd:annotation>
+               <xsd:documentation>SIGINT Domain: Electronic Intelligence</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SIGINT:ELINT:OPELINT">
+            <xsd:annotation>
+               <xsd:documentation>SIGINT Domain: Electronic Intelligence (Operational)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SIGINT:ELINT:TECHELINT">
+            <xsd:annotation>
+               <xsd:documentation>SIGINT Domain: Electronic Intelligence (Technical)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="SIGINT:FISINT">
+            <xsd:annotation>
+               <xsd:documentation>SIGINT Domain: Foreign Instrumentation Signals Intelligence</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TECHINT:WeaponSystem">
+            <xsd:annotation>
+               <xsd:documentation>TECHINT Domain: Weapon Systems Intelligence</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+         <xsd:enumeration value="TECHINT:Scientific">
+            <xsd:annotation>
+               <xsd:documentation>TECHINT Domain: Scientific Intelligence</xsd:documentation>
+            </xsd:annotation>
+         </xsd:enumeration>
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:schema>

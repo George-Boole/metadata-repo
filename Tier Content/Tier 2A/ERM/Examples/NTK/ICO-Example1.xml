@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/NTK/NTK_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<!-- All classification marks in this example are   -->
+<!-- for illustrative purposes only, there are no   -->
+<!-- actual classified data contained in this example -->
+<test:root xmlns:test="test:ntk"
+           xmlns:ism="urn:us:gov:ic:ism"
+           xmlns:ntk="urn:us:gov:ic:ntk"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           ism:compliesWith="USGov USIC"
+           ism:resourceElement="true"
+           ntk:DESVersion="201508"
+           ism:createDate="9999-11-11"
+           ism:DESVersion="201609.201707"
+           ism:ISMCATCESVersion="201709"
+           ism:classification="U"
+           ism:ownerProducer="USA"
+           xsi:schemaLocation="test:ntk ../NTK/test_ntk.xsd">
+   <ntk:Access ism:classification="U" ism:ownerProducer="USA">
+      <ntk:RequiresAnyOf>
+         <ntk:AccessProfileList>
+            <ntk:AccessProfile ism:classification="U" ism:ownerProducer="USA">
+               <ntk:AccessPolicy>urn:us:gov:ic:aces:ntk:ico</ntk:AccessPolicy>
+            </ntk:AccessProfile>
+         </ntk:AccessProfileList>
+      </ntk:RequiresAnyOf>
+   </ntk:Access>
+</test:root>

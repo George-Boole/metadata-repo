@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/IC-EDH/IC-EDH_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-ID/IC-ID_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/USAgency/USAgency_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/ISMCAT/ISMCAT_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!-- Distro Statement: Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<!-- All classification marks in this example are   
+         for illustrative purposes only, there are no   
+      actual classified data contained in this example -->
+<test:root xmlns:test="test:edh"
+           xmlns:ism="urn:us:gov:ic:ism"
+           xmlns:edh="urn:us:gov:ic:edh"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           ism:DESVersion="202111.202211"
+           ism:ISMCATCESVersion="202211"
+           edh:DESVersion="201903"
+           xsi:schemaLocation="test:edh ./test_edh.xsd urn:us:gov:ic:edh ../../Schema/IC-EDH/IC-EDH.xsd">
+  <edh:ExternalEdh xmlns:usagency="urn:us:gov:ic:usagency"
+                   xmlns:icid="urn:us:gov:ic:id"
+                   ism:ISMCATCESVersion="202211"
+                   usagency:CESVersion="202207"
+                   icid:DESVersion="202111">
+    <icid:Identifier>guide://999990/testcase</icid:Identifier>
+    <edh:DataItemCreateDateTime>2006-05-04T18:13:51.0Z</edh:DataItemCreateDateTime>
+    <edh:ResponsibleEntity edh:role="Custodian">
+      <edh:Country>USA</edh:Country>
+      <edh:Organization>USA.DNI</edh:Organization>
+    </edh:ResponsibleEntity>
+    <arh:ExternalSecurity xmlns:arh="urn:us:gov:ic:arh"
+                          ism:compliesWith="USGov USIC"
+                          ism:resourceElement="true"
+                          ism:createDate="2006-05-04"
+                          ism:classification="U"
+                          ism:ownerProducer="USA"
+                          ism:excludeFromRollup="true"
+                          ism:DESVersion="202111.202211"
+                          ism:ISMCATCESVersion="202211">
+      <ntk:ExternalAccess xmlns:ntk="urn:us:gov:ic:ntk"
+                          ntk:externalReference="true"
+                          ism:classification="U"
+                          ism:ownerProducer="USA">
+        <ntk:RequiresAnyOf>
+          <ntk:AccessProfileList>
+            <ntk:AccessProfile ism:classification="U"
+                               ism:ownerProducer="USA">
+              <ntk:AccessPolicy>urn:us:gov:ic:aces:ntk:permissive</ntk:AccessPolicy>
+              <ntk:ProfileDes>urn:us:gov:ic:ntk:profile:grp-ind</ntk:ProfileDes>
+              <ntk:VocabularyType ntk:name="individual:unclasssourceforge"
+                                  ntk:source="UnclassSourceForge" />
+              <ntk:AccessProfileValue ntk:vocabulary="individual:unclasssourceforge">bobstuart</ntk:AccessProfileValue>
+              <ntk:AccessProfileValue ntk:vocabulary="individual:unclasssourceforge">ssun</ntk:AccessProfileValue>
+              <ntk:AccessProfileValue ntk:vocabulary="individual:unclasssourceforge">cjhodges</ntk:AccessProfileValue>
+              <ntk:AccessProfileValue ntk:vocabulary="individual:unclasssourceforge">cgilsenan</ntk:AccessProfileValue>
+            </ntk:AccessProfile>
+          </ntk:AccessProfileList>
+        </ntk:RequiresAnyOf>
+      </ntk:ExternalAccess>
+      <ism:NoticeExternalList ism:classification="U"
+                              ism:ownerProducer="USA">
+        <ism:NoticeExternal ism:classification="U"
+                            ism:ownerProducer="USA"
+                            ism:unregisteredNoticeType="Holiday"
+                            ism:externalNotice="true">
+          <ism:NoticeText ism:classification="U"
+                          ism:ownerProducer="USA">Memorial day is on May 28th 2012</ism:NoticeText>
+        </ism:NoticeExternal>
+        <ism:NoticeExternal ism:classification="U"
+                            ism:ownerProducer="USA"
+                            ism:unregisteredNoticeType="Holiday"
+                            ism:externalNotice="true">
+          <ism:NoticeText ism:classification="U"
+                          ism:ownerProducer="USA">The next Holiday will be July 4th 2012</ism:NoticeText>
+        </ism:NoticeExternal>
+      </ism:NoticeExternalList>
+    </arh:ExternalSecurity>
+  </edh:ExternalEdh>
+  <test:edhPortionMark ism:classification="U"
+                       ism:ownerProducer="USA" />
+</test:root>

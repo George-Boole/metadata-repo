@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Schematron/ARH/ARH_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-EDH/IC-EDH_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-ID/IC-ID_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/ISM/ISM_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/NTK/NTK_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Schematron/IC-TDF/IC-TDF_XML.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!-- Distro Statement: Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<!-- All classification marks in this example are   
+ 	 for illustrative purposes only, there are no   
+      actual classified data contained in this example -->
+<TrustedDataObject xmlns="urn:us:gov:ic:tdf"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:tdf="urn:us:gov:ic:tdf"
+                   xsi:schemaLocation="urn:us:gov:ic:tdf ../../Schema/IC-TDF/IC-TDF.xsd"
+                   tdf:version="201412.201707">
+   <tdf:HandlingAssertion tdf:scope="TDO">
+      <tdf:HandlingStatement>
+         <edh:Edh xmlns:edh="urn:us:gov:ic:edh"
+                  xmlns:usagency="urn:us:gov:ic:usagency"
+                  xmlns:icid="urn:us:gov:ic:id"
+                  xmlns:arh="urn:us:gov:ic:arh"
+                  xmlns:ism="urn:us:gov:ic:ism"
+                  xmlns:ntk="urn:us:gov:ic:ntk"
+                  usagency:CESVersion="201609"
+                  icid:DESVersion="1"
+                  edh:DESVersion="201609"
+                  arh:DESVersion="3"
+                  ism:DESVersion="201609.201707"
+                  ism:ISMCATCESVersion="201709"
+                  ntk:DESVersion="201508">
+            <icid:Identifier>guide://999990/something</icid:Identifier>
+            <edh:DataItemCreateDateTime>2012-05-28T15:06:00Z</edh:DataItemCreateDateTime>
+            <edh:ResponsibleEntity edh:role="Custodian">
+               <edh:Country>USA</edh:Country>
+               <edh:Organization>DNI</edh:Organization>
+            </edh:ResponsibleEntity>
+            <arh:Security ism:compliesWith="USGov USIC"
+                          ism:resourceElement="true"
+                          ism:createDate="2012-05-28"
+                          ism:classification="U"
+                          ism:ownerProducer="USA"/>
+         </edh:Edh>
+      </tdf:HandlingStatement>
+   </tdf:HandlingAssertion>
+   <tdf:HandlingAssertion tdf:scope="PAYL" tdf:appliesToState="unencrypted">
+      <tdf:HandlingStatement>
+         <edh:ExternalEdh xmlns:edh="urn:us:gov:ic:edh"
+                          xmlns:usagency="urn:us:gov:ic:usagency"
+                          xmlns:icid="urn:us:gov:ic:id"
+                          xmlns:arh="urn:us:gov:ic:arh"
+                          xmlns:ism="urn:us:gov:ic:ism"
+                          xmlns:ntk="urn:us:gov:ic:ntk"
+                          usagency:CESVersion="201609"
+                          icid:DESVersion="1"
+                          edh:DESVersion="201609"
+                          arh:DESVersion="3"
+                          ism:DESVersion="201609.201707"
+                          ism:ISMCATCESVersion="201709"
+                          ntk:DESVersion="201508">
+            <icid:Identifier>guide://999990/something</icid:Identifier>
+            <edh:DataItemCreateDateTime>2012-05-28T15:06:00Z</edh:DataItemCreateDateTime>
+            <edh:ResponsibleEntity edh:role="Custodian">
+               <edh:Country>USA</edh:Country>
+               <edh:Organization>DNI</edh:Organization>
+            </edh:ResponsibleEntity>
+            <arh:ExternalSecurity ism:compliesWith="USGov USIC"
+                                  ism:resourceElement="true"
+                                  ism:createDate="2012-05-28"
+                                  ism:classification="U"
+                                  ism:ownerProducer="USA"
+                                  ism:excludeFromRollup="true"/>
+         </edh:ExternalEdh>
+      </tdf:HandlingStatement>
+   </tdf:HandlingAssertion>
+   <tdf:HandlingAssertion tdf:scope="PAYL" tdf:appliesToState="encrypted">
+      <tdf:HandlingStatement>
+         <edh:Edh xmlns:edh="urn:us:gov:ic:edh"
+                  xmlns:usagency="urn:us:gov:ic:usagency"
+                  xmlns:icid="urn:us:gov:ic:id"
+                  xmlns:arh="urn:us:gov:ic:arh"
+                  xmlns:ism="urn:us:gov:ic:ism"
+                  xmlns:ntk="urn:us:gov:ic:ntk"
+                  usagency:CESVersion="201609"
+                  icid:DESVersion="1"
+                  edh:DESVersion="201609"
+                  arh:DESVersion="3"
+                  ism:DESVersion="201609.201707"
+                  ism:ISMCATCESVersion="201709"
+                  ntk:DESVersion="201508">
+            <icid:Identifier>guide://999990/something</icid:Identifier>
+            <edh:DataItemCreateDateTime>2012-05-28T15:06:00Z</edh:DataItemCreateDateTime>
+            <edh:ResponsibleEntity edh:role="Custodian">
+               <edh:Country>USA</edh:Country>
+               <edh:Organization>DNI</edh:Organization>
+            </edh:ResponsibleEntity>
+            <arh:Security ism:compliesWith="USGov USIC"
+                          ism:resourceElement="true"
+                          ism:createDate="2012-05-28"
+                          ism:classification="U"
+                          ism:ownerProducer="USA"/>
+         </edh:Edh>
+      </tdf:HandlingStatement>
+   </tdf:HandlingAssertion>
+   <tdf:Assertion tdf:id="myID" tdf:scope="TDO">
+      <tdf:StringStatement>assertion statement</tdf:StringStatement>
+   </tdf:Assertion>
+   <tdf:EncryptionInformation>
+      <tdf:KeyAccess>
+         <tdf:AttachedKey>
+            <tdf:KeyValue>abcdefghijklmnop</tdf:KeyValue>
+         </tdf:AttachedKey>
+      </tdf:KeyAccess>
+      <!-- In Galois Counter Mode (http://csrc.nist.gov/publications/nistpubs/800-38D/SP-800-38D.pdf), 
+         you encrypt your payload, you pass in your plaintext (P), an initialization vector (IV), and
+         some additional authenticated data (A) (as well as my shared secret Key), and you produce: 
+         ciphertext (C), and an authentication tag (T).
+
+         So to decrypt my payload (which is what we care about here), I will need to pass in the same 
+         IV and A parameters (as well as my shared secret Key) as my inputs for encryption, as well 
+         as the C and T parameters that were my output from encryption. This allows me to authenticate 
+         the integrity of my input, and then decrypt the actual payload (I have attached a picture 
+         from the NIST pub that illustrates the decrypt steps).
+
+         When I receive a TDO where my payload has been encrypted using GCM, except for the Key, all 
+         of those other values need to be provided along with the ciphertext (i.e., the encrypted 
+         payload). So for instance, the EncryptionMethod might look like this: -->
+      <tdf:EncryptionMethod tdf:algorithm="AES">
+         <tdf:KeySize>32</tdf:KeySize>
+         <tdf:IVParams>YW55IGNhcm5hbCBwbGVhcwYW55IGNhcm5hbCBwbGVhcw</tdf:IVParams>
+         <tdf:AdditionalAuthenticatedData>5sA55IG49d5hbCBwbGVhcwa3</tdf:AdditionalAuthenticatedData>
+         <tdf:AuthenticationTag>B20abww4lLmNOqa43sas</tdf:AuthenticationTag>
+      </tdf:EncryptionMethod>
+   </tdf:EncryptionInformation>
+   <tdf:StringPayload tdf:isEncrypted="true">
+		ad32s9a
+	</tdf:StringPayload>
+</TrustedDataObject>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><sch:pattern xmlns:sch="http://purl.oclc.org/dsdl/schematron" abstract="true" id="AttributeContributesToRollupWithClassification">
+  <sch:p class="codeDesc">
+    If the document is an ISM_USGOV_RESOURCE, and the ISM_RESOURCE_ELEMENT 
+    specifies attribute ism:classification with a value of 
+    $resourceElementClassification an element meeting ISM_CONTRIBUTES
+    specifies attribute ism:$attrLocalName with a value containing the token
+    [$value], then this rule ensures that the ISM_RESOURCE_ELEMENT specifies the 
+    attribute ism:$attrLocalName with a value containing the token [$value].
+  </sch:p>
+  <sch:rule id="AttributeContributesToRollupWithClassification-R1" context="*[$ISM_USGOV_RESOURCE      and generate-id(.) = generate-id($ISM_RESOURCE_ELEMENT)      and util:containsAnyOfTheTokens(@ism:classification, ( '$resourceElementClassification' ))     and (some $ele in $partTags satisfies util:containsAnyOfTheTokens($ele/@ism:$attrLocalName, ('$value')))]">
+      <sch:assert test="util:containsAnyOfTheTokens(@ism:$attrLocalName, ('$value'))" flag="error" role="error">
+			      <sch:value-of select="$errorMessage"/>
+      </sch:assert>
+	  </sch:rule>
+</sch:pattern>

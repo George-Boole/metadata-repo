@@ -1,0 +1,55 @@
+# UNCLASSIFIED
+default namespace = "urn:us:gov:ic:cvenum:uias:handlingControls"
+CVEnumUIASHandlingControls.cve = list { 
+# (U) 
+"REL_ACGU"?, 
+# (U) 
+"SBU"?, 
+# (U) 
+"XD"?, 
+# (U) 
+"REL_FVEY"?, 
+# (U) 
+"REL_TEYE"?, 
+# (U) 
+"RS"?, 
+# (U) 
+"SSI"?, 
+# (U) 
+"SBU-NF"?, 
+# (U) 
+"USP"?, 
+# (U) 
+"REL"?, 
+# (U) 
+"USONLY"?, 
+# (U) 
+"DISPLAYONLY"?, 
+# (U) 
+"PR"?, 
+# (U) 
+"IMC"?, 
+# (U) 
+"DSEN"?, 
+# (U) 
+"DCNI"?, 
+# (U) 
+"UCNI"?, 
+# (U) 
+"FOUO"?, 
+# (U) 
+"FISA"?, 
+# (U) 
+"LES-NF"?, 
+# (U) 
+"LES"?, 
+# (U) 
+"DS"?, 
+# (U) 
+"NF"?, 
+# (U) 
+"ND"?, 
+# (U) 
+"OC"?, 
+# (U) 
+"RAWFISA"? } 

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Notices - Distribution Notice: 
+           This document has been approved for Public Release and is available for use without restriction.
+       -->
+<cve:CVE xmlns:cve="urn:us:gov:ic:cve"
+         xmlns:ism="urn:us:gov:ic:ism"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         ism:compliesWith="USGov USIC"
+         ism:ownerProducer="USA"
+         ism:classification="U"
+         ism:DESVersion="202111"
+         ism:ISMCATCESVersion="202205"
+         ism:resourceElement="true"
+         CVEVersion="2.1"
+         specVersion="202211"
+         ism:createDate="2011-09-01"
+         xsi:schemaLocation="urn:us:gov:ic:cve ../CveSchema/CVEXml.xsd">
+   <cve:IRM>
+      <URN xmlns="urn:us:gov:ic:cve">urn:us:gov:ic:cvenum:pm:subject</URN>
+      <Title xmlns="urn:us:gov:ic:cve"
+             ism:classification="U"
+             ism:ownerProducer="USA">CVEnumPMSubject</Title>
+      <Description xmlns="urn:us:gov:ic:cve"
+                   ism:classification="U"
+                   ism:ownerProducer="USA">Production Metrics Subject: Alpha-sort by Topic Title</Description>
+      <cve:Created>2022-11-01T17:20:53.148-04:00</cve:Created>
+      <Source xmlns="urn:us:gov:ic:cve"
+              ism:classification="U"
+              ism:ownerProducer="USA">Deputy Director of National Intelligence for Intelligence Integration (DDII)</Source>
+      <PointOfContact xmlns="urn:us:gov:ic:cve"
+                      ism:classification="U"
+                      ism:ownerProducer="USA">
+         <Name>Office IC CIO</Name>
+         <Email>ic-standards-support@odni.gov</Email>
+      </PointOfContact>
+   </cve:IRM>
+   <cve:Enumeration multivalue="false" ism:classification="U" ism:ownerProducer="USA">
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA" deprecated="2022-03-24">
+         <Value ism:classification="U" ism:ownerProducer="USA">ACTM</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Arms Control Treaty Monitoring</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA" deprecated="2019-03-04">
+         <Value ism:classification="U" ism:ownerProducer="USA">ACWP</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Advanced Conventional Weapons</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA"  deprecated="2014-06-12">
+         <Value ism:classification="U" ism:ownerProducer="USA">BASE</Value> 
+         <Description ism:classification="U" ism:ownerProducer="USA">Baseline</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">CBWD</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Weapons Development and Proliferation: Chemical and Biological</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">CHTC</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Conflict, Atrocities, and Humanitarian Crises</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">CINT</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Counterintelligence</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">CNRE</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Climate, Natural Resources, and Energy Security</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">CRIM</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Transnational Crime</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">CYBR</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Cyber Threats</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">DEMG</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Demographics, Migration, and Population Movements</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">DEPS</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Democracy, Political Stability, and Human Rights</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA" deprecated="2018-08-07">
+         <Value ism:classification="U" ism:ownerProducer="USA">DRUG</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Illicit Drugs</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA" deprecated="2016-11-01">
+         <Value ism:classification="U" ism:ownerProducer="USA">ECFS</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Economic Stability and Threat Finance</Description>
+      </Term>
+	  <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">ECON</Value>
+	     <Description ism:classification="U" ism:ownerProducer="USA">Economics, Trade, Investment, and Supply Chain Resilience</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA" deprecated="2022-03-24">
+         <Value ism:classification="U" ism:ownerProducer="USA">ENRF</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Environment, Natural Resources, and Food Security</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA" deprecated="2016-11-01">
+         <Value ism:classification="U" ism:ownerProducer="USA">ENVR</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Environment and Natural Resources</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA" deprecated="2022-03-24">
+         <Value ism:classification="U" ism:ownerProducer="USA">ESEC</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Energy Security</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA" deprecated="2018-08-07">
+         <Value ism:classification="U" ism:ownerProducer="USA">FDND</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Foreign Denial and Deception</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">FINT</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Interference and Influence Efforts</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">FMCC</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Foreign Military Combat Capabilities</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA" deprecated="2016-11-01">
+         <Value ism:classification="U" ism:ownerProducer="USA">FOOD</Value> 
+         <Description ism:classification="U" ism:ownerProducer="USA">Agriculture and Food Security</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">FPLD</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Foreign Policy and Leadership Intentions</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA" deprecated="2016-11-01">
+         <Value ism:classification="U" ism:ownerProducer="USA">FPOL</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Foreign Policy Objectives and Relations with the United States</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA" deprecated="2022-03-24">
+         <Value ism:classification="U" ism:ownerProducer="USA">HAPR</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Hostage and Personnel Recovery Support</Description> 
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">HLTH</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Infectious Disease and Health Security</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA" deprecated="2022-03-24">
+         <Value ism:classification="U" ism:ownerProducer="USA">HREL</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Humanitarian Disasters and Relief Operations</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA" deprecated="2022-03-24">
+         <Value ism:classification="U" ism:ownerProducer="USA">HRWC</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Human Rights and War Crimes</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA" deprecated="2018-08-07">
+         <Value ism:classification="U" ism:ownerProducer="USA">HSEC</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Homeland Security</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">INFR</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Foreign Civilian Critical Infrastructure</Description> 
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA" deprecated="2016-11-01">
+         <Value ism:classification="U" ism:ownerProducer="USA">LEAD</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Leadership Intentions</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve" 
+         ism:classification="U" 
+         ism:ownerProducer="USA" deprecated="2016-02-07">
+         <Value ism:classification="U" ism:ownerProducer="USA">POWS</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Prisoners of War and Missing in Action</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">SPCE</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Foreign Space Threats and Operations</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA" deprecated="2022-03-24">
+         <Value ism:classification="U" ism:ownerProducer="USA">SRCC</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Regional Conflict and Crises</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">STCM</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Strategic Competition</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">TECH</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Emerging and Disruptive Technologies</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">TERR</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Terrorism and Hostages</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">TFIN</Value> 
+         <Description ism:classification="U" ism:ownerProducer="USA">Threat Finance</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+            ism:classification="U"
+            ism:ownerProducer="USA" deprecated="2016-11-01">
+         <Value ism:classification="U" ism:ownerProducer="USA">TRAD</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">International Trade</Description>
+      </Term>   
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">WDPR</Value> 
+         <Description ism:classification="U" ism:ownerProducer="USA">Wrongful Detentions and Personnel Recovery</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA" deprecated="2019-03-04">
+         <Value ism:classification="U" ism:ownerProducer="USA">WMDB</Value> 
+         <Description ism:classification="U" ism:ownerProducer="USA">WMD-Biological</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA" deprecated="2019-03-04">
+         <Value ism:classification="U" ism:ownerProducer="USA">WMDC</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">WMD-Chemical</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA" deprecated="2019-03-04">
+         <Value ism:classification="U" ism:ownerProducer="USA">WMDM</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">WMD-Missiles</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA" >
+         <Value ism:classification="U" ism:ownerProducer="USA">WMDN</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Weapons Development and Proliferation: Nuclear</Description>
+      </Term>
+      <Term xmlns="urn:us:gov:ic:cve"
+         ism:classification="U"
+         ism:ownerProducer="USA">
+         <Value ism:classification="U" ism:ownerProducer="USA">WPNS</Value>
+         <Description ism:classification="U" ism:ownerProducer="USA">Weapons Development and Proliferation: Conventional</Description>
+      </Term>
+   </cve:Enumeration>
+</cve:CVE>

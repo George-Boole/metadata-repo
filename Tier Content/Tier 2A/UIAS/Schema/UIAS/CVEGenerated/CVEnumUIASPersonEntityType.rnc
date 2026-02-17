@@ -1,0 +1,9 @@
+# UNCLASSIFIED
+default namespace = "urn:us:gov:ic:cvenum:uias:personentitytype"
+CVEnumUIASPersonEntityType.cve = 
+# (U) 
+"CTR" | 
+# (U) 
+"GOV" | 
+# (U) 
+"MIL"

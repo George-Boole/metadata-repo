@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--UNCLASSIFIED-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         ns="urn:us:gov:ic:cvenum:virt:network">
+   <define name="CVEnumVIRTNetworkName.cve">
+      <choice>
+         <value>NIPRNet</value>
+         <value>SIPRNet</value>
+         <value>JWICS</value>
+         <value>ADSN</value>
+         <value>StoneGhost</value>
+         <value>LOCE</value>
+         <value>CRONOS</value>
+         <value>ACSS</value>
+         <value>IMIS</value>
+         <value>NSANET</value>
+         <value>QNET</value>
+         <value>5EE</value>
+         <value>BICES</value>
+         <value>CFBLNet</value>
+         <value>DDTE</value>
+         <value>other:\S{1,256}</value>
+      </choice>
+   </define>
+</grammar>
