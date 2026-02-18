@@ -1,0 +1,49 @@
+layer,field_key,requirement,source_standard,source_construct,netwrix_taxonomy_family,authoritative_required,notes
+IRM,irm.metacardInfo.identifier[],R,IRM,irm:metacardInfo/irm:identifier,MC_IRM_Identifiers,false,Metacard assertion identifiers
+IRM,irm.identifier[],R,IRM,irm:identifier,MC_IRM_Identifiers,false,Described asset identifiers
+IRM,irm.title[],R,IRM,irm:title,MC_IRM_Core,false,Primary resource titles
+IRM,irm.description,O,IRM,irm:description,MC_IRM_Core,false,Resource abstract/description
+IRM,irm.language[],O,IRM,irm:language,MC_IRM_Core,false,Language tags/codes
+IRM,irm.dates.created,C,IRM,irm:dates/@created,MC_IRM_Dates,false,Creation date when available
+IRM,irm.dates.posted,O,IRM,irm:dates/@posted,MC_IRM_Dates,false,Publication date in catalog
+IRM,irm.dates.validTil,O,IRM,irm:dates/@validTil,MC_IRM_Dates,false,Expiry/review date
+IRM,irm.pointOfContact[],R,IRM,irm:pointOfContact,MC_IRM_Contacts,false,At least one contact role required
+IRM,irm.format.mimeType,C,IRM,irm:format/irm:mimeType,MC_IRM_Format,false,Conditional when format present
+IRM,irm.subjectCoverage[],R,IRM,irm:subjectCoverage,MC_IRM_Coverage,false,Controlled subject coverage terms
+IRM,irm.relatedResource[],O,IRM,irm:relatedResource,MC_IRM_Relationships,false,Lineage/dependencies
+IRM,irm.compliesWith,R,IRM,irm:ICResourceMetadataPackage/@compliesWith,MC_IRM_Profile,false,Profile/ruleset declaration
+ISM,ism.classification,R,ISM,ism:@classification,MC_ISM_Core,true,Critical security field
+ISM,ism.ownerProducer,R,ISM,ism:@ownerProducer,MC_ISM_Core,true,Critical security field
+ISM,ism.disseminationControls,C,ISM,ism:@disseminationControls,MC_ISM_Controls,true,Conditional by policy
+ISM,ism.releasableTo,C,ISM,ism:@releasableTo,MC_ISM_Controls,true,REL policy constraints
+ISM,ism.nonUSControls,C,ISM,ism:@nonUSControls,MC_ISM_Controls,true,Foreign disclosure constraints
+ISM,ism.SCIcontrols,C,ISM,ism:@SCIcontrols,MC_ISM_Controls,true,SCI controls when applicable
+ISM,ism.SARIdentifier,C,ISM,ism:@SARIdentifier,MC_ISM_Controls,true,SAR handling constraints
+ISM,ism.cuiBasic,C,ISM,ism:@cuiBasic,MC_ISM_CUI,true,CUI core marker
+ISM,ism.cuiSpecified,C,ISM,ism:@cuiSpecified,MC_ISM_CUI,true,CUI specified categories
+ISM,ism.declassDate,C,ISM,ism:@declassDate,MC_ISM_Declass,true,Declassification date
+ISM,ism.declassEvent,C,ISM,ism:@declassEvent,MC_ISM_Declass,true,Declassification event
+ISM,ism.declassException,C,ISM,ism:@declassException,MC_ISM_Declass,true,Declassification exception
+ERM,erm.officeOfRecord,R,ERM,erm:OfficeOfRecord,MC_ERM_Core,true,Responsible records office
+ERM,erm.foiaOpsIndicator,O,ERM,erm:FoiaOpsIndicator,MC_ERM_FOIA,false,FOIA ops exclusion indicator
+ERM,erm.recordDesignationDate,C,ERM,erm:RecordDesignationDate,MC_ERM_Core,true,Date record designated
+ERM,erm.vitalRecordsIndicator,O,ERM,erm:VitalRecordsIndicator,MC_ERM_Core,false,Vital/essential record marker
+ERM,erm.disposition.reviewIndicator,R,ERM,erm:Disposition/erm:ReviewIndicator,MC_ERM_Disposition,true,Required review state
+ERM,erm.disposition.recordControl,C,ERM,erm:Disposition/erm:RecordControl,MC_ERM_Disposition,true,Retention control identifier
+ERM,erm.disposition.dateEligible,O,ERM,erm:Disposition/erm:DateEligible,MC_ERM_Disposition,false,Eligibility date
+ERM,erm.disposition.dateLimit,O,ERM,erm:Disposition/erm:DateLimit,MC_ERM_Disposition,false,Deadline date
+ERM,erm.disposition.hold[].type,C,ERM,erm:Hold/erm:Type,MC_ERM_Holds,true,Hold category
+ERM,erm.disposition.hold[].authorizer,C,ERM,erm:Hold/erm:Authorizer,MC_ERM_Holds,true,Hold authority
+ERM,erm.disposition.hold[].effectiveDate,C,ERM,erm:Hold/erm:EffectiveDate,MC_ERM_Holds,true,Hold effective date
+EDH,edh.identifier,R,EDH,edh:EdhType/icid:Identifier,MC_EDH_Core,true,Header identifier
+EDH,edh.dataItemCreateDateTime,R,EDH,edh:DataItemCreateDateTime,MC_EDH_Core,true,Item creation time
+EDH,edh.authorizationReference,O,EDH,edh:AuthorizationReference,MC_EDH_Core,true,Optional authority reference
+EDH,edh.responsibleEntity[],R,EDH,edh:ResponsibleEntity,MC_EDH_Entity,true,Must include one Custodian
+TDF,tdf.packageType,R,TDF,tdf:TrustedDataObject|tdf:TrustedDataCollection,MC_TDF_Core,false,Transport package root type
+TDF,tdf.assertion[],R,TDF,tdf:Assertion|tdf:HandlingAssertion,MC_TDF_Assertions,false,Assertion set
+TDF,tdf.binding[],C,TDF,tdf:Binding,MC_TDF_Binding,true,Conditional integrity/signature binding
+TDF,tdf.encryptionInformation[],C,TDF,tdf:EncryptionInformation,MC_TDF_Encryption,true,Conditional encryption metadata
+TDF,tdf.payload.type,R,TDF,tdf:PayloadGroup,MC_TDF_Payload,false,Payload representation
+UIAS,uias.entityType,O,UIAS,uias:@entityType,MC_UIAS_Core,false,Identity context (optional layer)
+UIAS,uias.clearance,O,UIAS,uias:@clearance,MC_UIAS_Core,true,Policy-integrated optional field
+UIAS,uias.authorityCategory,O,UIAS,uias:@authorityCategory,MC_UIAS_Core,false,Authority category context

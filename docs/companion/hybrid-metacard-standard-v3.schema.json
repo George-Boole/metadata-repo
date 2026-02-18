@@ -1,0 +1,175 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/hybrid-metacard-standard-v3.schema.json",
+  "title": "Hybrid Metacard Standard v3",
+  "type": "object",
+  "required": ["profile", "irm", "governance"],
+  "properties": {
+    "profile": {
+      "type": "object",
+      "required": ["metacardProfileId", "metacardProfileVersion"],
+      "properties": {
+        "metacardProfileId": { "const": "ORG-HYBRID-METACARD" },
+        "metacardProfileVersion": { "type": "string", "pattern": "^3\\.[0-9]+\\.[0-9]+$" },
+        "status": { "type": "string", "enum": ["Draft", "Validated", "Publishable", "Rejected"] }
+      },
+      "additionalProperties": true
+    },
+    "irm": {
+      "type": "object",
+      "required": ["metacardInfo", "identifier", "title", "compliesWith"],
+      "properties": {
+        "metacardInfo": {
+          "type": "object",
+          "required": ["identifier"],
+          "properties": {
+            "identifier": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "type": "string", "minLength": 1 }
+            }
+          },
+          "additionalProperties": true
+        },
+        "identifier": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "title": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "description": { "type": "string" },
+        "compliesWith": { "type": "string", "minLength": 1 },
+        "subjectCoverage": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      },
+      "additionalProperties": true
+    },
+    "ism": {
+      "type": "object",
+      "properties": {
+        "classification": { "type": "string", "minLength": 1 },
+        "ownerProducer": { "type": "string", "minLength": 1 },
+        "disseminationControls": { "type": "string" },
+        "releasableTo": { "type": "string" }
+      },
+      "allOf": [
+        {
+          "if": { "required": ["classification"] },
+          "then": { "required": ["ownerProducer"] }
+        }
+      ],
+      "additionalProperties": true
+    },
+    "erm": {
+      "type": "object",
+      "properties": {
+        "officeOfRecord": { "type": "string", "minLength": 1 },
+        "disposition": {
+          "type": "object",
+          "properties": {
+            "reviewIndicator": { "type": "boolean" },
+            "recordControl": { "type": "string" },
+            "hold": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": { "type": "string" },
+                  "authorizer": { "type": "string" },
+                  "effectiveDate": { "type": "string", "format": "date-time" }
+                },
+                "additionalProperties": true
+              }
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "edhBinding": {
+      "type": "object",
+      "properties": {
+        "identifier": { "type": "string" },
+        "dataItemCreateDateTime": { "type": "string", "format": "date-time" },
+        "responsibleEntity": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "role": { "type": "string", "enum": ["Custodian", "Originator"] },
+              "country": { "type": "string" },
+              "organization": { "type": "string" }
+            },
+            "required": ["role"],
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "tdfBinding": {
+      "type": "object",
+      "properties": {
+        "packageType": {
+          "type": "string",
+          "enum": ["TrustedDataObject", "TrustedDataCollection"]
+        },
+        "assertion": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" }
+        },
+        "binding": { "type": "array", "items": { "type": "object" } },
+        "encryptionInformation": { "type": "array", "items": { "type": "object" } }
+      },
+      "additionalProperties": true
+    },
+    "uiasContext": {
+      "type": "object",
+      "properties": {
+        "entityType": { "type": "string" },
+        "clearance": { "type": "string" },
+        "authorityCategory": { "type": "string" },
+        "role": { "type": "array", "items": { "type": "string" } },
+        "group": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": true
+    },
+    "governance": {
+      "type": "object",
+      "required": ["authoritativeSystem", "lastValidatedUtc"],
+      "properties": {
+        "authoritativeSystem": { "type": "string", "minLength": 1 },
+        "lastValidatedUtc": { "type": "string", "format": "date-time" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+      },
+      "additionalProperties": true
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "edhBinding": { "required": ["identifier"] }
+        },
+        "required": ["edhBinding"]
+      },
+      "then": {
+        "properties": {
+          "edhBinding": {
+            "required": ["identifier", "dataItemCreateDateTime", "responsibleEntity"]
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": false
+}
