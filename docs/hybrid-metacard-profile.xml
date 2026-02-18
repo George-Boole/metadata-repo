@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HybridMetacard xmlns="urn:example:hybrid-metacard"
+                xmlns:irm="urn:us:gov:ic:irm"
+                xmlns:ism="urn:us:gov:ic:ism"
+                xmlns:erm="urn:us:gov:ic:erm"
+                xmlns:edh="urn:us:gov:ic:edh"
+                xmlns:tdf="urn:us:gov:ic:tdf"
+                xmlns:icid="urn:us:gov:ic:id"
+                version="1.0.0">
+
+  <Profile name="Hybrid-Metacard-DoD-IC" classificationDomain="DoD+IC" minimumPublishable="true"/>
+
+  <Asset>
+    <irm:metacardInfo ism:classification="U" ism:ownerProducer="USA">
+      <irm:identifier irm:qualifier="IC-ID" irm:value="guide://9990/4A07150C-CD51-11E0-B0DC-FF99F5AFA469"/>
+      <irm:dates irm:created="2024-09-20T12:05:00Z"/>
+    </irm:metacardInfo>
+
+    <irm:identifier irm:qualifier="IC-ID" irm:value="guide://9990/4A07150C-CD51-11E0-B0DC-FF99F5AFA470"/>
+    <irm:title ism:classification="U" ism:ownerProducer="USA">Mission Report 25-002</irm:title>
+    <irm:description>Operational summary product prepared for enterprise distribution.</irm:description>
+    <irm:subjectCoverage>
+      <irm:keyword irm:value="ISR"/>
+      <irm:keyword irm:value="readiness"/>
+      <irm:keyword irm:value="reporting"/>
+    </irm:subjectCoverage>
+  </Asset>
+
+  <Security ism:classification="U"
+            ism:ownerProducer="USA"
+            ism:compliesWith="USGov USIC"
+            ism:createDate="2024-09-20"
+            ism:resourceElement="true"
+            ism:disseminationControls="FOUO"/>
+
+  <Records>
+    <erm:ElectronicRecordsManagementMetadata erm:DESVersion="201508">
+      <erm:FoiaOpsIndicator>false</erm:FoiaOpsIndicator>
+      <erm:OfficeOfRecord>
+        <edh:Country>USA</edh:Country>
+        <edh:Organization>NGA</edh:Organization>
+        <edh:SubOrganization>TCAG</edh:SubOrganization>
+      </erm:OfficeOfRecord>
+      <erm:RecordDesignationDate>2024-09-21T00:00:00Z</erm:RecordDesignationDate>
+      <erm:VitalRecordsIndicator>true</erm:VitalRecordsIndicator>
+      <erm:Disposition ism:classification="U" ism:ownerProducer="USA">
+        <erm:ReviewIndicator>true</erm:ReviewIndicator>
+        <erm:RecordControl>RCS-2024-001</erm:RecordControl>
+        <erm:DateEligible>2027-09-21</erm:DateEligible>
+      </erm:Disposition>
+    </erm:ElectronicRecordsManagementMetadata>
+  </Records>
+
+  <Transport>
+    <edh:Edh>
+      <icid:Identifier>guide://999001/ExampleAsset</icid:Identifier>
+      <edh:DataItemCreateDateTime>2024-09-20T12:05:00Z</edh:DataItemCreateDateTime>
+      <edh:AuthorizationReference>AuthRef-2024-77</edh:AuthorizationReference>
+      <edh:ResponsibleEntity edh:role="Custodian">
+        <edh:Country>USA</edh:Country>
+        <edh:Organization>NGA</edh:Organization>
+      </edh:ResponsibleEntity>
+    </edh:Edh>
+
+    <tdf:Binding>
+      <tdf:Signer tdf:subject="CN=Mission Custodian, O=Example Org, C=US"
+                  tdf:issuer="CN=Example IC PKI CA, C=US"/>
+      <tdf:SignatureValue tdf:signatureAlgorithm="SHA256withECDSA"
+                          tdf:normalizationMethod="urn:example:xml-c14n11"
+                          tdf:includesStatementMetadata="false">BASE64_SIGNATURE_PLACEHOLDER</tdf:SignatureValue>
+    </tdf:Binding>
+
+    <tdf:ReferenceValuePayload tdf:uri="guide://9990/payload/mission-report-25-002"/>
+  </Transport>
+
+</HybridMetacard>

@@ -1,0 +1,81 @@
+{
+  "profile": {
+    "name": "Hybrid-Metacard-DoD-IC",
+    "version": "1.0.0",
+    "classificationDomain": "DoD+IC",
+    "minimumPublishable": true
+  },
+  "asset": {
+    "metacard": {
+      "identifiers": [
+        { "qualifier": "IC-ID", "value": "guide://9990/4A07150C-CD51-11E0-B0DC-FF99F5AFA469" }
+      ],
+      "dates": {
+        "created": "2024-09-20T12:05:00Z"
+      }
+    },
+    "resource": {
+      "identifiers": [
+        { "qualifier": "IC-ID", "value": "guide://9990/4A07150C-CD51-11E0-B0DC-FF99F5AFA470" }
+      ],
+      "title": "Mission Report 25-002",
+      "description": "Operational summary product prepared for enterprise distribution.",
+      "subjectKeywords": ["ISR", "readiness", "reporting"],
+      "mimeType": "application/pdf",
+      "language": "eng"
+    }
+  },
+  "security": {
+    "classification": "U",
+    "ownerProducer": ["USA"],
+    "compliesWith": ["USGov", "USIC"],
+    "createDate": "2024-09-20",
+    "resourceElement": true,
+    "disseminationControls": ["FOUO"]
+  },
+  "records": {
+    "foiaOpsIndicator": false,
+    "officeOfRecord": {
+      "country": "USA",
+      "organization": "NGA",
+      "subOrganization": "TCAG"
+    },
+    "recordDesignationDate": "2024-09-21T00:00:00Z",
+    "vitalRecordsIndicator": true,
+    "disposition": {
+      "reviewIndicator": true,
+      "recordControl": "RCS-2024-001",
+      "dateEligible": "2027-09-21"
+    }
+  },
+  "transport": {
+    "edh": {
+      "identifier": "guide://999001/ExampleAsset",
+      "dataItemCreateDateTime": "2024-09-20T12:05:00Z",
+      "authorizationReference": "AuthRef-2024-77",
+      "responsibleEntityCustodian": {
+        "country": "USA",
+        "organization": "NGA"
+      }
+    },
+    "tdf": {
+      "version": "202111-IC-TDF.202111",
+      "scope": "BOTH",
+      "binding": {
+        "signerSubject": "CN=Mission Custodian, O=Example Org, C=US",
+        "signerIssuer": "CN=Example IC PKI CA, C=US",
+        "signatureAlgorithm": "SHA256withECDSA",
+        "normalizationMethod": "urn:example:xml-c14n11",
+        "includesStatementMetadata": false,
+        "referencePayloadUri": "guide://9990/payload/mission-report-25-002"
+      }
+    }
+  },
+  "quality": {
+    "sourceSystem": "Netwrix Data Classification",
+    "extractedAt": "2026-02-18T12:00:00Z",
+    "completenessStatus": "minimum",
+    "confidence": 0.92,
+    "validationErrors": []
+  }
+}

@@ -1,0 +1,36 @@
+taxonomy_group,taxonomy_name,hybrid_field,standard_source,canonical_path,rule_type,priority,required_for_minimum,notes
+IRM,mc_irm_discovery.asset_identifier,asset.resource.identifiers[].value,IRM,irm:identifier/@irm:value,regex+metadata,high,yes,Accept IC-ID URI and local IDs
+IRM,mc_irm_discovery.metacard_identifier,asset.metacard.identifiers[].value,IRM,irm:metacardInfo/irm:identifier/@irm:value,regex+metadata,high,yes,Metadata-card identifier
+IRM,mc_irm_discovery.created_datetime,asset.metacard.dates.created,IRM,irm:metacardInfo/irm:dates/@irm:created,pattern+datetime parse,high,yes,Normalize to UTC RFC3339
+IRM,mc_irm_discovery.title,asset.resource.title,IRM,irm:title,text extraction+metadata,high,yes,Prefer embedded doc properties over body inference
+IRM,mc_irm_discovery.subject_keywords,asset.resource.subjectKeywords[],IRM,irm:subjectCoverage/irm:keyword/@irm:value,dictionary+nlp,medium,yes,Must return at least one keyword
+IRM,mc_irm_discovery.description,asset.resource.description,IRM,irm:description,text extraction,medium,no,Optional but strongly recommended
+IRM,mc_irm_discovery.mime_type,asset.resource.mimeType,IRM,irm:format/irm:mimeType,system metadata,high,no,Use scanner mime detector
+ISM,mc_ism_marking.classification,security.classification,ISM,ism:classification,dictionary+regex+cooccurrence,critical,yes,Require ownerProducer co-detection or approval
+ISM,mc_ism_marking.owner_producer,security.ownerProducer[],ISM,ism:ownerProducer,dictionary,critical,yes,Allow multiple owner producers
+ISM,mc_ism_marking.complies_with,security.compliesWith[],ISM,ism:compliesWith,dictionary,high,yes,Default baseline USGov and USIC unless overridden
+ISM,mc_ism_marking.create_date,security.createDate,ISM,ism:createDate,datetime parse,high,yes,Date only
+ISM,mc_ism_marking.resource_element,security.resourceElement,ISM,ism:resourceElement,derived boolean,high,yes,Set true for resource-level cards
+ISM,mc_ism_marking.dissem_controls,security.disseminationControls[],ISM,ism:disseminationControls,dictionary+policy map,high,no,Policy-sensitive; usually reviewer gate
+ISM,mc_ism_marking.releasable_to,security.releasableTo[],ISM,ism:releasableTo,dictionary,medium,no,Controlled list values only
+ERM,mc_erm_records.office_country,records.officeOfRecord.country,ERM+EDH,erm:OfficeOfRecord/edh:Country,metadata+dictionary,high,yes,Required ERM office field
+ERM,mc_erm_records.office_org,records.officeOfRecord.organization,ERM+EDH,erm:OfficeOfRecord/edh:Organization,metadata+dictionary,high,yes,Required ERM office field
+ERM,mc_erm_records.review_indicator,records.disposition.reviewIndicator,ERM,erm:Disposition/erm:ReviewIndicator,policy default+workflow,critical,yes,Human-attested if missing
+ERM,mc_erm_records.record_control,records.disposition.recordControl,ERM,erm:Disposition/erm:RecordControl,regex+lookup,high,no,Agency/NARA schedule reference
+ERM,mc_erm_records.date_eligible,records.disposition.dateEligible,ERM,erm:Disposition/erm:DateEligible,datetime parse,medium,no,Date only
+ERM,mc_erm_records.hold_identifier,records.disposition.hold[].identifier,ERM,erm:Disposition/erm:Hold/erm:Identifier,regex+workflow,critical,no,High-impact legal data; reviewer required
+EDH,mc_edh_header.identifier,transport.edh.identifier,IC-EDH,icid:Identifier,regex+metadata,high,yes,Often sourced from IC-ID mapping
+EDH,mc_edh_header.item_create_datetime,transport.edh.dataItemCreateDateTime,IC-EDH,edh:DataItemCreateDateTime,datetime parse,high,yes,Required for EDH readiness
+EDH,mc_edh_header.custodian_country,transport.edh.responsibleEntityCustodian.country,IC-EDH,edh:ResponsibleEntity[@edh:role='Custodian']/edh:Country,metadata+dictionary,high,yes,Must exist exactly once in final EDH
+EDH,mc_edh_header.custodian_org,transport.edh.responsibleEntityCustodian.organization,IC-EDH,edh:ResponsibleEntity[@edh:role='Custodian']/edh:Organization,metadata+dictionary,high,yes,Must exist exactly once in final EDH
+EDH,mc_edh_header.authorization_reference,transport.edh.authorizationReference,IC-EDH,edh:AuthorizationReference,text+metadata,medium,no,Optional but useful for traceability
+TDF,mc_tdf_binding.version,transport.tdf.version,IC-TDF,tdf:TrustedDataObject/@tdf:version,policy default+mapper,high,yes,Version controlled centrally
+TDF,mc_tdf_binding.signature_algorithm,transport.tdf.binding.signatureAlgorithm,IC-TDF,tdf:SignatureValue/@tdf:signatureAlgorithm,policy map,critical,yes,Pick from approved algorithm list
+TDF,mc_tdf_binding.normalization_method,transport.tdf.binding.normalizationMethod,IC-TDF,tdf:SignatureValue/@tdf:normalizationMethod,policy map,critical,yes,Must be explicit for verification
+TDF,mc_tdf_binding.signer_subject,transport.tdf.binding.signerSubject,IC-TDF,tdf:Signer/@tdf:subject,pki metadata,high,no,Inject from signer identity service
+TDF,mc_tdf_binding.signer_issuer,transport.tdf.binding.signerIssuer,IC-TDF,tdf:Signer/@tdf:issuer,pki metadata,high,no,Inject from certificate chain
+TDF,mc_tdf_binding.reference_payload_uri,transport.tdf.binding.referencePayloadUri,IC-TDF,tdf:ReferenceValuePayload/@tdf:uri,uri parse,high,no,Optional for reference payload model
+QUALITY,mc_quality.source_system,quality.sourceSystem,Profile,quality.sourceSystem,system constant,high,yes,Set to Netwrix deployment name
+QUALITY,mc_quality.extracted_at,quality.extractedAt,Profile,quality.extractedAt,system timestamp,high,yes,UTC timestamp of extraction
+QUALITY,mc_quality.completeness_status,quality.completenessStatus,Profile,quality.completenessStatus,derived rule,high,yes,"minimum|extended|incomplete"
+QUALITY,mc_quality.confidence,quality.confidence,Profile,quality.confidence,derived scoring,medium,no,0..1 score for downstream triage
