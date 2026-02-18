@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/hybrid-metacard-standard-v2.schema.json",
+  "title": "ORG Hybrid Metacard Standard v2.0",
+  "type": "object",
+  "required": [
+    "profile_id",
+    "metacard_id",
+    "metacard_version",
+    "created_at",
+    "updated_at",
+    "source_system",
+    "asset_locator",
+    "asset_fingerprint",
+    "irm",
+    "ism",
+    "erm",
+    "provenance"
+  ],
+  "properties": {
+    "profile_id": { "const": "ORG-HYBRID-METACARD-2.0" },
+    "metacard_id": { "type": "string", "format": "uuid" },
+    "metacard_version": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" },
+    "source_system": { "type": "string", "minLength": 1 },
+    "asset_locator": { "type": "string", "minLength": 1 },
+    "asset_fingerprint": {
+      "type": "object",
+      "required": ["hash", "size_bytes", "mime_type"],
+      "properties": {
+        "hash": { "type": "string", "minLength": 1 },
+        "size_bytes": { "type": "integer", "minimum": 0 },
+        "mime_type": { "type": "string", "minLength": 1 },
+        "extension": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "irm": {
+      "type": "object",
+      "required": [
+        "identifier",
+        "title",
+        "creator",
+        "publisher",
+        "contributor",
+        "point_of_contact",
+        "subject_coverage",
+        "metacard_info"
+      ],
+      "properties": {
+        "identifier": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "title": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "creator": { "type": "array", "minItems": 1, "items": { "type": "object" } },
+        "publisher": { "type": "array", "minItems": 1, "items": { "type": "object" } },
+        "contributor": { "type": "array", "minItems": 1, "items": { "type": "object" } },
+        "point_of_contact": { "type": "array", "minItems": 1, "items": { "type": "object" } },
+        "subject_coverage": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "metacard_info": {
+          "type": "object",
+          "required": ["identifier", "dates"],
+          "properties": {
+            "identifier": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+            "dates": { "type": "object" }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "ism": {
+      "type": "object",
+      "required": ["classification", "owner_producer"],
+      "properties": {
+        "classification": { "type": "string", "minLength": 1 },
+        "owner_producer": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+      },
+      "additionalProperties": true
+    },
+    "erm": {
+      "type": "object",
+      "required": ["office_of_record", "disposition"],
+      "properties": {
+        "office_of_record": { "type": "object" },
+        "disposition": {
+          "type": "object",
+          "required": ["review_indicator"],
+          "properties": {
+            "review_indicator": { "type": "boolean" }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "edh": { "type": "object" },
+    "tdf": { "type": "object" },
+    "uais": { "type": "object" },
+    "provenance": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["field", "source_type", "source_system", "confidence", "timestamp"],
+        "properties": {
+          "field": { "type": "string" },
+          "source_type": {
+            "type": "string",
+            "enum": [
+              "authoritative_embedded",
+              "authoritative_external",
+              "scanner_extracted",
+              "taxonomy_inferred"
+            ]
+          },
+          "source_system": { "type": "string" },
+          "rule_id": { "type": "string" },
+          "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+          "timestamp": { "type": "string", "format": "date-time" }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}
