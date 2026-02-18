@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/hybrid-metacard-standard-v1.schema.json",
+  "title": "Hybrid Metacard Standard v1",
+  "type": "object",
+  "required": ["core", "discovery", "security", "records", "bindings", "quality"],
+  "properties": {
+    "core": {
+      "type": "object",
+      "required": ["metacardId", "resourceId", "schemaVersion", "createdDateTime"],
+      "properties": {
+        "metacardId": {"type": "string", "format": "uuid"},
+        "resourceId": {"type": "string", "minLength": 1},
+        "resourceVersion": {"type": ["string", "null"]},
+        "schemaVersion": {"type": "string", "const": "HMS-1.0"},
+        "profileVersion": {"type": ["string", "null"]},
+        "createdDateTime": {"type": "string", "format": "date-time"},
+        "lastUpdatedDateTime": {"type": ["string", "null"], "format": "date-time"},
+        "originSystem": {"type": ["string", "null"]},
+        "custodianOrg": {"type": ["string", "null"]}
+      },
+      "additionalProperties": true
+    },
+    "discovery": {
+      "type": "object",
+      "required": ["identifier", "title"],
+      "properties": {
+        "identifier": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["value"],
+            "properties": {
+              "qualifier": {"type": ["string", "null"]},
+              "value": {"type": "string", "minLength": 1}
+            },
+            "additionalProperties": true
+          }
+        },
+        "title": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["value"],
+            "properties": {
+              "value": {"type": "string", "minLength": 1},
+              "lang": {"type": ["string", "null"]}
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "security": {
+      "type": "object",
+      "required": ["classification", "ownerProducer"],
+      "properties": {
+        "classification": {"type": "string", "minLength": 1},
+        "ownerProducer": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        }
+      },
+      "additionalProperties": true
+    },
+    "records": {
+      "type": "object",
+      "required": ["OfficeOfRecord", "Disposition"],
+      "properties": {
+        "OfficeOfRecord": {"type": "object"},
+        "Disposition": {
+          "type": "object",
+          "required": ["ReviewIndicator"],
+          "properties": {
+            "ReviewIndicator": {"type": "boolean"}
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "bindings": {
+      "type": "object",
+      "required": ["edh", "tdf"],
+      "properties": {
+        "edh": {"type": "object"},
+        "tdf": {"type": "object"}
+      },
+      "additionalProperties": true
+    },
+    "identity": {"type": "object"},
+    "quality": {
+      "type": "object",
+      "required": ["validationState"],
+      "properties": {
+        "validationState": {
+          "type": "string",
+          "enum": ["PENDING", "VALID", "INVALID", "REVIEW_REQUIRED"]
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}
