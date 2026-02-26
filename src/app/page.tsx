@@ -13,7 +13,7 @@ export default function Home() {
     <div className="min-h-screen">
       {/* ── Hero Section ──────────────────────────────────────── */}
       <section className="bg-gradient-to-br from-daf-navy via-daf-blue to-daf-navy text-white">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
           <div className="text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-white/60">
               Department of the Air Force
@@ -25,6 +25,21 @@ export default function Home() {
               Centralized catalog of metadata standards, guidance, and tooling
               for the Department of the Air Force
             </p>
+            <div className="mt-6 flex items-center justify-center gap-3">
+              <Link
+                href="/standards-brain"
+                className="inline-flex items-center gap-2 rounded-full bg-brain px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition hover:bg-brain/90 hover:shadow-xl hover:scale-[1.03]"
+              >
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z" />
+                </svg>
+                Ask the Standards Brain
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </Link>
+              <span className="text-xs text-white/50">Concept Demo</span>
+            </div>
           </div>
         </div>
       </section>

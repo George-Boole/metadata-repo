@@ -24,6 +24,8 @@ metadata-repo/
 │   │   ├── specs/        # Tier 2A: Technical specifications
 │   │   ├── profiles/     # Tier 2B: Domain profiles
 │   │   ├── tools/        # Tier 3: Tagging/labeling tools
+│   │   ├── ontologies/   # Ontologies section
+│   │   ├── standards-brain/ # AI chatbot concept demo
 │   │   ├── api-explorer/ # API concept demo page
 │   │   └── search/       # Global search results
 │   ├── components/       # Shared React components
@@ -31,7 +33,8 @@ metadata-repo/
 │   │   ├── guidance.json
 │   │   ├── specs.json
 │   │   ├── profiles.json
-│   │   └── tools.json
+│   │   ├── tools.json
+│   │   └── ontologies.json
 │   ├── lib/              # Utility functions, types, search logic
 │   └── types/            # TypeScript type definitions
 ├── public/               # Static assets (logos, icons)
@@ -57,9 +60,9 @@ metadata-repo/
 4. **Tier 3 — Tagging/Labeling Tools**: Tools that apply metadata standards to data (DCAMPS-C, Purview, Varonis, Collibra). NOT metadata catalog tools.
 
 ## Current State
-- **Phase**: All core features implemented. Ready for visual review and polish.
-- **Last Completed**: All 8 user stories (US-001 through US-008) implemented via agent teaming. 39 pages, build clean, lint clean.
-- **Next**: Visual review, cross-tier link verification (US-005), polish, and deployment prep
+- **Phase**: Post-implementation polish. Ontologies section and Standards Brain chatbot added. Hero compacted with prominent Standards Brain CTA.
+- **Last Completed**: Compact hero + Standards Brain CTA pill on landing page. Ontologies section (session 5), Standards Brain AI chatbot (session 5).
+- **Next**: Visual polish, cross-tier link verification (US-005), replace fictional Tier 2B profiles with real data, deployment prep
 
 ## Autonomy Rules
 Claude operates at MAXIMUM autonomy **within this repository**:
@@ -107,11 +110,21 @@ Claude operates at MAXIMUM autonomy **within this repository**:
 - **Types**: Centralize shared types in `@/types/`
 - **Commit messages**: `type: description` (feat/fix/chore/test/docs/style)
 
-## Agent Teaming (Planned)
-This project is intended to use Claude Code agent teaming when available. The CLAUDE.md, SESSION_LOG.md, and task structure are designed to support multiple agents working on different features concurrently. When teaming is enabled:
-- Agents should read CLAUDE.md and SESSION_LOG.md before starting work
-- Agents should claim tasks via TaskCreate/TaskUpdate before working on them
-- Agents should avoid conflicting file edits by working on separate features/pages
+## Agent Teaming
+This project actively uses Claude Code multiagent teams (TeamCreate + Task tool) for parallelizable work. Use teams when:
+- A task can be decomposed into 3+ independent subtasks (e.g., editing separate pages/components)
+- Multiple data files or sections need simultaneous updates
+- Research + implementation can proceed in parallel
+
+**When NOT to use teams**: Single-file edits, sequential tasks with tight dependencies, quick fixes.
+
+### Team Protocol
+- Create a team with `TeamCreate`, create tasks with `TaskCreate`, spawn agents with `Task` tool (set `team_name` and `name`)
+- Each agent works in isolation via `isolation: "worktree"` when editing overlapping files
+- Agents read CLAUDE.md and SESSION_LOG.md before starting work
+- Agents claim tasks via TaskUpdate before working on them
+- Agents avoid conflicting file edits by working on separate features/pages
+- Leader verifies build passes after merging all agent work
 
 ## Context Window Management
 

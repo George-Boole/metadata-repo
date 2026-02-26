@@ -114,3 +114,43 @@
 - All styling rendering correctly
 - `start-dev.bat` now cleans cache on startup for reliable launches
 - Pushed to GitHub (George-Boole/metadata-repo)
+
+## Session 5 — 2026-02-25
+**Focus**: New features — Ontologies section, Standards Brain chatbot, hero polish
+
+### Accomplished
+- Added Ontologies section (`src/app/ontologies/`) with list page and detail pages
+- Created `src/data/ontologies.json` with real-world ontology data (OWL, RDF/RDFS, SKOS, DCAT, etc.)
+- Added Standards Brain AI chatbot concept demo (`src/app/standards-brain/`)
+- Updated navbar with Ontologies and Standards Brain links
+- Updated dashboard stats bar with ontologies count
+- Updated browse cards with Ontologies and Standards Brain cards
+- Updated search to index ontologies
+- Added `bg-brain` and `bg-ontology` theme colors
+- **Hero section compacted** — reduced vertical padding from `py-16/20/24` to `py-10/12/14`
+- **Standards Brain CTA pill** — prominent indigo pill button with sparkle icon added below hero subtitle, making Standards Brain the first interactive element users see
+- Fixed stale `.next` cache runtime error (cleared cache and rebuilt)
+
+### Key Decisions
+- Standards Brain is a concept demo (no real AI backend) — shows mock Q&A interface
+- Ontologies treated as a standalone section (not part of the three-tier model)
+- Hero CTA uses `bg-brain` indigo color to visually connect with Standards Brain branding
+
+### Status at End
+- Build clean, all pages rendering correctly
+- Hero is tighter with prominent Standards Brain CTA
+- Pushed to GitHub
+
+## Session 6 — 2026-02-25
+**Focus**: Documentation updates and CLAUDE.md multiagent team guidance
+
+### Accomplished
+- Updated CLAUDE.md "Current State" to reflect post-implementation polish phase
+- Updated CLAUDE.md project structure to include ontologies and standards-brain routes
+- Replaced "Agent Teaming (Planned)" section with active multiagent team guidance — when to use teams, team protocol, worktree isolation
+- Updated SESSION_LOG.md with sessions 5 and 6
+- Updated CHECKPOINT.md with current state
+
+### Status at End
+- All documentation current
+- Committed and pushed to GitHub
