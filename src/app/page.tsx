@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getGuidance, getSpecs, getProfiles, getTools } from "@/lib/data";
+import { getGuidance, getSpecs, getProfiles, getTools, getOntologies } from "@/lib/data";
 import { HostingBadge } from "@/components/Badge";
 
 export default function Home() {
@@ -7,6 +7,7 @@ export default function Home() {
   const specs = getSpecs();
   const profiles = getProfiles();
   const tools = getTools();
+  const ontologies = getOntologies();
 
   return (
     <div className="min-h-screen">
@@ -31,7 +32,7 @@ export default function Home() {
       {/* ── Summary Statistics Bar ────────────────────────────── */}
       <section className="-mt-6 relative z-10">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-5 sm:gap-4">
             <Link href="/guidance" className="rounded-lg border-l-4 border-tier-1 bg-white p-4 shadow-md transition hover:shadow-lg hover:scale-[1.02]">
               <p className="text-3xl font-bold text-tier-1">{guidance.length}</p>
               <p className="mt-1 text-sm font-medium text-daf-dark-gray">
@@ -54,6 +55,12 @@ export default function Home() {
               <p className="text-3xl font-bold text-tier-3">{tools.length}</p>
               <p className="mt-1 text-sm font-medium text-daf-dark-gray">
                 Tagging Tools
+              </p>
+            </Link>
+            <Link href="/ontologies" className="rounded-lg border-l-4 border-ontology bg-white p-4 shadow-md transition hover:shadow-lg hover:scale-[1.02]">
+              <p className="text-3xl font-bold text-ontology">{ontologies.length}</p>
+              <p className="mt-1 text-sm font-medium text-daf-dark-gray">
+                Ontologies
               </p>
             </Link>
           </div>
@@ -315,6 +322,33 @@ export default function Home() {
               </p>
             </Link>
 
+            {/* Ontologies Card */}
+            <Link
+              href="/ontologies"
+              className="group rounded-lg border border-gray-200 p-6 transition hover:border-ontology/50 hover:shadow-lg"
+            >
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-ontology-bg">
+                  <svg className="h-5 w-5 text-ontology" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-daf-dark-gray group-hover:text-ontology">
+                    Ontologies
+                  </h3>
+                  <p className="text-sm text-daf-gray">Standalone</p>
+                </div>
+              </div>
+              <p className="mt-3 text-sm text-daf-dark-gray">
+                Formal knowledge representations &mdash; domain ontologies, foundational
+                languages, and vocabulary registries for semantic interoperability.
+              </p>
+              <p className="mt-3 text-sm font-semibold text-ontology">
+                {ontologies.length} ontologies &rarr;
+              </p>
+            </Link>
+
             {/* API Explorer Card */}
             <Link
               href="/api-explorer"
@@ -338,6 +372,33 @@ export default function Home() {
                 repository programmatically for system-to-system integration.
               </p>
               <p className="mt-3 text-sm font-semibold text-daf-light-blue">
+                Try it out &rarr;
+              </p>
+            </Link>
+
+            {/* Standards Brain Card */}
+            <Link
+              href="/standards-brain"
+              className="group rounded-lg border border-gray-200 p-6 transition hover:border-brain/50 hover:shadow-lg"
+            >
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brain-bg">
+                  <svg className="h-5 w-5 text-brain" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-daf-dark-gray group-hover:text-brain">
+                    Standards Brain
+                  </h3>
+                  <p className="text-sm text-daf-gray">AI Assistant</p>
+                </div>
+              </div>
+              <p className="mt-3 text-sm text-daf-dark-gray">
+                Ask questions about any standard, guidance, or tool &mdash; get
+                instant, contextual answers backed by the full repository.
+              </p>
+              <p className="mt-3 text-sm font-semibold text-brain">
                 Try it out &rarr;
               </p>
             </Link>

@@ -10,7 +10,9 @@ const NAV_LINKS = [
   { href: "/specs", label: "Specifications" },
   { href: "/profiles", label: "Profiles" },
   { href: "/tools", label: "Tools" },
+  { href: "/ontologies", label: "Ontologies" },
   { href: "/api-explorer", label: "API Explorer" },
+  { href: "/standards-brain", label: "Standards Brain" },
 ];
 
 export default function Navbar() {

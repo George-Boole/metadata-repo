@@ -7,6 +7,7 @@ const TIER_BORDER: Record<TierId, string> = {
   "2A": "border-l-tier-2a",
   "2B": "border-l-tier-2b",
   "3":  "border-l-tier-3",
+  "ontology": "border-l-ontology",
 };
 
 interface ArtifactCardProps {

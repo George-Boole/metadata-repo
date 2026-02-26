@@ -58,8 +58,19 @@ export interface TaggingTool extends BaseArtifact {
   integrationNotes?: string;
 }
 
+/** Ontology — standalone section (not part of tier hierarchy) */
+export interface Ontology extends BaseArtifact {
+  tier: "ontology";
+  version: string;
+  managingOrganization: string;
+  ontologyType: "domain" | "foundational" | "repository" | "internal";
+  format?: string; // OWL, SKOS, RDF, etc.
+  domain?: string;
+  relatedSpecIds: string[]; // links to Tier 2A specs
+}
+
 /** Union type for any artifact */
-export type Artifact = GuidanceDocument | TechnicalSpec | DomainProfile | TaggingTool;
+export type Artifact = GuidanceDocument | TechnicalSpec | DomainProfile | TaggingTool | Ontology;
 
 /** Tier labels for display */
 export const TIER_LABELS = {
@@ -67,6 +78,7 @@ export const TIER_LABELS = {
   "2A": "Technical Specifications",
   "2B": "Domain Profiles",
   "3": "Tagging & Labeling Tools",
+  "ontology": "Ontologies",
 } as const;
 
 export type TierId = keyof typeof TIER_LABELS;

@@ -3,6 +3,7 @@ import type {
   TechnicalSpec,
   DomainProfile,
   TaggingTool,
+  Ontology,
   Artifact,
 } from "@/types";
 
@@ -10,6 +11,7 @@ import guidanceData from "@/data/guidance.json";
 import specsData from "@/data/specs.json";
 import profilesData from "@/data/profiles.json";
 import toolsData from "@/data/tools.json";
+import ontologiesData from "@/data/ontologies.json";
 
 /* ── Typed getters for each tier ────────────────────────────── */
 
@@ -29,6 +31,10 @@ export function getTools(): TaggingTool[] {
   return toolsData as TaggingTool[];
 }
 
+export function getOntologies(): Ontology[] {
+  return ontologiesData as Ontology[];
+}
+
 /* ── Single-item lookups by ID ──────────────────────────────── */
 
 export function getGuidanceById(id: string): GuidanceDocument | undefined {
@@ -45,6 +51,10 @@ export function getProfileById(id: string): DomainProfile | undefined {
 
 export function getToolById(id: string): TaggingTool | undefined {
   return getTools().find((t) => t.id === id);
+}
+
+export function getOntologyById(id: string): Ontology | undefined {
+  return getOntologies().find((o) => o.id === id);
 }
 
 /* ── Cross-reference lookups ────────────────────────────────── */
@@ -85,6 +95,18 @@ export function getSubSpecs(parentSpecId: string): TechnicalSpec[] {
   return getSpecs().filter((s) => s.parentSpecId === parentSpecId);
 }
 
+export function getOntologiesForSpec(specId: string): Ontology[] {
+  return getOntologies().filter((o) => o.relatedSpecIds.includes(specId));
+}
+
+export function getSpecsForOntology(ontologyId: string): TechnicalSpec[] {
+  const ontology = getOntologyById(ontologyId);
+  if (!ontology) return [];
+  return ontology.relatedSpecIds
+    .map((id) => getSpecById(id))
+    .filter((s): s is TechnicalSpec => s !== undefined);
+}
+
 /* ── Union of all artifacts (for global search) ─────────────── */
 
 export function getAllArtifacts(): Artifact[] {
@@ -93,5 +115,6 @@ export function getAllArtifacts(): Artifact[] {
     ...getSpecs(),
     ...getProfiles(),
     ...getTools(),
+    ...getOntologies(),
   ];
 }

@@ -8,14 +8,18 @@ const TIER_STYLES: Record<TierId, string> = {
   "2A": "bg-tier-2a-bg text-tier-2a",
   "2B": "bg-tier-2b-bg text-tier-2b",
   "3":  "bg-tier-3-bg text-tier-3",
+  "ontology": "bg-ontology-bg text-ontology",
 };
 
 export function TierBadge({ tier }: { tier: TierId }) {
+  const label = tier === "ontology"
+    ? TIER_LABELS[tier]
+    : `Tier ${tier} — ${TIER_LABELS[tier]}`;
   return (
     <span
       className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${TIER_STYLES[tier]}`}
     >
-      Tier {tier} — {TIER_LABELS[tier]}
+      {label}
     </span>
   );
 }

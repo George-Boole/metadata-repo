@@ -21,6 +21,14 @@
   --color-tier-2a-bg: #D1FAE5;
   --color-tier-2b-bg: #FEF3C7;
   --color-tier-3-bg: #EDE9FE;
+
+  /* Ontology Colors */
+  --color-ontology: #0D9488;
+  --color-ontology-bg: #CCFBF1;
+
+  /* Standards Brain Colors */
+  --color-brain: #6366F1;
+  --color-brain-bg: #EEF2FF;
 }
 
 body {

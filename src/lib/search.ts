@@ -1,4 +1,4 @@
-import type { Artifact, GuidanceDocument, TechnicalSpec, DomainProfile, TaggingTool } from "@/types";
+import type { Artifact, GuidanceDocument, TechnicalSpec, DomainProfile, TaggingTool, Ontology } from "@/types";
 import { getAllArtifacts } from "@/lib/data";
 
 export interface SearchResult {
@@ -111,6 +111,26 @@ export function searchArtifacts(query: string): SearchResult[] {
         if (t.licenseType.toLowerCase().includes(q)) {
           score += 10;
           matchedFields.push("licenseType");
+        }
+        break;
+      }
+      case "ontology": {
+        const o = artifact as Ontology;
+        if (o.managingOrganization.toLowerCase().includes(q)) {
+          score += 10;
+          matchedFields.push("managingOrganization");
+        }
+        if (o.ontologyType.toLowerCase().includes(q)) {
+          score += 15;
+          matchedFields.push("ontologyType");
+        }
+        if (o.domain?.toLowerCase().includes(q)) {
+          score += 15;
+          matchedFields.push("domain");
+        }
+        if (o.format?.toLowerCase().includes(q)) {
+          score += 10;
+          matchedFields.push("format");
         }
         break;
       }

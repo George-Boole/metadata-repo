@@ -7,6 +7,7 @@ import {
   getRelatedProfiles,
   getToolsForSpec,
   getSubSpecs,
+  getOntologiesForSpec,
 } from "@/lib/data";
 import { TierBadge, HostingBadge, StatusBadge } from "@/components/Badge";
 
@@ -27,6 +28,7 @@ export default async function SpecDetailPage({
   const relatedProfiles = getRelatedProfiles(id);
   const supportingTools = getToolsForSpec(id);
   const subSpecs = getSubSpecs(id);
+  const relatedOntologies = getOntologiesForSpec(id);
   const parentSpec = spec.parentSpecId
     ? getSpecById(spec.parentSpecId)
     : undefined;
@@ -234,6 +236,32 @@ export default async function SpecDetailPage({
                   </p>
                 </div>
                 <StatusBadge status={t.status} />
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Related Ontologies */}
+      {relatedOntologies.length > 0 && (
+        <section className="mb-8">
+          <h2 className="text-lg font-semibold text-daf-dark-gray mb-3">
+            Related Ontologies
+          </h2>
+          <div className="space-y-2">
+            {relatedOntologies.map((o) => (
+              <Link
+                key={o.id}
+                href={`/ontologies/${o.id}`}
+                className="flex items-center justify-between rounded-lg border border-gray-200 border-l-4 border-l-ontology bg-white p-4 shadow-sm hover:shadow-md"
+              >
+                <div>
+                  <h3 className="font-medium text-daf-dark-gray">{o.title}</h3>
+                  <p className="text-sm text-gray-500">
+                    {o.managingOrganization} &mdash; {o.ontologyType.charAt(0).toUpperCase() + o.ontologyType.slice(1)}
+                  </p>
+                </div>
+                <StatusBadge status={o.status} />
               </Link>
             ))}
           </div>

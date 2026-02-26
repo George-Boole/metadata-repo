@@ -12,6 +12,7 @@ const TIER_ROUTE: Record<TierId, string> = {
   "2A": "/specs",
   "2B": "/profiles",
   "3": "/tools",
+  "ontology": "/ontologies",
 };
 
 const TIER_HEADER_STYLES: Record<TierId, string> = {
@@ -19,6 +20,7 @@ const TIER_HEADER_STYLES: Record<TierId, string> = {
   "2A": "border-l-tier-2a text-tier-2a",
   "2B": "border-l-tier-2b text-tier-2b",
   "3": "border-l-tier-3 text-tier-3",
+  "ontology": "border-l-ontology text-ontology",
 };
 
 function buildMetadata(result: SearchResult): { label: string; value: string }[] {
@@ -41,6 +43,11 @@ function buildMetadata(result: SearchResult): { label: string; value: string }[]
         { label: "Vendor", value: a.vendor },
         { label: "License", value: a.licenseType },
       ];
+    case "ontology":
+      return [
+        { label: "Type", value: a.ontologyType },
+        ...(a.format ? [{ label: "Format", value: a.format }] : []),
+      ];
   }
 }
 
@@ -57,7 +64,7 @@ function SearchResults() {
     grouped[tier]!.push(r);
   }
 
-  const tierOrder: TierId[] = ["1", "2A", "2B", "3"];
+  const tierOrder: TierId[] = ["1", "2A", "2B", "3", "ontology"];
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
@@ -120,7 +127,7 @@ function SearchResults() {
             <h2
               className={`mb-4 border-l-4 pl-3 text-lg font-bold ${TIER_HEADER_STYLES[tier]}`}
             >
-              Tier {tier} — {TIER_LABELS[tier]}
+              {tier === "ontology" ? TIER_LABELS[tier] : `Tier ${tier} — ${TIER_LABELS[tier]}`}
               <span className="ml-2 text-sm font-normal text-gray-500">
                 ({tierResults.length})
               </span>
