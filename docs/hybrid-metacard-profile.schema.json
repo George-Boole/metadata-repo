@@ -1,0 +1,231 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.mil/metadata/hybrid-metacard-profile.schema.json",
+  "title": "Hybrid Metacard Standard Profile (DoD/IC)",
+  "type": "object",
+  "required": [
+    "profile",
+    "asset",
+    "security",
+    "records",
+    "transport",
+    "quality"
+  ],
+  "properties": {
+    "profile": {
+      "type": "object",
+      "required": ["name", "version", "classificationDomain"],
+      "properties": {
+        "name": { "const": "Hybrid-Metacard-DoD-IC" },
+        "version": { "type": "string" },
+        "classificationDomain": { "enum": ["DoD", "IC", "DoD+IC"] },
+        "minimumPublishable": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "asset": {
+      "type": "object",
+      "required": ["metacard", "resource"],
+      "properties": {
+        "metacard": {
+          "type": "object",
+          "required": ["identifiers", "dates"],
+          "properties": {
+            "identifiers": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": ["value"],
+                "properties": {
+                  "qualifier": { "type": "string" },
+                  "value": { "type": "string" }
+                },
+                "additionalProperties": false
+              }
+            },
+            "dates": {
+              "type": "object",
+              "required": ["created"],
+              "properties": {
+                "created": { "type": "string", "format": "date-time" },
+                "posted": { "type": "string", "format": "date-time" },
+                "validTil": { "type": "string", "format": "date-time" }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "resource": {
+          "type": "object",
+          "required": ["identifiers", "title", "subjectKeywords"],
+          "properties": {
+            "identifiers": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": ["value"],
+                "properties": {
+                  "qualifier": { "type": "string" },
+                  "value": { "type": "string" }
+                },
+                "additionalProperties": false
+              }
+            },
+            "title": { "type": "string", "minLength": 1 },
+            "description": { "type": "string" },
+            "subjectKeywords": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "type": "string" }
+            },
+            "mimeType": { "type": "string" },
+            "language": { "type": "string" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "security": {
+      "type": "object",
+      "required": ["classification", "ownerProducer", "compliesWith", "createDate", "resourceElement"],
+      "properties": {
+        "classification": { "type": "string" },
+        "ownerProducer": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "compliesWith": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "createDate": { "type": "string", "format": "date" },
+        "resourceElement": { "type": "boolean" },
+        "disseminationControls": { "type": "array", "items": { "type": "string" } },
+        "releasableTo": { "type": "array", "items": { "type": "string" } },
+        "cuiBasic": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "records": {
+      "type": "object",
+      "required": ["officeOfRecord", "disposition"],
+      "properties": {
+        "foiaOpsIndicator": { "type": "boolean" },
+        "officeOfRecord": {
+          "type": "object",
+          "required": ["country", "organization"],
+          "properties": {
+            "country": { "type": "string" },
+            "organization": { "type": "string" },
+            "subOrganization": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "recordDesignationDate": { "type": "string", "format": "date-time" },
+        "vitalRecordsIndicator": { "type": "boolean" },
+        "disposition": {
+          "type": "object",
+          "required": ["reviewIndicator"],
+          "properties": {
+            "reviewIndicator": { "type": "boolean" },
+            "recordControl": { "type": "string" },
+            "dateApplied": { "type": "string", "format": "date-time" },
+            "dateEligible": { "type": "string", "format": "date" },
+            "dateLimit": { "type": "string", "format": "date-time" },
+            "hold": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["authorizer", "effectiveDate", "type"],
+                "properties": {
+                  "authorizer": { "type": "string" },
+                  "identifier": { "type": "string" },
+                  "justification": { "type": "string" },
+                  "effectiveDate": { "type": "string", "format": "date-time" },
+                  "releasedDate": { "type": "string", "format": "date-time" },
+                  "type": { "type": "string" }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "transport": {
+      "type": "object",
+      "required": ["edh", "tdf"],
+      "properties": {
+        "edh": {
+          "type": "object",
+          "required": ["identifier", "dataItemCreateDateTime", "responsibleEntityCustodian"],
+          "properties": {
+            "identifier": { "type": "string" },
+            "dataItemCreateDateTime": { "type": "string", "format": "date-time" },
+            "authorizationReference": { "type": "string" },
+            "responsibleEntityCustodian": {
+              "type": "object",
+              "required": ["country", "organization"],
+              "properties": {
+                "country": { "type": "string" },
+                "organization": { "type": "string" },
+                "subOrganization": { "type": "string" }
+              },
+              "additionalProperties": false
+            },
+            "responsibleEntityOriginator": {
+              "type": "object",
+              "properties": {
+                "country": { "type": "string" },
+                "organization": { "type": "string" },
+                "subOrganization": { "type": "string" }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "tdf": {
+          "type": "object",
+          "required": ["version", "binding"],
+          "properties": {
+            "version": { "type": "string" },
+            "scope": { "type": "string", "enum": ["TDO", "PAYL", "BOTH"] },
+            "binding": {
+              "type": "object",
+              "required": ["signatureAlgorithm", "normalizationMethod"],
+              "properties": {
+                "signerSubject": { "type": "string" },
+                "signerIssuer": { "type": "string" },
+                "signerSerial": { "type": "string" },
+                "signatureAlgorithm": { "type": "string" },
+                "normalizationMethod": { "type": "string" },
+                "includesStatementMetadata": { "type": "boolean" },
+                "referencePayloadUri": { "type": "string", "format": "uri" }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "quality": {
+      "type": "object",
+      "required": ["sourceSystem", "extractedAt", "completenessStatus"],
+      "properties": {
+        "sourceSystem": { "type": "string" },
+        "extractedAt": { "type": "string", "format": "date-time" },
+        "completenessStatus": { "type": "string", "enum": ["minimum", "extended", "incomplete"] },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "validationErrors": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
