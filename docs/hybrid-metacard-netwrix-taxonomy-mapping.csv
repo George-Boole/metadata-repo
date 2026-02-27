@@ -1,0 +1,21 @@
+section,field,required,source_taxonomy,netwrix_extraction_type,normalization_rule,confidence_required,notes
+core,core.metacardId,YES,System generated,UUID generation,None,100,Immutable identifier
+core,core.resourceId,YES,IRM-Discovery,Path/metadata parser,Canonical ID precedence,95,Map to source system key
+discovery,discovery.identifier,YES,IRM-Discovery,Regex/pattern,Qualifier+value transform,85,At least one required
+discovery,discovery.title,YES,IRM-Discovery,Header/title parser,Trim and language tag,80,At least one required
+discovery,discovery.description,NO,IRM-Discovery,Content parser,Length/encoding normalize,70,Optional
+security,security.classification,YES,ISM-Marking,Banner/marking regex,Controlled vocab lookup,95,Human review below threshold
+security,security.ownerProducer,YES,ISM-Marking,Marking parser,Token normalization,95,At least one required
+security,security.disseminationControls,NO,ISM-Marking,Regex/dictionary,Controlled vocab lookup,90,Multi-value field
+security,security.releasableTo,NO,ISM-Marking,Regex/dictionary,Controlled vocab lookup,90,Multi-value field
+security,security.classifiedBy,NO,ISM-Marking,Line parser,String normalization,80,Optional
+records,records.OfficeOfRecord,YES,ERM-Records,Path/rule/metadata,Authority mapping,95,Prefer authoritative RM source
+records,records.Disposition.ReviewIndicator,YES,ERM-Records,Rule assignment,Boolean normalize,100,Mandatory
+disposition,records.Disposition.RecordControl,NO,ERM-Records,Regex/rule,String normalization,80,Optional
+records,records.Disposition.Hold,NO,ERM-Records,Phrase/rule parser,Structured hold mapping,90,Type/Authorizer/dates recommended
+bindings,bindings.edh.Identifier,Conditional,EDH-TDF Readiness,Structured parser,EDH mapping,95,Required for exchange
+bindings,bindings.edh.ResponsibleEntity,Conditional,EDH-TDF Readiness,Structured parser,Role cardinality validation,95,Must include Custodian
+bindings,bindings.tdf.id,Conditional,EDH-TDF Readiness,Structured parser,TDF mapping,95,Required when TDF used
+bindings,bindings.tdf.isEncrypted,Conditional,EDH-TDF Readiness,Structured parser,Boolean normalize,95,Required when TDF used
+identity,identity.Role,NO,UIAS-Context,Dictionary/rule,Controlled vocab lookup,80,Optional UIAS extension
+quality,quality.validationState,YES,System validation,Rules engine,Enum assignment,100,Derived from validation pipeline
