@@ -9,7 +9,14 @@
 ## Tech Stack
 - **Framework**: Next.js 15 (App Router) + TypeScript
 - **Styling**: Tailwind CSS 4
-- **Data Layer**: Static JSON files in `src/data/` (no database, no external services)
+- **Data Layer**: Static JSON files in `src/data/` (migrating to Supabase pgvector + Neo4j AuraDB)
+- **Vector DB**: Supabase pgvector (free tier, 500MB) — chunks + embeddings + auth
+- **Graph DB**: Neo4j AuraDB Free (50K nodes / 175K relationships) — standards knowledge graph
+- **LLM**: Multi-model — Claude Sonnet 4.6 / Gemini 2.5 Flash / Gemini 2.0 Flash (user-selectable)
+- **Embeddings**: OpenAI text-embedding-3-small (512 dims via Matryoshka truncation)
+- **Web Crawling**: Firecrawl (500 free credits) + Jina Reader API
+- **Auth**: Next.js middleware shared password + Supabase Auth
+- **Hosting**: Vercel Hobby (free tier)
 - **Linting**: ESLint with next/core-web-vitals
 - **Runtime**: Node.js, npm
 
@@ -47,11 +54,13 @@ metadata-repo/
 ```
 
 ## Key Architecture Decisions
-- **No database** — all data is static JSON, loaded at build/render time
-- **No real API** — the API Explorer page is a UI-only concept demo with mock request/response pairs
-- **No external services** — runs entirely on localhost with zero dependencies beyond npm packages
+- **Hybrid data layer** — static JSON for SSR browse pages + Supabase pgvector for RAG chunks + Neo4j for relationship graph
 - **Dual hosting model** — artifacts are either "Stored" (content in repo) or "Linked" (pointer to external authoritative source)
-- **Read-only** — no CRUD operations, no forms, no state mutation
+- **Web-crawled content** — ODNI specs, NIEM, W3C, Dublin Core ingested by crawling source websites (not local files)
+- **Multi-model RAG** — admin-selectable LLM (Claude Sonnet 4.6 / Gemini Flash), OpenAI embeddings, hybrid vector+graph retrieval
+- **Always cite sources** — every RAG response includes clickable source references
+- **Admin panel** — add content via URL or file upload, select LLM model, view ingestion status
+- **Password-protected** — shared password via Next.js middleware for demo access
 
 ## Three-Tier Data Model
 1. **Tier 1 — Authoritative Guidance**: DoD Instructions, memos, directives (DoDI 8320.02, 8320.07, 8310.01, 8330.01)
@@ -60,9 +69,11 @@ metadata-repo/
 4. **Tier 3 — Tagging/Labeling Tools**: Tools that apply metadata standards to data (DCAMPS-C, Purview, Varonis, Collibra). NOT metadata catalog tools.
 
 ## Current State
-- **Phase**: Post-implementation polish. Ontologies section and Standards Brain chatbot added. Hero compacted with prominent Standards Brain CTA.
-- **Last Completed**: Compact hero + Standards Brain CTA pill on landing page. Ontologies section (session 5), Standards Brain AI chatbot (session 5).
-- **Next**: Visual polish, cross-tier link verification (US-005), replace fictional Tier 2B profiles with real data, deployment prep
+- **Phase**: Production deployment + RAG build-out (Session 8 in progress)
+- **Last Completed**: Full implementation plan approved. `.env.local` template created. Build verified (45 pages).
+- **What's Happening**: Deploying to Vercel, setting up Supabase (pgvector), Neo4j AuraDB, and building hybrid RAG with real LLM backend for Standards Brain.
+- **Implementation Plan**: `C:\Users\greg\.claude\plans\gentle-sleeping-kite.md` (detailed 8-phase plan)
+- **Next Immediate Step**: Phase 0 — account setup (Vercel project, Supabase org+project, Neo4j AuraDB, API keys, Firecrawl), then fill `.env.local`
 
 ## Autonomy Rules
 Claude operates at MAXIMUM autonomy **within this repository**:

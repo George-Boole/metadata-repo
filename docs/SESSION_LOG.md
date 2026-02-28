@@ -154,3 +154,137 @@
 ### Status at End
 - All documentation current
 - Committed and pushed to GitHub
+
+## Session 7 — 2026-02-27
+**Focus**: Download all 73 ODNI IC Technical Specifications, deduplicate, and plan RAG pipeline
+
+### Accomplished
+
+#### Phase 1: Spec Discovery & Manifest
+- Explored https://www.dni.gov/index.php/what-we-do/ic-technical-specs — identified 73 specs (57 data encoding + 16 service)
+- Created `scripts/odni-spec-manifest.json` with all 73 spec entries (IDs, names, categories, page URLs)
+
+#### Phase 2: Parallel Scraping (5 agents)
+- Spawned 5 parallel scraper agents, each scraping ~15 spec pages via WebFetch
+- Extracted download URLs, selecting Light variant (smallest) with fallback chain: Light > Convenience > Standalone > PDF
+- Manually fixed 2 specs missed by batch agents (intelligence-community-only-need-to-know, role)
+- Final manifest: 71 specs with download URLs, 2 without (DoD Discovery Metadata — no downloads; Multi-Audience Tearline — replaced by Multi-Audience Collections)
+
+#### Phase 3: Download & Extract
+- Created `scripts/download-odni-specs.mjs` — idempotent Node.js download/extract script
+- Downloaded all 71 specs (zero failures), extracted ZIPs into `Tier Content/ODNI Specs/{spec-id}/`
+- Fixed corrupted Light ZIP for `access-rights-and-handling` by downloading Standalone variant (`ARH-_V3_Public.zip` instead of `ARH-V3_Public-Light.zip`)
+- Result: 71 folders, 40,172 files, ~1.1 GB
+
+#### Phase 4: Deduplication
+- Created `scripts/dedup-odni-specs.mjs` — SHA-256 hash-based dedup tool with size pre-filtering
+- Dry run found: 32,157 duplicate files (715.1 MB), reducible to 8,015 unique files (345 MB)
+- Initially ran in-place deletion, but **user requested preservation of originals**
+- Re-downloaded all 71 specs from scratch to restore originals
+- Created `scripts/create-deduped-copy.mjs` — copies only unique files preserving directory structure
+- Result: `Tier Content/ODNI Specs/_deduped/` with 8,015 files (345 MB), originals untouched
+
+#### Phase 5: RAG Pipeline Research
+- Comprehensive research on local RAG pipeline options for structured XML/schema content
+- Analyzed vector DBs (LanceDB, Qdrant, ChromaDB, Milvus Lite, sqlite-vec)
+- Analyzed graph DBs (Neo4j CE, NetworkX, Kuzu [eliminated — Apple acquisition], FalkorDB, Memgraph)
+- Analyzed local embedding models (Ollama, FastEmbed, sentence-transformers, LM Studio)
+- Analyzed orchestration frameworks (LlamaIndex, LangChain, Haystack)
+
+### Key Decisions
+- **Light variant preferred** to minimize duplicates across specs
+- **Originals preserved** — deduplication creates a separate `_deduped/` folder, not in-place deletion
+- **Type-aware ingestion required** — XSD, Schematron, CVE vocabs, PDFs each need different chunking strategies
+- **Microsoft GraphRAG eliminated** — designed for unstructured text; our content already has explicit machine-readable structure
+
+### RAG Pipeline Recommendation (pending user decision)
+**Option A (Full Power)**: Neo4j CE + LanceDB + Ollama (mxbai-embed-large) + LlamaIndex (~4-6 GB RAM)
+**Option B (Zero Server)**: NetworkX + LanceDB + Ollama + Custom Python (~2-3 GB RAM)
+
+### Files Created
+| File | Purpose |
+|------|---------|
+| `scripts/odni-spec-manifest.json` | Master list of all 73 specs with download URLs |
+| `scripts/download-odni-specs.mjs` | Idempotent download + extract script |
+| `scripts/dedup-odni-specs.mjs` | SHA-256 dedup tool (dry-run and delete modes) |
+| `scripts/create-deduped-copy.mjs` | Creates deduplicated copy preserving structure |
+| `scripts/odni-download-report.json` | Per-spec download status report |
+| `scripts/odni-dedup-report.json` | Detailed dedup report with all 3,436 duplicate groups |
+| `Tier Content/ODNI Specs/` | 71 original spec folders (40,172 files, ~1.1 GB) |
+| `Tier Content/ODNI Specs/_deduped/` | Deduplicated copy (8,015 files, 345 MB) |
+
+### Known Issues
+- `access-rights-and-handling` Light ZIP is corrupted on dni.gov — must use Standalone variant. The download script's manifest already has the corrected URL.
+- 2 specs have no downloads available (DoD Discovery Metadata, Multi-Audience Tearline)
+
+### Status at End
+- All 71 specs downloaded and extracted (originals intact)
+- Deduplicated copy created at `_deduped/` (80% reduction: 40K → 8K files, 1.1 GB → 345 MB)
+- RAG pipeline options researched and presented — awaiting user decision on Option A vs B
+- No commits made this session (large binary content not suitable for git)
+
+## Session 8 — 2026-02-28
+**Focus**: Production deployment planning + infrastructure setup
+
+### Accomplished
+
+#### Architecture & Stack Decision
+- Comprehensive research on deployment, vector DB, graph DB, LLM, embedding, and auth options
+- Researched current (Feb 2026) LLM API pricing: Claude Opus/Sonnet 4.6, Gemini 3.1/2.5, GPT-5.x series, OpenAI embeddings
+- Confirmed OpenAI API access is NOT included in ChatGPT Plus/Pro subscriptions (separate billing)
+- Selected final tech stack (all free tier except LLM API calls):
+
+| Layer | Choice | Cost |
+|-------|--------|------|
+| Hosting | Vercel Hobby | $0 |
+| Vector DB + Auth | Supabase pgvector (new "DAF Prototypes" org) | $0 |
+| Graph DB | Neo4j AuraDB Free | $0 |
+| LLM | Claude Sonnet 4.6 / Gemini 2.5 Flash / Gemini 2.0 Flash (admin-selectable) | $0-21/mo |
+| Embeddings | OpenAI text-embedding-3-small (512 dims) | ~$0.50 one-time |
+| Web Crawling | Firecrawl + Jina Reader | $0 |
+| Auth | Next.js middleware shared password | $0 |
+
+#### Implementation Plan
+- Created detailed 8-phase implementation plan covering:
+  - Phase 0: Account setup (Vercel, Supabase, Neo4j, API keys, Firecrawl)
+  - Phase 1: Auth + database foundation (middleware, Supabase tables, Neo4j schema)
+  - Phase 2: Seed existing static JSON data into both stores
+  - Phase 3: RAG chat with vector search (Vercel AI SDK streaming)
+  - Phase 4: Graph-enhanced hybrid RAG (parallel vector + graph retrieval)
+  - Phase 5: Web crawling ingestion pipeline (Firecrawl, type-aware parsers)
+  - Phase 6: Admin panel (source management, model selector, system prompt)
+  - Phase 7: Bulk content ingestion (71 ODNI specs, NIEM, DCAT, W3C, Dublin Core)
+  - Phase 8: Polish + deploy
+- Plan includes detailed Supabase schema (sources, chunks with pgvector, app_settings, match_chunks RPC)
+- Plan includes Neo4j graph schema (Standard, Guidance, Profile, Tool, Ontology, Element nodes + relationships)
+- Plan saved at: `C:\Users\greg\.claude\plans\gentle-sleeping-kite.md`
+
+#### Key Design Decisions
+- **Web crawl instead of local files**: ODNI specs ingested by crawling dni.gov (not storing local copies)
+- **512-dim embeddings**: Matryoshka truncation from 1536 → 512 to save Supabase storage (3x smaller)
+- **Multi-model with admin selector**: Switch LLMs via admin panel dropdown (Claude for demos, Gemini for free usage)
+- **Citations always**: System prompt enforces `[Source Title](url)` format; existing `formatMessageContent()` already renders these
+- **Static JSON preserved**: Existing browse pages keep using JSON; RAG queries Supabase for deeper content
+- **Supabase new org**: Created separate "DAF Prototypes" org to keep projects clean (user has 2 existing orgs)
+
+#### Prep Work
+- Created `.env.local` template with all 11 environment variable placeholders (gitignored)
+- Verified build passes (45 pages, compiled successfully)
+- Updated CLAUDE.md with new tech stack and current state
+
+### Key Accounts Needed
+| Service | Status | Action |
+|---------|--------|--------|
+| Vercel | Existing account | Add new project from GitHub |
+| Supabase | Existing account | Create new "DAF Prototypes" org + project |
+| Neo4j AuraDB | New account needed | Create free instance |
+| Anthropic API | Existing account | Create new API key |
+| OpenAI API | Existing account | Create new API key |
+| Google AI Studio | Existing account | Create/get API key |
+| Firecrawl | New account needed | Sign up, get API key |
+
+### Status at End (In Progress)
+- Plan approved, all documentation updated
+- `.env.local` template ready
+- About to begin Phase 0 account setup (Vercel project first)
+- No code changes yet beyond `.env.local` template
