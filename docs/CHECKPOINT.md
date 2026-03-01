@@ -1,7 +1,7 @@
-# Checkpoint — 2026-02-28 (Session 8)
+# Checkpoint — 2026-02-28 (Session 8, updated mid-session)
 
 ## Current State
-Production deployment plan approved. About to begin Phase 0 (account setup). No code changes yet beyond `.env.local` template.
+Phase 0 account setup in progress. Vercel deployed, Supabase project created with keys saved. Next: Neo4j AuraDB.
 
 ## Implementation Plan Location
 `C:\Users\greg\.claude\plans\gentle-sleeping-kite.md` — full 8-phase plan with schemas, API routes, file lists.
@@ -22,14 +22,22 @@ Production deployment plan approved. About to begin Phase 0 (account setup). No 
 - [x] Build verified (45 pages compiled successfully)
 - [x] CLAUDE.md updated with new tech stack and current state
 - [x] SESSION_LOG.md updated with Session 8
+- [x] Vercel: project deployed and live (auto-deploys from GitHub main)
+- [x] Supabase: "DAF Prototypes" org created, "daf-metadata-repo" project provisioned, RLS enabled
+- [x] Supabase keys saved to .env.local (new format: sb_publishable_ / sb_secret_)
 
-## Phase 0: Account Setup (NEXT — walk user through one at a time)
-1. [ ] **Vercel**: Add `metadata-repo` as new project (existing Hobby account)
-2. [ ] **Supabase**: Create "DAF Prototypes" org → new project "daf-metadata-repo" (existing account)
-3. [ ] **Neo4j AuraDB**: Create free account + "daf-standards-graph" instance (NEW account)
+## Important Notes
+- Supabase now uses NEW key format: `sb_publishable_` (replaces anon) and `sb_secret_` (replaces service_role). Works same way with @supabase/supabase-js.
+- .env.local values must have NO spaces after `=` sign
+- Vercel project is under "Greg Nolder's projects" (personal, not a team)
+
+## Phase 0: Account Setup (IN PROGRESS)
+1. [x] **Vercel**: Deployed `metadata-repo` as new project — live at Vercel (Greg Nolder's projects)
+2. [x] **Supabase**: Created "DAF Prototypes" org → project "daf-metadata-repo" (ref: wxqrlpefradsbsunpiio). RLS enabled. New key format: sb_publishable_ and sb_secret_. Keys saved to .env.local.
+3. [ ] **Neo4j AuraDB**: Create free account + "daf-standards-graph" instance (NEW account) ← NEXT
 4. [ ] **API Keys**: Create keys in Anthropic, OpenAI, Google AI Studio (existing accounts)
 5. [ ] **Firecrawl**: Sign up + get API key (NEW account)
-6. [ ] **Fill `.env.local`**: User pastes each key into the template file
+6. [ ] **Fill `.env.local`**: Supabase done. Auth, Neo4j, LLM keys, Firecrawl still needed.
 7. [ ] **Set Vercel env vars**: Copy all vars to Vercel project settings
 
 ## Environment Variables Needed (`.env.local`)
@@ -66,7 +74,8 @@ FIRECRAWL_API_KEY=       # From firecrawl.dev → API Keys
 
 ## If Session Crashes — Resume Steps
 1. Read this file (`docs/CHECKPOINT.md`)
-2. Read the plan at `C:\Users\greg\.claude\plans\gentle-sleeping-kite.md`
+2. Read the plan at `docs/IMPLEMENTATION_PLAN.md` (also at `C:\Users\greg\.claude\plans\gentle-sleeping-kite.md`)
 3. Check which Phase 0 accounts are set up by reading `.env.local` for filled-in values
-4. Continue with the next uncompleted Phase 0 step
-5. User has existing Vercel + Supabase accounts; needs new Neo4j + Firecrawl accounts
+4. Continue with the next uncompleted Phase 0 step (Neo4j AuraDB is next)
+5. Vercel + Supabase are DONE. Still need: Neo4j (new account), API keys (existing accounts), Firecrawl (new account)
+6. After all Phase 0 accounts done → fill remaining .env.local values → set Vercel env vars → start Phase 1 in a NEW session (fresh context window)
