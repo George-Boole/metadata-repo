@@ -69,11 +69,11 @@ metadata-repo/
 4. **Tier 3 — Tagging/Labeling Tools**: Tools that apply metadata standards to data (DCAMPS-C, Purview, Varonis, Collibra). NOT metadata catalog tools.
 
 ## Current State
-- **Phase**: Production deployment + RAG build-out (Session 8 in progress)
-- **Last Completed**: Full implementation plan approved. `.env.local` template created. Build verified (45 pages).
-- **What's Happening**: Deploying to Vercel, setting up Supabase (pgvector), Neo4j AuraDB, and building hybrid RAG with real LLM backend for Standards Brain.
+- **Phase**: Phase 0 account setup — blocked on `.env.local` key restoration
+- **Last Completed**: All external accounts created (Vercel, Supabase, Neo4j, Anthropic, OpenAI, Google AI, Firecrawl). Vercel project deployed and linked locally.
+- **What's Blocking**: `.env.local` was wiped by `vercel link` in Session 9. User needs to re-copy API keys from each service dashboard (or restore via OneDrive version history).
 - **Implementation Plan**: `C:\Users\greg\.claude\plans\gentle-sleeping-kite.md` (detailed 8-phase plan)
-- **Next Immediate Step**: Phase 0 — account setup (Vercel project, Supabase org+project, Neo4j AuraDB, API keys, Firecrawl), then fill `.env.local`
+- **Next Immediate Step**: User restores `.env.local` keys → push env vars to Vercel → begin Phase 1 (auth + database foundation)
 
 ## Autonomy Rules
 Claude operates at MAXIMUM autonomy **within this repository**:

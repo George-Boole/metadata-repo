@@ -291,3 +291,51 @@
 - Neo4j AuraDB: Account created (GitHub auth), but first instance needs delete/recreate (missed one-time password)
 - Remaining Phase 0 steps: Neo4j instance, Anthropic/OpenAI/Google API keys, Firecrawl account, fill .env.local, set Vercel env vars
 - Recommendation: finish Phase 0 in next session, then start Phase 1 (coding) in a fresh session for full context window
+
+## Session 8b — 2026-03-01 (crashed, unlogged)
+**Focus**: Continuation of Phase 0 account setup (session crashed without saving state)
+
+### Accomplished (reconstructed from .env.local state before wipe)
+- Completed ALL remaining Phase 0 account setup:
+  - Neo4j AuraDB: Instance created with URI and password
+  - Anthropic: API key created
+  - OpenAI: API key created
+  - Google AI Studio: API key created
+  - Firecrawl: Account created, API key obtained
+- All 12 `.env.local` variables were filled in (confirmed by Session 9 inspection before wipe)
+- Vercel env vars were NOT yet pushed
+
+### Status at Crash
+- All API keys populated in `.env.local` but not backed up or pushed to Vercel
+- Session crashed before state files (CHECKPOINT.md, SESSION_LOG.md) could be updated
+- No commits made
+
+## Session 9 — 2026-03-01
+**Focus**: Resume from crash — state recovery attempt
+
+### What Happened
+- Read CHECKPOINT.md and SESSION_LOG.md to recover state
+- Discovered `.env.local` had all 12 vars filled (crashed session completed Phase 0 setup)
+- Two vars were still empty: SITE_PASSWORD (user choice) and AUTH_SECRET (needed generation)
+- Generated AUTH_SECRET and wrote it to `.env.local`
+- **Mistake**: Ran `vercel link` to check if Vercel env vars were set. This command overwrites `.env.local` with Vercel's dev environment (which was empty), wiping all API keys.
+- Attempted recovery via Supabase MCP — failed (MCP only has permission to TherapyTracker org, not DAF Prototypes)
+- Restored `.env.local` template with AUTH_SECRET filled, all other values empty
+- Vercel project is now linked locally (`.vercel/project.json` created)
+
+### Damage
+- All API keys from Session 8b lost (Supabase, Neo4j, Anthropic, OpenAI, Google AI, Firecrawl)
+- Keys still exist in each service's dashboard — user needs to re-copy them
+- Possible recovery via OneDrive version history on `.env.local`
+
+### Lesson Learned
+- **NEVER run `vercel link` when `.env.local` contains values** — it replaces the file with Vercel's environment
+- Always back up `.env.local` before running any Vercel CLI commands that touch env files
+- Always push env vars to Vercel as soon as they're set (provides a second copy)
+
+### Status at End (Paused)
+- `.env.local` template restored, only AUTH_SECRET filled — user must re-enter all other keys
+- Vercel project linked locally but no env vars set on Vercel
+- All external accounts exist and are accessible via their dashboards
+- Phase 0 blocked on `.env.local` restoration
+- See `docs/CHECKPOINT.md` for exact key recovery instructions
