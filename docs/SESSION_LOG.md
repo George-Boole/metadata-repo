@@ -283,8 +283,11 @@
 | Google AI Studio | Existing account | Create/get API key |
 | Firecrawl | New account needed | Sign up, get API key |
 
-### Status at End (In Progress)
-- Plan approved, all documentation updated
-- `.env.local` template ready
-- About to begin Phase 0 account setup (Vercel project first)
-- No code changes yet beyond `.env.local` template
+### Status at End (Paused)
+- Plan approved, all documentation updated and committed
+- Vercel: project deployed and live (auto-deploys from GitHub main)
+- Supabase: "DAF Prototypes" org + "daf-metadata-repo" project provisioned, RLS enabled, keys saved to .env.local
+  - NOTE: Supabase now uses new key format: `sb_publishable_` (replaces anon) and `sb_secret_` (replaces service_role)
+- Neo4j AuraDB: Account created (GitHub auth), but first instance needs delete/recreate (missed one-time password)
+- Remaining Phase 0 steps: Neo4j instance, Anthropic/OpenAI/Google API keys, Firecrawl account, fill .env.local, set Vercel env vars
+- Recommendation: finish Phase 0 in next session, then start Phase 1 (coding) in a fresh session for full context window

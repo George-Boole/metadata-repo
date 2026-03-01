@@ -1,7 +1,7 @@
-# Checkpoint — 2026-02-28 (Session 8, updated mid-session)
+# Checkpoint — 2026-03-01 (Session 8, paused mid-Phase 0)
 
 ## Current State
-Phase 0 account setup in progress. Vercel deployed, Supabase project created with keys saved. Next: Neo4j AuraDB.
+Phase 0 account setup paused. Vercel deployed, Supabase provisioned with keys saved. Neo4j AuraDB account created (GitHub auth) but first instance needs to be deleted and recreated (missed the one-time password). Remaining: Neo4j redo, API keys, Firecrawl, fill .env.local, set Vercel env vars.
 
 ## Implementation Plan Location
 `C:\Users\greg\.claude\plans\gentle-sleeping-kite.md` — full 8-phase plan with schemas, API routes, file lists.
@@ -34,7 +34,7 @@ Phase 0 account setup in progress. Vercel deployed, Supabase project created wit
 ## Phase 0: Account Setup (IN PROGRESS)
 1. [x] **Vercel**: Deployed `metadata-repo` as new project — live at Vercel (Greg Nolder's projects)
 2. [x] **Supabase**: Created "DAF Prototypes" org → project "daf-metadata-repo" (ref: wxqrlpefradsbsunpiio). RLS enabled. New key format: sb_publishable_ and sb_secret_. Keys saved to .env.local.
-3. [ ] **Neo4j AuraDB**: Create free account + "daf-standards-graph" instance (NEW account) ← NEXT
+3. [ ] **Neo4j AuraDB**: Account created (GitHub auth). First instance needs DELETE → recreate (missed password). ← RESUME HERE
 4. [ ] **API Keys**: Create keys in Anthropic, OpenAI, Google AI Studio (existing accounts)
 5. [ ] **Firecrawl**: Sign up + get API key (NEW account)
 6. [ ] **Fill `.env.local`**: Supabase done. Auth, Neo4j, LLM keys, Firecrawl still needed.
@@ -77,5 +77,6 @@ FIRECRAWL_API_KEY=       # From firecrawl.dev → API Keys
 2. Read the plan at `docs/IMPLEMENTATION_PLAN.md` (also at `C:\Users\greg\.claude\plans\gentle-sleeping-kite.md`)
 3. Check which Phase 0 accounts are set up by reading `.env.local` for filled-in values
 4. Continue with the next uncompleted Phase 0 step (Neo4j AuraDB is next)
-5. Vercel + Supabase are DONE. Still need: Neo4j (new account), API keys (existing accounts), Firecrawl (new account)
+5. Vercel + Supabase are DONE. Neo4j account exists (GitHub auth) but instance needs delete/recreate. Still need: Neo4j instance password, API keys (existing accounts), Firecrawl (new account)
 6. After all Phase 0 accounts done → fill remaining .env.local values → set Vercel env vars → start Phase 1 in a NEW session (fresh context window)
+7. Neo4j resume: go to console.neo4j.io → delete the empty "Free instance" → Create instance → COPY PASSWORD IMMEDIATELY → get connection URI from Connect dropdown
