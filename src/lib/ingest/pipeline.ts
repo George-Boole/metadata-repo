@@ -43,8 +43,25 @@ export async function ingestUrl(options: IngestOptions): Promise<IngestResult> {
       };
     }
 
-    // 3. Embed all chunks
-    const embeddings = await embedTexts(chunks.map((c) => c.content));
+    // 3. Prepend source context to each chunk for better embedding relevance
+    const contextPrefix = [
+      title ? `Source: ${title}` : null,
+      options.tier ? `Tier: ${options.tier}` : null,
+      options.sourceType ? `Type: ${options.sourceType}` : null,
+      options.url ? `URL: ${options.url}` : null,
+    ]
+      .filter(Boolean)
+      .join(" | ");
+
+    const enrichedChunks = chunks.map((c) => ({
+      ...c,
+      content: contextPrefix
+        ? `[${contextPrefix}]\n\n${c.content}`
+        : c.content,
+    }));
+
+    // 4. Embed all chunks (using enriched content)
+    const embeddings = await embedTexts(enrichedChunks.map((c) => c.content));
 
     // 4. Upsert source record
     const { data: source, error: sourceError } = await supabase
@@ -79,8 +96,8 @@ export async function ingestUrl(options: IngestOptions): Promise<IngestResult> {
     // 5. Delete existing chunks for this source (handles re-ingestion)
     await supabase.from("chunks").delete().eq("source_id", source.id);
 
-    // 6. Insert chunks in batches
-    const chunkRows = chunks.map((chunk, i) => ({
+    // 6. Insert chunks in batches (using enriched content with source context)
+    const chunkRows = enrichedChunks.map((chunk, i) => ({
       source_id: source.id,
       content: chunk.content,
       embedding: JSON.stringify(embeddings[i]),

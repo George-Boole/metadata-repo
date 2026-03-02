@@ -22,34 +22,51 @@ export interface VectorSearchOptions {
 }
 
 /**
- * Perform vector similarity search against the chunks table.
- * Embeds the query, then calls the match_chunks RPC.
+ * Hybrid search: combines vector similarity with full-text keyword matching.
+ * Ensures results aren't limited to only semantically similar content —
+ * explicit keyword mentions (e.g., "W3C", "DCAT") surface relevant chunks
+ * even when the embedding distance is large.
  */
 export async function vectorSearch(
   options: VectorSearchOptions
 ): Promise<ChunkMatch[]> {
   const {
     query,
-    matchCount = 8,
-    matchThreshold = 0.3,
+    matchCount = 12,
+    matchThreshold = 0.25,
     filterTier = null,
   } = options;
 
-  // 1. Embed the query
   const queryEmbedding = await embedText(query);
 
-  // 2. Call Supabase RPC
   const supabase = getSupabaseServer();
-  const { data, error } = await supabase.rpc("match_chunks", {
+  const { data, error } = await supabase.rpc("hybrid_search", {
     query_embedding: JSON.stringify(queryEmbedding),
+    query_text: query,
     match_threshold: matchThreshold,
     match_count: matchCount,
     filter_tier: filterTier,
+    keyword_weight: 0.3,
+    vector_weight: 0.7,
   });
 
   if (error) {
-    console.error("Vector search error:", error);
-    return [];
+    console.error("Hybrid search error:", JSON.stringify(error));
+    // Fallback to vector-only search
+    const { data: fallback, error: fallbackError } = await supabase.rpc(
+      "match_chunks",
+      {
+        query_embedding: JSON.stringify(queryEmbedding),
+        match_threshold: matchThreshold,
+        match_count: matchCount,
+        filter_tier: filterTier,
+      }
+    );
+    if (fallbackError) {
+      console.error("Vector search fallback error:", fallbackError);
+      return [];
+    }
+    return (fallback as ChunkMatch[]) || [];
   }
 
   return (data as ChunkMatch[]) || [];
