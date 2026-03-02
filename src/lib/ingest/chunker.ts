@@ -114,6 +114,18 @@ function splitLongSection(
   let current = "";
 
   for (const para of paragraphs) {
+    // Hard-split individual paragraphs that exceed maxChars
+    if (para.length > maxChars) {
+      if (current.trim()) {
+        chunks.push(current);
+      }
+      for (let i = 0; i < para.length; i += maxChars - overlapChars) {
+        chunks.push(para.slice(i, i + maxChars));
+      }
+      current = "";
+      continue;
+    }
+
     if (current.length + para.length > maxChars && current.length > 0) {
       chunks.push(current);
       // Start new chunk with overlap from end of previous

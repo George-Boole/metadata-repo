@@ -13,7 +13,9 @@
       "Task(*)",
       "mcp__*",
       "mcp__claude_ai_Vercel__search_vercel_documentation",
-      "mcp__claude_ai_Supabase__search_docs"
+      "mcp__claude_ai_Supabase__search_docs",
+      "mcp__claude_ai_Supabase__execute_sql",
+      "mcp__claude_ai_Supabase__list_projects"
     ]
   }
 }
