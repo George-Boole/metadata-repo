@@ -51,30 +51,30 @@ export default function AdminLayout({
 
   return (
     <div className="min-h-screen bg-daf-light-gray">
-      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 sm:py-6 lg:px-8">
         {/* Admin Header */}
-        <div className="mb-6 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-daf-navy text-white">
+        <div className="mb-4 sm:mb-6 flex items-center justify-between gap-3">
+          <div className="flex items-center gap-3 min-w-0">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-daf-navy text-white">
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
               </svg>
             </div>
-            <div>
-              <h1 className="text-2xl font-bold text-daf-dark-gray">Admin Panel</h1>
-              <p className="text-sm text-gray-500">Manage sources, users, and settings</p>
+            <div className="min-w-0">
+              <h1 className="text-xl sm:text-2xl font-bold text-daf-dark-gray truncate">Admin Panel</h1>
+              <p className="text-xs sm:text-sm text-gray-500">Manage sources, users, and settings</p>
             </div>
           </div>
           <Link
             href="/"
-            className="rounded-lg border border-gray-300 px-3 py-1.5 text-sm text-gray-600 hover:bg-gray-50"
+            className="shrink-0 rounded-lg border border-gray-300 px-3 py-1.5 text-sm text-gray-600 hover:bg-gray-50"
           >
             Back to Site
           </Link>
         </div>
 
         {/* Nav Tabs */}
-        <div className="mb-6 flex gap-1 rounded-lg bg-white p-1 shadow-sm border border-gray-200">
+        <div className="mb-4 sm:mb-6 flex gap-1 rounded-lg bg-white p-1 shadow-sm border border-gray-200 overflow-x-auto">
           {NAV_ITEMS.map((item) => {
             const isActive =
               item.href === "/admin"
@@ -84,7 +84,7 @@ export default function AdminLayout({
               <Link
                 key={item.href}
                 href={item.href}
-                className={`flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition ${
+                className={`flex shrink-0 items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition whitespace-nowrap ${
                   isActive
                     ? "bg-daf-navy text-white"
                     : "text-gray-600 hover:bg-gray-100"

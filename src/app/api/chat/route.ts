@@ -2,10 +2,15 @@ import { streamText, convertToModelMessages, type UIMessage } from "ai";
 import { vectorSearch } from "@/lib/rag/vector-search";
 import { resolveActiveModel } from "@/lib/rag/model-resolver";
 import { getSystemPrompt, buildContextPrompt } from "@/lib/rag/prompt-builder";
+import { chatLimiter, getClientId, rateLimitResponse } from "@/lib/rate-limit";
 
 export const maxDuration = 60;
 
 export async function POST(request: Request) {
+  const clientId = getClientId(request);
+  const limit = chatLimiter(clientId);
+  if (!limit.success) return rateLimitResponse(limit.reset);
+
   try {
     const { messages } = (await request.json()) as {
       messages: UIMessage[];
@@ -71,9 +76,7 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error("Chat API error:", error);
     return new Response(
-      JSON.stringify({
-        error: error instanceof Error ? error.message : "Chat failed",
-      }),
+      JSON.stringify({ error: "Failed to process chat message" }),
       { status: 500, headers: { "Content-Type": "application/json" } }
     );
   }

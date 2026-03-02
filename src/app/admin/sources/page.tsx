@@ -173,57 +173,59 @@ export default function SourcesPage() {
             No sources yet. Add one using the form above.
           </div>
         ) : (
-          <table className="w-full text-sm">
-            <thead className="bg-gray-50 text-left text-xs font-medium uppercase text-gray-500">
-              <tr>
-                <th className="px-4 py-3">Title</th>
-                <th className="px-4 py-3">Tier</th>
-                <th className="px-4 py-3">Status</th>
-                <th className="px-4 py-3 text-right">Chunks</th>
-                <th className="px-4 py-3" />
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-100">
-              {sources.map((source) => (
-                <tr key={source.id} className="hover:bg-gray-50">
-                  <td className="px-4 py-3">
-                    <div className="font-medium text-daf-dark-gray">
-                      {source.title}
-                    </div>
-                    <div className="text-xs text-gray-400 truncate max-w-xs">
-                      {source.url}
-                    </div>
-                    {source.error_message && (
-                      <div className="mt-1 text-xs text-red-500 truncate max-w-xs">
-                        {source.error_message}
-                      </div>
-                    )}
-                  </td>
-                  <td className="px-4 py-3 text-gray-500">
-                    {source.tier || "—"}
-                  </td>
-                  <td className="px-4 py-3">
-                    <span
-                      className={`rounded-full px-2 py-0.5 text-xs font-medium ${statusColors[source.status] || "bg-gray-100 text-gray-600"}`}
-                    >
-                      {source.status}
-                    </span>
-                  </td>
-                  <td className="px-4 py-3 text-right text-gray-500">
-                    {source.chunk_count}
-                  </td>
-                  <td className="px-4 py-3 text-right">
-                    <button
-                      onClick={() => handleDelete(source.id)}
-                      className="text-xs text-red-500 hover:text-red-700"
-                    >
-                      Delete
-                    </button>
-                  </td>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead className="bg-gray-50 text-left text-xs font-medium uppercase text-gray-500">
+                <tr>
+                  <th className="px-4 py-3">Title</th>
+                  <th className="px-4 py-3">Tier</th>
+                  <th className="px-4 py-3">Status</th>
+                  <th className="px-4 py-3 text-right">Chunks</th>
+                  <th className="px-4 py-3" />
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {sources.map((source) => (
+                  <tr key={source.id} className="hover:bg-gray-50">
+                    <td className="px-4 py-3">
+                      <div className="font-medium text-daf-dark-gray">
+                        {source.title}
+                      </div>
+                      <div className="hidden sm:block text-xs text-gray-400 truncate max-w-xs">
+                        {source.url}
+                      </div>
+                      {source.error_message && (
+                        <div className="mt-1 text-xs text-red-500 truncate max-w-xs">
+                          {source.error_message}
+                        </div>
+                      )}
+                    </td>
+                    <td className="px-4 py-3 text-gray-500 whitespace-nowrap">
+                      {source.tier || "—"}
+                    </td>
+                    <td className="px-4 py-3">
+                      <span
+                        className={`rounded-full px-2 py-0.5 text-xs font-medium whitespace-nowrap ${statusColors[source.status] || "bg-gray-100 text-gray-600"}`}
+                      >
+                        {source.status}
+                      </span>
+                    </td>
+                    <td className="px-4 py-3 text-right text-gray-500">
+                      {source.chunk_count}
+                    </td>
+                    <td className="px-4 py-3 text-right">
+                      <button
+                        onClick={() => handleDelete(source.id)}
+                        className="text-xs text-red-500 hover:text-red-700 whitespace-nowrap"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </div>
     </div>

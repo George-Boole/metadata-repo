@@ -1,10 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseServer } from "@/lib/supabase";
+import { adminLimiter, getClientId, rateLimitResponse } from "@/lib/rate-limit";
 
 export async function DELETE(
-  _request: NextRequest,
+  request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
+  const clientId = getClientId(request);
+  const limit = adminLimiter(clientId);
+  if (!limit.success) return rateLimitResponse(limit.reset);
+
   const { id } = await params;
   const supabase = getSupabaseServer();
 

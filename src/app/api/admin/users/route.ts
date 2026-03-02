@@ -1,8 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseServer } from "@/lib/supabase";
 import { hashPassword } from "@/lib/auth";
+import { adminLimiter, getClientId, rateLimitResponse } from "@/lib/rate-limit";
 
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const clientId = getClientId(request);
+  const limit = adminLimiter(clientId);
+  if (!limit.success) return rateLimitResponse(limit.reset);
+
   const supabase = getSupabaseServer();
   const { data, error } = await supabase
     .from("users")
@@ -17,6 +22,10 @@ export async function GET() {
 }
 
 export async function POST(request: NextRequest) {
+  const clientId = getClientId(request);
+  const limit = adminLimiter(clientId);
+  if (!limit.success) return rateLimitResponse(limit.reset);
+
   const body = await request.json();
   const { username, password, display_name, role } = body;
 

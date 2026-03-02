@@ -94,18 +94,18 @@ export default function StandardsBrainPage() {
 
   return (
     <div className="min-h-screen bg-daf-light-gray">
-      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 sm:py-6 lg:px-8">
         {/* Page Header */}
-        <div className="mb-6 flex items-center justify-between">
+        <div className="mb-4 sm:mb-6 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brain text-white">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brain text-white shrink-0">
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z" />
               </svg>
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-daf-dark-gray">Standards Brain</h1>
-              <p className="text-sm text-gray-500">AI-powered standards assistant</p>
+              <h1 className="text-xl sm:text-2xl font-bold text-daf-dark-gray">Standards Brain</h1>
+              <p className="text-xs sm:text-sm text-gray-500">AI-powered standards assistant</p>
             </div>
           </div>
           <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-700">
@@ -113,9 +113,9 @@ export default function StandardsBrainPage() {
           </span>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-[280px_1fr]">
-          {/* Sidebar */}
-          <div className="space-y-4">
+        <div className="grid gap-4 sm:gap-6 lg:grid-cols-[280px_1fr]">
+          {/* Sidebar — hidden on mobile, shown on lg+ */}
+          <div className="hidden lg:block space-y-4">
             {/* Capabilities Card */}
             <div className="rounded-lg bg-slate-900 p-5 text-white shadow-lg">
               <div className="mb-3 flex items-center gap-2">
@@ -159,7 +159,7 @@ export default function StandardsBrainPage() {
           {/* Chat Area */}
           <div className="flex flex-col rounded-lg border border-gray-200 bg-white shadow-sm">
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4" style={{ minHeight: "400px", maxHeight: "600px" }}>
+            <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4 h-[calc(100vh-280px)] sm:h-auto sm:min-h-[400px] sm:max-h-[600px]">
               {messages.map((msg) => {
                 const text = getMessageText(msg.parts as { type: string; text?: string }[]);
                 if (!text) return null;
@@ -171,7 +171,7 @@ export default function StandardsBrainPage() {
                     className={`flex ${isUser ? "justify-end" : "justify-start"}`}
                   >
                     <div
-                      className={`max-w-[85%] rounded-xl px-4 py-3 ${
+                      className={`max-w-[90%] sm:max-w-[85%] rounded-xl px-3 py-2 sm:px-4 sm:py-3 ${
                         isUser
                           ? "bg-brain text-white"
                           : "border border-gray-200 bg-gray-50 text-gray-800"
@@ -216,20 +216,20 @@ export default function StandardsBrainPage() {
             </div>
 
             {/* Input */}
-            <div className="border-t border-gray-200 p-4">
-              <form onSubmit={handleSubmit} className="flex gap-3">
+            <div className="border-t border-gray-200 p-3 sm:p-4">
+              <form onSubmit={handleSubmit} className="flex gap-2 sm:gap-3">
                 <input
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  placeholder="Ask about any standard, guidance, or tool..."
+                  placeholder="Ask about any standard..."
                   disabled={isLoading}
-                  className="flex-1 rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 focus:border-brain focus:outline-none focus:ring-1 focus:ring-brain disabled:opacity-50"
+                  className="flex-1 min-w-0 rounded-lg border border-gray-300 px-3 py-2.5 sm:px-4 text-sm text-gray-900 placeholder-gray-400 focus:border-brain focus:outline-none focus:ring-1 focus:ring-brain disabled:opacity-50"
                 />
                 <button
                   type="submit"
                   disabled={!input.trim() || isLoading}
-                  className="rounded-lg bg-brain px-4 py-2.5 text-sm font-medium text-white hover:bg-brain/90 disabled:opacity-50 disabled:hover:bg-brain"
+                  className="shrink-0 rounded-lg bg-brain px-3 py-2.5 sm:px-4 text-sm font-medium text-white hover:bg-brain/90 disabled:opacity-50 disabled:hover:bg-brain"
                 >
                   <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
@@ -240,8 +240,27 @@ export default function StandardsBrainPage() {
           </div>
         </div>
 
+        {/* Mobile Suggested Questions — visible below chat on small screens */}
+        <div className="mt-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm lg:hidden">
+          <h2 className="mb-3 text-sm font-semibold text-daf-dark-gray">
+            Suggested Questions
+          </h2>
+          <div className="flex flex-wrap gap-2">
+            {SUGGESTED_QUESTIONS.map((q) => (
+              <button
+                key={q}
+                onClick={() => handleSuggestedQuestion(q)}
+                disabled={isLoading}
+                className="rounded-full border border-gray-200 px-3 py-1.5 text-xs text-gray-700 transition hover:border-brain/40 hover:bg-brain-bg hover:text-brain disabled:opacity-50"
+              >
+                {q}
+              </button>
+            ))}
+          </div>
+        </div>
+
         {/* How It Works Section */}
-        <div className="mt-8 rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
+        <div className="mt-6 sm:mt-8 rounded-lg border border-gray-200 bg-white p-4 sm:p-8 shadow-sm">
           <h2 className="mb-4 text-xl font-bold text-daf-dark-gray">
             How It Works
           </h2>

@@ -67,10 +67,10 @@ function SearchResults() {
   const tierOrder: TierId[] = ["1", "2A", "2B", "3", "ontology"];
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-5xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
       {/* Search bar */}
-      <div className="mb-8">
-        <h1 className="mb-4 text-2xl font-bold text-daf-dark-gray">Search Standards</h1>
+      <div className="mb-6 sm:mb-8">
+        <h1 className="mb-3 sm:mb-4 text-xl sm:text-2xl font-bold text-daf-dark-gray">Search Standards</h1>
         <SearchBar
           value={query}
           navigateOnSubmit

@@ -6,8 +6,13 @@ import {
   COOKIE_NAME,
 } from "@/lib/auth";
 import { getSupabaseServer } from "@/lib/supabase";
+import { authLimiter, getClientId, rateLimitResponse } from "@/lib/rate-limit";
 
 export async function POST(request: NextRequest) {
+  const clientId = getClientId(request);
+  const limit = authLimiter(clientId);
+  if (!limit.success) return rateLimitResponse(limit.reset);
+
   const body = await request.json();
   const { username, password } = body;
 

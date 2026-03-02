@@ -1,48 +1,88 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseServer } from "@/lib/supabase";
+import { adminLimiter, getClientId, rateLimitResponse } from "@/lib/rate-limit";
 
-export async function GET() {
-  const supabase = getSupabaseServer();
+export async function GET(request: NextRequest) {
+  const clientId = getClientId(request);
+  const limit = adminLimiter(clientId);
+  if (!limit.success) return rateLimitResponse(limit.reset);
 
-  const { data, error } = await supabase
-    .from("app_settings")
-    .select("key, value");
+  try {
+    const supabase = getSupabaseServer();
 
-  if (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    const { data, error } = await supabase
+      .from("app_settings")
+      .select("key, value");
+
+    if (error) {
+      console.error("Settings GET error:", error);
+      return NextResponse.json(
+        { error: "Failed to load settings" },
+        { status: 500 }
+      );
+    }
+
+    const settings: Record<string, unknown> = {};
+    for (const row of data || []) {
+      settings[row.key] = row.value;
+    }
+
+    return NextResponse.json(settings);
+  } catch (error) {
+    console.error("Settings GET error:", error);
+    return NextResponse.json(
+      { error: "Failed to load settings" },
+      { status: 500 }
+    );
   }
-
-  const settings: Record<string, unknown> = {};
-  for (const row of data || []) {
-    settings[row.key] = row.value;
-  }
-
-  return NextResponse.json(settings);
 }
 
 export async function PATCH(request: NextRequest) {
-  const body = await request.json();
-  const supabase = getSupabaseServer();
+  const clientId = getClientId(request);
+  const limit = adminLimiter(clientId);
+  if (!limit.success) return rateLimitResponse(limit.reset);
 
-  const updates: { key: string; value: unknown }[] = [];
+  try {
+    const body = await request.json();
+    const supabase = getSupabaseServer();
 
-  if (body.active_model !== undefined) {
-    updates.push({ key: "active_model", value: body.active_model });
-  }
-  if (body.system_prompt !== undefined) {
-    updates.push({ key: "system_prompt", value: body.system_prompt });
-  }
+    const updates: { key: string; value: unknown }[] = [];
 
-  for (const update of updates) {
-    const { error } = await supabase
-      .from("app_settings")
-      .update({ value: update.value, updated_at: new Date().toISOString() })
-      .eq("key", update.key);
-
-    if (error) {
-      return NextResponse.json({ error: error.message }, { status: 500 });
+    if (body.active_model !== undefined) {
+      updates.push({ key: "active_model", value: body.active_model });
     }
-  }
+    if (body.system_prompt !== undefined) {
+      updates.push({ key: "system_prompt", value: body.system_prompt });
+    }
 
-  return NextResponse.json({ success: true });
+    if (updates.length === 0) {
+      return NextResponse.json(
+        { error: "No valid settings provided" },
+        { status: 400 }
+      );
+    }
+
+    for (const update of updates) {
+      const { error } = await supabase
+        .from("app_settings")
+        .update({ value: update.value, updated_at: new Date().toISOString() })
+        .eq("key", update.key);
+
+      if (error) {
+        console.error("Settings PATCH error:", error);
+        return NextResponse.json(
+          { error: "Failed to update settings" },
+          { status: 500 }
+        );
+      }
+    }
+
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    console.error("Settings PATCH error:", error);
+    return NextResponse.json(
+      { error: "Failed to update settings" },
+      { status: 500 }
+    );
+  }
 }

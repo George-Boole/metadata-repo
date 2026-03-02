@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { ingestUrl } from "@/lib/ingest/pipeline";
+import { ingestLimiter, getClientId, rateLimitResponse } from "@/lib/rate-limit";
 
 const IngestRequestSchema = z.object({
   url: z.string().url(),
@@ -11,6 +12,10 @@ const IngestRequestSchema = z.object({
 });
 
 export async function POST(request: NextRequest) {
+  const clientId = getClientId(request);
+  const limit = ingestLimiter(clientId);
+  if (!limit.success) return rateLimitResponse(limit.reset);
+
   try {
     const body = await request.json();
     const parsed = IngestRequestSchema.parse(body);
@@ -34,8 +39,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    console.error("Ingest API error:", error);
     return NextResponse.json(
-      { error: error instanceof Error ? error.message : String(error) },
+      { error: "Failed to ingest content" },
       { status: 500 }
     );
   }

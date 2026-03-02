@@ -83,7 +83,7 @@ export default function Home() {
       </section>
 
       {/* ── Three-Tier Visual Overview ────────────────────────── */}
-      <section className="py-16">
+      <section className="py-10 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-2xl font-bold text-daf-dark-gray sm:text-3xl">
@@ -99,7 +99,7 @@ export default function Home() {
             {/* Tier 1 */}
             <Link
               href="/guidance"
-              className="group w-full max-w-3xl rounded-xl border-2 border-tier-1/30 bg-tier-1-bg p-6 shadow-sm transition hover:border-tier-1/60 hover:shadow-md"
+              className="group w-full max-w-3xl rounded-xl border-2 border-tier-1/30 bg-tier-1-bg p-4 sm:p-6 shadow-sm transition hover:border-tier-1/60 hover:shadow-md"
             >
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-tier-1 text-white font-bold text-lg">
@@ -134,7 +134,7 @@ export default function Home() {
             <div className="grid w-full max-w-3xl grid-cols-1 gap-3 sm:grid-cols-2">
               <Link
                 href="/specs"
-                className="group rounded-xl border-2 border-tier-2a/30 bg-tier-2a-bg p-6 shadow-sm transition hover:border-tier-2a/60 hover:shadow-md"
+                className="group rounded-xl border-2 border-tier-2a/30 bg-tier-2a-bg p-4 sm:p-6 shadow-sm transition hover:border-tier-2a/60 hover:shadow-md"
               >
                 <div className="flex items-start gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-tier-2a text-white font-bold text-sm">
@@ -157,7 +157,7 @@ export default function Home() {
 
               <Link
                 href="/profiles"
-                className="group rounded-xl border-2 border-tier-2b/30 bg-tier-2b-bg p-6 shadow-sm transition hover:border-tier-2b/60 hover:shadow-md"
+                className="group rounded-xl border-2 border-tier-2b/30 bg-tier-2b-bg p-4 sm:p-6 shadow-sm transition hover:border-tier-2b/60 hover:shadow-md"
               >
                 <div className="flex items-start gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-tier-2b text-white font-bold text-sm">
@@ -194,7 +194,7 @@ export default function Home() {
             {/* Tier 3 */}
             <Link
               href="/tools"
-              className="group w-full max-w-3xl rounded-xl border-2 border-tier-3/30 bg-tier-3-bg p-6 shadow-sm transition hover:border-tier-3/60 hover:shadow-md"
+              className="group w-full max-w-3xl rounded-xl border-2 border-tier-3/30 bg-tier-3-bg p-4 sm:p-6 shadow-sm transition hover:border-tier-3/60 hover:shadow-md"
             >
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-tier-3 text-white font-bold text-lg">
@@ -219,7 +219,7 @@ export default function Home() {
       </section>
 
       {/* ── Quick Access Cards ────────────────────────────────── */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-10 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-daf-dark-gray sm:text-3xl">
             Browse the Repository
@@ -232,7 +232,7 @@ export default function Home() {
             {/* Guidance Card */}
             <Link
               href="/guidance"
-              className="group rounded-lg border border-gray-200 p-6 transition hover:border-tier-1/50 hover:shadow-lg"
+              className="group rounded-lg border border-gray-200 p-4 sm:p-6 transition hover:border-tier-1/50 hover:shadow-lg"
             >
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-tier-1-bg">
@@ -259,7 +259,7 @@ export default function Home() {
             {/* Specs Card */}
             <Link
               href="/specs"
-              className="group rounded-lg border border-gray-200 p-6 transition hover:border-tier-2a/50 hover:shadow-lg"
+              className="group rounded-lg border border-gray-200 p-4 sm:p-6 transition hover:border-tier-2a/50 hover:shadow-lg"
             >
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-tier-2a-bg">
@@ -286,7 +286,7 @@ export default function Home() {
             {/* Profiles Card */}
             <Link
               href="/profiles"
-              className="group rounded-lg border border-gray-200 p-6 transition hover:border-tier-2b/50 hover:shadow-lg"
+              className="group rounded-lg border border-gray-200 p-4 sm:p-6 transition hover:border-tier-2b/50 hover:shadow-lg"
             >
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-tier-2b-bg">
@@ -313,7 +313,7 @@ export default function Home() {
             {/* Tools Card */}
             <Link
               href="/tools"
-              className="group rounded-lg border border-gray-200 p-6 transition hover:border-tier-3/50 hover:shadow-lg"
+              className="group rounded-lg border border-gray-200 p-4 sm:p-6 transition hover:border-tier-3/50 hover:shadow-lg"
             >
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-tier-3-bg">
@@ -340,7 +340,7 @@ export default function Home() {
             {/* Ontologies Card */}
             <Link
               href="/ontologies"
-              className="group rounded-lg border border-gray-200 p-6 transition hover:border-ontology/50 hover:shadow-lg"
+              className="group rounded-lg border border-gray-200 p-4 sm:p-6 transition hover:border-ontology/50 hover:shadow-lg"
             >
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-ontology-bg">
@@ -367,7 +367,7 @@ export default function Home() {
             {/* API Explorer Card */}
             <Link
               href="/api-explorer"
-              className="group rounded-lg border border-gray-200 p-6 transition hover:border-daf-light-blue/50 hover:shadow-lg"
+              className="group rounded-lg border border-gray-200 p-4 sm:p-6 transition hover:border-daf-light-blue/50 hover:shadow-lg"
             >
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50">
@@ -394,7 +394,7 @@ export default function Home() {
             {/* Standards Brain Card */}
             <Link
               href="/standards-brain"
-              className="group rounded-lg border border-gray-200 p-6 transition hover:border-brain/50 hover:shadow-lg"
+              className="group rounded-lg border border-gray-200 p-4 sm:p-6 transition hover:border-brain/50 hover:shadow-lg"
             >
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brain-bg">
@@ -422,9 +422,9 @@ export default function Home() {
       </section>
 
       {/* ── Hosting Model Callout ─────────────────────────────── */}
-      <section className="py-16">
+      <section className="py-10 sm:py-16">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
+          <div className="rounded-xl border border-gray-200 bg-white p-4 sm:p-8 shadow-sm">
             <h2 className="text-xl font-bold text-daf-dark-gray">
               Dual Hosting Model
             </h2>

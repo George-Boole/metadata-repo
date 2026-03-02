@@ -32,10 +32,10 @@ export default function ArtifactCard({
   return (
     <Link
       href={href}
-      className={`block rounded-lg border border-gray-200 border-l-4 ${TIER_BORDER[tier]} bg-white p-5 shadow-sm transition-shadow hover:shadow-md`}
+      className={`block rounded-lg border border-gray-200 border-l-4 ${TIER_BORDER[tier]} bg-white p-3 sm:p-5 shadow-sm transition-shadow hover:shadow-md`}
     >
       <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
-        <h3 className="text-lg font-semibold text-daf-dark-gray">{title}</h3>
+        <h3 className="text-base sm:text-lg font-semibold text-daf-dark-gray">{title}</h3>
         <div className="flex items-center gap-2">
           <StatusBadge status={status} />
           <HostingBadge type={hostingType} />

@@ -190,51 +190,53 @@ export default function UsersPage() {
             admin. Add named users above for individual access.
           </div>
         ) : (
-          <table className="w-full text-sm">
-            <thead className="bg-gray-50 text-left text-xs font-medium uppercase text-gray-500">
-              <tr>
-                <th className="px-4 py-3">Username</th>
-                <th className="px-4 py-3">Display Name</th>
-                <th className="px-4 py-3">Role</th>
-                <th className="px-4 py-3">Created</th>
-                <th className="px-4 py-3" />
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-100">
-              {users.map((user) => (
-                <tr key={user.id} className="hover:bg-gray-50">
-                  <td className="px-4 py-3 font-medium text-daf-dark-gray">
-                    {user.username}
-                  </td>
-                  <td className="px-4 py-3 text-gray-500">
-                    {user.display_name || "—"}
-                  </td>
-                  <td className="px-4 py-3">
-                    <span
-                      className={`rounded-full px-2 py-0.5 text-xs font-medium ${
-                        user.role === "admin"
-                          ? "bg-purple-100 text-purple-700"
-                          : "bg-gray-100 text-gray-600"
-                      }`}
-                    >
-                      {user.role}
-                    </span>
-                  </td>
-                  <td className="px-4 py-3 text-gray-400 text-xs">
-                    {new Date(user.created_at).toLocaleDateString()}
-                  </td>
-                  <td className="px-4 py-3 text-right">
-                    <button
-                      onClick={() => handleDelete(user.id, user.username)}
-                      className="text-xs text-red-500 hover:text-red-700"
-                    >
-                      Delete
-                    </button>
-                  </td>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead className="bg-gray-50 text-left text-xs font-medium uppercase text-gray-500">
+                <tr>
+                  <th className="px-4 py-3">Username</th>
+                  <th className="hidden sm:table-cell px-4 py-3">Display Name</th>
+                  <th className="px-4 py-3">Role</th>
+                  <th className="hidden sm:table-cell px-4 py-3">Created</th>
+                  <th className="px-4 py-3" />
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {users.map((user) => (
+                  <tr key={user.id} className="hover:bg-gray-50">
+                    <td className="px-4 py-3 font-medium text-daf-dark-gray whitespace-nowrap">
+                      {user.username}
+                    </td>
+                    <td className="hidden sm:table-cell px-4 py-3 text-gray-500">
+                      {user.display_name || "—"}
+                    </td>
+                    <td className="px-4 py-3">
+                      <span
+                        className={`rounded-full px-2 py-0.5 text-xs font-medium whitespace-nowrap ${
+                          user.role === "admin"
+                            ? "bg-purple-100 text-purple-700"
+                            : "bg-gray-100 text-gray-600"
+                        }`}
+                      >
+                        {user.role}
+                      </span>
+                    </td>
+                    <td className="hidden sm:table-cell px-4 py-3 text-gray-400 text-xs whitespace-nowrap">
+                      {new Date(user.created_at).toLocaleDateString()}
+                    </td>
+                    <td className="px-4 py-3 text-right">
+                      <button
+                        onClick={() => handleDelete(user.id, user.username)}
+                        className="text-xs text-red-500 hover:text-red-700 whitespace-nowrap"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </div>
     </div>
