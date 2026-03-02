@@ -43,6 +43,9 @@ metadata-repo/
 │   │   ├── tools.json
 │   │   └── ontologies.json
 │   ├── lib/              # Utility functions, types, search logic
+│   │   ├── auth.ts       # Password auth helpers (HMAC-SHA256)
+│   │   ├── supabase.ts   # Supabase client (server + browser)
+│   │   ├── neo4j.ts      # Neo4j driver singleton
 │   └── types/            # TypeScript type definitions
 ├── public/               # Static assets (logos, icons)
 ├── tasks/                # PRD and task tracking
@@ -69,11 +72,11 @@ metadata-repo/
 4. **Tier 3 — Tagging/Labeling Tools**: Tools that apply metadata standards to data (DCAMPS-C, Purview, Varonis, Collibra). NOT metadata catalog tools.
 
 ## Current State
-- **Phase**: Phase 0 account setup — blocked on `.env.local` key restoration
-- **Last Completed**: All external accounts created (Vercel, Supabase, Neo4j, Anthropic, OpenAI, Google AI, Firecrawl). Vercel project deployed and linked locally.
-- **What's Blocking**: `.env.local` was wiped by `vercel link` in Session 9. User needs to re-copy API keys from each service dashboard (or restore via OneDrive version history).
+- **Phase**: Phase 1 complete — auth + database foundation done
+- **Last Completed**: Cookie-based auth system, Supabase schema (sources, chunks w/ pgvector, app_settings, match_chunks RPC), Neo4j driver + setup endpoint. All env vars on Vercel. Build clean, deployed.
+- **Data Policy**: Only real data in databases. Static JSON contains fictional Tier 2B profiles and AI-written descriptions — these must NOT be seeded into Supabase/Neo4j. Real content comes from web crawling authoritative sources.
 - **Implementation Plan**: `C:\Users\greg\.claude\plans\gentle-sleeping-kite.md` (detailed 8-phase plan)
-- **Next Immediate Step**: User restores `.env.local` keys → push env vars to Vercel → begin Phase 1 (auth + database foundation)
+- **Next Immediate Step**: Build ingestion pipeline (crawl → parse → chunk → embed → store), then RAG chat, then admin panel, then ingest real content
 
 ## Autonomy Rules
 Claude operates at MAXIMUM autonomy **within this repository**:

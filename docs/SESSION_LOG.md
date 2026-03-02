@@ -339,3 +339,54 @@
 - All external accounts exist and are accessible via their dashboards
 - Phase 0 blocked on `.env.local` restoration
 - See `docs/CHECKPOINT.md` for exact key recovery instructions
+
+## Session 10 — 2026-03-01
+**Focus**: Phase 0 completion + Phase 1 (auth + database foundation)
+
+### Accomplished
+
+#### Phase 0 Completion
+- User restored all API keys to `.env.local` (12 vars filled including SITE_PASSWORD)
+- Backed up `.env.local` to `.env.local.bak` before any Vercel operations
+- Pushed all 12 env vars to Vercel production environment
+- Phase 0 fully complete
+
+#### Phase 1: Auth + Database Foundation
+- **Auth system**: Cookie-based shared password auth using Edge-compatible Web Crypto HMAC-SHA256
+  - `src/middleware.ts` — redirects unauthenticated users to /login, allows public paths and static assets
+  - `src/app/login/page.tsx` — login form with DAF branding and Suspense boundary for useSearchParams
+  - `src/app/api/auth/route.ts` — POST validates password + sets httpOnly cookie, DELETE logs out
+  - `src/lib/auth.ts` — generateToken, validatePassword, isAuthenticated helpers
+- **Supabase schema** (4 migrations via MCP):
+  - Enabled `vector` and `pg_trgm` extensions
+  - `sources` table — URL, title, type, tier, status, chunk_count, metadata, timestamps, auto-updated_at trigger
+  - `chunks` table — content, embedding vector(512), chunk_type, source metadata, HNSW index, full-text search tsvector
+  - `app_settings` table — key/value JSONB store, seeded with default model config (Gemini 2.0 Flash default, Claude Sonnet 4.6 and Gemini 2.5 Flash available)
+  - `match_chunks()` RPC function for vector similarity search with threshold and tier filtering
+  - RLS enabled on all tables with service role full access + anon read-only policies
+- **Neo4j**: `src/lib/neo4j.ts` driver singleton + `src/app/api/setup/neo4j/route.ts` endpoint for schema initialization (constraints + indexes for Standard, Guidance, Profile, Tool, Ontology, Element nodes)
+- **Supabase client**: `src/lib/supabase.ts` with server (service role) and browser (anon key) client factories
+- **NPM packages installed**: ai, @ai-sdk/react, @ai-sdk/anthropic, @ai-sdk/google, @ai-sdk/openai, @supabase/supabase-js, neo4j-driver, zod
+
+#### Data Audit
+- Reviewed all static JSON data files for accuracy
+- **Real data**: Tier 1 guidance (7 DoDIs/DoDDs), Tier 2A specs (10 real standards), Tier 3 tools (6 real products), 2 real ontologies (OWL 2, LOV), 1 real ontology (JDO)
+- **Fictional data**: All 6 Tier 2B domain profiles are completely made up. "DAF Data Fabric Ontology" is fictional.
+- **AI-written descriptions**: All summaries/descriptions across tiers are AI-generated paraphrases, not authoritative text
+- **Decision**: Next session will only seed real data into databases. No fictional content will be pushed to Supabase/Neo4j. Real content comes from web crawling actual source websites.
+
+### Build Results
+- `npm run build`: 48 pages, zero errors, compiled successfully
+- Committed and pushed to GitHub (triggers Vercel auto-deploy)
+
+### Key Decisions
+- **No fictional data in databases** — Tier 2B profiles and DAF Data Fabric Ontology will NOT be seeded
+- **Real content via crawling** — authoritative descriptions come from crawling actual source websites, not AI-generated summaries
+- **Web Crypto over Node crypto** — middleware uses crypto.subtle for Edge Runtime compatibility
+- **Gemini 2.0 Flash as default model** — cheapest option (free tier available), Claude Sonnet 4.6 for demos
+
+### Status at End (Paused)
+- Phase 0: Complete — all env vars set locally and on Vercel
+- Phase 1: Complete — auth, Supabase schema, Neo4j driver all working, build clean
+- Phase 2 (seeding): Skipping AI-generated data. Next session will build the crawling pipeline (Phase 5) first, then seed only real data from authoritative sources
+- Vercel deploying with auth gate active
