@@ -3,19 +3,19 @@
 ## Project Identity
 - **Name**: DAF Metadata Repository (Prototype/Demo)
 - **Purpose**: Demonstration prototype for leadership discussions — showcases a centralized metadata standards repository for the Department of the Air Force
-- **Repo**: Local Windows dev → GitHub
+- **Repo**: GitHub (George-Boole/metadata-repo), dev on macOS (Mac mini M-series)
 - **PRD**: `tasks/prd-metadata-repository.md`
 
 ## Tech Stack
 - **Framework**: Next.js 15 (App Router) + TypeScript
 - **Styling**: Tailwind CSS 4
-- **Data Layer**: Static JSON files in `src/data/` (migrating to Supabase pgvector + Neo4j AuraDB)
+- **Data Layer**: Static JSON for browse pages + Supabase pgvector for RAG + Neo4j AuraDB for graph
 - **Vector DB**: Supabase pgvector (free tier, 500MB) — chunks + embeddings + auth
 - **Graph DB**: Neo4j AuraDB Free (50K nodes / 175K relationships) — standards knowledge graph
-- **LLM**: Multi-model — Claude Sonnet 4.6 / Gemini 2.5 Flash / Gemini 2.0 Flash (user-selectable)
+- **LLM**: Multi-model — Gemini 2.5 Flash (default) / Gemini 2.5 Flash Lite / Claude Sonnet 4.6 (admin-selectable)
 - **Embeddings**: OpenAI text-embedding-3-small (512 dims via Matryoshka truncation)
 - **Web Crawling**: Firecrawl (500 free credits) + Jina Reader API
-- **Auth**: Next.js middleware shared password + Supabase Auth
+- **Auth**: Multi-user (Supabase users table) + shared password fallback, HMAC-signed tokens
 - **Hosting**: Vercel Hobby (free tier)
 - **Linting**: ESLint with next/core-web-vitals
 - **Runtime**: Node.js, npm
@@ -32,7 +32,8 @@ metadata-repo/
 │   │   ├── profiles/     # Tier 2B: Domain profiles
 │   │   ├── tools/        # Tier 3: Tagging/labeling tools
 │   │   ├── ontologies/   # Ontologies section
-│   │   ├── standards-brain/ # AI chatbot concept demo
+│   │   ├── standards-brain/ # RAG-powered AI chat (real, not mock)
+│   │   ├── admin/          # Admin panel (sources, users, settings)
 │   │   ├── api-explorer/ # API concept demo page
 │   │   └── search/       # Global search results
 │   ├── components/       # Shared React components
@@ -63,7 +64,7 @@ metadata-repo/
 - **Hybrid data layer** — static JSON for SSR browse pages + Supabase pgvector for RAG chunks + Neo4j for relationship graph
 - **Dual hosting model** — artifacts are either "Stored" (content in repo) or "Linked" (pointer to external authoritative source)
 - **Web-crawled content** — ODNI specs, NIEM, W3C, Dublin Core ingested by crawling source websites (not local files)
-- **Multi-model RAG** — admin-selectable LLM (Claude Sonnet 4.6 / Gemini Flash), OpenAI embeddings, hybrid vector+graph retrieval
+- **Hybrid RAG retrieval** — vector similarity (0.7 weight) + OR-based keyword matching (0.3 weight) with round-robin source diversity (max 3 chunks per source)
 - **Always cite sources** — every RAG response includes clickable source references
 - **Admin panel** — add content via URL or file upload, select LLM model, view ingestion status
 - **Password-protected** — shared password via Next.js middleware for demo access
@@ -75,12 +76,15 @@ metadata-repo/
 4. **Tier 3 — Tagging/Labeling Tools**: Tools that apply metadata standards to data (DCAMPS-C, Purview, Varonis, Collibra). NOT metadata catalog tools.
 
 ## Current State
-- **Phase**: Phases 1-6 code complete — ready for content ingestion
-- **Last Completed**: Ingestion pipeline, RAG chat (replaces mock Standards Brain), admin panel with user management, multi-user auth system. 58 pages, build clean, deployed.
+- **Phase**: Phase 7 complete (content ingestion) — starting Phase 8 (polish)
+- **Last Completed**: 90 real sources ingested (7 Tier 1 guidance + 83 Tier 2A specs), 3,170 chunks with context-enriched embeddings. Hybrid search (vector + keyword) with source diversity. Neo4j schema initialized. Standards Brain live with streaming RAG responses and citations.
+- **Ingested Content**: 7 DoD guidance PDFs, 73 ODNI IC Technical Specs, Dublin Core, DCAT 3, RDF 1.2, OWL 2, SKOS, SHACL, SPARQL 1.1, NIEM 6.0
+- **Models**: Gemini 2.5 Flash (default), Gemini 2.5 Flash Lite, Claude Sonnet 4.6 — selectable via admin panel. Gemini 2.0 Flash deprecated and removed.
 - **Auth System**: Multi-user with roles. Login accepts username+password (from users table) or shared password (admin fallback). HMAC-signed tokens with role info. Admin routes protected by middleware.
 - **Data Policy**: Only real data in databases. Static JSON contains fictional Tier 2B profiles and AI-written descriptions — these must NOT be seeded into Supabase/Neo4j. Real content comes from web crawling authoritative sources.
-- **Implementation Plan**: `C:\Users\greg\.claude\plans\gentle-sleeping-kite.md` (detailed 8-phase plan)
-- **Next Immediate Step**: Initialize Neo4j schema, ingest real content via admin panel or API, test RAG chat end-to-end
+- **Dev Environment**: macOS (Mac mini M-series), Node.js 25.7.0, Homebrew
+- **Known Gaps**: NIEM 6.0, IC-ISM, IC-EDH landing pages yielded only 1 chunk each (minimal text). Need deeper pages or alternative sources.
+- **Next Step**: Phase 8 polish (rate limiting, error handling, mobile responsiveness), ingest more content (ISO 11179, NIEM sub-domains, JSON-LD, PROV)
 
 ## Autonomy Rules
 Claude operates at MAXIMUM autonomy **within this repository**:

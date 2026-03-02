@@ -443,3 +443,59 @@
 - Phases 1-6 code complete, build clean, pushed to GitHub (auto-deploying to Vercel)
 - No content ingested yet — databases empty
 - Next: initialize Neo4j schema, ingest test URLs, then bulk content ingestion (Phase 7)
+
+## Session 12 — 2026-03-02
+**Focus**: Dev environment setup on Mac mini, Phase 7 content ingestion, hybrid search fix
+
+### Accomplished
+
+#### Dev Environment Setup
+- Installed Node.js 25.7.0 via Homebrew on new Mac mini (M-series)
+- Installed npm dependencies, verified build passes (58 pages)
+- User copied `.env.local` from previous machine, confirmed gitignored
+
+#### Phase 7: Content Ingestion
+- **Neo4j schema initialized** — 6 uniqueness constraints + 6 name indexes + 1 tier index via POST to `/api/setup/neo4j`
+- **Model update** — replaced deprecated Gemini 2.0 Flash with Gemini 2.5 Flash as default in `app_settings`, added Gemini 2.5 Flash Lite option
+- **Pipeline test** — DoDI 8320.02 ingested successfully (19 chunks), verified in Supabase
+- **RAG chat test** — streaming response with citations confirmed working via Gemini 2.5 Flash
+- **Tier 1 bulk ingest** — all 7 DoD guidance PDFs (301 chunks total)
+- **Tier 2A bulk ingest** — 10 key specs: NIEM 6.0, Dublin Core, DCAT 3, RDF 1.2, OWL 2, SKOS, SHACL, SPARQL 1.1, IC-ISM, IC-EDH
+- **ODNI bulk ingest** — all 73 IC Technical Specifications (2,193 chunks), zero failures
+- **Chunker fix** — added hard-split for oversized paragraphs exceeding OpenAI 8192-token embedding limit (SHACL spec triggered this)
+- **Final counts**: 90 sources, 3,460 chunks (before re-ingestion)
+
+#### Testing
+- **Standards Brain**: 4 test queries — all streamed correctly, zero hallucinations, proper citations
+- **Repository search**: 4 queries (NIEM, security marking, Dublin Core, interoperability) — all returned relevant results across tiers
+- **Issue found**: W3C specs not surfacing for "DoD context" queries due to vector search relevance gap
+
+#### Hybrid Search Fix (major)
+- **Root cause**: Pure vector search couldn't bridge W3C technical content ↔ DoD-context queries. Keyword search used AND logic (impossible match). No source diversity.
+- **Fix 1 — Context-enriched embeddings**: Pipeline now prepends `[Source: title | Tier | Type | URL]` to every chunk before embedding
+- **Fix 2 — Hybrid search RPC**: New `hybrid_search` Supabase function combines vector similarity (0.7 weight) + OR-based full-text keyword matching (0.3 weight)
+- **Fix 3 — Source diversity**: Round-robin ordering ensures results span multiple sources instead of clustering from one dominant source
+- **Re-ingestion**: All 90 sources re-ingested with context-enriched embeddings using 3 parallel agents (batches of 30)
+- **Final counts after re-ingestion**: 90 sources, 3,170 chunks
+- **Verified**: W3C query now returns RDF and DCAT alongside DoD guidance
+
+### Key Decisions
+- **Gemini 2.0 Flash retired** — replaced with 2.5 Flash (free tier, same speed class)
+- **Hybrid search over pure vector** — essential for cross-domain queries where keywords and semantics diverge
+- **3 chunks max per source** — ensures diverse retrieval without sacrificing quality
+- **OR-based keyword matching** — AND was too restrictive; OR with ts_rank_cd scoring provides better recall
+
+### Supabase Migrations Applied
+1. `add_hybrid_search_rpc` — initial hybrid search function
+2. `fix_hybrid_search_ordering` — fixed DISTINCT ON ordering issue
+3. `hybrid_search_or_keywords` — switched AND to OR keyword matching
+4. `hybrid_search_with_diversity` — added round-robin source diversity
+
+### Build Results
+- 58 pages, zero errors, compiled successfully
+- Committed and pushed to GitHub (auto-deploying to Vercel)
+
+### Status at End
+- Phase 7 complete — 90 sources, 3,170 chunks, hybrid search working
+- Starting Phase 8 (polish) next
+- Dev environment fully operational on Mac mini
