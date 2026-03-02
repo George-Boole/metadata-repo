@@ -43,9 +43,12 @@ metadata-repo/
 │   │   ├── tools.json
 │   │   └── ontologies.json
 │   ├── lib/              # Utility functions, types, search logic
-│   │   ├── auth.ts       # Password auth helpers (HMAC-SHA256)
+│   │   ├── auth.ts       # Multi-user auth (HMAC tokens, password hashing)
 │   │   ├── supabase.ts   # Supabase client (server + browser)
 │   │   ├── neo4j.ts      # Neo4j driver singleton
+│   │   ├── embeddings.ts # OpenAI text-embedding-3-small (512-dim)
+│   │   ├── ingest/       # Ingestion pipeline (crawl → chunk → embed → store)
+│   │   └── rag/          # RAG system (vector search, model resolver, prompts)
 │   └── types/            # TypeScript type definitions
 ├── public/               # Static assets (logos, icons)
 ├── tasks/                # PRD and task tracking
@@ -72,11 +75,12 @@ metadata-repo/
 4. **Tier 3 — Tagging/Labeling Tools**: Tools that apply metadata standards to data (DCAMPS-C, Purview, Varonis, Collibra). NOT metadata catalog tools.
 
 ## Current State
-- **Phase**: Phase 1 complete — auth + database foundation done
-- **Last Completed**: Cookie-based auth system, Supabase schema (sources, chunks w/ pgvector, app_settings, match_chunks RPC), Neo4j driver + setup endpoint. All env vars on Vercel. Build clean, deployed.
+- **Phase**: Phases 1-6 code complete — ready for content ingestion
+- **Last Completed**: Ingestion pipeline, RAG chat (replaces mock Standards Brain), admin panel with user management, multi-user auth system. 58 pages, build clean, deployed.
+- **Auth System**: Multi-user with roles. Login accepts username+password (from users table) or shared password (admin fallback). HMAC-signed tokens with role info. Admin routes protected by middleware.
 - **Data Policy**: Only real data in databases. Static JSON contains fictional Tier 2B profiles and AI-written descriptions — these must NOT be seeded into Supabase/Neo4j. Real content comes from web crawling authoritative sources.
 - **Implementation Plan**: `C:\Users\greg\.claude\plans\gentle-sleeping-kite.md` (detailed 8-phase plan)
-- **Next Immediate Step**: Build ingestion pipeline (crawl → parse → chunk → embed → store), then RAG chat, then admin panel, then ingest real content
+- **Next Immediate Step**: Initialize Neo4j schema, ingest real content via admin panel or API, test RAG chat end-to-end
 
 ## Autonomy Rules
 Claude operates at MAXIMUM autonomy **within this repository**:

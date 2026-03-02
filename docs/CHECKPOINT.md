@@ -1,55 +1,28 @@
-# Checkpoint — 2026-03-01 (Session 10, paused)
+# Checkpoint — 2026-03-01 (Session 11)
 
 ## Current State
-Phase 1 (auth + database foundation) is complete. Auth gate, Supabase schema, and Neo4j driver are all in place. Build passes clean (48 pages). Pushed to GitHub, Vercel auto-deploying.
+Phases 1-6 code complete. Ingestion pipeline, RAG chat, admin panel with user management all built. Build passes clean (58 pages). Pushed to GitHub, Vercel auto-deploying.
 
-## What's Done
-- All env vars set in `.env.local` and pushed to Vercel production
-- `.env.local.bak` backup exists
-- Cookie-based shared password auth (middleware + login page + API route)
-- Supabase: sources, chunks (pgvector 512-dim), app_settings tables + match_chunks() RPC
-- Neo4j: driver singleton + /api/setup/neo4j schema initialization endpoint
-- NPM packages: ai SDK, Supabase client, Neo4j driver, zod
+## What's Done This Session
+- **Ingestion pipeline** (`src/lib/ingest/`): crawl (Jina Reader + Firecrawl fallback) → chunk (markdown-aware, token-counted) → embed (OpenAI text-embedding-3-small, 512-dim) → store (Supabase chunks + Neo4j Source nodes)
+- **RAG chat** (`src/lib/rag/` + `/api/chat`): vector search via match_chunks RPC, multi-model (Claude Sonnet 4.6 / Gemini 2.5 Flash / Gemini 2.0 Flash), streaming via Vercel AI SDK v6
+- **Standards Brain**: replaced mock Q&A with real `useChat()` streaming chat, using AI SDK v6 `UIMessage` parts API
+- **Admin panel** (`/admin`): dashboard stats, source management with ingest-by-URL, user management (create/delete users with roles), LLM model selector, system prompt editor
+- **Auth evolution**: multi-user login (username + password from users table) + shared password fallback (grants admin). Signed tokens with HMAC-SHA256 containing username + role. Middleware enforces admin-only access to `/admin` and `/api/admin` routes.
+- **Supabase migrations**: `users` table (username, password_hash, role, display_name), unique constraint on `sources.url`
+- **NPM packages**: `@mendable/firecrawl-js`
 
-## Critical Decision: No Fictional Data
-User explicitly decided: **only real data goes into databases**. The static JSON files contain:
-- **REAL**: Tier 1 guidance, Tier 2A specs, Tier 3 tools, JDO/OWL2/LOV ontologies
-- **FICTIONAL**: All 6 Tier 2B domain profiles, "DAF Data Fabric Ontology"
-- **AI-WRITTEN**: All descriptions/summaries are paraphrases, not authoritative text
-
-Do NOT seed AI-generated descriptions as RAG content. Real content comes from crawling authoritative websites.
+## Key Architecture Notes
+- AI SDK v6 breaking changes: `useChat()` returns `{ messages, sendMessage, status }` instead of `{ input, handleInputChange, handleSubmit, isLoading }`. Messages use `parts[]` array instead of `content` string. Server uses `convertToModelMessages()` + `toUIMessageStreamResponse()`.
+- Zod v4: uses `.issues` instead of `.errors` on `ZodError`
+- Firecrawl SDK v4: method is `app.scrape()` not `app.scrapeUrl()`, returns `Document` directly (no success wrapper)
+- OpenAI embeddings called directly via fetch (AI SDK's embedding wrapper doesn't support dimensions parameter)
 
 ## Next Session Plan
-Skip Phase 2 (seeding static JSON) and Phase 3/4 (RAG chat) for now. Instead:
-
-1. **Build ingestion pipeline first** (Phase 5 from plan):
-   - Firecrawl/Jina web crawler
-   - Type-aware parsers (HTML, PDF, XML)
-   - Token-counted chunker with overlap
-   - OpenAI embedding generation
-   - Pipeline orchestrator: crawl → parse → chunk → embed → store in Supabase + Neo4j
-
-2. **Build RAG chat** (Phase 3/4):
-   - Vector search via match_chunks()
-   - Graph-enhanced hybrid retrieval
-   - Streaming chat with Vercel AI SDK
-   - Replace mock Standards Brain with real chat
-
-3. **Build admin panel** (Phase 6):
-   - Add source by URL
-   - Trigger ingestion
-   - Model selector
-   - Source management
-
-4. **Ingest real content** (Phase 7):
-   - Crawl ODNI spec pages from manifest URLs
-   - Crawl NIEM, Dublin Core, W3C, DoD guidance URLs
-
-## Implementation Plan
-`C:\Users\greg\.claude\plans\gentle-sleeping-kite.md` — full 8-phase plan (Phase 2 will be modified to skip fictional data)
-
-## Accounts & Infrastructure
-- **Vercel**: Project deployed, env vars set, auto-deploys from GitHub main
-- **Supabase**: "DAF Prototypes" org, project "daf-metadata-repo" (ref: wxqrlpefradsbsunpiio), schema created
-- **Neo4j AuraDB**: Account exists, instance running, driver configured (schema not yet initialized — needs POST to /api/setup/neo4j after deploy)
-- **API Keys**: All set in .env.local and Vercel (Anthropic, OpenAI, Google AI, Firecrawl)
+1. **Initialize Neo4j schema**: POST to `/api/setup/neo4j` after deploy (schema constraints + indexes)
+2. **Ingest real content** (Phase 7): Use admin panel or API to crawl authoritative URLs
+   - Start with a few test URLs to verify the pipeline end-to-end
+   - Then bulk ingest: ODNI specs (71 manifest URLs), NIEM, Dublin Core, W3C, DoD guidance
+3. **Test Standards Brain**: Ask questions about ingested content, verify citations
+4. **Polish** (Phase 8): rate limiting, error handling, mobile responsiveness
+5. **Update CLAUDE.md** current state section

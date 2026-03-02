@@ -390,3 +390,56 @@
 - Phase 1: Complete — auth, Supabase schema, Neo4j driver all working, build clean
 - Phase 2 (seeding): Skipping AI-generated data. Next session will build the crawling pipeline (Phase 5) first, then seed only real data from authoritative sources
 - Vercel deploying with auth gate active
+
+## Session 11 — 2026-03-01
+**Focus**: Ingestion pipeline, RAG chat, admin panel with user management
+
+### Accomplished
+
+#### Ingestion Pipeline (Phase 5)
+- `src/lib/embeddings.ts` — OpenAI text-embedding-3-small (512-dim Matryoshka), direct API calls with batch support
+- `src/lib/ingest/crawl.ts` — Dual crawler: Jina Reader API (free, primary) + Firecrawl SDK v4 (fallback for JS-heavy pages)
+- `src/lib/ingest/chunker.ts` — Markdown-aware chunking: split by headings, then by paragraphs with overlap, token-counted (~4 chars/token)
+- `src/lib/ingest/pipeline.ts` — Full orchestrator: crawl → chunk → embed → upsert source in Supabase → insert chunks with vectors → create Neo4j Source node
+- `src/app/api/ingest/route.ts` — POST endpoint with Zod v4 validation
+- Supabase migration: unique constraint on `sources.url` for upsert support
+
+#### RAG Chat (Phase 3)
+- `src/lib/rag/vector-search.ts` — Embeds query, calls `match_chunks()` RPC with threshold + tier filtering
+- `src/lib/rag/model-resolver.ts` — Reads `active_model` + `models` from `app_settings`, maps to AI SDK providers (Anthropic/Google)
+- `src/lib/rag/prompt-builder.ts` — Builds system prompt with retrieved context blocks, citation instructions, source metadata
+- `src/app/api/chat/route.ts` — Streaming chat: parallel model resolution + vector search + system prompt fetch, uses `streamText()` + `toUIMessageStreamResponse()`
+- `src/app/standards-brain/page.tsx` — Replaced mock Q&A with real `useChat()` hook (AI SDK v6 API: `sendMessage`, `status`, `parts[]`)
+
+#### Admin Panel (Phase 6)
+- `src/app/admin/layout.tsx` — Tab navigation: Dashboard, Sources, Users, Settings
+- `src/app/admin/page.tsx` — Dashboard with stats (sources by status, chunks, users)
+- `src/app/admin/sources/page.tsx` — Source list table + "Add Source by URL" form that triggers ingestion pipeline
+- `src/app/admin/users/page.tsx` — User management: create users with username/password/role, delete users
+- `src/app/admin/settings/page.tsx` — Model selector (click to switch), system prompt editor
+- API routes: `/api/admin/stats`, `/api/admin/sources`, `/api/admin/sources/[id]`, `/api/admin/users`, `/api/admin/users/[id]`, `/api/admin/settings`
+
+#### Auth Evolution
+- Evolved from single shared password to multi-user system with roles
+- Login accepts `{ username, password }` (user table lookup) or `{ password }` (shared password → admin)
+- Token format: `base64(JSON payload).hmac_signature` — payload contains `{sub, role, iat}`
+- Password hashing: SHA-256 with random salt (stored as `salt:hash`)
+- Middleware: verifies token signature, passes user info via headers, admin routes restricted to admin role
+- Supabase migration: `users` table with username (unique), password_hash, role (admin/user), display_name
+
+### API Notes (AI SDK v6 Breaking Changes)
+- `useChat()` returns `{ messages, sendMessage, status }` — no `input`, `handleInputChange`, `handleSubmit`
+- Messages use `parts[]` array instead of `content` string
+- Server: `convertToModelMessages()` converts UIMessages for `streamText()`, response via `toUIMessageStreamResponse()`
+- `LanguageModelV1` renamed to `LanguageModel`
+- Zod v4: `.issues` instead of `.errors` on `ZodError`
+- Firecrawl SDK v4: `app.scrape()` not `app.scrapeUrl()`, returns Document directly
+
+### Build Results
+- 58 pages generated, zero errors, compiled successfully
+- Only warning: Firecrawl's `undici` dependency (non-blocking, works at runtime)
+
+### Status at End
+- Phases 1-6 code complete, build clean, pushed to GitHub (auto-deploying to Vercel)
+- No content ingested yet — databases empty
+- Next: initialize Neo4j schema, ingest test URLs, then bulk content ingestion (Phase 7)
