@@ -499,3 +499,47 @@
 - Phase 7 complete — 90 sources, 3,170 chunks, hybrid search working
 - Starting Phase 8 (polish) next
 - Dev environment fully operational on Mac mini
+
+## Session 12b — 2026-03-02
+**Focus**: Phase 8 polish + additional content ingestion
+
+### Accomplished
+
+#### Phase 8: Polish (3 parallel agents)
+- **Rate limiting** (`src/lib/rate-limit.ts`):
+  - In-memory sliding window rate limiter with periodic cleanup
+  - Applied to all 9 API routes: chat (20/min), auth (5/min), ingest (10/min), admin (30/min)
+  - Returns 429 with Retry-After header
+- **Error handling**:
+  - Created `src/app/error.tsx` — global error boundary with DAF branding
+  - Created `src/app/not-found.tsx` — 404 page
+  - Created `src/app/standards-brain/error.tsx` — chat-specific error boundary
+  - Created `src/app/admin/error.tsx` — admin error boundary
+  - Improved all API routes: generic error messages (no internal details leaked), proper console.error logging, input validation for settings PATCH
+- **Mobile responsiveness**:
+  - Dashboard: reduced padding, responsive grids already in place
+  - Standards Brain: sidebar hidden on mobile, suggested questions as pill buttons below chat, responsive chat height using vh, smaller message bubble padding
+  - Admin layout: horizontal scroll tabs, responsive header text, truncation
+  - Admin sources/users tables: overflow-x-auto wrappers, hidden columns on mobile
+  - Search: responsive padding and heading sizes
+  - ArtifactCard: responsive padding and title sizes
+
+#### Additional Content Ingestion
+- 17 new sources ingested (107 total, 5,051 chunks):
+  - **W3C**: JSON-LD 1.1 (187 chunks), PROV Overview (21), PROV Data Model (129), SSN Ontology (151), Organization Ontology (57)
+  - **NIEM**: 5.2 Release (11), Domains Reference (1), Namespace Reference (39), Property Reference (31), Type Reference (17)
+  - **ISO**: 11179 Metadata Registry (16), 19115 Geographic Metadata (15)
+  - **Other**: XML Schema 1.1 (935), GML (66), DDMS (1)
+  - Re-tried: NIEM 6.0 (4 chunks — still sparse), IC-ISM (1 chunk — sparse ODNI landing page)
+
+#### Git Author Fix
+- Set repo-level git config to `George-Boole <242724950+George-Boole@users.noreply.github.com>`
+
+### Build Results
+- 62 pages (4 new error/not-found pages), zero errors
+
+### Status at End
+- **All 8 phases complete**
+- 107 sources, 5,051 chunks ingested
+- Rate limiting, error boundaries, mobile responsiveness all in place
+- Ready for Vercel deployment and demo testing

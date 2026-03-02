@@ -76,15 +76,17 @@ metadata-repo/
 4. **Tier 3 — Tagging/Labeling Tools**: Tools that apply metadata standards to data (DCAMPS-C, Purview, Varonis, Collibra). NOT metadata catalog tools.
 
 ## Current State
-- **Phase**: Phase 7 complete (content ingestion) — starting Phase 8 (polish)
-- **Last Completed**: 90 real sources ingested (7 Tier 1 guidance + 83 Tier 2A specs), 3,170 chunks with context-enriched embeddings. Hybrid search (vector + keyword) with source diversity. Neo4j schema initialized. Standards Brain live with streaming RAG responses and citations.
-- **Ingested Content**: 7 DoD guidance PDFs, 73 ODNI IC Technical Specs, Dublin Core, DCAT 3, RDF 1.2, OWL 2, SKOS, SHACL, SPARQL 1.1, NIEM 6.0
+- **Phase**: Phase 8 complete (polish). All planned phases done.
+- **Last Completed**: Phase 8 polish — rate limiting on all API endpoints, error boundaries (global, standards-brain, admin, 404), improved error handling (generic messages, no leaked internals), mobile responsiveness across all pages. 17 additional sources ingested (JSON-LD, PROV, SSN, Org Ontology, NIEM sub-domains, ISO 11179/19115, XML Schema, GML, DDMS).
+- **Ingested Content**: 107 sources, 5,051 chunks. 7 DoD guidance PDFs, 73 ODNI IC Technical Specs, Dublin Core, DCAT 3, RDF 1.2, OWL 2, SKOS, SHACL, SPARQL 1.1, JSON-LD 1.1, PROV, SSN, Org Ontology, NIEM (6.0 + sub-domains), ISO 11179, ISO 19115, XML Schema 1.1, GML, DDMS, IC-ISM
 - **Models**: Gemini 2.5 Flash (default), Gemini 2.5 Flash Lite, Claude Sonnet 4.6 — selectable via admin panel. Gemini 2.0 Flash deprecated and removed.
 - **Auth System**: Multi-user with roles. Login accepts username+password (from users table) or shared password (admin fallback). HMAC-signed tokens with role info. Admin routes protected by middleware.
 - **Data Policy**: Only real data in databases. Static JSON contains fictional Tier 2B profiles and AI-written descriptions — these must NOT be seeded into Supabase/Neo4j. Real content comes from web crawling authoritative sources.
 - **Dev Environment**: macOS (Mac mini M-series), Node.js 25.7.0, Homebrew
-- **Known Gaps**: NIEM 6.0, IC-ISM, IC-EDH landing pages yielded only 1 chunk each (minimal text). Need deeper pages or alternative sources.
-- **Next Step**: Phase 8 polish (rate limiting, error handling, mobile responsiveness), ingest more content (ISO 11179, NIEM sub-domains, JSON-LD, PROV)
+- **Rate Limiting**: In-memory sliding window — chat 20/min, auth 5/min, ingest 10/min, admin 30/min
+- **Error Handling**: Error boundaries at root, standards-brain, and admin levels. 404 page. API routes return generic error messages without leaking internals.
+- **Known Gaps**: IC-ISM, IC-EDH, DDMS landing pages yield only 1 chunk each (minimal text on ODNI site). NIEM Domains Reference also only 1 chunk.
+- **Next Step**: Deploy to Vercel, demo testing, possible Tier 2B profile content, Neo4j relationship enrichment
 
 ## Autonomy Rules
 Claude operates at MAXIMUM autonomy **within this repository**:

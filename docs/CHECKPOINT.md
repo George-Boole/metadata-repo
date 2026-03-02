@@ -1,32 +1,30 @@
-# Checkpoint — 2026-03-02 (Session 12)
+# Checkpoint — 2026-03-02 (Session 12b)
 
 ## Current State
-Phase 7 complete. 90 sources ingested (3,170 chunks) with context-enriched embeddings and hybrid search. Dev server running on Mac mini. Starting Phase 8 (polish).
+All 8 phases complete. 107 sources ingested (5,051 chunks). Phase 8 polish done (rate limiting, error boundaries, mobile responsiveness). Ready for deployment and demo testing.
 
 ## What's Done This Session
-- Dev environment set up on Mac mini (Node 25.7.0, Homebrew)
-- Neo4j schema initialized
-- Model config updated (Gemini 2.5 Flash default, removed deprecated 2.0 Flash)
-- 90 sources ingested: 7 Tier 1 guidance + 83 Tier 2A specs (73 ODNI + 10 W3C/standards)
-- Chunker fixed for oversized paragraphs (8192-token embedding limit)
-- Hybrid search implemented: vector (0.7) + OR-keyword (0.3) with round-robin source diversity
-- All sources re-ingested with context-enriched embeddings via 3 parallel agents
-- Standards Brain and repository search tested and working
+- Phase 8 polish via 3 parallel agents:
+  - Rate limiting on all API endpoints (chat 20/min, auth 5/min, ingest 10/min, admin 30/min)
+  - Error boundaries (global, standards-brain, admin, 404)
+  - Mobile responsiveness (dashboard, chat, admin, search, cards)
+- Improved API error handling (generic messages, no leaked internals)
+- 17 additional sources ingested (JSON-LD, PROV, SSN, Org Ontology, NIEM sub-domains, ISO 11179/19115, XML Schema, GML, DDMS)
+- Git author identity fixed for Mac mini
+- All documentation updated
 
-## In Progress
-- Phase 8 polish (rate limiting, error handling, mobile responsiveness)
-- More content ingestion (ISO 11179, NIEM sub-domains, JSON-LD, PROV, DDMS)
-- Fix shallow ingestions (NIEM 6.0, IC-ISM, IC-EDH — only 1 chunk each)
-
-## Key Files Modified
-- `src/lib/ingest/pipeline.ts` — context prefix on chunks
-- `src/lib/ingest/chunker.ts` — hard-split oversized paragraphs
-- `src/lib/rag/vector-search.ts` — hybrid search with fallback
-- Supabase: 4 migrations (hybrid_search RPC with OR keywords + diversity)
-- `app_settings`: active_model → gemini-2.5-flash, models list updated
+## Completed
+- Phase 1: Auth + database foundation
+- Phase 2: Skipped (no fictional data seeded)
+- Phase 3: RAG chat with streaming responses
+- Phase 4: Hybrid search (vector + keyword + source diversity)
+- Phase 5: Ingestion pipeline (crawl → chunk → embed → store)
+- Phase 6: Admin panel (sources, users, settings)
+- Phase 7: Bulk content ingestion (107 sources, 5,051 chunks)
+- Phase 8: Polish (rate limiting, error handling, mobile responsiveness)
 
 ## Next Steps (if context resets)
 1. Read CLAUDE.md, SESSION_LOG.md, this file
-2. Start Phase 8 polish work
-3. Ingest more content (ISO 11179, NIEM sub-domains, deeper W3C pages)
-4. Fix 1-chunk sources by finding better URLs for NIEM, IC-ISM, IC-EDH
+2. Deploy to Vercel (push triggers auto-deploy)
+3. Test live deployment end-to-end
+4. Consider: Neo4j relationship enrichment, Tier 2B profile content, additional W3C/NIEM sources
