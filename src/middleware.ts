@@ -38,6 +38,34 @@ async function hmacSha256(secret: string, message: string): Promise<string> {
     .join("");
 }
 
+interface TokenPayload {
+  sub: string;
+  role: "admin" | "user";
+  iat: number;
+}
+
+async function verifyToken(
+  token: string,
+  secret: string
+): Promise<TokenPayload | null> {
+  const dotIndex = token.indexOf(".");
+  if (dotIndex === -1) return null;
+
+  const payloadB64 = token.slice(0, dotIndex);
+  const sig = token.slice(dotIndex + 1);
+
+  const expected = await hmacSha256(secret, payloadB64);
+  if (sig !== expected) return null;
+
+  try {
+    const payload = JSON.parse(atob(payloadB64)) as TokenPayload;
+    if (!payload.sub || !payload.role) return null;
+    return payload;
+  } catch {
+    return null;
+  }
+}
+
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
@@ -45,20 +73,36 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const token = request.cookies.get(COOKIE_NAME)?.value;
   const authSecret = process.env.AUTH_SECRET;
-  const sitePassword = process.env.SITE_PASSWORD;
-
-  if (!authSecret || !sitePassword) {
+  if (!authSecret) {
+    // No auth configured — allow all
     return NextResponse.next();
   }
 
-  const expectedToken = await hmacSha256(authSecret, sitePassword);
+  const token = request.cookies.get(COOKIE_NAME)?.value;
 
-  if (token === expectedToken) {
-    return NextResponse.next();
+  if (token) {
+    const payload = await verifyToken(token, authSecret);
+    if (payload) {
+      // Admin routes require admin role
+      if (pathname.startsWith("/admin") || pathname.startsWith("/api/admin")) {
+        if (payload.role !== "admin") {
+          return NextResponse.json(
+            { error: "Forbidden" },
+            { status: 403 }
+          );
+        }
+      }
+
+      // Pass user info in headers for downstream use
+      const response = NextResponse.next();
+      response.headers.set("x-user", payload.sub);
+      response.headers.set("x-user-role", payload.role);
+      return response;
+    }
   }
 
+  // Not authenticated — redirect to login
   const loginUrl = new URL("/login", request.url);
   loginUrl.searchParams.set("from", pathname);
   return NextResponse.redirect(loginUrl);

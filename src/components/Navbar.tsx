@@ -13,6 +13,7 @@ const NAV_LINKS = [
   { href: "/ontologies", label: "Ontologies" },
   { href: "/api-explorer", label: "API Explorer" },
   { href: "/standards-brain", label: "Standards Brain" },
+  { href: "/admin", label: "Admin" },
 ];
 
 export default function Navbar() {

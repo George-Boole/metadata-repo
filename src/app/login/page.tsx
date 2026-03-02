@@ -7,6 +7,7 @@ function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const from = searchParams.get("from") || "/";
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -20,14 +21,18 @@ function LoginForm() {
       const res = await fetch("/api/auth", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password }),
+        body: JSON.stringify({
+          username: username.trim() || undefined,
+          password,
+        }),
       });
 
       if (res.ok) {
         router.push(from);
         router.refresh();
       } else {
-        setError("Invalid password");
+        const data = await res.json();
+        setError(data.error || "Invalid credentials");
         setPassword("");
       }
     } catch {
@@ -55,19 +60,39 @@ function LoginForm() {
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label
+            htmlFor="username"
+            className="block text-sm font-medium text-daf-dark-gray"
+          >
+            Username{" "}
+            <span className="font-normal text-gray-400">(optional)</span>
+          </label>
+          <input
+            id="username"
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            placeholder="Leave blank for shared password"
+            autoFocus
+            autoComplete="username"
+            className="mt-1 w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-daf-dark-gray placeholder-gray-400 focus:border-daf-blue focus:outline-none focus:ring-2 focus:ring-daf-blue/20"
+          />
+        </div>
+
+        <div>
+          <label
             htmlFor="password"
             className="block text-sm font-medium text-daf-dark-gray"
           >
-            Access Password
+            Password
           </label>
           <input
             id="password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter shared password"
-            autoFocus
+            placeholder="Enter password"
             required
+            autoComplete="current-password"
             className="mt-1 w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-daf-dark-gray placeholder-gray-400 focus:border-daf-blue focus:outline-none focus:ring-2 focus:ring-daf-blue/20"
           />
         </div>

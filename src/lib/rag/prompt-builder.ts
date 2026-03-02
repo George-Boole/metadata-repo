@@ -1,0 +1,64 @@
+import { getSupabaseServer } from "../supabase";
+import type { ChunkMatch } from "./vector-search";
+
+const DEFAULT_SYSTEM_PROMPT = `You are the DAF Standards Brain, an AI assistant for the Department of the Air Force Metadata Repository. Answer questions about metadata standards, specifications, and guidance documents. Always cite your sources using [Source Title](url) format. If you don't know the answer, say so — do not make up information.`;
+
+/**
+ * Get the system prompt from app_settings, with fallback.
+ */
+export async function getSystemPrompt(): Promise<string> {
+  try {
+    const supabase = getSupabaseServer();
+    const { data } = await supabase
+      .from("app_settings")
+      .select("value")
+      .eq("key", "system_prompt")
+      .single();
+
+    return (data?.value as string) || DEFAULT_SYSTEM_PROMPT;
+  } catch {
+    return DEFAULT_SYSTEM_PROMPT;
+  }
+}
+
+/**
+ * Build the full prompt by combining the system prompt with retrieved context chunks.
+ */
+export function buildContextPrompt(
+  systemPrompt: string,
+  chunks: ChunkMatch[]
+): string {
+  if (chunks.length === 0) {
+    return (
+      systemPrompt +
+      "\n\nNo relevant content was found in the knowledge base for this query. Let the user know you don't have information on this topic yet, and suggest they try a different question."
+    );
+  }
+
+  const contextBlocks = chunks
+    .map((chunk, i) => {
+      const source = chunk.source_title
+        ? `[${chunk.source_title}](${chunk.source_url})`
+        : chunk.source_url || "Unknown source";
+      const heading = chunk.heading ? ` > ${chunk.heading}` : "";
+      const tier = chunk.tier ? ` [Tier: ${chunk.tier}]` : "";
+
+      return `--- Context ${i + 1}${tier} ---\nSource: ${source}${heading}\n\n${chunk.content}`;
+    })
+    .join("\n\n");
+
+  return `${systemPrompt}
+
+## Retrieved Context
+
+The following content was retrieved from the knowledge base. Use it to answer the user's question. Always cite sources using [Source Title](url) format when referencing this content.
+
+${contextBlocks}
+
+## Instructions
+
+- Ground your answer in the retrieved context above.
+- Cite every claim using [Source Title](url) format so the user can verify.
+- If the context doesn't contain enough information to answer fully, say what you can and note the gap.
+- Do not fabricate information not present in the context.`;
+}
