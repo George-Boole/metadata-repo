@@ -6,9 +6,13 @@ import type { DomainProfile } from "@/types";
 import ArtifactCard from "@/components/ArtifactCard";
 import SearchBar from "@/components/SearchBar";
 import FilterBar from "@/components/FilterBar";
+import { FictionalBadge } from "@/components/Badge";
 import Link from "next/link";
 
 const allProfiles = getProfiles();
+
+// All current profiles are fictional examples
+const ALL_FICTIONAL = true;
 
 function extractUnique(profiles: DomainProfile[], key: keyof DomainProfile) {
   const set = new Set(profiles.map((p) => String(p[key])));
@@ -92,6 +96,38 @@ export default function ProfilesPage() {
         </p>
       </div>
 
+      {/* Fictional Notice */}
+      {ALL_FICTIONAL && (
+        <div className="mb-6 rounded-lg border border-orange-200 bg-orange-50 p-4">
+          <div className="flex items-start gap-3">
+            <svg
+              className="h-5 w-5 text-orange-500 mt-0.5 shrink-0"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
+              />
+            </svg>
+            <div>
+              <p className="text-sm font-semibold text-orange-800">
+                Illustrative Examples
+              </p>
+              <p className="mt-1 text-sm text-orange-700">
+                The domain profiles shown below are fictional examples created
+                to illustrate how organization-specific metadata profiles might
+                be structured. They are not real deployed profiles. Real DAF
+                domain profiles are typically not published publicly.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Search */}
       <div className="mb-6">
         <SearchBar
@@ -138,20 +174,24 @@ export default function ProfilesPage() {
       ) : (
         <div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-2">
           {filtered.map((profile) => (
-            <ArtifactCard
-              key={profile.id}
-              title={profile.title}
-              description={profile.description}
-              tier="2B"
-              hostingType={profile.hostingType}
-              status={profile.status}
-              href={`/profiles/${profile.id}`}
-              metadata={[
-                { label: "Org", value: profile.owningOrganization },
-                { label: "Domain", value: profile.domain },
-                { label: "Version", value: profile.version },
-              ]}
-            />
+            <div key={profile.id} className="relative">
+              <div className="absolute top-2 right-2 z-10">
+                <FictionalBadge />
+              </div>
+              <ArtifactCard
+                title={profile.title}
+                description={profile.description}
+                tier="2B"
+                hostingType={profile.hostingType}
+                status={profile.status}
+                href={`/profiles/${profile.id}`}
+                metadata={[
+                  { label: "Org", value: profile.owningOrganization },
+                  { label: "Domain", value: profile.domain },
+                  { label: "Version", value: profile.version },
+                ]}
+              />
+            </div>
           ))}
         </div>
       )}

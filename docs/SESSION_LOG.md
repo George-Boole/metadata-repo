@@ -543,3 +543,54 @@
 - 107 sources, 5,051 chunks ingested
 - Rate limiting, error boundaries, mobile responsiveness all in place
 - Ready for Vercel deployment and demo testing
+
+## Session 13 — 2026-03-02
+**Focus**: Full Supabase migration for all browse pages
+
+### Accomplished
+
+#### Phase A: Data Preparation
+- Ingested 6 tool vendor pages into Supabase (tier='3', source_type='tool'):
+  - DCAMPS-C (Mundo Systems) — 3 chunks
+  - Microsoft Purview Information Protection — 19 chunks
+  - Varonis Data Classification Engine — 38 chunks
+  - Collibra Data Classification — 21 chunks
+  - Fortra Data Classification (Titus) — 1 chunk
+  - OPSWAT Data Classification (Boldon James) — 32 chunks
+- Ingested 2 ontology sources into Supabase:
+  - OWL 2 Web Ontology Language Overview — 26 chunks
+  - Linked Open Vocabularies (LOV) — 5 chunks
+- Created `scripts/ingest-tools-ontologies.ts` for bulk ingestion
+
+#### Phase B: Code Changes — Supabase Migration
+- **New `src/lib/data-server.ts`**: Async Supabase query functions (getSourcesByTier, getSourceCounts, getSourceById, searchSources, helpers)
+- **New `src/components/SourceList.tsx`**: Reusable client component for displaying Supabase sources with search, cards, "View Source" buttons, and Details links
+- **New `src/app/sources/[id]/page.tsx`**: Universal detail page for any Supabase source — shows title, description, metadata grid, external link, Standards Brain CTA
+- **New `src/app/api/search/route.ts`**: API endpoint for Supabase source search
+- **Updated `src/app/guidance/page.tsx`**: Server component → Supabase, with `GuidanceList.tsx` client component (JSON fallback)
+- **Updated `src/app/specs/page.tsx`**: Server component → Supabase, with `SpecsList.tsx` client component (JSON fallback)
+- **Updated `src/app/tools/page.tsx`**: Server component → Supabase, with `ToolsList.tsx` client component (JSON fallback)
+- **Updated `src/app/page.tsx`**: Async server component with live Supabase counts, shows total indexed sources count in hero
+- **Updated `src/app/search/page.tsx`**: Hybrid search — static JSON + Supabase API, deduplication, grouped display
+
+#### Phase C: Fictional Content Labeling
+- **New `FictionalBadge` component** in `Badge.tsx` — orange "EXAMPLE" badge with warning icon
+- **Updated `src/app/ontologies/page.tsx`**: "DAF Data Fabric Ontology" marked with EXAMPLE badge
+- **Updated `src/app/profiles/page.tsx`**: All profiles marked with EXAMPLE badge + prominent "Illustrative Examples" banner explaining they are fictional
+
+### Architecture Decisions
+- **Graceful fallback**: All browse pages try Supabase first, fall back to static JSON if empty — ensures pages work regardless of Supabase state
+- **Server + Client component split**: Server components fetch data, client components handle filtering/search
+- **Hybrid search**: Search page queries both static JSON and Supabase API, deduplicates by title
+- **Universal detail page**: `/sources/[id]` works for any Supabase source, with breadcrumbs, metadata grid, and Standards Brain CTA
+
+### Build Results
+- 59 pages, zero errors, clean build
+- Pre-existing undici warning from firecrawl (non-breaking)
+
+### Status at End
+- 115 sources, ~5,196 chunks in Supabase (107 prior + 8 new)
+- All browse pages pulling live data from Supabase (guidance, specs, tools)
+- Profiles and ontologies use static JSON with fictional labels
+- Dashboard shows live counts from Supabase
+- Search queries both static JSON and Supabase

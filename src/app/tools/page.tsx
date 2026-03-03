@@ -1,80 +1,25 @@
-"use client";
-
-import { useState, useMemo } from "react";
-import { getTools, getSpecById } from "@/lib/data";
-import type { TaggingTool } from "@/types";
-import ArtifactCard from "@/components/ArtifactCard";
-import SearchBar from "@/components/SearchBar";
-import FilterBar from "@/components/FilterBar";
 import Link from "next/link";
+import { getSourcesByTier, getSourceDescription, getHostname } from "@/lib/data-server";
+import { getTools } from "@/lib/data";
+import type { SourceItem } from "@/components/SourceList";
+import ToolsList from "./ToolsList";
 
-const allTools = getTools();
+export default async function ToolsPage() {
+  const supabaseSources = await getSourcesByTier("3");
 
-function extractUniqueSupportedSpecs(tools: TaggingTool[]) {
-  const map = new Map<string, string>();
-  for (const tool of tools) {
-    for (const specId of tool.supportedSpecIds) {
-      if (!map.has(specId)) {
-        const spec = getSpecById(specId);
-        if (spec) map.set(specId, spec.title);
-      }
-    }
-  }
-  return Array.from(map.entries())
-    .sort(([, a], [, b]) => a.localeCompare(b));
-}
+  const sources: SourceItem[] = supabaseSources.map((s) => ({
+    id: s.id,
+    title: s.title,
+    description: getSourceDescription(s),
+    url: s.url,
+    hostname: getHostname(s.url),
+    sourceType: s.source_type,
+    chunkCount: s.chunk_count,
+  }));
 
-const supportedSpecs = extractUniqueSupportedSpecs(allTools);
-
-const specOptions = [
-  { value: "all", label: "All" },
-  ...supportedSpecs.map(([id, name]) => ({ value: id, label: name })),
-];
-
-const licenseOptions = [
-  { value: "all", label: "All" },
-  ...Array.from(new Set(allTools.map((t) => t.licenseType)))
-    .sort()
-    .map((l) => ({ value: l, label: l })),
-];
-
-const maturityOptions = [
-  { value: "all", label: "All" },
-  { value: "production", label: "Production" },
-  { value: "emerging", label: "Emerging" },
-  { value: "experimental", label: "Experimental" },
-];
-
-export default function ToolsPage() {
-  const [search, setSearch] = useState("");
-  const [specFilter, setSpecFilter] = useState("all");
-  const [licenseFilter, setLicenseFilter] = useState("all");
-  const [maturityFilter, setMaturityFilter] = useState("all");
-
-  const filtered = useMemo(() => {
-    const q = search.toLowerCase().trim();
-    return allTools.filter((tool) => {
-      if (q) {
-        const haystack = [
-          tool.title,
-          tool.description,
-          tool.vendor,
-          ...tool.capabilities,
-          ...tool.keywords,
-        ]
-          .join(" ")
-          .toLowerCase();
-        if (!haystack.includes(q)) return false;
-      }
-      if (specFilter !== "all" && !tool.supportedSpecIds.includes(specFilter))
-        return false;
-      if (licenseFilter !== "all" && tool.licenseType !== licenseFilter)
-        return false;
-      if (maturityFilter !== "all" && tool.maturityLevel !== maturityFilter)
-        return false;
-      return true;
-    });
-  }, [search, specFilter, licenseFilter, maturityFilter]);
+  // Fallback to static JSON if Supabase returns nothing
+  const useJson = sources.length === 0;
+  const jsonTools = useJson ? getTools() : [];
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
@@ -102,69 +47,7 @@ export default function ToolsPage() {
         </p>
       </div>
 
-      {/* Search */}
-      <div className="mb-6">
-        <SearchBar
-          value={search}
-          onChange={setSearch}
-          placeholder="Search tagging and labeling tools..."
-        />
-      </div>
-
-      {/* Filters */}
-      <div className="mb-6 flex flex-col gap-4">
-        <FilterBar
-          label="Supported Spec:"
-          options={specOptions}
-          selected={specFilter}
-          onChange={setSpecFilter}
-        />
-        <FilterBar
-          label="License:"
-          options={licenseOptions}
-          selected={licenseFilter}
-          onChange={setLicenseFilter}
-        />
-        <FilterBar
-          label="Maturity:"
-          options={maturityOptions}
-          selected={maturityFilter}
-          onChange={setMaturityFilter}
-        />
-      </div>
-
-      {/* Results Count */}
-      <p className="mb-4 text-sm text-gray-500">
-        Showing {filtered.length} of {allTools.length} tools
-      </p>
-
-      {/* Card Grid */}
-      {filtered.length === 0 ? (
-        <div className="rounded-lg border border-gray-200 bg-white p-12 text-center">
-          <p className="text-gray-500">
-            No tools match your search criteria.
-          </p>
-        </div>
-      ) : (
-        <div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-2">
-          {filtered.map((tool) => (
-            <ArtifactCard
-              key={tool.id}
-              title={tool.title}
-              description={tool.description}
-              tier="3"
-              hostingType={tool.hostingType}
-              status={tool.status}
-              href={`/tools/${tool.id}`}
-              metadata={[
-                { label: "Vendor", value: tool.vendor },
-                { label: "License", value: tool.licenseType },
-                { label: "Maturity", value: tool.maturityLevel },
-              ]}
-            />
-          ))}
-        </div>
-      )}
+      <ToolsList sources={sources} jsonTools={jsonTools} />
     </div>
   );
 }

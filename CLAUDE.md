@@ -76,12 +76,14 @@ metadata-repo/
 4. **Tier 3 — Tagging/Labeling Tools**: Tools that apply metadata standards to data (DCAMPS-C, Purview, Varonis, Collibra). NOT metadata catalog tools.
 
 ## Current State
-- **Phase**: Phase 8 complete (polish). All planned phases done.
-- **Last Completed**: Phase 8 polish — rate limiting on all API endpoints, error boundaries (global, standards-brain, admin, 404), improved error handling (generic messages, no leaked internals), mobile responsiveness across all pages. 17 additional sources ingested (JSON-LD, PROV, SSN, Org Ontology, NIEM sub-domains, ISO 11179/19115, XML Schema, GML, DDMS).
-- **Ingested Content**: 107 sources, 5,051 chunks. 7 DoD guidance PDFs, 73 ODNI IC Technical Specs, Dublin Core, DCAT 3, RDF 1.2, OWL 2, SKOS, SHACL, SPARQL 1.1, JSON-LD 1.1, PROV, SSN, Org Ontology, NIEM (6.0 + sub-domains), ISO 11179, ISO 19115, XML Schema 1.1, GML, DDMS, IC-ISM
-- **Models**: Gemini 2.5 Flash (default), Gemini 2.5 Flash Lite, Claude Sonnet 4.6 — selectable via admin panel. Gemini 2.0 Flash deprecated and removed.
+- **Phase**: Supabase migration complete. All browse pages pull live data from Supabase.
+- **Last Completed**: Full Supabase migration — browse pages (guidance, specs, tools) query Supabase with JSON fallback. Dashboard shows live counts. Search is hybrid (JSON + Supabase). 8 new sources ingested (6 tool vendor pages + 2 ontology sources). Fictional content (profiles, DAF Data Fabric Ontology) labeled with EXAMPLE badges.
+- **Ingested Content**: 115 sources, ~5,196 chunks. All prior content plus 6 tool vendor pages (DCAMPS-C, Purview, Varonis, Collibra, Fortra/Titus, OPSWAT/Boldon James), LOV, OWL 2 Overview.
+- **Browse Pages**: Guidance, specs, tools query Supabase → SourceList component. Profiles, ontologies use static JSON. All fictional content clearly labeled.
+- **Data Layer**: `src/lib/data-server.ts` (async Supabase queries) + `src/lib/data.ts` (static JSON fallback + detail pages).
+- **Models**: Gemini 2.5 Flash (default), Gemini 2.5 Flash Lite, Claude Sonnet 4.6 — selectable via admin panel.
 - **Auth System**: Multi-user with roles. Login accepts username+password (from users table) or shared password (admin fallback). HMAC-signed tokens with role info. Admin routes protected by middleware.
-- **Data Policy**: Only real data in databases. Static JSON contains fictional Tier 2B profiles and AI-written descriptions — these must NOT be seeded into Supabase/Neo4j. Real content comes from web crawling authoritative sources.
+- **Data Policy**: Only real data in databases. Static JSON contains fictional Tier 2B profiles and AI-written descriptions — labeled as EXAMPLE in the UI.
 - **Dev Environment**: macOS (Mac mini M-series), Node.js 25.7.0, Homebrew
 - **Rate Limiting**: In-memory sliding window — chat 20/min, auth 5/min, ingest 10/min, admin 30/min
 - **Error Handling**: Error boundaries at root, standards-brain, and admin levels. 404 page. API routes return generic error messages without leaking internals.

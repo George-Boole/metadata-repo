@@ -1,13 +1,20 @@
 import Link from "next/link";
-import { getGuidance, getSpecs, getProfiles, getTools, getOntologies } from "@/lib/data";
+import { getSourceCounts } from "@/lib/data-server";
+import { getProfiles, getOntologies } from "@/lib/data";
 import { HostingBadge } from "@/components/Badge";
 
-export default function Home() {
-  const guidance = getGuidance();
-  const specs = getSpecs();
+export default async function Home() {
+  const counts = await getSourceCounts();
   const profiles = getProfiles();
-  const tools = getTools();
   const ontologies = getOntologies();
+
+  // Use live Supabase counts where available, fall back to static
+  const guidanceCount = counts.guidance || 0;
+  const specsCount = counts.specs || 0;
+  const profilesCount = profiles.length;
+  const toolsCount = counts.tools || 0;
+  const ontologiesCount = ontologies.length;
+  const totalSources = counts.total || 0;
 
   return (
     <div className="min-h-screen">
@@ -25,6 +32,11 @@ export default function Home() {
               Centralized catalog of metadata standards, guidance, and tooling
               for the Department of the Air Force
             </p>
+            {totalSources > 0 && (
+              <p className="mt-2 text-sm text-white/50">
+                {totalSources} indexed sources from authoritative standards bodies
+              </p>
+            )}
             <div className="mt-6 flex items-center justify-center gap-3">
               <Link
                 href="/standards-brain"
@@ -49,31 +61,31 @@ export default function Home() {
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-5 sm:gap-4">
             <Link href="/guidance" className="rounded-lg border-l-4 border-tier-1 bg-white p-4 shadow-md transition hover:shadow-lg hover:scale-[1.02]">
-              <p className="text-3xl font-bold text-tier-1">{guidance.length}</p>
+              <p className="text-3xl font-bold text-tier-1">{guidanceCount}</p>
               <p className="mt-1 text-sm font-medium text-daf-dark-gray">
                 Guidance Documents
               </p>
             </Link>
             <Link href="/specs" className="rounded-lg border-l-4 border-tier-2a bg-white p-4 shadow-md transition hover:shadow-lg hover:scale-[1.02]">
-              <p className="text-3xl font-bold text-tier-2a">{specs.length}</p>
+              <p className="text-3xl font-bold text-tier-2a">{specsCount}</p>
               <p className="mt-1 text-sm font-medium text-daf-dark-gray">
                 Technical Specs
               </p>
             </Link>
             <Link href="/profiles" className="rounded-lg border-l-4 border-tier-2b bg-white p-4 shadow-md transition hover:shadow-lg hover:scale-[1.02]">
-              <p className="text-3xl font-bold text-tier-2b">{profiles.length}</p>
+              <p className="text-3xl font-bold text-tier-2b">{profilesCount}</p>
               <p className="mt-1 text-sm font-medium text-daf-dark-gray">
                 Domain Profiles
               </p>
             </Link>
             <Link href="/tools" className="rounded-lg border-l-4 border-tier-3 bg-white p-4 shadow-md transition hover:shadow-lg hover:scale-[1.02]">
-              <p className="text-3xl font-bold text-tier-3">{tools.length}</p>
+              <p className="text-3xl font-bold text-tier-3">{toolsCount}</p>
               <p className="mt-1 text-sm font-medium text-daf-dark-gray">
                 Tagging Tools
               </p>
             </Link>
             <Link href="/ontologies" className="rounded-lg border-l-4 border-ontology bg-white p-4 shadow-md transition hover:shadow-lg hover:scale-[1.02]">
-              <p className="text-3xl font-bold text-ontology">{ontologies.length}</p>
+              <p className="text-3xl font-bold text-ontology">{ontologiesCount}</p>
               <p className="mt-1 text-sm font-medium text-daf-dark-gray">
                 Ontologies
               </p>
@@ -115,7 +127,7 @@ export default function Home() {
                     drive all subordinate standards adoption.
                   </p>
                   <p className="mt-2 text-xs font-medium text-tier-1">
-                    {guidance.length} documents &mdash; DoDI 8320.02, 8320.07,
+                    {guidanceCount} documents &mdash; DoDI 8320.02, 8320.07,
                     8310.01, 8330.01 and more
                   </p>
                 </div>
@@ -149,7 +161,7 @@ export default function Home() {
                       DCAT, and more.
                     </p>
                     <p className="mt-2 text-xs font-medium text-tier-2a">
-                      {specs.length} specifications
+                      {specsCount} specifications
                     </p>
                   </div>
                 </div>
@@ -172,7 +184,7 @@ export default function Home() {
                       specs.
                     </p>
                     <p className="mt-2 text-xs font-medium text-tier-2b">
-                      {profiles.length} profiles
+                      {profilesCount} profiles
                     </p>
                   </div>
                 </div>
@@ -209,7 +221,7 @@ export default function Home() {
                     &mdash; DCAMPS-C, Microsoft Purview, Varonis, Collibra, and more.
                   </p>
                   <p className="mt-2 text-xs font-medium text-tier-3">
-                    {tools.length} tools
+                    {toolsCount} tools
                   </p>
                 </div>
               </div>
@@ -252,7 +264,7 @@ export default function Home() {
                 standards and data-sharing policies.
               </p>
               <p className="mt-3 text-sm font-semibold text-tier-1">
-                {guidance.length} documents &rarr;
+                {guidanceCount} documents &rarr;
               </p>
             </Link>
 
@@ -279,7 +291,7 @@ export default function Home() {
                 DCAT, DDMS, and ISO 11179.
               </p>
               <p className="mt-3 text-sm font-semibold text-tier-2a">
-                {specs.length} specifications &rarr;
+                {specsCount} specifications &rarr;
               </p>
             </Link>
 
@@ -306,7 +318,7 @@ export default function Home() {
                 Space Force C2, AFSOC, Acquisition, and Medical.
               </p>
               <p className="mt-3 text-sm font-semibold text-tier-2b">
-                {profiles.length} profiles &rarr;
+                {profilesCount} profiles &rarr;
               </p>
             </Link>
 
@@ -333,7 +345,7 @@ export default function Home() {
                 DCAMPS-C, Purview, Varonis, Collibra, and more.
               </p>
               <p className="mt-3 text-sm font-semibold text-tier-3">
-                {tools.length} tools &rarr;
+                {toolsCount} tools &rarr;
               </p>
             </Link>
 
@@ -360,7 +372,7 @@ export default function Home() {
                 languages, and vocabulary registries for semantic interoperability.
               </p>
               <p className="mt-3 text-sm font-semibold text-ontology">
-                {ontologies.length} ontologies &rarr;
+                {ontologiesCount} ontologies &rarr;
               </p>
             </Link>
 

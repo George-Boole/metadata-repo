@@ -5,7 +5,10 @@ import { getOntologies } from "@/lib/data";
 import ArtifactCard from "@/components/ArtifactCard";
 import SearchBar from "@/components/SearchBar";
 import FilterBar from "@/components/FilterBar";
+import { FictionalBadge } from "@/components/Badge";
 import Link from "next/link";
+
+const FICTIONAL_IDS = new Set(["onto-daf-fabric"]);
 
 const allOntologies = getOntologies();
 
@@ -103,20 +106,33 @@ export default function OntologiesPage() {
       ) : (
         <div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-2">
           {filtered.map((onto) => (
-            <ArtifactCard
-              key={onto.id}
-              title={onto.title}
-              description={onto.description}
-              tier="ontology"
-              hostingType={onto.hostingType}
-              status={onto.status}
-              href={`/ontologies/${onto.id}`}
-              metadata={[
-                { label: "Type", value: onto.ontologyType.charAt(0).toUpperCase() + onto.ontologyType.slice(1) },
-                ...(onto.format ? [{ label: "Format", value: onto.format }] : []),
-                { label: "Org", value: onto.managingOrganization },
-              ]}
-            />
+            <div key={onto.id} className="relative">
+              {FICTIONAL_IDS.has(onto.id) && (
+                <div className="absolute top-2 right-2 z-10">
+                  <FictionalBadge />
+                </div>
+              )}
+              <ArtifactCard
+                title={onto.title}
+                description={onto.description}
+                tier="ontology"
+                hostingType={onto.hostingType}
+                status={onto.status}
+                href={`/ontologies/${onto.id}`}
+                metadata={[
+                  {
+                    label: "Type",
+                    value:
+                      onto.ontologyType.charAt(0).toUpperCase() +
+                      onto.ontologyType.slice(1),
+                  },
+                  ...(onto.format
+                    ? [{ label: "Format", value: onto.format }]
+                    : []),
+                  { label: "Org", value: onto.managingOrganization },
+                ]}
+              />
+            </div>
           ))}
         </div>
       )}

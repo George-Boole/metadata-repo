@@ -1,11 +1,13 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { Suspense } from "react";
+import { Suspense, useState, useEffect } from "react";
 import SearchBar from "@/components/SearchBar";
 import ArtifactCard from "@/components/ArtifactCard";
+import { TierBadge, StatusBadge } from "@/components/Badge";
 import { searchArtifacts, type SearchResult } from "@/lib/search";
 import { TIER_LABELS, type TierId } from "@/types";
+import Link from "next/link";
 
 const TIER_ROUTE: Record<TierId, string> = {
   "1": "/guidance",
@@ -22,6 +24,32 @@ const TIER_HEADER_STYLES: Record<TierId, string> = {
   "3": "border-l-tier-3 text-tier-3",
   "ontology": "border-l-ontology text-ontology",
 };
+
+const TIER_BORDER: Record<string, string> = {
+  "1": "border-l-tier-1",
+  "2a": "border-l-tier-2a",
+  "2b": "border-l-tier-2b",
+  "3": "border-l-tier-3",
+  ontology: "border-l-ontology",
+};
+
+const TIER_KEY_MAP: Record<string, TierId> = {
+  "1": "1",
+  "2a": "2A",
+  "2b": "2B",
+  "3": "3",
+  ontology: "ontology",
+};
+
+interface SupabaseSearchResult {
+  id: string;
+  title: string;
+  url: string;
+  tier: string | null;
+  source_type: string;
+  chunk_count: number;
+  metadata: { description?: string | null } | null;
+}
 
 function buildMetadata(result: SearchResult): { label: string; value: string }[] {
   const a = result.artifact;
@@ -54,23 +82,51 @@ function buildMetadata(result: SearchResult): { label: string; value: string }[]
 function SearchResults() {
   const searchParams = useSearchParams();
   const query = searchParams.get("q") ?? "";
-  const results = query ? searchArtifacts(query) : [];
+  const [supabaseResults, setSupabaseResults] = useState<SupabaseSearchResult[]>([]);
+  const [loading, setLoading] = useState(false);
 
-  // Group results by tier
+  // Static JSON search
+  const jsonResults = query ? searchArtifacts(query) : [];
+
+  // Supabase search
+  useEffect(() => {
+    if (!query.trim()) {
+      setSupabaseResults([]);
+      return;
+    }
+
+    setLoading(true);
+    fetch(`/api/search?q=${encodeURIComponent(query)}`)
+      .then((res) => res.json())
+      .then((data) => setSupabaseResults(data.results || []))
+      .catch(() => setSupabaseResults([]))
+      .finally(() => setLoading(false));
+  }, [query]);
+
+  // Deduplicate: if a JSON result and Supabase result share a similar title, prefer JSON (richer data)
+  const jsonTitles = new Set(jsonResults.map((r) => r.artifact.title.toLowerCase()));
+  const uniqueSupabase = supabaseResults.filter(
+    (s) => !jsonTitles.has(s.title.toLowerCase()),
+  );
+
+  // Group JSON results by tier
   const grouped: Partial<Record<TierId, SearchResult[]>> = {};
-  for (const r of results) {
+  for (const r of jsonResults) {
     const tier = r.artifact.tier;
     if (!grouped[tier]) grouped[tier] = [];
     grouped[tier]!.push(r);
   }
 
   const tierOrder: TierId[] = ["1", "2A", "2B", "3", "ontology"];
+  const totalResults = jsonResults.length + uniqueSupabase.length;
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
       {/* Search bar */}
       <div className="mb-6 sm:mb-8">
-        <h1 className="mb-3 sm:mb-4 text-xl sm:text-2xl font-bold text-daf-dark-gray">Search Standards</h1>
+        <h1 className="mb-3 sm:mb-4 text-xl sm:text-2xl font-bold text-daf-dark-gray">
+          Search Standards
+        </h1>
         <SearchBar
           value={query}
           navigateOnSubmit
@@ -81,14 +137,15 @@ function SearchResults() {
       {/* Results summary */}
       {query && (
         <p className="mb-6 text-sm text-gray-600">
-          {results.length === 0
+          {totalResults === 0 && !loading
             ? `No results found for "${query}"`
-            : `${results.length} result${results.length !== 1 ? "s" : ""} for "${query}"`}
+            : `${totalResults} result${totalResults !== 1 ? "s" : ""} for "${query}"`}
+          {loading && " (searching indexed sources...)"}
         </p>
       )}
 
       {/* No results state */}
-      {query && results.length === 0 && (
+      {query && totalResults === 0 && !loading && (
         <div className="rounded-lg border border-gray-200 bg-white p-8 text-center shadow-sm">
           <svg
             className="mx-auto mb-4 h-12 w-12 text-gray-300"
@@ -118,7 +175,7 @@ function SearchResults() {
         </div>
       )}
 
-      {/* Grouped results */}
+      {/* Grouped JSON results */}
       {tierOrder.map((tier) => {
         const tierResults = grouped[tier];
         if (!tierResults || tierResults.length === 0) return null;
@@ -149,6 +206,52 @@ function SearchResults() {
           </section>
         );
       })}
+
+      {/* Supabase-only results */}
+      {uniqueSupabase.length > 0 && (
+        <section className="mb-8">
+          <h2 className="mb-4 border-l-4 border-l-daf-light-blue pl-3 text-lg font-bold text-daf-light-blue">
+            Indexed Sources
+            <span className="ml-2 text-sm font-normal text-gray-500">
+              ({uniqueSupabase.length})
+            </span>
+          </h2>
+          <div className="space-y-3">
+            {uniqueSupabase.map((s) => {
+              const tierKey = s.tier?.toLowerCase() || "";
+              const tierId = TIER_KEY_MAP[tierKey];
+              const borderClass = TIER_BORDER[tierKey] || "border-l-gray-400";
+              let hostname = "";
+              try { hostname = new URL(s.url).hostname; } catch { hostname = s.url; }
+              const description = (s.metadata as { description?: string | null })?.description || `Content from ${hostname}`;
+
+              return (
+                <Link
+                  key={s.id}
+                  href={`/sources/${s.id}`}
+                  className={`block rounded-lg border border-gray-200 border-l-4 ${borderClass} bg-white p-3 sm:p-5 shadow-sm transition-shadow hover:shadow-md`}
+                >
+                  <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
+                    <h3 className="text-base sm:text-lg font-semibold text-daf-dark-gray">
+                      {s.title}
+                    </h3>
+                    <div className="flex items-center gap-2">
+                      <StatusBadge status="active" />
+                      {tierId && <TierBadge tier={tierId} />}
+                    </div>
+                  </div>
+                  <p className="mb-2 text-sm text-gray-600 line-clamp-2">
+                    {description}
+                  </p>
+                  <span className="text-xs text-gray-500">
+                    <span className="font-medium text-gray-600">Source:</span> {hostname}
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+      )}
     </div>
   );
 }
