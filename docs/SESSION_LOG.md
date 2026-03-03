@@ -806,3 +806,60 @@
 - IC-GENC went from 30 chunks to 955
 - All Gemini references updated to 2.5 Flash
 - Build passes clean
+
+---
+
+## Session 16 — 2026-03-03
+**Focus**: Fix broken source URLs, comprehensive ODNI ZIP deep ingestion of ALL 67 IC specs
+
+### Issues Found
+1. **IC-EDH "View Source" link broken**: Old URL with `ic-cio-related-menus/ic-cio-related-links/` path returns 404
+2. **Duplicate entries**: IC-EDH had two entries (old broken URL + new correct URL), IC-ISM had stale duplicate, DDMS had old-URL entry
+3. **Only 4 ODNI specs had deep ZIP ingestion** — user wanted ALL of them
+
+### Data Cleanup (fix-odni-duplicates.ts)
+- Merged IC-EDH duplicate: moved 114 ZIP chunks to correct-URL entry, deleted old broken-URL entry
+- Fixed IC-ISM URL to canonical path, merged small duplicate entry
+- Deleted stale IC-ISM 1-chunk entry and old DDMS broken-URL entry
+- Result: 117 sources (was 121 — 4 duplicates removed)
+
+### Comprehensive ODNI ZIP Discovery
+- Scraped ALL 73 IC Technical Specification pages on dni.gov
+- Found 67 specs with downloadable ZIP packages (Standalone packages)
+- 6 specs have no ZIP: Abstract Data Definition (PDF only), DoD Discovery Metadata (no public release), Multi Audience Tearline (deprecated), CDR Retrieve (PDFs only), CDR Search (PDFs only), CDR Keyword Query Language (PDF only)
+- ZIP packages span 4 ODNI directory eras: Dec2022, Jan2021, India, Golf_Hotel/Juliet/Foxtrot
+
+### Comprehensive Ingestion Script
+- Rewrote `scripts/ingest-odni-zips.ts` with all 67 specs
+- Matching by exact URL (not title ILIKE) for reliability
+- Added `--batch N/M` flag for parallel processing
+- Added `--only CODE` for single-spec processing
+- Auto-skips specs with >100 chunks (already deep-ingested)
+
+### Parallel Execution
+- Ran 4 parallel batches (17+17+17+16 specs each) for ~4x throughput
+- Batch 1: 11 processed, 6 skipped (already done), 0 errors
+- Batch 2: 17 processed, 0 skipped, 0 errors
+- Batch 3: 17 processed, 0 skipped, 0 errors
+- Batch 4: 16 processed, 0 skipped, 0 errors
+- Total: 61 newly processed, 6 skipped, 0 errors
+
+### Results
+- **20,439 new chunks** added from ZIP deep ingestion
+- Final state: **117 sources, 29,914 chunks**
+- Tier breakdown: 1→7 sources/332 chunks, 2a→95/29,207, 2b→6/0, 3→6/114, ontology→3/31
+- Every ODNI IC spec with a public ZIP package is now deeply ingested
+
+### Files Modified
+- `scripts/ingest-odni-zips.ts` — rewritten with all 67 specs, batch support, URL matching
+- `scripts/fix-odni-duplicates.ts` — new: fix broken URLs and merge duplicates
+- `scripts/list-sources.ts` — new: utility to list sources
+- `CLAUDE.md` — updated current state
+- `docs/SESSION_LOG.md` — this entry
+
+### Status at End
+- 117 sources, ~29,914 chunks in Supabase
+- All 67 ODNI IC tech specs with ZIP packages deep-ingested
+- Broken IC-EDH "View Source" link fixed
+- Duplicate entries cleaned up
+- Build passes clean
