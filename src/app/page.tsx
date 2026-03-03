@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import Link from "next/link";
 import { getSourceCounts } from "@/lib/data-server";
 import { getProfiles, getOntologies } from "@/lib/data";

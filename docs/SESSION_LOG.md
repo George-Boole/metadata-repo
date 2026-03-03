@@ -594,3 +594,45 @@
 - Profiles and ontologies use static JSON with fictional labels
 - Dashboard shows live counts from Supabase
 - Search queries both static JSON and Supabase
+
+## Session 14 — 2026-03-02
+**Focus**: Fix zero-count dashboard, broken links, and comprehensive site crawl testing
+
+### Issues Found & Fixed
+
+#### 1. Auth-blocked pages (all detail pages)
+- **Root cause**: Playwright test was not authenticating — all pages redirected to login
+- **Fix**: Added API-based authentication in crawl test (POST to `/api/auth`, extract cookie, add to browser context)
+
+#### 2. Dashboard shows 0 for guidance
+- **Root cause**: Supabase sources had inconsistent tier values — old sources used "tier1"/"tier2a" format, new sources used "1"/"2a"
+- **Fix**: Added `normalizeTier()` function in `data-server.ts` that strips "tier" prefix, applied to `getSourcesByTier()`, `getSourceCounts()`, and `sources/[id]` detail page
+- **Result**: Dashboard now shows correct counts: guidance=7, specs=99, tools=6, ontologies=4
+
+#### 3. Static prerendering of dynamic pages
+- **Root cause**: Pages using Supabase queries were statically prerendered at build time
+- **Fix**: Added `export const dynamic = "force-dynamic"` to `page.tsx`, `guidance/page.tsx`, `specs/page.tsx`, `tools/page.tsx`
+
+### Comprehensive Playwright Crawl Test
+- Created `tests/site-crawl.spec.ts` — crawls every page and link on the site
+- **154 pages crawled, 0 issues, 0 console errors**
+- Tests for: HTTP errors, console errors, empty pages, missing headings, login-instead-of-content, zero-count dashboard cards, broken links
+- Auto-discovers links from each page and follows them (depth-limited to 100 pages)
+- Authenticates via API before crawling
+- Full report output with per-page diagnostics
+
+### Files Modified
+- `src/lib/data-server.ts` — Added `normalizeTier()` for "tier1"→"1" normalization
+- `src/app/sources/[id]/page.tsx` — Uses `normalizeTier()` for tier display
+- `src/app/page.tsx` — Added `force-dynamic`
+- `src/app/guidance/page.tsx` — Added `force-dynamic`
+- `src/app/specs/page.tsx` — Added `force-dynamic`
+- `src/app/tools/page.tsx` — Added `force-dynamic`
+- `tests/site-crawl.spec.ts` — Comprehensive site crawl test (new)
+- `playwright.config.ts` — Playwright configuration (new)
+
+### Status at End
+- 154 pages crawl cleanly with zero issues
+- Dashboard counts: guidance=7, specs=99, profiles=6, tools=6, ontologies=4
+- All browse pages show live Supabase data
+- All detail pages render correctly (both JSON-based and Supabase-based)

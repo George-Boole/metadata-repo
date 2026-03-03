@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import Link from "next/link";
 import { getSourcesByTier, getSourceDescription, getHostname } from "@/lib/data-server";
 import { getTools } from "@/lib/data";

@@ -17,7 +17,14 @@ export interface SupabaseSource {
 
 /* ── Query functions ──────────────────────────────────────── */
 
-/** Get all active sources for a specific tier (case-insensitive) */
+/** Normalize tier strings — DB has both "1"/"2a"/"3" and "tier1"/"tier2a" formats */
+function normalizeTier(tier: string | null): string {
+  if (!tier) return "";
+  const t = tier.toLowerCase().replace(/^tier/, "");
+  return t;
+}
+
+/** Get all active sources for a specific tier (handles both "1" and "tier1" formats) */
 export async function getSourcesByTier(tier: string): Promise<SupabaseSource[]> {
   try {
     const supabase = getSupabaseServer();
@@ -29,8 +36,8 @@ export async function getSourcesByTier(tier: string): Promise<SupabaseSource[]> 
 
     if (error || !data) return [];
 
-    const normalizedTier = tier.toLowerCase();
-    return data.filter((s) => s.tier?.toLowerCase() === normalizedTier);
+    const normalizedTier = normalizeTier(tier);
+    return data.filter((s) => normalizeTier(s.tier) === normalizedTier);
   } catch {
     return [];
   }
@@ -61,7 +68,7 @@ export async function getSourceCounts(): Promise<{
     let ontologies = 0;
 
     for (const row of data) {
-      const t = row.tier?.toLowerCase();
+      const t = normalizeTier(row.tier);
       if (t === "1") guidance++;
       else if (t === "2a") specs++;
       else if (t === "3") tools++;

@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { getSourcesByTier, getSourceDescription, getHostname } from "@/lib/data-server";
 import { getSpecs } from "@/lib/data";
 import type { SourceItem } from "@/components/SourceList";

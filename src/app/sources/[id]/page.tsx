@@ -4,6 +4,12 @@ import { getSourceById, getHostname, getSourceDescription } from "@/lib/data-ser
 import { TierBadge, StatusBadge } from "@/components/Badge";
 import type { TierId } from "@/types";
 
+/** Normalize tier strings — DB has both "1"/"2a" and "tier1"/"tier2a" formats */
+function normalizeTier(tier: string | null): string {
+  if (!tier) return "";
+  return tier.toLowerCase().replace(/^tier/, "");
+}
+
 const TIER_MAP: Record<string, TierId> = {
   "1": "1",
   "2a": "2A",
@@ -37,7 +43,7 @@ export default async function SourceDetailPage({
   const source = await getSourceById(id);
   if (!source) notFound();
 
-  const tierKey = source.tier?.toLowerCase() || "";
+  const tierKey = normalizeTier(source.tier);
   const tierId = TIER_MAP[tierKey];
   const backRoute = TIER_BACK_ROUTES[tierKey];
   const borderClass = TIER_BORDER[tierKey] || "border-l-gray-400";
