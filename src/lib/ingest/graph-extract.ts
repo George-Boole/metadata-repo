@@ -35,7 +35,7 @@ export async function extractEntitiesAndRelationships(
   }
 
   const { object } = await generateObject({
-    model: google("gemini-2.0-flash"),
+    model: google("gemini-2.5-flash"),
     schema: ExtractionSchema,
     prompt: `You are analyzing content from "${sourceTitle}" to build a knowledge graph of metadata standards and related entities.
 

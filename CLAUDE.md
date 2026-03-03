@@ -83,23 +83,23 @@ metadata-repo/
 4. **Tier 3 — Tagging/Labeling Tools**: Tools that apply metadata standards to data (DCAMPS-C, Purview, Varonis, Collibra). NOT metadata catalog tools.
 
 ## Current State
-- **Phase**: Static JSON eliminated. All pages query Supabase. Graph RAG pipeline built. ODNI zip ingestion ready.
-- **Last Completed**: Kill static JSON + graph extraction pipeline + ODNI deep ingestion + hybrid graph RAG. All browse pages (guidance, specs, profiles, tools, ontologies) are Supabase-only. Old detail pages redirect to `/sources/[id]`. Search is Supabase-only. Dashboard counts all from Supabase. LLM-based graph extraction auto-populates Neo4j during ingestion. Chat uses hybrid vector+graph retrieval.
-- **Ingested Content**: 115 sources, ~5,196 chunks. ODNI zip deep ingestion ready to run (scripts/ingest-odni-zips.ts).
+- **Phase**: All runtime tasks complete. Full data pipeline operational. Ready for Vercel deploy and demo testing.
+- **Last Completed**: Session 15 — executed all runtime tasks: tier normalization (17 rows fixed), seeded 6 fictional profiles + 1 fictional ontology, Neo4j graph backfill (114/121 sources extracted), ODNI deep zip ingestion (4 specs: IC-ISM, IC-EDH, IC-TDF, IC-GENC).
+- **Ingested Content**: 121 sources, ~9,079 chunks. ODNI deep content: IC-ISM 2,522 chunks, IC-GENC 955, IC-TDF 355, IC-EDH 114. Tiers: 1→7, 2a→99, 2b→6, 3→6, ontology→3.
+- **Neo4j Graph**: Populated from all 121 sources via LLM extraction. 114 sources yielded entities/relationships. Auto-populated during ingestion.
 - **Browse Pages**: All 5 tiers query Supabase via SourceList. No JSON fallback. Fictional sources flagged via `metadata.fictional`.
 - **Data Layer**: `src/lib/data-server.ts` (Supabase queries). Static JSON deleted. `src/lib/data.ts` and `src/lib/search.ts` deleted.
-- **Graph Pipeline**: `src/lib/ingest/graph-extract.ts` (Gemini-based entity/relationship extraction) → `src/lib/ingest/graph-write.ts` (Neo4j write). Integrated into ingestion pipeline as step 7.5.
-- **ODNI Zip Pipeline**: `src/lib/ingest/download.ts` + extractors (pdf, xsd, schematron) → `ingestZipContents()` in pipeline.ts. Script: `scripts/ingest-odni-zips.ts`.
+- **Graph Pipeline**: `src/lib/ingest/graph-extract.ts` (Gemini 2.5 Flash entity/relationship extraction) → `src/lib/ingest/graph-write.ts` (Neo4j MERGE write). Integrated into ingestion pipeline as step 7.5.
+- **ODNI Zip Pipeline**: `src/lib/ingest/download.ts` + extractors (pdf via pdf-parse v1.1.1, xsd, schematron) → `ingestZipContents()` in pipeline.ts. Smart filtering: PDFs always, XSDs >5KB, Schematron >10KB.
 - **RAG**: Hybrid retriever (`src/lib/rag/hybrid-retriever.ts`) combines vector search + graph search. Chat endpoint uses `buildHybridContextPrompt()` with graph relationship context.
 - **Source Detail**: `/sources/[id]` shows graph cross-references (related entities, relationship types) with links to related source pages.
-- **Models**: Gemini 2.0 Flash (default), Gemini 2.0 Flash Lite, Claude Sonnet 4.6 — selectable via admin panel.
+- **Models**: Gemini 2.5 Flash (default), Gemini 2.5 Flash Lite, Claude Sonnet 4.6 — selectable via admin panel.
 - **Auth System**: Multi-user with roles. Login accepts username+password or shared password. HMAC-signed tokens.
 - **Data Policy**: Only real data in databases. Fictional sources (profiles, DAF Data Fabric Ontology) marked with `metadata.fictional: true` and EXAMPLE badges.
 - **Dev Environment**: macOS (Mac mini M-series), Node.js 25.7.0, Homebrew
 - **Rate Limiting**: In-memory sliding window — chat 20/min, auth 5/min, ingest 10/min, admin 30/min
 - **Error Handling**: Error boundaries at root, standards-brain, and admin levels. 404 page. API routes return generic error messages.
-- **Pending Scripts**: Run `npx tsx scripts/backfill-graph.ts` to populate Neo4j from existing sources. Run `npx tsx scripts/ingest-odni-zips.ts` for deep ODNI content. Seed fictional profiles/ontologies into Supabase.
-- **Next Step**: Seed missing profile/ontology sources into Supabase, run backfill + ODNI ingestion scripts, Vercel deploy, demo testing
+- **Next Step**: Vercel deploy, demo testing, possible Tier 2B profile enrichment
 
 ## Autonomy Rules
 Claude operates at MAXIMUM autonomy **within this repository**:

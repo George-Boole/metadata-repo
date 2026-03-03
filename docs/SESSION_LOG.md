@@ -724,12 +724,6 @@
 - `src/app/profiles/[id]/page.tsx` → redirects to `/sources/{uuid}`
 - `src/app/ontologies/[id]/page.tsx` → redirects to `/sources/{uuid}`
 
-### Pending Runtime Tasks
-1. Run `npx tsx scripts/backfill-graph.ts` to populate Neo4j from existing 107+ sources
-2. Run `npx tsx scripts/ingest-odni-zips.ts` to deep-ingest ODNI ZIP packages
-3. Seed fictional profiles and ontologies into Supabase `sources` table with `metadata.fictional: true`
-4. Normalize existing tier values in Supabase: `UPDATE sources SET tier = REPLACE(LOWER(tier), 'tier', '') WHERE tier ILIKE 'tier%'`
-
 ### Status at End
 - Build + lint clean
 - All pages Supabase-only (no static JSON anywhere)
@@ -737,3 +731,78 @@
 - Hybrid vector+graph RAG wired into chat
 - ODNI zip ingestion infrastructure ready
 - Scripts ready to run for backfill and deep ingestion
+
+## Session 15 — 2026-03-03
+**Focus**: Execute all runtime tasks from Session 14 plan
+
+### Accomplished
+
+#### Runtime Task 1: Tier Normalization
+- Ran SQL normalization in Supabase: `tier1` → `1`, `tier2a` → `2a` etc.
+- Found 17 rows with uppercase `2A` not caught by `ILIKE 'tier%'` filter
+- Created `scripts/fix-tiers.ts` to fix remaining rows: `2A` → `2a`
+- Final state: `{ '1': 7, '3': 6, '2a': 99, ontology: 2 }` — all normalized
+
+#### Runtime Task 2: Seed Fictional Content
+- Created `scripts/seed-fictional.ts`
+- Inserted 6 fictional profiles (tier='2b', metadata.fictional=true) and 1 fictional ontology (DAF Data Fabric)
+- Final tier counts: `{ '1': 7, '2a': 99, '2b': 6, '3': 6, ontology: 3 }` — 121 total sources
+
+#### Runtime Task 3: Neo4j Graph Backfill
+- Updated Gemini model from deprecated `gemini-2.0-flash` to `gemini-2.5-flash` in:
+  - `src/lib/ingest/graph-extract.ts`
+  - `src/lib/rag/model-resolver.ts` (both default and fallback)
+- Ran `scripts/backfill-graph.ts` — processed all 121 sources
+  - 114 sources with chunks → entities and relationships extracted
+  - 7 fictional sources skipped (no chunks)
+  - 4 sources with 0 entities (DDMS, IC-EDH, IC-ISM x2 — minimal landing page content)
+  - Top extractors: NIEM 5.2 (112 entities/112 rels), DoDI 8310.01 (87/57), DoDI 8500.01 (80/72)
+  - Average: ~35 entities and ~30 relationships per source
+
+#### Runtime Task 4: ODNI ZIP Deep Ingestion
+- Fixed ODNI ZIP URLs (planned URLs were wrong, found real ones from dni.gov pages):
+  - IC-ISM: `ISM-Public-Standalone.zip`
+  - IC-EDH: `IC-EDH-Public-Standalone.zip`
+  - IC-TDF: `IC-TDF-Public-Standalone.zip`
+  - IC-GENC: `IC-GENC-Public-Standalone.zip`
+  - DDMS: No public download available (removed from script)
+- Fixed ZIP file filtering — IC-ISM had 748 files, reduced to 46 high-value files (PDFs, main XSDs >5KB, main Schematron >10KB)
+- Fixed `pdf-parse` v2 API incompatibility — downgraded to v1.1.1 (v2 has class-based API that broke)
+- Added deduplication: deletes existing zip-derived chunks before re-inserting
+- **Results:**
+
+| Spec | Files Processed | New Chunks | Total Chunks |
+|------|----------------|-----------|-------------|
+| IC-ISM | 45 | 2,521 | 2,522 |
+| IC-EDH | 6 | 113 | 114 |
+| IC-TDF | 6 | 324 | 355 |
+| IC-GENC | 41 | 925 | 955 |
+| **Total** | **98** | **3,883** | **3,946** |
+
+### Key Fixes
+- **Gemini 2.0 Flash deprecated** — all references updated to `gemini-2.5-flash`
+- **pdf-parse v2 incompatibility** — downgraded to v1.1.1 which uses simpler `pdfParse(buffer)` API
+- **ODNI ZIP URL correction** — found real download paths by scraping actual ODNI spec pages
+- **ZIP file filtering** — smart filtering prevents processing hundreds of individual Schematron rules
+
+### Files Modified
+- `src/lib/ingest/graph-extract.ts` — gemini-2.0-flash → gemini-2.5-flash
+- `src/lib/rag/model-resolver.ts` — gemini-2.0-flash → gemini-2.5-flash (default + fallback)
+- `src/lib/ingest/extractors/pdf.ts` — Fixed for pdf-parse v1 API
+- `src/lib/ingest/pipeline.ts` — Added smart file filtering, deduplication, logging
+- `scripts/ingest-odni-zips.ts` — Fixed URLs, title matching, dotenv config
+- `package.json` — pdf-parse 2.4.5 → 1.1.1
+
+### Files Created
+- `scripts/fix-tiers.ts` — One-time tier normalization fix
+- `scripts/seed-fictional.ts` — Seeds fictional profiles and ontologies
+
+### Status at End
+- 121 sources, ~9,000+ chunks in Supabase
+- Neo4j populated with ~3,800+ entities and ~3,300+ relationships across 110 sources
+- IC-ISM went from 1 chunk to 2,522 (2,153-page ISM Rules PDF fully ingested)
+- IC-EDH went from 1 chunk to 114
+- IC-TDF went from 31 chunks to 355
+- IC-GENC went from 30 chunks to 955
+- All Gemini references updated to 2.5 Flash
+- Build passes clean

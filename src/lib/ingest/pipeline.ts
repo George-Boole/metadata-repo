@@ -216,11 +216,34 @@ export async function ingestZipContents(
   const { extractSchematronContent } = await import("./extractors/schematron");
 
   const supabase = getSupabaseServer();
-  const files = await downloadAndExtractZip(zipUrl);
+  const allFiles = await downloadAndExtractZip(zipUrl);
+
+  // Filter to high-value files: PDFs, main XSDs/SCH, skip individual rules and duplicates
+  const files = allFiles.filter((f) => {
+    // Always keep PDFs — they contain the specification documentation
+    if (f.extension === "pdf") return true;
+    // Keep main schema files (>5KB) — skip tiny test/individual rule files
+    if (f.extension === "xsd" && f.content.length > 5000) return true;
+    // Keep only the main Schematron file (>10KB) — skip hundreds of individual ISM_ID_*.sch rules
+    if (f.extension === "sch" && f.content.length > 10000) return true;
+    // Skip individual XML examples and JSON CVE duplicates (already covered by XSDs)
+    return false;
+  });
+
+  console.log(`    ZIP contains ${allFiles.length} files, processing ${files.length} high-value files`);
+
+  // Delete any existing zip-derived chunks for this source (handles re-runs)
+  await supabase
+    .from("chunks")
+    .delete()
+    .eq("source_id", sourceId)
+    .neq("chunk_type", "text");
+
   let filesProcessed = 0;
   let totalChunks = 0;
 
   for (const file of files) {
+    console.log(`    Processing: ${file.filename} (${(file.content.length / 1024).toFixed(0)} KB)`);
     let text = "";
 
     try {
