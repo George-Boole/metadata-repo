@@ -2,21 +2,17 @@ export const dynamic = "force-dynamic";
 
 import Link from "next/link";
 import { getSourceCounts } from "@/lib/data-server";
-import { getProfiles, getOntologies } from "@/lib/data";
 import { HostingBadge } from "@/components/Badge";
 
 export default async function Home() {
   const counts = await getSourceCounts();
-  const profiles = getProfiles();
-  const ontologies = getOntologies();
 
-  // Use live Supabase counts where available, fall back to static
-  const guidanceCount = counts.guidance || 0;
-  const specsCount = counts.specs || 0;
-  const profilesCount = profiles.length;
-  const toolsCount = counts.tools || 0;
-  const ontologiesCount = ontologies.length;
-  const totalSources = counts.total || 0;
+  const guidanceCount = counts.guidance;
+  const specsCount = counts.specs;
+  const profilesCount = counts.profiles;
+  const toolsCount = counts.tools;
+  const ontologiesCount = counts.ontologies;
+  const totalSources = counts.total;
 
   return (
     <div className="min-h-screen">

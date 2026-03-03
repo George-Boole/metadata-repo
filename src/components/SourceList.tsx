@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import SearchBar from "@/components/SearchBar";
-import { TierBadge, StatusBadge } from "@/components/Badge";
+import { TierBadge, StatusBadge, FictionalBadge } from "@/components/Badge";
 import type { TierId } from "@/types";
 
 /* ── Types ────────────────────────────────────────────────── */
@@ -16,6 +16,7 @@ export interface SourceItem {
   hostname: string;
   sourceType: string;
   chunkCount: number;
+  fictional?: boolean;
 }
 
 interface SourceListProps {
@@ -40,13 +41,18 @@ const TIER_BORDER: Record<TierId, string> = {
 function SourceCard({ source, tier }: { source: SourceItem; tier: TierId }) {
   return (
     <div
-      className={`rounded-lg border border-gray-200 border-l-4 ${TIER_BORDER[tier]} bg-white p-3 sm:p-5 shadow-sm transition-shadow hover:shadow-md`}
+      className={`relative rounded-lg border border-gray-200 border-l-4 ${TIER_BORDER[tier]} bg-white p-3 sm:p-5 shadow-sm transition-shadow hover:shadow-md`}
     >
+      {source.fictional && (
+        <div className="absolute top-2 right-2 z-10">
+          <FictionalBadge />
+        </div>
+      )}
       <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
         <h3 className="text-base sm:text-lg font-semibold text-daf-dark-gray">
           {source.title}
         </h3>
-        <StatusBadge status="active" />
+        {!source.fictional && <StatusBadge status="active" />}
       </div>
 
       <p className="mb-3 text-sm text-gray-600 line-clamp-2">

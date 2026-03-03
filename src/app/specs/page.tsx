@@ -1,9 +1,8 @@
 export const dynamic = "force-dynamic";
 
 import { getSourcesByTier, getSourceDescription, getHostname } from "@/lib/data-server";
-import { getSpecs } from "@/lib/data";
 import type { SourceItem } from "@/components/SourceList";
-import SpecsList from "./SpecsList";
+import SourceList from "@/components/SourceList";
 
 export default async function SpecsPage() {
   const supabaseSources = await getSourcesByTier("2a");
@@ -17,10 +16,6 @@ export default async function SpecsPage() {
     sourceType: s.source_type,
     chunkCount: s.chunk_count,
   }));
-
-  // Fallback to static JSON if Supabase returns nothing
-  const useJson = sources.length === 0;
-  const jsonSpecs = useJson ? getSpecs() : [];
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
@@ -39,7 +34,12 @@ export default async function SpecsPage() {
         </p>
       </div>
 
-      <SpecsList sources={sources} jsonSpecs={jsonSpecs} />
+      <SourceList
+        sources={sources}
+        tier="2A"
+        searchPlaceholder="Search specifications..."
+        emptyMessage="No specifications match your search criteria."
+      />
     </div>
   );
 }

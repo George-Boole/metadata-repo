@@ -17,14 +17,7 @@ export interface SupabaseSource {
 
 /* ── Query functions ──────────────────────────────────────── */
 
-/** Normalize tier strings — DB has both "1"/"2a"/"3" and "tier1"/"tier2a" formats */
-function normalizeTier(tier: string | null): string {
-  if (!tier) return "";
-  const t = tier.toLowerCase().replace(/^tier/, "");
-  return t;
-}
-
-/** Get all active sources for a specific tier (handles both "1" and "tier1" formats) */
+/** Get all active sources for a specific tier */
 export async function getSourcesByTier(tier: string): Promise<SupabaseSource[]> {
   try {
     const supabase = getSupabaseServer();
@@ -32,12 +25,11 @@ export async function getSourcesByTier(tier: string): Promise<SupabaseSource[]> 
       .from("sources")
       .select("*")
       .eq("status", "active")
+      .eq("tier", tier)
       .order("title");
 
     if (error || !data) return [];
-
-    const normalizedTier = normalizeTier(tier);
-    return data.filter((s) => normalizeTier(s.tier) === normalizedTier);
+    return data;
   } catch {
     return [];
   }
@@ -47,6 +39,7 @@ export async function getSourcesByTier(tier: string): Promise<SupabaseSource[]> 
 export async function getSourceCounts(): Promise<{
   guidance: number;
   specs: number;
+  profiles: number;
   tools: number;
   ontologies: number;
   total: number;
@@ -59,25 +52,27 @@ export async function getSourceCounts(): Promise<{
       .eq("status", "active");
 
     if (error || !data) {
-      return { guidance: 0, specs: 0, tools: 0, ontologies: 0, total: 0 };
+      return { guidance: 0, specs: 0, profiles: 0, tools: 0, ontologies: 0, total: 0 };
     }
 
     let guidance = 0;
     let specs = 0;
+    let profiles = 0;
     let tools = 0;
     let ontologies = 0;
 
     for (const row of data) {
-      const t = normalizeTier(row.tier);
+      const t = row.tier;
       if (t === "1") guidance++;
       else if (t === "2a") specs++;
+      else if (t === "2b") profiles++;
       else if (t === "3") tools++;
       else if (t === "ontology") ontologies++;
     }
 
-    return { guidance, specs, tools, ontologies, total: data.length };
+    return { guidance, specs, profiles, tools, ontologies, total: data.length };
   } catch {
-    return { guidance: 0, specs: 0, tools: 0, ontologies: 0, total: 0 };
+    return { guidance: 0, specs: 0, profiles: 0, tools: 0, ontologies: 0, total: 0 };
   }
 }
 
@@ -121,6 +116,25 @@ export async function searchSources(
     return data;
   } catch {
     return [];
+  }
+}
+
+/** Look up a source by its URL */
+export async function getSourceByUrl(
+  url: string,
+): Promise<SupabaseSource | null> {
+  try {
+    const supabase = getSupabaseServer();
+    const { data, error } = await supabase
+      .from("sources")
+      .select("*")
+      .eq("url", url)
+      .single();
+
+    if (error || !data) return null;
+    return data;
+  } catch {
+    return null;
   }
 }
 

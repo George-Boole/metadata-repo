@@ -2,9 +2,8 @@ export const dynamic = "force-dynamic";
 
 import Link from "next/link";
 import { getSourcesByTier, getSourceDescription, getHostname } from "@/lib/data-server";
-import { getTools } from "@/lib/data";
 import type { SourceItem } from "@/components/SourceList";
-import ToolsList from "./ToolsList";
+import SourceList from "@/components/SourceList";
 
 export default async function ToolsPage() {
   const supabaseSources = await getSourcesByTier("3");
@@ -18,10 +17,6 @@ export default async function ToolsPage() {
     sourceType: s.source_type,
     chunkCount: s.chunk_count,
   }));
-
-  // Fallback to static JSON if Supabase returns nothing
-  const useJson = sources.length === 0;
-  const jsonTools = useJson ? getTools() : [];
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
@@ -49,7 +44,12 @@ export default async function ToolsPage() {
         </p>
       </div>
 
-      <ToolsList sources={sources} jsonTools={jsonTools} />
+      <SourceList
+        sources={sources}
+        tier="3"
+        searchPlaceholder="Search tagging and labeling tools..."
+        emptyMessage="No tools match your search criteria."
+      />
     </div>
   );
 }

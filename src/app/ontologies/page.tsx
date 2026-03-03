@@ -1,50 +1,29 @@
-"use client";
+export const dynamic = "force-dynamic";
 
-import { useState, useMemo } from "react";
-import { getOntologies } from "@/lib/data";
-import ArtifactCard from "@/components/ArtifactCard";
-import SearchBar from "@/components/SearchBar";
-import FilterBar from "@/components/FilterBar";
-import { FictionalBadge } from "@/components/Badge";
 import Link from "next/link";
+import { getSourcesByTier, getSourceDescription, getHostname } from "@/lib/data-server";
+import type { SourceItem } from "@/components/SourceList";
+import SourceList from "@/components/SourceList";
+import type { SupabaseSource } from "@/lib/data-server";
 
-const FICTIONAL_IDS = new Set(["onto-daf-fabric"]);
+function isFictional(source: SupabaseSource): boolean {
+  const meta = source.metadata as { fictional?: boolean } | null;
+  return meta?.fictional === true;
+}
 
-const allOntologies = getOntologies();
+export default async function OntologiesPage() {
+  const supabaseSources = await getSourcesByTier("ontology");
 
-const typeOptions = [
-  { value: "all", label: "All" },
-  { value: "domain", label: "Domain" },
-  { value: "foundational", label: "Foundational" },
-  { value: "repository", label: "Repository" },
-  { value: "internal", label: "Internal" },
-];
-
-export default function OntologiesPage() {
-  const [search, setSearch] = useState("");
-  const [typeFilter, setTypeFilter] = useState("all");
-
-  const filtered = useMemo(() => {
-    const q = search.toLowerCase().trim();
-    return allOntologies.filter((onto) => {
-      if (q) {
-        const haystack = [
-          onto.title,
-          onto.description,
-          onto.managingOrganization,
-          onto.ontologyType,
-          onto.format ?? "",
-          onto.domain ?? "",
-          ...onto.keywords,
-        ]
-          .join(" ")
-          .toLowerCase();
-        if (!haystack.includes(q)) return false;
-      }
-      if (typeFilter !== "all" && onto.ontologyType !== typeFilter) return false;
-      return true;
-    });
-  }, [search, typeFilter]);
+  const sources: SourceItem[] = supabaseSources.map((s) => ({
+    id: s.id,
+    title: s.title,
+    description: getSourceDescription(s),
+    url: s.url,
+    hostname: getHostname(s.url),
+    sourceType: s.source_type,
+    chunkCount: s.chunk_count,
+    fictional: isFictional(s),
+  }));
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
@@ -72,70 +51,12 @@ export default function OntologiesPage() {
         </p>
       </div>
 
-      {/* Search */}
-      <div className="mb-6">
-        <SearchBar
-          value={search}
-          onChange={setSearch}
-          placeholder="Search ontologies..."
-        />
-      </div>
-
-      {/* Filters */}
-      <div className="mb-6">
-        <FilterBar
-          label="Type:"
-          options={typeOptions}
-          selected={typeFilter}
-          onChange={setTypeFilter}
-        />
-      </div>
-
-      {/* Results Count */}
-      <p className="mb-4 text-sm text-gray-500">
-        Showing {filtered.length} of {allOntologies.length} ontologies
-      </p>
-
-      {/* Card Grid */}
-      {filtered.length === 0 ? (
-        <div className="rounded-lg border border-gray-200 bg-white p-12 text-center">
-          <p className="text-gray-500">
-            No ontologies match your search criteria.
-          </p>
-        </div>
-      ) : (
-        <div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-2">
-          {filtered.map((onto) => (
-            <div key={onto.id} className="relative">
-              {FICTIONAL_IDS.has(onto.id) && (
-                <div className="absolute top-2 right-2 z-10">
-                  <FictionalBadge />
-                </div>
-              )}
-              <ArtifactCard
-                title={onto.title}
-                description={onto.description}
-                tier="ontology"
-                hostingType={onto.hostingType}
-                status={onto.status}
-                href={`/ontologies/${onto.id}`}
-                metadata={[
-                  {
-                    label: "Type",
-                    value:
-                      onto.ontologyType.charAt(0).toUpperCase() +
-                      onto.ontologyType.slice(1),
-                  },
-                  ...(onto.format
-                    ? [{ label: "Format", value: onto.format }]
-                    : []),
-                  { label: "Org", value: onto.managingOrganization },
-                ]}
-              />
-            </div>
-          ))}
-        </div>
-      )}
+      <SourceList
+        sources={sources}
+        tier="ontology"
+        searchPlaceholder="Search ontologies..."
+        emptyMessage="No ontologies match your search criteria."
+      />
     </div>
   );
 }

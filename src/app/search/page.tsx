@@ -3,27 +3,9 @@
 import { useSearchParams } from "next/navigation";
 import { Suspense, useState, useEffect } from "react";
 import SearchBar from "@/components/SearchBar";
-import ArtifactCard from "@/components/ArtifactCard";
 import { TierBadge, StatusBadge } from "@/components/Badge";
-import { searchArtifacts, type SearchResult } from "@/lib/search";
 import { TIER_LABELS, type TierId } from "@/types";
 import Link from "next/link";
-
-const TIER_ROUTE: Record<TierId, string> = {
-  "1": "/guidance",
-  "2A": "/specs",
-  "2B": "/profiles",
-  "3": "/tools",
-  "ontology": "/ontologies",
-};
-
-const TIER_HEADER_STYLES: Record<TierId, string> = {
-  "1": "border-l-tier-1 text-tier-1",
-  "2A": "border-l-tier-2a text-tier-2a",
-  "2B": "border-l-tier-2b text-tier-2b",
-  "3": "border-l-tier-3 text-tier-3",
-  "ontology": "border-l-ontology text-ontology",
-};
 
 const TIER_BORDER: Record<string, string> = {
   "1": "border-l-tier-1",
@@ -41,6 +23,16 @@ const TIER_KEY_MAP: Record<string, TierId> = {
   ontology: "ontology",
 };
 
+const TIER_ORDER_LOWER = ["1", "2a", "2b", "3", "ontology"];
+
+const TIER_HEADER_STYLES: Record<TierId, string> = {
+  "1": "border-l-tier-1 text-tier-1",
+  "2A": "border-l-tier-2a text-tier-2a",
+  "2B": "border-l-tier-2b text-tier-2b",
+  "3": "border-l-tier-3 text-tier-3",
+  "ontology": "border-l-ontology text-ontology",
+};
+
 interface SupabaseSearchResult {
   id: string;
   title: string;
@@ -51,74 +43,33 @@ interface SupabaseSearchResult {
   metadata: { description?: string | null } | null;
 }
 
-function buildMetadata(result: SearchResult): { label: string; value: string }[] {
-  const a = result.artifact;
-  switch (a.tier) {
-    case "1":
-      return [{ label: "Document", value: a.documentNumber }];
-    case "2A":
-      return [
-        { label: "Version", value: a.version },
-        { label: "Category", value: a.category },
-      ];
-    case "2B":
-      return [
-        { label: "Domain", value: a.domain },
-        { label: "Org", value: a.owningOrganization },
-      ];
-    case "3":
-      return [
-        { label: "Vendor", value: a.vendor },
-        { label: "License", value: a.licenseType },
-      ];
-    case "ontology":
-      return [
-        { label: "Type", value: a.ontologyType },
-        ...(a.format ? [{ label: "Format", value: a.format }] : []),
-      ];
-  }
-}
-
 function SearchResults() {
   const searchParams = useSearchParams();
   const query = searchParams.get("q") ?? "";
-  const [supabaseResults, setSupabaseResults] = useState<SupabaseSearchResult[]>([]);
+  const [results, setResults] = useState<SupabaseSearchResult[]>([]);
   const [loading, setLoading] = useState(false);
 
-  // Static JSON search
-  const jsonResults = query ? searchArtifacts(query) : [];
-
-  // Supabase search
   useEffect(() => {
     if (!query.trim()) {
-      setSupabaseResults([]);
+      setResults([]);
       return;
     }
 
     setLoading(true);
     fetch(`/api/search?q=${encodeURIComponent(query)}`)
       .then((res) => res.json())
-      .then((data) => setSupabaseResults(data.results || []))
-      .catch(() => setSupabaseResults([]))
+      .then((data) => setResults(data.results || []))
+      .catch(() => setResults([]))
       .finally(() => setLoading(false));
   }, [query]);
 
-  // Deduplicate: if a JSON result and Supabase result share a similar title, prefer JSON (richer data)
-  const jsonTitles = new Set(jsonResults.map((r) => r.artifact.title.toLowerCase()));
-  const uniqueSupabase = supabaseResults.filter(
-    (s) => !jsonTitles.has(s.title.toLowerCase()),
-  );
-
-  // Group JSON results by tier
-  const grouped: Partial<Record<TierId, SearchResult[]>> = {};
-  for (const r of jsonResults) {
-    const tier = r.artifact.tier;
+  // Group results by tier
+  const grouped: Partial<Record<string, SupabaseSearchResult[]>> = {};
+  for (const r of results) {
+    const tier = r.tier || "other";
     if (!grouped[tier]) grouped[tier] = [];
     grouped[tier]!.push(r);
   }
-
-  const tierOrder: TierId[] = ["1", "2A", "2B", "3", "ontology"];
-  const totalResults = jsonResults.length + uniqueSupabase.length;
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
@@ -137,15 +88,15 @@ function SearchResults() {
       {/* Results summary */}
       {query && (
         <p className="mb-6 text-sm text-gray-600">
-          {totalResults === 0 && !loading
+          {results.length === 0 && !loading
             ? `No results found for "${query}"`
-            : `${totalResults} result${totalResults !== 1 ? "s" : ""} for "${query}"`}
-          {loading && " (searching indexed sources...)"}
+            : `${results.length} result${results.length !== 1 ? "s" : ""} for "${query}"`}
+          {loading && " (searching...)"}
         </p>
       )}
 
       {/* No results state */}
-      {query && totalResults === 0 && !loading && (
+      {query && results.length === 0 && !loading && (
         <div className="rounded-lg border border-gray-200 bg-white p-8 text-center shadow-sm">
           <svg
             className="mx-auto mb-4 h-12 w-12 text-gray-300"
@@ -175,52 +126,68 @@ function SearchResults() {
         </div>
       )}
 
-      {/* Grouped JSON results */}
-      {tierOrder.map((tier) => {
-        const tierResults = grouped[tier];
+      {/* Grouped results by tier */}
+      {TIER_ORDER_LOWER.map((tierKey) => {
+        const tierResults = grouped[tierKey];
         if (!tierResults || tierResults.length === 0) return null;
+        const tierId = TIER_KEY_MAP[tierKey];
         return (
-          <section key={tier} className="mb-8">
+          <section key={tierKey} className="mb-8">
             <h2
-              className={`mb-4 border-l-4 pl-3 text-lg font-bold ${TIER_HEADER_STYLES[tier]}`}
+              className={`mb-4 border-l-4 pl-3 text-lg font-bold ${TIER_HEADER_STYLES[tierId]}`}
             >
-              {tier === "ontology" ? TIER_LABELS[tier] : `Tier ${tier} — ${TIER_LABELS[tier]}`}
+              {tierId === "ontology" ? TIER_LABELS[tierId] : `Tier ${tierId} — ${TIER_LABELS[tierId]}`}
               <span className="ml-2 text-sm font-normal text-gray-500">
                 ({tierResults.length})
               </span>
             </h2>
             <div className="space-y-3">
-              {tierResults.map((r) => (
-                <ArtifactCard
-                  key={r.artifact.id}
-                  title={r.artifact.title}
-                  description={r.artifact.description}
-                  tier={r.artifact.tier}
-                  hostingType={r.artifact.hostingType}
-                  status={r.artifact.status}
-                  href={`${TIER_ROUTE[r.artifact.tier]}/${r.artifact.id}`}
-                  metadata={buildMetadata(r)}
-                />
-              ))}
+              {tierResults.map((s) => {
+                const borderClass = TIER_BORDER[tierKey] || "border-l-gray-400";
+                let hostname = "";
+                try { hostname = new URL(s.url).hostname; } catch { hostname = s.url; }
+                const description = (s.metadata as { description?: string | null })?.description || `Content from ${hostname}`;
+
+                return (
+                  <Link
+                    key={s.id}
+                    href={`/sources/${s.id}`}
+                    className={`block rounded-lg border border-gray-200 border-l-4 ${borderClass} bg-white p-3 sm:p-5 shadow-sm transition-shadow hover:shadow-md`}
+                  >
+                    <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
+                      <h3 className="text-base sm:text-lg font-semibold text-daf-dark-gray">
+                        {s.title}
+                      </h3>
+                      <div className="flex items-center gap-2">
+                        <StatusBadge status="active" />
+                        {tierId && <TierBadge tier={tierId} />}
+                      </div>
+                    </div>
+                    <p className="mb-2 text-sm text-gray-600 line-clamp-2">
+                      {description}
+                    </p>
+                    <span className="text-xs text-gray-500">
+                      <span className="font-medium text-gray-600">Source:</span> {hostname}
+                    </span>
+                  </Link>
+                );
+              })}
             </div>
           </section>
         );
       })}
 
-      {/* Supabase-only results */}
-      {uniqueSupabase.length > 0 && (
+      {/* Ungrouped results (no tier) */}
+      {grouped["other"] && grouped["other"].length > 0 && (
         <section className="mb-8">
           <h2 className="mb-4 border-l-4 border-l-daf-light-blue pl-3 text-lg font-bold text-daf-light-blue">
-            Indexed Sources
+            Other Sources
             <span className="ml-2 text-sm font-normal text-gray-500">
-              ({uniqueSupabase.length})
+              ({grouped["other"].length})
             </span>
           </h2>
           <div className="space-y-3">
-            {uniqueSupabase.map((s) => {
-              const tierKey = s.tier?.toLowerCase() || "";
-              const tierId = TIER_KEY_MAP[tierKey];
-              const borderClass = TIER_BORDER[tierKey] || "border-l-gray-400";
+            {grouped["other"].map((s) => {
               let hostname = "";
               try { hostname = new URL(s.url).hostname; } catch { hostname = s.url; }
               const description = (s.metadata as { description?: string | null })?.description || `Content from ${hostname}`;
@@ -229,16 +196,13 @@ function SearchResults() {
                 <Link
                   key={s.id}
                   href={`/sources/${s.id}`}
-                  className={`block rounded-lg border border-gray-200 border-l-4 ${borderClass} bg-white p-3 sm:p-5 shadow-sm transition-shadow hover:shadow-md`}
+                  className="block rounded-lg border border-gray-200 border-l-4 border-l-gray-400 bg-white p-3 sm:p-5 shadow-sm transition-shadow hover:shadow-md"
                 >
                   <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
                     <h3 className="text-base sm:text-lg font-semibold text-daf-dark-gray">
                       {s.title}
                     </h3>
-                    <div className="flex items-center gap-2">
-                      <StatusBadge status="active" />
-                      {tierId && <TierBadge tier={tierId} />}
-                    </div>
+                    <StatusBadge status="active" />
                   </div>
                   <p className="mb-2 text-sm text-gray-600 line-clamp-2">
                     {description}

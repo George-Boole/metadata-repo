@@ -37,19 +37,24 @@ metadata-repo/
 │   │   ├── api-explorer/ # API concept demo page
 │   │   └── search/       # Global search results
 │   ├── components/       # Shared React components
-│   ├── data/             # Static JSON mock data files
-│   │   ├── guidance.json
-│   │   ├── specs.json
-│   │   ├── profiles.json
-│   │   ├── tools.json
-│   │   └── ontologies.json
 │   ├── lib/              # Utility functions, types, search logic
 │   │   ├── auth.ts       # Multi-user auth (HMAC tokens, password hashing)
+│   │   ├── data-server.ts # Supabase queries for browse pages
 │   │   ├── supabase.ts   # Supabase client (server + browser)
 │   │   ├── neo4j.ts      # Neo4j driver singleton
 │   │   ├── embeddings.ts # OpenAI text-embedding-3-small (512-dim)
-│   │   ├── ingest/       # Ingestion pipeline (crawl → chunk → embed → store)
-│   │   └── rag/          # RAG system (vector search, model resolver, prompts)
+│   │   ├── ingest/       # Ingestion pipeline (crawl → chunk → embed → store → graph)
+│   │   │   ├── pipeline.ts      # Main ingest + zip ingestion
+│   │   │   ├── graph-extract.ts # LLM entity/relationship extraction
+│   │   │   ├── graph-write.ts   # Write triples to Neo4j
+│   │   │   ├── download.ts      # ZIP download + extraction
+│   │   │   └── extractors/      # PDF, XSD, Schematron parsers
+│   │   └── rag/          # RAG system (hybrid vector + graph retrieval)
+│   │       ├── vector-search.ts    # Supabase hybrid search
+│   │       ├── graph-search.ts     # Neo4j graph traversal
+│   │       ├── hybrid-retriever.ts # Combined vector + graph
+│   │       ├── prompt-builder.ts   # Context prompt with graph
+│   │       └── model-resolver.ts   # Multi-model LLM routing
 │   └── types/            # TypeScript type definitions
 ├── public/               # Static assets (logos, icons)
 ├── tasks/                # PRD and task tracking
@@ -61,10 +66,12 @@ metadata-repo/
 ```
 
 ## Key Architecture Decisions
-- **Hybrid data layer** — static JSON for SSR browse pages + Supabase pgvector for RAG chunks + Neo4j for relationship graph
+- **Supabase-first data layer** — all browse/detail pages query Supabase. No static JSON fallback. Neo4j for relationship graph.
 - **Dual hosting model** — artifacts are either "Stored" (content in repo) or "Linked" (pointer to external authoritative source)
 - **Web-crawled content** — ODNI specs, NIEM, W3C, Dublin Core ingested by crawling source websites (not local files)
-- **Hybrid RAG retrieval** — vector similarity (0.7 weight) + OR-based keyword matching (0.3 weight) with round-robin source diversity (max 3 chunks per source)
+- **ODNI deep ingestion** — ZIP packages downloaded, PDFs/XSDs/Schematron extracted and chunked for deep content
+- **LLM graph extraction** — Gemini Flash extracts entities and relationships from ingested content, auto-populating Neo4j
+- **Hybrid RAG retrieval** — vector similarity (0.7 weight) + keyword matching (0.3 weight) + Neo4j graph context. Graph-connected sources boosted.
 - **Always cite sources** — every RAG response includes clickable source references
 - **Admin panel** — add content via URL or file upload, select LLM model, view ingestion status
 - **Password-protected** — shared password via Next.js middleware for demo access
@@ -76,19 +83,23 @@ metadata-repo/
 4. **Tier 3 — Tagging/Labeling Tools**: Tools that apply metadata standards to data (DCAMPS-C, Purview, Varonis, Collibra). NOT metadata catalog tools.
 
 ## Current State
-- **Phase**: Supabase migration complete. All browse pages pull live data from Supabase.
-- **Last Completed**: Full Supabase migration — browse pages (guidance, specs, tools) query Supabase with JSON fallback. Dashboard shows live counts. Search is hybrid (JSON + Supabase). 8 new sources ingested (6 tool vendor pages + 2 ontology sources). Fictional content (profiles, DAF Data Fabric Ontology) labeled with EXAMPLE badges.
-- **Ingested Content**: 115 sources, ~5,196 chunks. All prior content plus 6 tool vendor pages (DCAMPS-C, Purview, Varonis, Collibra, Fortra/Titus, OPSWAT/Boldon James), LOV, OWL 2 Overview.
-- **Browse Pages**: Guidance, specs, tools query Supabase → SourceList component. Profiles, ontologies use static JSON. All fictional content clearly labeled.
-- **Data Layer**: `src/lib/data-server.ts` (async Supabase queries) + `src/lib/data.ts` (static JSON fallback + detail pages).
-- **Models**: Gemini 2.5 Flash (default), Gemini 2.5 Flash Lite, Claude Sonnet 4.6 — selectable via admin panel.
-- **Auth System**: Multi-user with roles. Login accepts username+password (from users table) or shared password (admin fallback). HMAC-signed tokens with role info. Admin routes protected by middleware.
-- **Data Policy**: Only real data in databases. Static JSON contains fictional Tier 2B profiles and AI-written descriptions — labeled as EXAMPLE in the UI.
+- **Phase**: Static JSON eliminated. All pages query Supabase. Graph RAG pipeline built. ODNI zip ingestion ready.
+- **Last Completed**: Kill static JSON + graph extraction pipeline + ODNI deep ingestion + hybrid graph RAG. All browse pages (guidance, specs, profiles, tools, ontologies) are Supabase-only. Old detail pages redirect to `/sources/[id]`. Search is Supabase-only. Dashboard counts all from Supabase. LLM-based graph extraction auto-populates Neo4j during ingestion. Chat uses hybrid vector+graph retrieval.
+- **Ingested Content**: 115 sources, ~5,196 chunks. ODNI zip deep ingestion ready to run (scripts/ingest-odni-zips.ts).
+- **Browse Pages**: All 5 tiers query Supabase via SourceList. No JSON fallback. Fictional sources flagged via `metadata.fictional`.
+- **Data Layer**: `src/lib/data-server.ts` (Supabase queries). Static JSON deleted. `src/lib/data.ts` and `src/lib/search.ts` deleted.
+- **Graph Pipeline**: `src/lib/ingest/graph-extract.ts` (Gemini-based entity/relationship extraction) → `src/lib/ingest/graph-write.ts` (Neo4j write). Integrated into ingestion pipeline as step 7.5.
+- **ODNI Zip Pipeline**: `src/lib/ingest/download.ts` + extractors (pdf, xsd, schematron) → `ingestZipContents()` in pipeline.ts. Script: `scripts/ingest-odni-zips.ts`.
+- **RAG**: Hybrid retriever (`src/lib/rag/hybrid-retriever.ts`) combines vector search + graph search. Chat endpoint uses `buildHybridContextPrompt()` with graph relationship context.
+- **Source Detail**: `/sources/[id]` shows graph cross-references (related entities, relationship types) with links to related source pages.
+- **Models**: Gemini 2.0 Flash (default), Gemini 2.0 Flash Lite, Claude Sonnet 4.6 — selectable via admin panel.
+- **Auth System**: Multi-user with roles. Login accepts username+password or shared password. HMAC-signed tokens.
+- **Data Policy**: Only real data in databases. Fictional sources (profiles, DAF Data Fabric Ontology) marked with `metadata.fictional: true` and EXAMPLE badges.
 - **Dev Environment**: macOS (Mac mini M-series), Node.js 25.7.0, Homebrew
 - **Rate Limiting**: In-memory sliding window — chat 20/min, auth 5/min, ingest 10/min, admin 30/min
-- **Error Handling**: Error boundaries at root, standards-brain, and admin levels. 404 page. API routes return generic error messages without leaking internals.
-- **Known Gaps**: IC-ISM, IC-EDH, DDMS landing pages yield only 1 chunk each (minimal text on ODNI site). NIEM Domains Reference also only 1 chunk.
-- **Next Step**: Deploy to Vercel, demo testing, possible Tier 2B profile content, Neo4j relationship enrichment
+- **Error Handling**: Error boundaries at root, standards-brain, and admin levels. 404 page. API routes return generic error messages.
+- **Pending Scripts**: Run `npx tsx scripts/backfill-graph.ts` to populate Neo4j from existing sources. Run `npx tsx scripts/ingest-odni-zips.ts` for deep ODNI content. Seed fictional profiles/ontologies into Supabase.
+- **Next Step**: Seed missing profile/ontology sources into Supabase, run backfill + ODNI ingestion scripts, Vercel deploy, demo testing
 
 ## Autonomy Rules
 Claude operates at MAXIMUM autonomy **within this repository**:

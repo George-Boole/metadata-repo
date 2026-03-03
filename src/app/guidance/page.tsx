@@ -2,14 +2,12 @@ export const dynamic = "force-dynamic";
 
 import Link from "next/link";
 import { getSourcesByTier, getSourceDescription, getHostname } from "@/lib/data-server";
-import { getGuidance } from "@/lib/data";
 import type { SourceItem } from "@/components/SourceList";
-import GuidanceList from "./GuidanceList";
+import SourceList from "@/components/SourceList";
 
 export default async function GuidancePage() {
   const supabaseSources = await getSourcesByTier("1");
 
-  // Map Supabase sources to SourceItem format
   const sources: SourceItem[] = supabaseSources.map((s) => ({
     id: s.id,
     title: s.title,
@@ -19,10 +17,6 @@ export default async function GuidancePage() {
     sourceType: s.source_type,
     chunkCount: s.chunk_count,
   }));
-
-  // Fallback to static JSON if Supabase returns nothing
-  const useJson = sources.length === 0;
-  const jsonGuidance = useJson ? getGuidance() : [];
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
@@ -51,7 +45,12 @@ export default async function GuidancePage() {
         </p>
       </div>
 
-      <GuidanceList sources={sources} jsonGuidance={jsonGuidance} />
+      <SourceList
+        sources={sources}
+        tier="1"
+        searchPlaceholder="Search guidance documents..."
+        emptyMessage="No guidance documents match your search criteria."
+      />
     </div>
   );
 }

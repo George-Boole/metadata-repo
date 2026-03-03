@@ -1,5 +1,6 @@
 import { getSupabaseServer } from "../supabase";
 import type { ChunkMatch } from "./vector-search";
+import type { GraphContext } from "./graph-search";
 
 const DEFAULT_SYSTEM_PROMPT = `You are the DAF Standards Brain, an AI assistant for the Department of the Air Force Metadata Repository. Answer questions about metadata standards, specifications, and guidance documents. Always cite your sources using [Source Title](url) format. If you don't know the answer, say so — do not make up information.`;
 
@@ -61,4 +62,38 @@ ${contextBlocks}
 - Cite every claim using [Source Title](url) format so the user can verify.
 - If the context doesn't contain enough information to answer fully, say what you can and note the gap.
 - Do not fabricate information not present in the context.`;
+}
+
+/**
+ * Build hybrid context prompt that includes both retrieved chunks and graph relationships.
+ */
+export function buildHybridContextPrompt(
+  systemPrompt: string,
+  chunks: ChunkMatch[],
+  graphContext: GraphContext,
+): string {
+  const basePrompt = buildContextPrompt(systemPrompt, chunks);
+
+  // If no graph context, return the base prompt
+  if (graphContext.relationships.length === 0) {
+    return basePrompt;
+  }
+
+  // Format graph relationships as additional context
+  const relLines = graphContext.relationships.map((r) => {
+    const relLabel = r.relType.replace(/_/g, " ").toLowerCase();
+    return `- ${r.from} ${relLabel} ${r.to}`;
+  });
+
+  const graphSection = `
+
+## Knowledge Graph Context
+
+The following relationships were found in the standards knowledge graph for entities mentioned in the query:
+
+${relLines.join("\n")}
+
+Use these relationships to provide more complete and accurate answers about how standards relate to each other.`;
+
+  return basePrompt + graphSection;
 }

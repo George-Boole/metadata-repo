@@ -1,14 +1,9 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getSourceById, getHostname, getSourceDescription } from "@/lib/data-server";
+import { getSourceById, getHostname, getSourceDescription, getSourceByUrl } from "@/lib/data-server";
 import { TierBadge, StatusBadge } from "@/components/Badge";
 import type { TierId } from "@/types";
-
-/** Normalize tier strings — DB has both "1"/"2a" and "tier1"/"tier2a" formats */
-function normalizeTier(tier: string | null): string {
-  if (!tier) return "";
-  return tier.toLowerCase().replace(/^tier/, "");
-}
+import { runCypher } from "@/lib/neo4j";
 
 const TIER_MAP: Record<string, TierId> = {
   "1": "1",
@@ -34,6 +29,65 @@ const TIER_BORDER: Record<string, string> = {
   ontology: "border-l-ontology",
 };
 
+const REL_TYPE_LABELS: Record<string, string> = {
+  MANDATES: "Mandates",
+  REFERENCES: "References",
+  IMPLEMENTS: "Implements",
+  SUPPORTS: "Supports",
+  CHILD_OF: "Child Of",
+  PART_OF: "Part Of",
+};
+
+interface GraphRelation {
+  entityName: string;
+  entityType: string;
+  relType: string;
+  direction: "outgoing" | "incoming";
+  sourceUrl?: string;
+}
+
+async function getGraphRelations(sourceUrl: string): Promise<GraphRelation[]> {
+  try {
+    const results = await runCypher<{
+      entityName: string;
+      entityType: string;
+      relType: string;
+      direction: string;
+      relatedUrl: string | null;
+    }>(
+      `MATCH (s:Source {url: $url})-[:MENTIONS]->(e:Entity)
+       OPTIONAL MATCH (e)-[r:RELATES_TO]->(other:Entity)
+       OPTIONAL MATCH (otherSource:Source)-[:MENTIONS]->(other)
+       WITH e, r, other, otherSource, 'outgoing' as dir
+       WHERE other IS NOT NULL
+       RETURN other.name as entityName, other.type as entityType,
+              r.rel_type as relType, dir as direction,
+              otherSource.url as relatedUrl
+       UNION
+       MATCH (s:Source {url: $url})-[:MENTIONS]->(e:Entity)
+       OPTIONAL MATCH (other:Entity)-[r:RELATES_TO]->(e)
+       OPTIONAL MATCH (otherSource:Source)-[:MENTIONS]->(other)
+       WITH e, r, other, otherSource, 'incoming' as dir
+       WHERE other IS NOT NULL
+       RETURN other.name as entityName, other.type as entityType,
+              r.rel_type as relType, dir as direction,
+              otherSource.url as relatedUrl
+       LIMIT 30`,
+      { url: sourceUrl },
+    );
+
+    return results.map((r) => ({
+      entityName: r.entityName,
+      entityType: r.entityType,
+      relType: r.relType,
+      direction: r.direction as "outgoing" | "incoming",
+      sourceUrl: r.relatedUrl || undefined,
+    }));
+  } catch {
+    return [];
+  }
+}
+
 export default async function SourceDetailPage({
   params,
 }: {
@@ -43,12 +97,37 @@ export default async function SourceDetailPage({
   const source = await getSourceById(id);
   if (!source) notFound();
 
-  const tierKey = normalizeTier(source.tier);
+  const tierKey = source.tier || "";
   const tierId = TIER_MAP[tierKey];
   const backRoute = TIER_BACK_ROUTES[tierKey];
   const borderClass = TIER_BORDER[tierKey] || "border-l-gray-400";
   const description = getSourceDescription(source);
   const hostname = getHostname(source.url);
+
+  // Fetch graph relations (non-fatal)
+  const graphRelations = await getGraphRelations(source.url);
+
+  // Group relations by type
+  const relationsByType: Record<string, GraphRelation[]> = {};
+  for (const rel of graphRelations) {
+    const key = rel.direction === "incoming"
+      ? `${rel.relType}_by`
+      : rel.relType;
+    if (!relationsByType[key]) relationsByType[key] = [];
+    // Deduplicate by entity name
+    if (!relationsByType[key].some((r) => r.entityName === rel.entityName)) {
+      relationsByType[key].push(rel);
+    }
+  }
+
+  // Resolve source IDs for linked entities
+  const relatedSourceIds: Record<string, string> = {};
+  for (const rel of graphRelations) {
+    if (rel.sourceUrl && !relatedSourceIds[rel.sourceUrl]) {
+      const relSource = await getSourceByUrl(rel.sourceUrl);
+      if (relSource) relatedSourceIds[rel.sourceUrl] = relSource.id;
+    }
+  }
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
@@ -192,6 +271,66 @@ export default async function SourceDetailPage({
           View Original Source
         </a>
       </div>
+
+      {/* Graph Cross-References */}
+      {Object.keys(relationsByType).length > 0 && (
+        <div className="mt-8">
+          <h2 className="text-lg font-bold text-daf-dark-gray mb-4">
+            Related Standards & Entities
+          </h2>
+          <div className="space-y-4">
+            {Object.entries(relationsByType).map(([relKey, rels]) => {
+              const isIncoming = relKey.endsWith("_by");
+              const baseType = isIncoming ? relKey.replace(/_by$/, "") : relKey;
+              const label = isIncoming
+                ? `${REL_TYPE_LABELS[baseType] || baseType} By`
+                : REL_TYPE_LABELS[baseType] || baseType;
+
+              return (
+                <div key={relKey}>
+                  <h3 className="text-sm font-semibold uppercase text-gray-500 mb-2">
+                    {label}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {rels.map((rel) => {
+                      const linkedSourceId = rel.sourceUrl
+                        ? relatedSourceIds[rel.sourceUrl]
+                        : undefined;
+
+                      if (linkedSourceId) {
+                        return (
+                          <Link
+                            key={rel.entityName}
+                            href={`/sources/${linkedSourceId}`}
+                            className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1.5 text-sm font-medium text-blue-800 hover:bg-blue-100 transition-colors border border-blue-200"
+                          >
+                            {rel.entityName}
+                            <span className="text-xs text-blue-500">
+                              ({rel.entityType})
+                            </span>
+                          </Link>
+                        );
+                      }
+
+                      return (
+                        <span
+                          key={rel.entityName}
+                          className="inline-flex items-center gap-1.5 rounded-full bg-gray-100 px-3 py-1.5 text-sm font-medium text-gray-700 border border-gray-200"
+                        >
+                          {rel.entityName}
+                          <span className="text-xs text-gray-500">
+                            ({rel.entityType})
+                          </span>
+                        </span>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* Standards Brain CTA */}
       <div className="mt-8 rounded-lg border border-brain/30 bg-brain-bg p-6">

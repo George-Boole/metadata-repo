@@ -3,6 +3,8 @@ import { chunkMarkdown } from "./chunker";
 import { embedTexts } from "../embeddings";
 import { getSupabaseServer } from "../supabase";
 import { runCypher } from "../neo4j";
+import { extractEntitiesAndRelationships } from "./graph-extract";
+import { writeToGraph } from "./graph-write";
 
 export interface IngestOptions {
   url: string;
@@ -160,6 +162,17 @@ export async function ingestUrl(options: IngestOptions): Promise<IngestResult> {
       console.warn("Neo4j node creation failed (non-fatal):", e);
     }
 
+    // 7.5 Extract entities & relationships, write to graph (non-fatal)
+    try {
+      const extraction = await extractEntitiesAndRelationships(
+        chunks.map((c) => c.content),
+        title,
+      );
+      await writeToGraph(source.id, options.url, extraction);
+    } catch (e) {
+      console.warn("Graph extraction failed (non-fatal):", e);
+    }
+
     return {
       sourceId: source.id,
       url: options.url,
@@ -188,4 +201,118 @@ export async function ingestUrl(options: IngestOptions): Promise<IngestResult> {
       error: errMsg,
     };
   }
+}
+
+export async function ingestZipContents(
+  sourceId: string,
+  sourceUrl: string,
+  sourceTitle: string,
+  zipUrl: string,
+  tier?: string,
+): Promise<{ filesProcessed: number; totalChunks: number }> {
+  const { downloadAndExtractZip } = await import("./download");
+  const { extractPdfText } = await import("./extractors/pdf");
+  const { extractXsdContent } = await import("./extractors/xsd");
+  const { extractSchematronContent } = await import("./extractors/schematron");
+
+  const supabase = getSupabaseServer();
+  const files = await downloadAndExtractZip(zipUrl);
+  let filesProcessed = 0;
+  let totalChunks = 0;
+
+  for (const file of files) {
+    let text = "";
+
+    try {
+      switch (file.extension) {
+        case "pdf":
+          text = await extractPdfText(file.content);
+          break;
+        case "xsd":
+          text = extractXsdContent(file.content.toString("utf-8"));
+          break;
+        case "sch":
+          text = extractSchematronContent(file.content.toString("utf-8"));
+          break;
+        case "xml":
+        case "json":
+          text = file.content.toString("utf-8");
+          break;
+      }
+    } catch (e) {
+      console.warn(`Failed to extract ${file.filename}:`, e);
+      continue;
+    }
+
+    if (!text || text.trim().length < 50) continue;
+
+    // Chunk the extracted text
+    const chunks = chunkMarkdown(text);
+    if (chunks.length === 0) continue;
+
+    // Add context prefix
+    const contextPrefix = `[Source: ${sourceTitle} | File: ${file.filename} | Tier: ${tier || ""}]`;
+    const enrichedChunks = chunks.map((c) => ({
+      ...c,
+      content: `${contextPrefix}\n\n${c.content}`,
+    }));
+
+    // Embed
+    const embeddings = await embedTexts(enrichedChunks.map((c) => c.content));
+
+    // Insert chunks linked to the parent source
+    const chunkRows = enrichedChunks.map((chunk, i) => ({
+      source_id: sourceId,
+      content: chunk.content,
+      embedding: JSON.stringify(embeddings[i]),
+      chunk_type: file.extension,
+      source_url: sourceUrl,
+      source_title: `${sourceTitle} — ${file.filename}`,
+      tier: tier || null,
+      heading: chunk.heading || file.filename,
+      metadata: {
+        index: chunk.index,
+        token_estimate: chunk.tokenEstimate,
+        zip_file: file.filename,
+        zip_path: file.path,
+      },
+    }));
+
+    const BATCH_SIZE = 50;
+    for (let i = 0; i < chunkRows.length; i += BATCH_SIZE) {
+      const batch = chunkRows.slice(i, i + BATCH_SIZE);
+      await supabase.from("chunks").insert(batch);
+    }
+
+    totalChunks += chunks.length;
+    filesProcessed++;
+
+    // Graph extraction on extracted content (non-fatal)
+    try {
+      const extraction = await extractEntitiesAndRelationships(
+        enrichedChunks.map((c) => c.content),
+        `${sourceTitle} — ${file.filename}`,
+      );
+      await writeToGraph(sourceId, sourceUrl, extraction);
+    } catch (e) {
+      console.warn(`Graph extraction failed for ${file.filename} (non-fatal):`, e);
+    }
+  }
+
+  // Update parent source chunk_count
+  if (totalChunks > 0) {
+    const { data: existing } = await supabase
+      .from("sources")
+      .select("chunk_count")
+      .eq("id", sourceId)
+      .single();
+
+    const currentCount = existing?.chunk_count || 0;
+    await supabase
+      .from("sources")
+      .update({ chunk_count: currentCount + totalChunks })
+      .eq("id", sourceId);
+  }
+
+  return { filesProcessed, totalChunks };
 }

@@ -1,7 +1,7 @@
 import { streamText, convertToModelMessages, type UIMessage } from "ai";
-import { vectorSearch } from "@/lib/rag/vector-search";
+import { hybridRetrieve } from "@/lib/rag/hybrid-retriever";
 import { resolveActiveModel } from "@/lib/rag/model-resolver";
-import { getSystemPrompt, buildContextPrompt } from "@/lib/rag/prompt-builder";
+import { getSystemPrompt, buildHybridContextPrompt } from "@/lib/rag/prompt-builder";
 import { chatLimiter, getClientId, rateLimitResponse } from "@/lib/rate-limit";
 
 export const maxDuration = 60;
@@ -48,19 +48,15 @@ export async function POST(request: Request) {
       );
     }
 
-    // Parallel: resolve model + get system prompt + vector search
-    const [{ model }, systemPrompt, chunks] = await Promise.all([
+    // Parallel: resolve model + get system prompt + hybrid retrieve (vector + graph)
+    const [{ model }, systemPrompt, { chunks, graphContext }] = await Promise.all([
       resolveActiveModel(),
       getSystemPrompt(),
-      vectorSearch({
-        query: queryText,
-        matchCount: 8,
-        matchThreshold: 0.3,
-      }),
+      hybridRetrieve(queryText),
     ]);
 
-    // Build the context-enhanced system prompt
-    const fullSystemPrompt = buildContextPrompt(systemPrompt, chunks);
+    // Build the context-enhanced system prompt with graph relationships
+    const fullSystemPrompt = buildHybridContextPrompt(systemPrompt, chunks, graphContext);
 
     // Convert UI messages to model messages
     const modelMessages = await convertToModelMessages(messages);

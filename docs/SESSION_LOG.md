@@ -636,3 +636,104 @@
 - Dashboard counts: guidance=7, specs=99, profiles=6, tools=6, ontologies=4
 - All browse pages show live Supabase data
 - All detail pages render correctly (both JSON-based and Supabase-based)
+
+---
+
+## Session 14 — 2026-03-02
+**Focus**: Kill static JSON + LLM graph extraction + ODNI deep ingestion + hybrid graph RAG
+
+### Accomplished
+
+#### Phase 0: Tier Normalization
+- Removed `normalizeTier()` from `data-server.ts` and `sources/[id]/page.tsx`
+- `getSourcesByTier()` now uses direct `.eq("tier", tier)` instead of client-side filtering
+- `getSourceCounts()` now returns `profiles` count (tier `2b`)
+
+#### Phase 1: LLM Graph Extraction Pipeline
+- Created `src/lib/ingest/graph-extract.ts` — uses Gemini 2.0 Flash via `generateObject()` with Zod schema to extract entities (Standard, Guidance, Tool, Profile, Ontology, Organization) and relationships (MANDATES, REFERENCES, IMPLEMENTS, SUPPORTS, CHILD_OF, PART_OF) from ingested content
+- Created `src/lib/ingest/graph-write.ts` — writes extracted entities/relationships to Neo4j using `MERGE` for idempotency. Uses `RELATES_TO` edge with `rel_type` property (no APOC on AuraDB Free)
+- Integrated into `pipeline.ts` as step 7.5 (after Neo4j source node, before return). Non-fatal.
+- Created `scripts/backfill-graph.ts` — retroactively processes all 107+ sources through extraction
+
+#### Phase 2: Kill Static JSON
+- **Browse pages**: Removed JSON fallback from guidance, specs, tools pages. All now Supabase-only.
+- **Profiles page**: Converted from client component with `getProfiles()` JSON to async server component with `getSourcesByTier("2b")`. Kept fictional notice banner. Sources with `metadata.fictional=true` get EXAMPLE badges.
+- **Ontologies page**: Same conversion, fictional detection via metadata.
+- **Dashboard**: Removed `getProfiles()`/`getOntologies()` JSON imports. All 5 counts from `getSourceCounts()`.
+- **Search page**: Removed `searchArtifacts()` JSON search. Now Supabase-only via `/api/search`. Results grouped by tier.
+- **Detail pages**: Converted `guidance/[id]`, `specs/[id]`, `tools/[id]`, `profiles/[id]`, `ontologies/[id]` from full JSON-based pages to redirect stubs that look up source by metadata and redirect to `/sources/{uuid}`.
+- **Source detail**: Added graph cross-references — shows related entities grouped by relationship type with links to connected sources.
+- **SourceList component**: Added `fictional` flag to `SourceItem`, renders `FictionalBadge` for fictional sources.
+- **Deleted**: `src/data/*.json` (5 files), `src/lib/data.ts`, `src/lib/search.ts`, `GuidanceList.tsx`, `SpecsList.tsx`, `ToolsList.tsx`
+
+#### Phase 3: ODNI Zip Deep Ingestion
+- Installed `jszip`, `pdf-parse`, `fast-xml-parser`
+- Created `src/lib/ingest/download.ts` — downloads ZIP, extracts files using JSZip, filters to processable extensions
+- Created extractors: `extractors/pdf.ts` (pdf-parse), `extractors/xsd.ts` (fast-xml-parser), `extractors/schematron.ts`
+- Created `ingestZipContents()` in pipeline.ts — routes extracted files to appropriate extractor, chunks, embeds, stores as chunks linked to parent source, runs graph extraction
+- Created `scripts/ingest-odni-zips.ts` — bulk ingests IC-ISM, IC-EDH, DDMS, IC-TDF, GENC, IC-ID ZIP packages in priority order
+
+#### Phase 4: Graph Search + Hybrid RAG
+- Created `src/lib/rag/graph-search.ts` — regex entity extraction from queries, 2-hop Neo4j traversal, returns entities/relationships/connected source URLs
+- Created `src/lib/rag/hybrid-retriever.ts` — runs vector + graph search in parallel, boosts graph-connected source chunks
+- Extended `src/lib/rag/prompt-builder.ts` — added `buildHybridContextPrompt()` that appends graph relationship context
+- Updated `src/app/api/chat/route.ts` — uses `hybridRetrieve()` and `buildHybridContextPrompt()`
+
+#### Phase 5: Verification
+- `npm run build` — passes clean (compiled successfully)
+- `npm run lint` — zero warnings or errors
+- Updated CLAUDE.md current state and architecture decisions
+- Updated SESSION_LOG.md
+
+### Files Created (10)
+- `src/lib/ingest/graph-extract.ts`
+- `src/lib/ingest/graph-write.ts`
+- `src/lib/ingest/download.ts`
+- `src/lib/ingest/extractors/pdf.ts`
+- `src/lib/ingest/extractors/xsd.ts`
+- `src/lib/ingest/extractors/schematron.ts`
+- `src/lib/rag/graph-search.ts`
+- `src/lib/rag/hybrid-retriever.ts`
+- `scripts/backfill-graph.ts`
+- `scripts/ingest-odni-zips.ts`
+
+### Files Modified (13)
+- `src/lib/data-server.ts` — Removed normalizeTier, added profiles count, added getSourceByUrl
+- `src/lib/ingest/pipeline.ts` — Added graph extraction step 7.5, added ingestZipContents()
+- `src/lib/rag/prompt-builder.ts` — Added buildHybridContextPrompt()
+- `src/app/api/chat/route.ts` — Uses hybrid retriever
+- `src/app/sources/[id]/page.tsx` — Added graph cross-references
+- `src/app/page.tsx` — All counts from Supabase
+- `src/app/guidance/page.tsx` — Supabase-only, no JSON fallback
+- `src/app/specs/page.tsx` — Supabase-only
+- `src/app/tools/page.tsx` — Supabase-only
+- `src/app/profiles/page.tsx` — Converted to Supabase server component
+- `src/app/ontologies/page.tsx` — Converted to Supabase server component
+- `src/app/search/page.tsx` — Supabase-only search
+- `src/components/SourceList.tsx` — Added fictional badge support
+
+### Files Deleted (10)
+- `src/data/guidance.json`, `specs.json`, `profiles.json`, `tools.json`, `ontologies.json`
+- `src/lib/data.ts`, `src/lib/search.ts`
+- `src/app/guidance/GuidanceList.tsx`, `specs/SpecsList.tsx`, `tools/ToolsList.tsx`
+
+### Detail Pages Converted to Redirects (5)
+- `src/app/guidance/[id]/page.tsx` → redirects to `/sources/{uuid}`
+- `src/app/specs/[id]/page.tsx` → redirects to `/sources/{uuid}`
+- `src/app/tools/[id]/page.tsx` → redirects to `/sources/{uuid}`
+- `src/app/profiles/[id]/page.tsx` → redirects to `/sources/{uuid}`
+- `src/app/ontologies/[id]/page.tsx` → redirects to `/sources/{uuid}`
+
+### Pending Runtime Tasks
+1. Run `npx tsx scripts/backfill-graph.ts` to populate Neo4j from existing 107+ sources
+2. Run `npx tsx scripts/ingest-odni-zips.ts` to deep-ingest ODNI ZIP packages
+3. Seed fictional profiles and ontologies into Supabase `sources` table with `metadata.fictional: true`
+4. Normalize existing tier values in Supabase: `UPDATE sources SET tier = REPLACE(LOWER(tier), 'tier', '') WHERE tier ILIKE 'tier%'`
+
+### Status at End
+- Build + lint clean
+- All pages Supabase-only (no static JSON anywhere)
+- Graph extraction pipeline integrated into ingestion
+- Hybrid vector+graph RAG wired into chat
+- ODNI zip ingestion infrastructure ready
+- Scripts ready to run for backfill and deep ingestion
