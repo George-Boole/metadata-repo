@@ -40,8 +40,9 @@ const TIER_BORDER: Record<TierId, string> = {
 
 function SourceCard({ source, tier }: { source: SourceItem; tier: TierId }) {
   return (
-    <div
-      className={`relative rounded-lg border border-gray-200 border-l-4 ${TIER_BORDER[tier]} bg-white p-3 sm:p-5 shadow-sm transition-shadow hover:shadow-md`}
+    <Link
+      href={`/sources/${source.id}`}
+      className={`relative block rounded-lg border border-gray-200 border-l-4 ${TIER_BORDER[tier]} bg-white p-3 sm:p-5 shadow-sm transition-shadow hover:shadow-md cursor-pointer`}
     >
       {source.fictional && (
         <div className="absolute top-2 right-2 z-10">
@@ -55,11 +56,11 @@ function SourceCard({ source, tier }: { source: SourceItem; tier: TierId }) {
         {!source.fictional && <StatusBadge status="active" />}
       </div>
 
-      <p className="mb-3 text-sm text-gray-600 line-clamp-2">
+      <p className="mb-3 text-sm text-gray-600">
         {source.description}
       </p>
 
-      <div className="flex flex-wrap items-center gap-3 mb-3">
+      <div className="flex flex-wrap items-center gap-3">
         <TierBadge tier={tier} />
         <span className="text-xs text-gray-500">
           <span className="font-medium text-gray-600">Source:</span>{" "}
@@ -72,37 +73,7 @@ function SourceCard({ source, tier }: { source: SourceItem; tier: TierId }) {
           </span>
         )}
       </div>
-
-      <div className="flex items-center gap-2">
-        <a
-          href={source.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 rounded-md bg-daf-blue px-3 py-1.5 text-xs font-medium text-white hover:bg-daf-navy transition-colors"
-        >
-          <svg
-            className="h-3.5 w-3.5"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-            />
-          </svg>
-          View Source
-        </a>
-        <Link
-          href={`/sources/${source.id}`}
-          className="inline-flex items-center gap-1.5 rounded-md border border-gray-300 px-3 py-1.5 text-xs font-medium text-gray-600 hover:bg-gray-50 transition-colors"
-        >
-          Details
-        </Link>
-      </div>
-    </div>
+    </Link>
   );
 }
 
