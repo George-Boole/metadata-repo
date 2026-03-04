@@ -1,20 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseServer } from "@/lib/supabase";
-import { hashPassword } from "@/lib/auth";
-import { adminLimiter, getClientId, rateLimitResponse } from "@/lib/rate-limit";
+import { chatLimiter, getClientId, rateLimitResponse } from "@/lib/rate-limit";
 
+/** DELETE /api/conversations/[id] — delete a conversation */
 export async function DELETE(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
   const clientId = getClientId(request);
-  const limit = adminLimiter(clientId);
+  const limit = chatLimiter(clientId);
   if (!limit.success) return rateLimitResponse(limit.reset);
 
   const { id } = await params;
   const supabase = getSupabaseServer();
 
-  const { error } = await supabase.from("users").delete().eq("id", id);
+  // CASCADE will delete messages too
+  const { error } = await supabase.from("conversations").delete().eq("id", id);
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
@@ -23,33 +24,28 @@ export async function DELETE(
   return NextResponse.json({ success: true });
 }
 
+/** PATCH /api/conversations/[id] — update conversation title */
 export async function PATCH(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
   const clientId = getClientId(request);
-  const limit = adminLimiter(clientId);
+  const limit = chatLimiter(clientId);
   if (!limit.success) return rateLimitResponse(limit.reset);
 
   const { id } = await params;
   const body = await request.json();
-  const { display_name, role, password } = body as {
-    display_name?: string;
-    role?: "admin" | "user";
-    password?: string;
-  };
+  const { title } = body;
 
-  const updates: Record<string, unknown> = {};
-  if (display_name !== undefined) updates.display_name = display_name || null;
-  if (role && (role === "admin" || role === "user")) updates.role = role;
-  if (password) updates.password_hash = await hashPassword(password);
-
-  if (Object.keys(updates).length === 0) {
-    return NextResponse.json({ error: "No fields to update" }, { status: 400 });
+  if (!title) {
+    return NextResponse.json({ error: "Title required" }, { status: 400 });
   }
 
   const supabase = getSupabaseServer();
-  const { error } = await supabase.from("users").update(updates).eq("id", id);
+  const { error } = await supabase
+    .from("conversations")
+    .update({ title })
+    .eq("id", id);
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });

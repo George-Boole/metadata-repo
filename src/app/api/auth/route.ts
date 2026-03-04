@@ -2,11 +2,31 @@ import { NextRequest, NextResponse } from "next/server";
 import {
   validateSitePassword,
   verifyPasswordHash,
+  verifyToken,
   createToken,
   COOKIE_NAME,
 } from "@/lib/auth";
 import { getSupabaseServer } from "@/lib/supabase";
 import { authLimiter, getClientId, rateLimitResponse } from "@/lib/rate-limit";
+
+/** GET /api/auth — return current session info */
+export async function GET(request: NextRequest) {
+  const token = request.cookies.get(COOKIE_NAME)?.value;
+  if (!token) {
+    return NextResponse.json({ authenticated: false });
+  }
+
+  const payload = await verifyToken(token);
+  if (!payload) {
+    return NextResponse.json({ authenticated: false });
+  }
+
+  return NextResponse.json({
+    authenticated: true,
+    username: payload.sub,
+    role: payload.role,
+  });
+}
 
 export async function POST(request: NextRequest) {
   const clientId = getClientId(request);

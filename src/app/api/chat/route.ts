@@ -3,6 +3,7 @@ import { hybridRetrieve } from "@/lib/rag/hybrid-retriever";
 import { resolveActiveModel } from "@/lib/rag/model-resolver";
 import { getSystemPrompt, buildHybridContextPrompt } from "@/lib/rag/prompt-builder";
 import { chatLimiter, getClientId, rateLimitResponse } from "@/lib/rate-limit";
+import { getSupabaseServer } from "@/lib/supabase";
 
 export const maxDuration = 60;
 
@@ -12,8 +13,10 @@ export async function POST(request: Request) {
   if (!limit.success) return rateLimitResponse(limit.reset);
 
   try {
-    const { messages } = (await request.json()) as {
+    const body = await request.json();
+    const { messages, conversationId } = body as {
       messages: UIMessage[];
+      conversationId?: string;
     };
 
     if (!messages || !Array.isArray(messages) || messages.length === 0) {
@@ -48,6 +51,11 @@ export async function POST(request: Request) {
       );
     }
 
+    // Save user message to conversation (non-blocking, don't fail if tables don't exist)
+    if (conversationId) {
+      saveMessage(conversationId, "user", queryText).catch(() => {});
+    }
+
     // Parallel: resolve model + get system prompt + hybrid retrieve (vector + graph)
     const [{ model }, systemPrompt, { chunks, graphContext }] = await Promise.all([
       resolveActiveModel(),
@@ -66,6 +74,14 @@ export async function POST(request: Request) {
       model,
       system: fullSystemPrompt,
       messages: modelMessages,
+      async onFinish({ text }) {
+        // Save assistant response to conversation
+        if (conversationId && text) {
+          await saveMessage(conversationId, "assistant", text).catch(() => {});
+          // Auto-title conversation from first user message
+          await autoTitleConversation(conversationId, queryText).catch(() => {});
+        }
+      },
     });
 
     return result.toUIMessageStreamResponse();
@@ -75,5 +91,38 @@ export async function POST(request: Request) {
       JSON.stringify({ error: "Failed to process chat message" }),
       { status: 500, headers: { "Content-Type": "application/json" } }
     );
+  }
+}
+
+async function saveMessage(conversationId: string, role: string, content: string) {
+  const supabase = getSupabaseServer();
+  await supabase.from("chat_messages").insert({
+    conversation_id: conversationId,
+    role,
+    content,
+  });
+  await supabase
+    .from("conversations")
+    .update({ updated_at: new Date().toISOString() })
+    .eq("id", conversationId);
+}
+
+async function autoTitleConversation(conversationId: string, firstMessage: string) {
+  const supabase = getSupabaseServer();
+  const { data } = await supabase
+    .from("conversations")
+    .select("title")
+    .eq("id", conversationId)
+    .single();
+
+  // Only auto-title if still "New conversation"
+  if (data?.title === "New conversation") {
+    const title = firstMessage.length > 60
+      ? firstMessage.slice(0, 57) + "..."
+      : firstMessage;
+    await supabase
+      .from("conversations")
+      .update({ title })
+      .eq("id", conversationId);
   }
 }

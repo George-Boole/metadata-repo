@@ -1,7 +1,7 @@
 "use client";
 
 import { useChat } from "@ai-sdk/react";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
 
 const SUGGESTED_QUESTIONS = [
@@ -20,6 +20,19 @@ const CAPABILITIES = [
   "Trace compliance requirements from policy to implementation",
   "Identify which tools support specific standards",
 ];
+
+interface Conversation {
+  id: string;
+  title: string;
+  updated_at: string;
+}
+
+interface SavedMessage {
+  id: string;
+  role: "user" | "assistant";
+  content: string;
+  created_at: string;
+}
 
 function formatMessageContent(content: string) {
   const parts = content.split(/(\[.*?\]\(.*?\)|\*\*.*?\*\*)/g);
@@ -46,7 +59,6 @@ function formatMessageContent(content: string) {
   });
 }
 
-/** Extract plain text from UIMessage parts */
 function getMessageText(parts: { type: string; text?: string }[]): string {
   return parts
     .filter((p) => p.type === "text" && p.text)
@@ -54,24 +66,31 @@ function getMessageText(parts: { type: string; text?: string }[]): string {
     .join("");
 }
 
+const WELCOME_MESSAGE = {
+  id: "welcome",
+  role: "assistant" as const,
+  parts: [
+    {
+      type: "text" as const,
+      text: "Hello! I'm the Standards Brain \u2014 an AI assistant trained on the DAF Metadata Repository. Ask me about any standard, guidance document, specification, or tool, and I'll provide contextual answers with source citations.\n\nTry one of the suggested questions, or type your own!",
+    },
+  ],
+};
+
 export default function StandardsBrainPage() {
   const [input, setInput] = useState("");
+  const [conversationId, setConversationId] = useState<string | null>(null);
+  const [conversations, setConversations] = useState<Conversation[]>([]);
+  const [historyOpen, setHistoryOpen] = useState(false);
+  const [historyLoading, setHistoryLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const { messages, sendMessage, status } = useChat({
-    id: "standards-brain",
-    messages: [
-      {
-        id: "welcome",
-        role: "assistant",
-        parts: [
-          {
-            type: "text" as const,
-            text: "Hello! I'm the Standards Brain — an AI assistant trained on the DAF Metadata Repository. Ask me about any standard, guidance document, specification, or tool, and I'll provide contextual answers with source citations.\n\nTry one of the suggested questions, or type your own!",
-          },
-        ],
-      },
-    ],
+  const conversationIdRef = useRef<string | null>(null);
+  conversationIdRef.current = conversationId;
+
+  const { messages, sendMessage, status, setMessages } = useChat({
+    id: conversationId || "standards-brain",
+    messages: [WELCOME_MESSAGE],
   });
 
   const isLoading = status === "submitted" || status === "streaming";
@@ -80,16 +99,126 @@ export default function StandardsBrainPage() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  function handleSubmit(e: React.FormEvent) {
+  const loadConversations = useCallback(async () => {
+    setHistoryLoading(true);
+    try {
+      const res = await fetch("/api/conversations");
+      const data = await res.json();
+      setConversations(data.conversations || []);
+    } catch {
+      // Tables may not exist yet
+    } finally {
+      setHistoryLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    loadConversations();
+  }, [loadConversations]);
+
+  async function startNewConversation() {
+    try {
+      const res = await fetch("/api/conversations", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title: "New conversation" }),
+      });
+      const data = await res.json();
+      if (data.id) {
+        setConversationId(data.id);
+        setMessages([WELCOME_MESSAGE]);
+        setHistoryOpen(false);
+        loadConversations();
+      }
+    } catch {
+      // If tables don't exist, just reset locally
+      setConversationId(null);
+      setMessages([WELCOME_MESSAGE]);
+    }
+  }
+
+  async function loadConversation(conv: Conversation) {
+    setConversationId(conv.id);
+    setHistoryOpen(false);
+
+    try {
+      const res = await fetch(`/api/conversations/${conv.id}/messages`);
+      const data = await res.json();
+      const saved: SavedMessage[] = data.messages || [];
+
+      if (saved.length === 0) {
+        setMessages([WELCOME_MESSAGE]);
+        return;
+      }
+
+      const loaded = saved.map((m) => ({
+        id: m.id,
+        role: m.role,
+        parts: [{ type: "text" as const, text: m.content }],
+      }));
+
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      setMessages([WELCOME_MESSAGE, ...loaded] as any);
+    } catch {
+      setMessages([WELCOME_MESSAGE]);
+    }
+  }
+
+  async function deleteConversation(id: string, e: React.MouseEvent) {
+    e.stopPropagation();
+    if (!confirm("Delete this conversation?")) return;
+
+    await fetch(`/api/conversations/${id}`, { method: "DELETE" });
+    if (conversationId === id) {
+      setConversationId(null);
+      setMessages([WELCOME_MESSAGE]);
+    }
+    loadConversations();
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!input.trim() || isLoading) return;
-    sendMessage({ text: input });
+
+    // Auto-create conversation on first message if none active
+    if (!conversationId) {
+      try {
+        const res = await fetch("/api/conversations", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ title: "New conversation" }),
+        });
+        const data = await res.json();
+        if (data.id) {
+          setConversationId(data.id);
+        }
+      } catch {
+        // Continue without persistence
+      }
+    }
+
+    sendMessage({ text: input }, { body: { conversationId: conversationIdRef.current } });
     setInput("");
   }
 
   function handleSuggestedQuestion(question: string) {
     if (isLoading) return;
-    sendMessage({ text: question });
+
+    // Auto-create conversation
+    if (!conversationId) {
+      fetch("/api/conversations", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title: "New conversation" }),
+      })
+        .then((r) => r.json())
+        .then((data) => {
+          if (data.id) setConversationId(data.id);
+        })
+        .catch(() => {});
+    }
+
+    sendMessage({ text: question }, { body: { conversationId: conversationIdRef.current } });
   }
 
   return (
@@ -108,10 +237,83 @@ export default function StandardsBrainPage() {
               <p className="text-xs sm:text-sm text-gray-500">AI-powered standards assistant</p>
             </div>
           </div>
-          <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-700">
-            Live
-          </span>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => { setHistoryOpen(!historyOpen); if (!historyOpen) loadConversations(); }}
+              className="rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-1.5"
+            >
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              History
+            </button>
+            <button
+              onClick={startNewConversation}
+              className="rounded-lg bg-brain px-3 py-1.5 text-xs font-medium text-white hover:bg-brain/90 flex items-center gap-1.5"
+            >
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+              New Chat
+            </button>
+            <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-700">
+              Live
+            </span>
+          </div>
         </div>
+
+        {/* History Panel (slides down) */}
+        {historyOpen && (
+          <div className="mb-4 rounded-lg border border-gray-200 bg-white shadow-sm overflow-hidden">
+            <div className="p-3 border-b border-gray-100 bg-gray-50">
+              <h3 className="text-sm font-medium text-gray-700">Conversation History</h3>
+            </div>
+            <div className="max-h-64 overflow-y-auto">
+              {historyLoading ? (
+                <div className="p-4 text-center text-sm text-gray-400">Loading...</div>
+              ) : conversations.length === 0 ? (
+                <div className="p-4 text-center text-sm text-gray-400">
+                  No conversations yet. Start chatting to create one.
+                </div>
+              ) : (
+                <div className="divide-y divide-gray-100">
+                  {conversations.map((conv) => (
+                    <button
+                      key={conv.id}
+                      onClick={() => loadConversation(conv)}
+                      className={`w-full flex items-center justify-between px-4 py-3 text-left hover:bg-gray-50 transition ${
+                        conversationId === conv.id ? "bg-brain-bg" : ""
+                      }`}
+                    >
+                      <div className="min-w-0 flex-1">
+                        <div className="text-sm font-medium text-gray-800 truncate">
+                          {conv.title}
+                        </div>
+                        <div className="text-xs text-gray-400">
+                          {new Date(conv.updated_at).toLocaleDateString(undefined, {
+                            month: "short",
+                            day: "numeric",
+                            hour: "2-digit",
+                            minute: "2-digit",
+                          })}
+                        </div>
+                      </div>
+                      <button
+                        onClick={(e) => deleteConversation(conv.id, e)}
+                        className="ml-2 shrink-0 text-gray-300 hover:text-red-500 p-1"
+                        title="Delete conversation"
+                      >
+                        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                        </svg>
+                      </button>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        )}
 
         <div className="grid gap-4 sm:gap-6 lg:grid-cols-[280px_1fr]">
           {/* Sidebar — hidden on mobile, shown on lg+ */}

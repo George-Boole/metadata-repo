@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const NAV_LINKS = [
   { href: "/", label: "Dashboard" },
@@ -13,8 +13,105 @@ const NAV_LINKS = [
   { href: "/ontologies", label: "Ontologies" },
   { href: "/api-explorer", label: "API Explorer" },
   { href: "/standards-brain", label: "Standards Brain" },
-  { href: "/admin", label: "Admin" },
 ];
+
+interface SessionInfo {
+  authenticated: boolean;
+  username?: string;
+  role?: string;
+}
+
+function UserMenu() {
+  const router = useRouter();
+  const [session, setSession] = useState<SessionInfo | null>(null);
+  const [open, setOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    fetch("/api/auth")
+      .then((r) => r.json())
+      .then((data) => setSession(data))
+      .catch(() => setSession({ authenticated: false }));
+  }, []);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  async function handleLogout() {
+    await fetch("/api/auth", { method: "DELETE" });
+    router.push("/login");
+  }
+
+  if (!session || !session.authenticated) return null;
+
+  return (
+    <div className="relative" ref={menuRef}>
+      <button
+        onClick={() => setOpen(!open)}
+        className="flex items-center gap-1.5 rounded px-2 py-1.5 text-sm text-white/80 hover:bg-white/10 hover:text-white transition-colors"
+      >
+        <svg
+          className="h-4 w-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+          />
+        </svg>
+        <span className="hidden sm:inline">{session.username}</span>
+        <svg
+          className={`h-3 w-3 transition ${open ? "rotate-180" : ""}`}
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={2}
+          stroke="currentColor"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+        </svg>
+      </button>
+
+      {open && (
+        <div className="absolute right-0 top-full mt-1 w-48 rounded-lg border border-gray-200 bg-white py-1 shadow-lg z-50">
+          <div className="px-3 py-2 border-b border-gray-100">
+            <div className="text-sm font-medium text-gray-900">
+              {session.username}
+            </div>
+            <div className="text-xs text-gray-500 capitalize">
+              {session.role}
+            </div>
+          </div>
+          {session.role === "admin" && (
+            <Link
+              href="/admin"
+              onClick={() => setOpen(false)}
+              className="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-50"
+            >
+              Admin Panel
+            </Link>
+          )}
+          <button
+            onClick={handleLogout}
+            className="block w-full px-3 py-2 text-left text-sm text-red-600 hover:bg-gray-50"
+          >
+            Log Out
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -72,8 +169,8 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Search + Mobile Menu Button */}
-          <div className="flex items-center gap-3">
+          {/* Search + User Menu + Mobile Menu Button */}
+          <div className="flex items-center gap-2">
             {/* Search Form */}
             <form
               onSubmit={handleSearchSubmit}
@@ -102,6 +199,9 @@ export default function Navbar() {
                 />
               </div>
             </form>
+
+            {/* User Menu */}
+            <UserMenu />
 
             {/* Mobile Menu Toggle */}
             <button

@@ -20,6 +20,11 @@ export default function UsersPage() {
   const [newRole, setNewRole] = useState<"user" | "admin">("user");
   const [submitting, setSubmitting] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [editDisplayName, setEditDisplayName] = useState("");
+  const [editRole, setEditRole] = useState<"user" | "admin">("user");
+  const [editPassword, setEditPassword] = useState("");
+  const [editSubmitting, setEditSubmitting] = useState(false);
 
   async function loadUsers() {
     const res = await fetch("/api/admin/users");
@@ -74,6 +79,53 @@ export default function UsersPage() {
     if (res.ok) loadUsers();
   }
 
+  function startEdit(user: User) {
+    setEditingId(user.id);
+    setEditDisplayName(user.display_name || "");
+    setEditRole(user.role as "user" | "admin");
+    setEditPassword("");
+    setMessage(null);
+  }
+
+  function cancelEdit() {
+    setEditingId(null);
+    setEditPassword("");
+  }
+
+  async function handleEdit(e: React.FormEvent, userId: string) {
+    e.preventDefault();
+    setEditSubmitting(true);
+    setMessage(null);
+
+    try {
+      const body: Record<string, string> = {
+        display_name: editDisplayName,
+        role: editRole,
+      };
+      if (editPassword) body.password = editPassword;
+
+      const res = await fetch(`/api/admin/users/${userId}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        setMessage("User updated");
+        setEditingId(null);
+        setEditPassword("");
+        loadUsers();
+      } else {
+        setMessage(`Error: ${data.error}`);
+      }
+    } catch (err) {
+      setMessage(`Error: ${err}`);
+    } finally {
+      setEditSubmitting(false);
+    }
+  }
+
   return (
     <div className="space-y-6">
       {/* Info Banner */}
@@ -81,6 +133,18 @@ export default function UsersPage() {
         Users created here can log in with their username and password.
         The shared site password always grants admin access.
       </div>
+
+      {message && (
+        <div
+          className={`rounded-lg border p-3 text-sm ${
+            message.startsWith("Error")
+              ? "border-red-200 bg-red-50 text-red-700"
+              : "border-green-200 bg-green-50 text-green-700"
+          }`}
+        >
+          {message}
+        </div>
+      )}
 
       {/* Add User Form */}
       <div className="rounded-lg border border-gray-200 bg-white shadow-sm">
@@ -160,22 +224,13 @@ export default function UsersPage() {
                 </select>
               </div>
             </div>
-            <div className="flex items-center gap-3">
-              <button
-                type="submit"
-                disabled={submitting || !newUsername || !newPassword}
-                className="rounded-lg bg-daf-navy px-4 py-2 text-sm font-medium text-white hover:bg-daf-blue disabled:opacity-50"
-              >
-                {submitting ? "Creating..." : "Create User"}
-              </button>
-              {message && (
-                <p
-                  className={`text-sm ${message.startsWith("Error") ? "text-red-600" : "text-green-600"}`}
-                >
-                  {message}
-                </p>
-              )}
-            </div>
+            <button
+              type="submit"
+              disabled={submitting || !newUsername || !newPassword}
+              className="rounded-lg bg-daf-navy px-4 py-2 text-sm font-medium text-white hover:bg-daf-blue disabled:opacity-50"
+            >
+              {submitting ? "Creating..." : "Create User"}
+            </button>
           </form>
         )}
       </div>
@@ -204,34 +259,116 @@ export default function UsersPage() {
               <tbody className="divide-y divide-gray-100">
                 {users.map((user) => (
                   <tr key={user.id} className="hover:bg-gray-50">
-                    <td className="px-4 py-3 font-medium text-daf-dark-gray whitespace-nowrap">
-                      {user.username}
-                    </td>
-                    <td className="hidden sm:table-cell px-4 py-3 text-gray-500">
-                      {user.display_name || "—"}
-                    </td>
-                    <td className="px-4 py-3">
-                      <span
-                        className={`rounded-full px-2 py-0.5 text-xs font-medium whitespace-nowrap ${
-                          user.role === "admin"
-                            ? "bg-purple-100 text-purple-700"
-                            : "bg-gray-100 text-gray-600"
-                        }`}
-                      >
-                        {user.role}
-                      </span>
-                    </td>
-                    <td className="hidden sm:table-cell px-4 py-3 text-gray-400 text-xs whitespace-nowrap">
-                      {new Date(user.created_at).toLocaleDateString()}
-                    </td>
-                    <td className="px-4 py-3 text-right">
-                      <button
-                        onClick={() => handleDelete(user.id, user.username)}
-                        className="text-xs text-red-500 hover:text-red-700 whitespace-nowrap"
-                      >
-                        Delete
-                      </button>
-                    </td>
+                    {editingId === user.id ? (
+                      <td colSpan={5} className="px-4 py-3">
+                        <form
+                          onSubmit={(e) => handleEdit(e, user.id)}
+                          className="space-y-3"
+                        >
+                          <div className="text-xs font-medium text-gray-500 uppercase mb-2">
+                            Editing: {user.username}
+                          </div>
+                          <div className="grid gap-3 sm:grid-cols-3">
+                            <div>
+                              <label className="block text-xs font-medium text-gray-600">
+                                Display Name
+                              </label>
+                              <input
+                                type="text"
+                                value={editDisplayName}
+                                onChange={(e) => setEditDisplayName(e.target.value)}
+                                placeholder="Display name"
+                                className="mt-1 w-full rounded border border-gray-300 px-2 py-1.5 text-sm focus:border-daf-blue focus:outline-none focus:ring-1 focus:ring-daf-blue"
+                              />
+                            </div>
+                            <div>
+                              <label className="block text-xs font-medium text-gray-600">
+                                Role
+                              </label>
+                              <select
+                                value={editRole}
+                                onChange={(e) =>
+                                  setEditRole(e.target.value as "user" | "admin")
+                                }
+                                className="mt-1 w-full rounded border border-gray-300 px-2 py-1.5 text-sm focus:border-daf-blue focus:outline-none focus:ring-1 focus:ring-daf-blue"
+                              >
+                                <option value="user">User</option>
+                                <option value="admin">Admin</option>
+                              </select>
+                            </div>
+                            <div>
+                              <label className="block text-xs font-medium text-gray-600">
+                                New Password{" "}
+                                <span className="font-normal text-gray-400">
+                                  (leave blank to keep)
+                                </span>
+                              </label>
+                              <input
+                                type="password"
+                                value={editPassword}
+                                onChange={(e) => setEditPassword(e.target.value)}
+                                placeholder="New password"
+                                autoComplete="new-password"
+                                className="mt-1 w-full rounded border border-gray-300 px-2 py-1.5 text-sm focus:border-daf-blue focus:outline-none focus:ring-1 focus:ring-daf-blue"
+                              />
+                            </div>
+                          </div>
+                          <div className="flex gap-2">
+                            <button
+                              type="submit"
+                              disabled={editSubmitting}
+                              className="rounded bg-daf-navy px-3 py-1.5 text-xs font-medium text-white hover:bg-daf-blue disabled:opacity-50"
+                            >
+                              {editSubmitting ? "Saving..." : "Save"}
+                            </button>
+                            <button
+                              type="button"
+                              onClick={cancelEdit}
+                              className="rounded border border-gray-300 px-3 py-1.5 text-xs font-medium text-gray-600 hover:bg-gray-50"
+                            >
+                              Cancel
+                            </button>
+                          </div>
+                        </form>
+                      </td>
+                    ) : (
+                      <>
+                        <td className="px-4 py-3 font-medium text-daf-dark-gray whitespace-nowrap">
+                          {user.username}
+                        </td>
+                        <td className="hidden sm:table-cell px-4 py-3 text-gray-500">
+                          {user.display_name || "\u2014"}
+                        </td>
+                        <td className="px-4 py-3">
+                          <span
+                            className={`rounded-full px-2 py-0.5 text-xs font-medium whitespace-nowrap ${
+                              user.role === "admin"
+                                ? "bg-purple-100 text-purple-700"
+                                : "bg-gray-100 text-gray-600"
+                            }`}
+                          >
+                            {user.role}
+                          </span>
+                        </td>
+                        <td className="hidden sm:table-cell px-4 py-3 text-gray-400 text-xs whitespace-nowrap">
+                          {new Date(user.created_at).toLocaleDateString()}
+                        </td>
+                        <td className="px-4 py-3 text-right whitespace-nowrap">
+                          <button
+                            onClick={() => startEdit(user)}
+                            className="text-xs text-daf-blue hover:text-daf-navy mr-3"
+                          >
+                            Edit
+                          </button>
+                          <button
+                            onClick={() => handleDelete(user.id, user.username)}
+                            className="text-xs text-red-500 hover:text-red-700"
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </>
+                    )}
                   </tr>
                 ))}
               </tbody>
