@@ -14,6 +14,15 @@ export interface IngestOptions {
   crawlEngine?: CrawlEngine;
 }
 
+export interface IngestFileOptions {
+  filename: string;
+  buffer: Buffer;
+  title?: string;
+  tier?: string;
+  sourceType?: string;
+  description?: string;
+}
+
 export interface IngestResult {
   sourceId: string;
   url: string;
@@ -200,6 +209,146 @@ export async function ingestUrl(options: IngestOptions): Promise<IngestResult> {
       status: "error",
       error: errMsg,
     };
+  }
+}
+
+export async function ingestFile(options: IngestFileOptions): Promise<IngestResult> {
+  const supabase = getSupabaseServer();
+  const ext = options.filename.split(".").pop()?.toLowerCase() || "";
+  const title = options.title || options.filename;
+  // Use upload:// pseudo-URL so the source is unique per filename
+  const url = `upload://${options.filename}`;
+
+  try {
+    // 1. Extract text based on file type
+    let markdown = "";
+    if (ext === "pdf") {
+      const { extractPdfText } = await import("./extractors/pdf");
+      markdown = await extractPdfText(options.buffer);
+    } else if (ext === "md" || ext === "txt") {
+      markdown = options.buffer.toString("utf-8");
+    } else if (ext === "xsd") {
+      const { extractXsdContent } = await import("./extractors/xsd");
+      markdown = extractXsdContent(options.buffer.toString("utf-8"));
+    } else if (ext === "sch") {
+      const { extractSchematronContent } = await import("./extractors/schematron");
+      markdown = extractSchematronContent(options.buffer.toString("utf-8"));
+    } else if (ext === "xml" || ext === "json" || ext === "csv") {
+      markdown = options.buffer.toString("utf-8");
+    } else {
+      return {
+        sourceId: "",
+        url,
+        title,
+        chunkCount: 0,
+        status: "error",
+        error: `Unsupported file type: .${ext}`,
+      };
+    }
+
+    if (!markdown || markdown.trim().length < 50) {
+      return {
+        sourceId: "",
+        url,
+        title,
+        chunkCount: 0,
+        status: "error",
+        error: "No usable text extracted from file",
+      };
+    }
+
+    // 2. Chunk
+    const chunks = chunkMarkdown(markdown);
+    if (chunks.length === 0) {
+      return { sourceId: "", url, title, chunkCount: 0, status: "error", error: "No chunks produced" };
+    }
+
+    // 3. Context prefix
+    const contextPrefix = [
+      `Source: ${title}`,
+      options.tier ? `Tier: ${options.tier}` : null,
+      options.sourceType ? `Type: ${options.sourceType}` : null,
+      `File: ${options.filename}`,
+    ]
+      .filter(Boolean)
+      .join(" | ");
+
+    const enrichedChunks = chunks.map((c) => ({
+      ...c,
+      content: `[${contextPrefix}]\n\n${c.content}`,
+    }));
+
+    // 4. Embed
+    const embeddings = await embedTexts(enrichedChunks.map((c) => c.content));
+
+    // 5. Upsert source
+    const { data: source, error: sourceError } = await supabase
+      .from("sources")
+      .upsert(
+        {
+          url,
+          title,
+          source_type: options.sourceType || "document",
+          tier: options.tier || null,
+          status: "active",
+          chunk_count: chunks.length,
+          error_message: null,
+          metadata: { description: options.description || null, uploaded_file: options.filename },
+        },
+        { onConflict: "url" }
+      )
+      .select("id")
+      .single();
+
+    if (sourceError || !source) {
+      return { sourceId: "", url, title, chunkCount: 0, status: "error", error: sourceError?.message || "Failed to create source" };
+    }
+
+    // 6. Delete old chunks, insert new
+    await supabase.from("chunks").delete().eq("source_id", source.id);
+
+    const chunkRows = enrichedChunks.map((chunk, i) => ({
+      source_id: source.id,
+      content: chunk.content,
+      embedding: JSON.stringify(embeddings[i]),
+      chunk_type: ext,
+      source_url: url,
+      source_title: title,
+      tier: options.tier || null,
+      heading: chunk.heading || null,
+      metadata: { index: chunk.index, token_estimate: chunk.tokenEstimate },
+    }));
+
+    const BATCH_SIZE = 50;
+    for (let i = 0; i < chunkRows.length; i += BATCH_SIZE) {
+      const batch = chunkRows.slice(i, i + BATCH_SIZE);
+      const { error } = await supabase.from("chunks").insert(batch);
+      if (error) {
+        await supabase
+          .from("sources")
+          .update({ status: "error", error_message: `Chunk insert failed: ${error.message}` })
+          .eq("id", source.id);
+        return { sourceId: source.id, url, title, chunkCount: i, status: "error", error: error.message };
+      }
+    }
+
+    // 7. Neo4j + graph extraction (non-fatal)
+    try {
+      await runCypher(
+        `MERGE (s:Source {url: $url}) SET s.title = $title, s.tier = $tier, s.source_type = $sourceType, s.chunk_count = $chunkCount, s.updated_at = datetime()`,
+        { url, title, tier: options.tier || "", sourceType: options.sourceType || "document", chunkCount: chunks.length }
+      );
+    } catch (e) { console.warn("Neo4j node creation failed (non-fatal):", e); }
+
+    try {
+      const extraction = await extractEntitiesAndRelationships(chunks.map((c) => c.content), title);
+      await writeToGraph(source.id, url, extraction);
+    } catch (e) { console.warn("Graph extraction failed (non-fatal):", e); }
+
+    return { sourceId: source.id, url, title, chunkCount: chunks.length, status: "success" };
+  } catch (e) {
+    const errMsg = e instanceof Error ? e.message : String(e);
+    return { sourceId: "", url, title, chunkCount: 0, status: "error", error: errMsg };
   }
 }
 

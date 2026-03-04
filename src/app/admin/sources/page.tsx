@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 
 interface Source {
   id: string;
@@ -14,15 +14,42 @@ interface Source {
   created_at: string;
 }
 
+const TIER_OPTIONS = [
+  { value: "", label: "None" },
+  { value: "1", label: "Tier 1 \u2014 Guidance" },
+  { value: "2a", label: "Tier 2A \u2014 Specs" },
+  { value: "2b", label: "Tier 2B \u2014 Profiles" },
+  { value: "3", label: "Tier 3 \u2014 Tools" },
+  { value: "ontology", label: "Ontology" },
+];
+
+const TYPE_OPTIONS = [
+  { value: "webpage", label: "Webpage" },
+  { value: "spec", label: "Specification" },
+  { value: "guidance", label: "Guidance Document" },
+  { value: "profile", label: "Domain Profile" },
+  { value: "tool", label: "Tool Documentation" },
+  { value: "document", label: "Uploaded Document" },
+];
+
 export default function SourcesPage() {
   const [sources, setSources] = useState<Source[]>([]);
   const [loading, setLoading] = useState(true);
   const [showIngest, setShowIngest] = useState(false);
+  const [showUpload, setShowUpload] = useState(false);
   const [ingestUrl, setIngestUrl] = useState("");
   const [ingestTier, setIngestTier] = useState("");
   const [ingestType, setIngestType] = useState("webpage");
   const [ingesting, setIngesting] = useState(false);
   const [ingestResult, setIngestResult] = useState<string | null>(null);
+
+  // File upload state
+  const [uploadTier, setUploadTier] = useState("");
+  const [uploadType, setUploadType] = useState("document");
+  const [uploading, setUploading] = useState(false);
+  const [uploadResult, setUploadResult] = useState<string | null>(null);
+  const [dragOver, setDragOver] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   async function loadSources() {
     const res = await fetch("/api/admin/sources");
@@ -54,7 +81,7 @@ export default function SourcesPage() {
       const result = await res.json();
       if (result.status === "success") {
         setIngestResult(
-          `Ingested "${result.title}" — ${result.chunkCount} chunks`
+          `Ingested "${result.title}" \u2014 ${result.chunkCount} chunks`
         );
         setIngestUrl("");
         loadSources();
@@ -66,6 +93,61 @@ export default function SourcesPage() {
     } finally {
       setIngesting(false);
     }
+  }
+
+  const handleFileUpload = useCallback(async (file: File) => {
+    setUploading(true);
+    setUploadResult(null);
+
+    const formData = new FormData();
+    formData.append("file", file);
+    if (uploadTier) formData.append("tier", uploadTier);
+    formData.append("source_type", uploadType);
+
+    try {
+      const res = await fetch("/api/ingest/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await res.json();
+      if (result.status === "success") {
+        setUploadResult(
+          `Ingested "${result.title}" \u2014 ${result.chunkCount} chunks`
+        );
+        loadSources();
+      } else {
+        setUploadResult(`Error: ${result.error}`);
+      }
+    } catch (err) {
+      setUploadResult(`Error: ${err}`);
+    } finally {
+      setUploading(false);
+    }
+  }, [uploadTier, uploadType]);
+
+  function handleDrop(e: React.DragEvent) {
+    e.preventDefault();
+    setDragOver(false);
+    const file = e.dataTransfer.files[0];
+    if (file) handleFileUpload(file);
+  }
+
+  function handleDragOver(e: React.DragEvent) {
+    e.preventDefault();
+    setDragOver(true);
+  }
+
+  function handleDragLeave(e: React.DragEvent) {
+    e.preventDefault();
+    setDragOver(false);
+  }
+
+  function handleFileSelect(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (file) handleFileUpload(file);
+    // Reset so the same file can be re-selected
+    if (fileInputRef.current) fileInputRef.current.value = "";
   }
 
   async function handleDelete(id: string) {
@@ -81,7 +163,7 @@ export default function SourcesPage() {
 
   return (
     <div className="space-y-6">
-      {/* Add Source */}
+      {/* Add Source by URL */}
       <div className="rounded-lg border border-gray-200 bg-white shadow-sm">
         <button
           onClick={() => setShowIngest(!showIngest)}
@@ -122,11 +204,9 @@ export default function SourcesPage() {
                   onChange={(e) => setIngestTier(e.target.value)}
                   className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-daf-blue focus:outline-none focus:ring-1 focus:ring-daf-blue"
                 >
-                  <option value="">None</option>
-                  <option value="tier-1">Tier 1 — Guidance</option>
-                  <option value="tier-2a">Tier 2A — Specs</option>
-                  <option value="tier-2b">Tier 2B — Profiles</option>
-                  <option value="tier-3">Tier 3 — Tools</option>
+                  {TIER_OPTIONS.map((o) => (
+                    <option key={o.value} value={o.value}>{o.label}</option>
+                  ))}
                 </select>
               </div>
               <div>
@@ -136,11 +216,9 @@ export default function SourcesPage() {
                   onChange={(e) => setIngestType(e.target.value)}
                   className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-daf-blue focus:outline-none focus:ring-1 focus:ring-daf-blue"
                 >
-                  <option value="webpage">Webpage</option>
-                  <option value="spec">Specification</option>
-                  <option value="guidance">Guidance Document</option>
-                  <option value="profile">Domain Profile</option>
-                  <option value="tool">Tool Documentation</option>
+                  {TYPE_OPTIONS.map((o) => (
+                    <option key={o.value} value={o.value}>{o.label}</option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -164,13 +242,116 @@ export default function SourcesPage() {
         )}
       </div>
 
+      {/* Upload Document */}
+      <div className="rounded-lg border border-gray-200 bg-white shadow-sm">
+        <button
+          onClick={() => setShowUpload(!showUpload)}
+          className="flex w-full items-center justify-between p-4 text-left"
+        >
+          <span className="font-medium text-daf-dark-gray">
+            Upload Document
+          </span>
+          <svg
+            className={`h-5 w-5 text-gray-400 transition ${showUpload ? "rotate-180" : ""}`}
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </button>
+
+        {showUpload && (
+          <div className="border-t border-gray-200 p-4 space-y-3">
+            <div className="grid gap-3 sm:grid-cols-2">
+              <div>
+                <label className="block text-sm font-medium text-gray-700">Tier</label>
+                <select
+                  value={uploadTier}
+                  onChange={(e) => setUploadTier(e.target.value)}
+                  className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-daf-blue focus:outline-none focus:ring-1 focus:ring-daf-blue"
+                >
+                  {TIER_OPTIONS.map((o) => (
+                    <option key={o.value} value={o.value}>{o.label}</option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700">Type</label>
+                <select
+                  value={uploadType}
+                  onChange={(e) => setUploadType(e.target.value)}
+                  className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-daf-blue focus:outline-none focus:ring-1 focus:ring-daf-blue"
+                >
+                  {TYPE_OPTIONS.map((o) => (
+                    <option key={o.value} value={o.value}>{o.label}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            {/* Drop zone */}
+            <div
+              onDrop={handleDrop}
+              onDragOver={handleDragOver}
+              onDragLeave={handleDragLeave}
+              onClick={() => fileInputRef.current?.click()}
+              className={`relative flex flex-col items-center justify-center rounded-lg border-2 border-dashed p-8 cursor-pointer transition ${
+                dragOver
+                  ? "border-daf-blue bg-blue-50"
+                  : "border-gray-300 hover:border-gray-400 hover:bg-gray-50"
+              } ${uploading ? "pointer-events-none opacity-60" : ""}`}
+            >
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept=".pdf,.txt,.md,.csv,.xml,.xsd,.sch,.json"
+                onChange={handleFileSelect}
+                className="hidden"
+              />
+
+              {uploading ? (
+                <>
+                  <svg className="h-8 w-8 animate-spin text-daf-blue mb-2" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                  </svg>
+                  <p className="text-sm font-medium text-daf-blue">Processing document...</p>
+                </>
+              ) : (
+                <>
+                  <svg className="h-10 w-10 text-gray-400 mb-3" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                  </svg>
+                  <p className="text-sm font-medium text-gray-700">
+                    Drop a file here or click to browse
+                  </p>
+                  <p className="mt-1 text-xs text-gray-500">
+                    PDF, TXT, MD, CSV, XML, XSD, JSON &mdash; up to 50 MB
+                  </p>
+                </>
+              )}
+            </div>
+
+            {uploadResult && (
+              <p
+                className={`text-sm ${uploadResult.startsWith("Error") ? "text-red-600" : "text-green-600"}`}
+              >
+                {uploadResult}
+              </p>
+            )}
+          </div>
+        )}
+      </div>
+
       {/* Sources Table */}
       <div className="rounded-lg border border-gray-200 bg-white shadow-sm overflow-hidden">
         {loading ? (
           <div className="p-8 text-center text-gray-400">Loading sources...</div>
         ) : sources.length === 0 ? (
           <div className="p-8 text-center text-gray-400">
-            No sources yet. Add one using the form above.
+            No sources yet. Add one using the forms above.
           </div>
         ) : (
           <div className="overflow-x-auto">
@@ -201,7 +382,7 @@ export default function SourcesPage() {
                       )}
                     </td>
                     <td className="px-4 py-3 text-gray-500 whitespace-nowrap">
-                      {source.tier || "—"}
+                      {source.tier || "\u2014"}
                     </td>
                     <td className="px-4 py-3">
                       <span
