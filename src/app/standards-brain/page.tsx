@@ -89,7 +89,7 @@ export default function StandardsBrainPage() {
   conversationIdRef.current = conversationId;
 
   const { messages, sendMessage, status, setMessages } = useChat({
-    id: conversationId || "standards-brain",
+    id: "standards-brain",
     messages: [WELCOME_MESSAGE],
   });
 
