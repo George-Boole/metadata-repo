@@ -2,6 +2,24 @@
 
 import { useEffect, useState, useRef, useCallback } from "react";
 
+async function extractPdfTextClientSide(arrayBuffer: ArrayBuffer): Promise<string> {
+  const pdfjsLib = await import("pdfjs-dist");
+  pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.worker.min.mjs`;
+
+  const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+  const pages: string[] = [];
+  for (let i = 1; i <= pdf.numPages; i++) {
+    const page = await pdf.getPage(i);
+    const content = await page.getTextContent();
+    const text = content.items
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      .map((item: any) => item.str || "")
+      .join(" ");
+    pages.push(text);
+  }
+  return pages.join("\n\n");
+}
+
 interface Source {
   id: string;
   url: string;
@@ -97,14 +115,6 @@ export default function SourcesPage() {
 
   const handleFiles = useCallback(async (files: File[]) => {
     const MAX_UPLOAD_SIZE = 4.5 * 1024 * 1024;
-    const oversized = files.filter((f) => f.size > MAX_UPLOAD_SIZE);
-    if (oversized.length > 0) {
-      setUploadResult(
-        `Error: ${oversized.map((f) => `${f.name} (${(f.size / (1024 * 1024)).toFixed(1)} MB)`).join(", ")} exceed the 4.5 MB limit.`
-      );
-      return;
-    }
-
     setUploading(true);
     setUploadResult(null);
 
@@ -115,12 +125,39 @@ export default function SourcesPage() {
     for (const file of files) {
       setUploadResult(`Processing ${file.name}... (${succeeded + failed + 1}/${files.length})`);
 
-      const formData = new FormData();
-      formData.append("file", file);
-      if (uploadTier) formData.append("tier", uploadTier);
-      formData.append("source_type", uploadType);
-
       try {
+        let uploadFile: File | Blob = file;
+        let uploadName = file.name;
+
+        // For PDFs over the upload limit, extract text client-side
+        const isPdf = file.name.toLowerCase().endsWith(".pdf");
+        if (isPdf && file.size > MAX_UPLOAD_SIZE) {
+          setUploadResult(`Extracting text from ${file.name}... (${succeeded + failed + 1}/${files.length})`);
+          const arrayBuffer = await file.arrayBuffer();
+          const text = await extractPdfTextClientSide(arrayBuffer);
+          if (!text || text.trim().length < 50) {
+            errors.push(`${file.name}: no readable text extracted`);
+            failed++;
+            continue;
+          }
+          // Send extracted text as a .txt file
+          uploadFile = new Blob([text], { type: "text/plain" });
+          uploadName = file.name.replace(/\.pdf$/i, ".txt");
+        } else if (file.size > MAX_UPLOAD_SIZE) {
+          errors.push(`${file.name}: ${(file.size / (1024 * 1024)).toFixed(1)} MB exceeds 4.5 MB limit`);
+          failed++;
+          continue;
+        }
+
+        const formData = new FormData();
+        formData.append("file", uploadFile, uploadName);
+        // Pass original PDF name as the title so the source is identifiable
+        if (isPdf && uploadName !== file.name) {
+          formData.append("title", file.name.replace(/\.pdf$/i, ""));
+        }
+        if (uploadTier) formData.append("tier", uploadTier);
+        formData.append("source_type", uploadType);
+
         const res = await fetch("/api/ingest/upload", {
           method: "POST",
           body: formData,
@@ -150,6 +187,8 @@ export default function SourcesPage() {
 
     if (failed === 0) {
       setUploadResult(`Ingested ${succeeded} file${succeeded !== 1 ? "s" : ""} successfully`);
+    } else if (succeeded === 0) {
+      setUploadResult(`Error: ${errors.join("; ")}`);
     } else {
       setUploadResult(
         `${succeeded} succeeded, ${failed} failed: ${errors.join("; ")}`
@@ -361,7 +400,7 @@ export default function SourcesPage() {
                     Drop files here or click to browse
                   </p>
                   <p className="mt-1 text-xs text-gray-500">
-                    PDF, TXT, MD, CSV, XML, XSD, JSON &mdash; up to 4.5 MB
+                    PDF (any size), TXT, MD, CSV, XML, XSD, JSON
                   </p>
                 </>
               )}
