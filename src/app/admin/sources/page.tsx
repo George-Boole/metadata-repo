@@ -96,6 +96,15 @@ export default function SourcesPage() {
   }
 
   const handleFileUpload = useCallback(async (file: File) => {
+    // Vercel Hobby has a 4.5 MB body limit for serverless functions
+    const MAX_UPLOAD_SIZE = 4.5 * 1024 * 1024;
+    if (file.size > MAX_UPLOAD_SIZE) {
+      setUploadResult(
+        `Error: File is ${(file.size / (1024 * 1024)).toFixed(1)} MB — exceeds the 4.5 MB upload limit. Try a smaller file or ingest via URL instead.`
+      );
+      return;
+    }
+
     setUploading(true);
     setUploadResult(null);
 
@@ -109,6 +118,12 @@ export default function SourcesPage() {
         method: "POST",
         body: formData,
       });
+
+      if (!res.ok) {
+        const text = await res.text();
+        setUploadResult(`Error: ${res.status === 413 ? "File too large for server" : text || res.statusText}`);
+        return;
+      }
 
       const result = await res.json();
       if (result.status === "success") {
@@ -328,7 +343,7 @@ export default function SourcesPage() {
                     Drop a file here or click to browse
                   </p>
                   <p className="mt-1 text-xs text-gray-500">
-                    PDF, TXT, MD, CSV, XML, XSD, JSON &mdash; up to 50 MB
+                    PDF, TXT, MD, CSV, XML, XSD, JSON &mdash; up to 4.5 MB
                   </p>
                 </>
               )}

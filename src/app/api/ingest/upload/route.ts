@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { ingestFile } from "@/lib/ingest/pipeline";
 import { ingestLimiter, getClientId, rateLimitResponse } from "@/lib/rate-limit";
 
-const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50 MB
+const MAX_FILE_SIZE = 4.5 * 1024 * 1024; // 4.5 MB (Vercel Hobby limit)
 const ALLOWED_EXTENSIONS = ["pdf", "txt", "md", "csv", "xml", "xsd", "sch", "json"];
 
 export async function POST(request: NextRequest) {
