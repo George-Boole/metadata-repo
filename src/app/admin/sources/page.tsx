@@ -33,6 +33,15 @@ interface Source {
   created_at: string;
 }
 
+interface UploadFileEntry {
+  id: string;
+  name: string;
+  size: number;
+  status: "queued" | "extracting" | "uploading" | "success" | "error" | "cancelled";
+  error?: string;
+  chunkCount?: number;
+}
+
 const TIER_OPTIONS = [
   { value: "", label: "None" },
   { value: "1", label: "Tier 1 \u2014 Guidance" },
@@ -65,10 +74,14 @@ export default function SourcesPage() {
   // File upload state
   const [uploadTier, setUploadTier] = useState("");
   const [uploadType, setUploadType] = useState("document");
-  const [uploading, setUploading] = useState(false);
-  const [uploadResult, setUploadResult] = useState<string | null>(null);
   const [dragOver, setDragOver] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [uploadQueue, setUploadQueue] = useState<UploadFileEntry[]>([]);
+  const [showUploadPanel, setShowUploadPanel] = useState(false);
+  const cancelRef = useRef(false);
+  const isUploading = uploadQueue.some(
+    (e) => e.status === "extracting" || e.status === "uploading" || e.status === "queued"
+  );
 
   async function loadSources() {
     const res = await fetch("/api/admin/sources");
@@ -114,90 +127,93 @@ export default function SourcesPage() {
     }
   }
 
+  const updateEntry = useCallback((id: string, updates: Partial<UploadFileEntry>) => {
+    setUploadQueue((prev) => prev.map((e) => (e.id === id ? { ...e, ...updates } : e)));
+  }, []);
+
   const handleFiles = useCallback(async (files: File[]) => {
     const MAX_UPLOAD_SIZE = 4.5 * 1024 * 1024;
-    setUploading(true);
-    setUploadResult(null);
+    cancelRef.current = false;
 
-    let succeeded = 0;
-    let failed = 0;
-    const errors: string[] = [];
+    const entries: UploadFileEntry[] = files.map((f) => ({
+      id: crypto.randomUUID(),
+      name: f.name,
+      size: f.size,
+      status: "queued" as const,
+    }));
+    setUploadQueue(entries);
+    setShowUploadPanel(true);
 
-    for (const file of files) {
-      setUploadResult(`Processing ${file.name}... (${succeeded + failed + 1}/${files.length})`);
+    for (let idx = 0; idx < files.length; idx++) {
+      const file = files[idx];
+      const entry = entries[idx];
+
+      if (cancelRef.current) {
+        for (let j = idx; j < files.length; j++) {
+          updateEntry(entries[j].id, { status: "cancelled" });
+        }
+        break;
+      }
 
       try {
         let uploadFile: File | Blob = file;
         let uploadName = file.name;
-
-        // For PDFs over the upload limit, extract text client-side
         const isPdf = file.name.toLowerCase().endsWith(".pdf");
+
         if (isPdf && file.size > MAX_UPLOAD_SIZE) {
-          setUploadResult(`Extracting text from ${file.name}... (${succeeded + failed + 1}/${files.length})`);
+          updateEntry(entry.id, { status: "extracting" });
           const arrayBuffer = await file.arrayBuffer();
+          if (cancelRef.current) { updateEntry(entry.id, { status: "cancelled" }); continue; }
           const text = await extractPdfTextClientSide(arrayBuffer);
           if (!text || text.trim().length < 50) {
-            errors.push(`${file.name}: no readable text extracted`);
-            failed++;
+            updateEntry(entry.id, { status: "error", error: "No readable text extracted" });
             continue;
           }
-          // Send extracted text as a .txt file
           uploadFile = new Blob([text], { type: "text/plain" });
           uploadName = file.name.replace(/\.pdf$/i, ".txt");
         } else if (file.size > MAX_UPLOAD_SIZE) {
-          errors.push(`${file.name}: ${(file.size / (1024 * 1024)).toFixed(1)} MB exceeds 4.5 MB limit`);
-          failed++;
+          updateEntry(entry.id, {
+            status: "error",
+            error: `${(file.size / (1024 * 1024)).toFixed(1)} MB exceeds 4.5 MB limit`,
+          });
           continue;
         }
 
+        if (cancelRef.current) { updateEntry(entry.id, { status: "cancelled" }); continue; }
+        updateEntry(entry.id, { status: "uploading" });
+
         const formData = new FormData();
         formData.append("file", uploadFile, uploadName);
-        // Pass original PDF name as the title so the source is identifiable
         if (isPdf && uploadName !== file.name) {
           formData.append("title", file.name.replace(/\.pdf$/i, ""));
         }
         if (uploadTier) formData.append("tier", uploadTier);
         formData.append("source_type", uploadType);
 
-        const res = await fetch("/api/ingest/upload", {
-          method: "POST",
-          body: formData,
-        });
+        const res = await fetch("/api/ingest/upload", { method: "POST", body: formData });
 
         if (!res.ok) {
           const text = await res.text();
-          errors.push(`${file.name}: ${res.status === 413 ? "too large" : text || res.statusText}`);
-          failed++;
+          updateEntry(entry.id, {
+            status: "error",
+            error: res.status === 413 ? "Too large for server" : text || res.statusText,
+          });
           continue;
         }
 
         const result = await res.json();
         if (result.status === "success") {
-          succeeded++;
+          updateEntry(entry.id, { status: "success", chunkCount: result.chunkCount });
         } else {
-          errors.push(`${file.name}: ${result.error}`);
-          failed++;
+          updateEntry(entry.id, { status: "error", error: result.error });
         }
       } catch (err) {
-        errors.push(`${file.name}: ${err}`);
-        failed++;
+        updateEntry(entry.id, { status: "error", error: String(err) });
       }
     }
 
     loadSources();
-
-    if (failed === 0) {
-      setUploadResult(`Ingested ${succeeded} file${succeeded !== 1 ? "s" : ""} successfully`);
-    } else if (succeeded === 0) {
-      setUploadResult(`Error: ${errors.join("; ")}`);
-    } else {
-      setUploadResult(
-        `${succeeded} succeeded, ${failed} failed: ${errors.join("; ")}`
-      );
-    }
-
-    setUploading(false);
-  }, [uploadTier, uploadType]);
+  }, [uploadTier, uploadType, updateEntry]);
 
   function handleDrop(e: React.DragEvent) {
     e.preventDefault();
@@ -368,12 +384,12 @@ export default function SourcesPage() {
               onDrop={handleDrop}
               onDragOver={handleDragOver}
               onDragLeave={handleDragLeave}
-              onClick={() => fileInputRef.current?.click()}
+              onClick={() => !isUploading && fileInputRef.current?.click()}
               className={`relative flex flex-col items-center justify-center rounded-lg border-2 border-dashed p-8 cursor-pointer transition ${
                 dragOver
                   ? "border-daf-blue bg-blue-50"
                   : "border-gray-300 hover:border-gray-400 hover:bg-gray-50"
-              } ${uploading ? "pointer-events-none opacity-60" : ""}`}
+              } ${isUploading ? "pointer-events-none opacity-60" : ""}`}
             >
               <input
                 ref={fileInputRef}
@@ -383,36 +399,103 @@ export default function SourcesPage() {
                 onChange={handleFileSelect}
                 className="hidden"
               />
-
-              {uploading ? (
-                <>
-                  <svg className="h-8 w-8 animate-spin text-daf-blue mb-2" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                  </svg>
-                  <p className="text-sm font-medium text-daf-blue">Processing document...</p>
-                </>
-              ) : (
-                <>
-                  <svg className="h-10 w-10 text-gray-400 mb-3" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
-                  </svg>
-                  <p className="text-sm font-medium text-gray-700">
-                    Drop files here or click to browse
-                  </p>
-                  <p className="mt-1 text-xs text-gray-500">
-                    PDF (any size), TXT, MD, CSV, XML, XSD, JSON
-                  </p>
-                </>
-              )}
+              <svg className="h-10 w-10 text-gray-400 mb-3" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+              </svg>
+              <p className="text-sm font-medium text-gray-700">
+                Drop files here or click to browse
+              </p>
+              <p className="mt-1 text-xs text-gray-500">
+                PDF (any size), TXT, MD, CSV, XML, XSD, JSON
+              </p>
             </div>
 
-            {uploadResult && (
-              <p
-                className={`text-sm ${uploadResult.startsWith("Error") ? "text-red-600" : "text-green-600"}`}
-              >
-                {uploadResult}
-              </p>
+            {/* Upload queue panel */}
+            {showUploadPanel && uploadQueue.length > 0 && (
+              <div className="rounded-lg border border-gray-200 bg-gray-50 overflow-hidden">
+                {/* Panel header */}
+                <div className="flex items-center justify-between px-4 py-2.5 bg-gray-100 border-b border-gray-200">
+                  <span className="text-sm font-medium text-gray-700">
+                    Upload Progress
+                  </span>
+                  <div className="flex items-center gap-2">
+                    {isUploading && (
+                      <button
+                        onClick={() => { cancelRef.current = true; }}
+                        className="rounded px-2.5 py-1 text-xs font-medium text-red-600 hover:bg-red-50 border border-red-200"
+                      >
+                        Cancel
+                      </button>
+                    )}
+                    <button
+                      onClick={() => { setShowUploadPanel(false); setUploadQueue([]); }}
+                      className="rounded p-1 text-gray-400 hover:text-gray-600 hover:bg-gray-200"
+                      title="Close"
+                    >
+                      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                {/* File list */}
+                <ul className="divide-y divide-gray-200">
+                  {uploadQueue.map((entry) => (
+                    <li key={entry.id} className="flex items-center gap-3 px-4 py-2.5">
+                      {/* Status icon */}
+                      <span className="flex-shrink-0 w-5 text-center">
+                        {entry.status === "queued" && (
+                          <span className="inline-block h-2.5 w-2.5 rounded-full bg-gray-300" />
+                        )}
+                        {(entry.status === "extracting" || entry.status === "uploading") && (
+                          <svg className="h-4 w-4 animate-spin text-daf-blue" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                          </svg>
+                        )}
+                        {entry.status === "success" && (
+                          <svg className="h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                          </svg>
+                        )}
+                        {entry.status === "error" && (
+                          <svg className="h-4 w-4 text-red-500" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                        )}
+                        {entry.status === "cancelled" && (
+                          <svg className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                          </svg>
+                        )}
+                      </span>
+                      {/* Filename */}
+                      <span className="flex-1 min-w-0 text-sm text-gray-800 truncate" title={entry.name}>
+                        {entry.name}
+                      </span>
+                      {/* Status text */}
+                      <span className={`flex-shrink-0 text-xs font-medium ${
+                        entry.status === "success" ? "text-green-600" :
+                        entry.status === "error" ? "text-red-600" :
+                        entry.status === "extracting" || entry.status === "uploading" ? "text-daf-blue" :
+                        "text-gray-400"
+                      }`}>
+                        {entry.status === "queued" && "Queued"}
+                        {entry.status === "extracting" && "Extracting text..."}
+                        {entry.status === "uploading" && "Uploading..."}
+                        {entry.status === "success" && `Success \u00B7 ${entry.chunkCount} chunks`}
+                        {entry.status === "cancelled" && "Cancelled"}
+                      </span>
+                      {/* Error on its own line */}
+                      {entry.status === "error" && entry.error && (
+                        <span className="flex-shrink-0 text-xs text-red-600 max-w-[260px] truncate" title={entry.error}>
+                          {entry.error}
+                        </span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             )}
           </div>
         )}
