@@ -83,15 +83,16 @@ metadata-repo/
 4. **Tier 3 — Tagging/Labeling Tools**: Tools that apply metadata standards to data (DCAMPS-C, Purview, Varonis, Collibra). NOT metadata catalog tools.
 
 ## Current State
-- **Phase**: RAG quality improvements complete. Graph cleaned up, fuzzy entity resolution working. Ready for Vercel deploy and demo testing.
-- **Last Completed**: Session 17 — fixed RAG quality (cross-spec relationships not surfacing). Three fixes: fuzzy entity resolution in graph-search.ts, tighter extraction prompt, graph entity consolidation (deleted 1,528 junk entities, merged 151 duplicates).
-- **Ingested Content**: 117 sources, ~29,914 chunks. 95 tier-2a sources with 29,207 chunks. All 67 ODNI IC specs with ZIP packages deep-ingested.
-- **Neo4j Graph**: 7,432 entities, 9,928 RELATES_TO, 19,190 MENTIONS, 112 Source nodes. Cleaned up from 9,111/20,891/23,118. Canonical entities have rich aliases (IC-ISM: 118 aliases, IC-TDF: 53, IC-ID: 26, IC-EDH: 20).
-- **Browse Pages**: All 5 tiers query Supabase via SourceList. No JSON fallback. Fictional sources flagged via `metadata.fictional`.
-- **Data Layer**: `src/lib/data-server.ts` (Supabase queries). Static JSON deleted. `src/lib/data.ts` and `src/lib/search.ts` deleted.
+- **Phase**: Deployed to Vercel. Admin panel fully functional with URL ingestion + drag-and-drop file upload. Tier 1 guidance massively expanded. ISO 11179 ingested.
+- **Last Completed**: Sessions 18-19 — Tier 1 guidance ingestion (32 sources), admin file upload with queue UI, Standards Brain fix, content dedup, ISO 11179 parts ingested.
+- **Ingested Content**: ~155+ sources, ~31,000+ chunks. 31 Tier 1 guidance sources (~1,243 chunks). 95 tier-2a sources with 29,207 chunks. All 67 ODNI IC specs deep-ingested. ISO 11179 parts 3/31/32/33/34/35 uploaded (~766 chunks).
+- **Neo4j Graph**: 7,432 entities, 9,928 RELATES_TO, 19,190 MENTIONS, 112 Source nodes. Canonical entities have rich aliases (IC-ISM: 118 aliases, IC-TDF: 53, IC-ID: 26, IC-EDH: 20).
+- **Browse Pages**: All 5 tiers query Supabase via SourceList. Source cards fully clickable (link to `/sources/[id]`). Descriptions visible on cards. No JSON fallback. Fictional sources flagged via `metadata.fictional`.
+- **Data Layer**: `src/lib/data-server.ts` (Supabase queries). Static JSON deleted.
+- **Admin Panel**: URL ingestion + drag-and-drop file upload. Upload features: queue-based UI with per-file progress, cancel button, dismiss button. Client-side PDF text extraction via `pdfjs-dist` v4.10.38 for files >4.5 MB. Content-based dedup via SHA-256 hash. Supports PDF, TXT, MD, CSV, XML, XSD, SCH, JSON.
 - **Graph Pipeline**: `src/lib/ingest/graph-extract.ts` (Gemini 2.5 Flash entity/relationship extraction) → `src/lib/ingest/graph-write.ts` (Neo4j MERGE write). Integrated into ingestion pipeline as step 7.5.
 - **ODNI Zip Pipeline**: `src/lib/ingest/download.ts` + extractors (pdf via pdf-parse v1.1.1, xsd, schematron) → `ingestZipContents()` in pipeline.ts. Smart filtering: PDFs always, XSDs >5KB, Schematron >10KB.
-- **RAG**: Hybrid retriever (`src/lib/rag/hybrid-retriever.ts`) combines vector search + graph search. Chat endpoint uses `buildHybridContextPrompt()` with graph relationship context.
+- **RAG**: Hybrid retriever (`src/lib/rag/hybrid-retriever.ts`) combines vector search + graph search. Chat endpoint uses `buildHybridContextPrompt()` with graph relationship context. Standards Brain `useChat` uses stable `id: "standards-brain"` to prevent race condition on first message.
 - **Source Detail**: `/sources/[id]` shows graph cross-references (related entities, relationship types) with links to related source pages.
 - **Models**: Gemini 2.5 Flash (default), Claude Sonnet 4.6 — selectable via admin panel.
 - **Auth System**: Multi-user with roles. Login accepts username+password or shared password. HMAC-signed tokens.
@@ -99,8 +100,8 @@ metadata-repo/
 - **Dev Environment**: macOS (Mac mini M-series), Node.js 25.7.0, Homebrew
 - **Rate Limiting**: In-memory sliding window — chat 20/min, auth 5/min, ingest 10/min, admin 30/min
 - **Error Handling**: Error boundaries at root, standards-brain, and admin levels. 404 page. API routes return generic error messages.
-- **Pending Scripts**: Run `npx tsx scripts/backfill-graph.ts` to re-populate Neo4j with new deep content.
-- **Next Step**: Vercel deploy, demo testing, graph re-backfill for deep content
+- **Hosting**: Deployed on Vercel Hobby tier. Auto-deploys from GitHub main branch.
+- **Next Step**: Demo testing, content gap analysis, graph re-backfill for new Tier 1 + ISO content
 
 ## Autonomy Rules
 Claude operates at MAXIMUM autonomy **within this repository**:

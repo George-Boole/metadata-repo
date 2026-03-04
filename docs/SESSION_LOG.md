@@ -941,3 +941,113 @@ Key relationship `IC-EDH —[REFERENCES]→ IC-ISM` now surfaces for all query p
 - Graph search now resolves natural language queries to correct entities
 - Cross-spec relationships (EDH→ISM, TDF→ISM, etc.) surface in RAG answers
 - Build passes clean
+
+---
+
+## Session 18 — 2026-03-04
+**Focus**: Tier 1 guidance ingestion, admin file upload, Standards Brain fix, Vercel deploy
+
+### Accomplished
+
+#### 1. Comprehensive Tier 1 Authoritative Guidance Ingestion
+- Created `scripts/ingest-tier1-guidance.ts` — bulk ingestion of 32 sources across 7 authority layers:
+  - Layer 1: Federal statutes (44 USC §3520, OMB A-130, OPEN Government Data Act)
+  - Layer 2: DoD Directives (DoDD 8000.01, 8140.01)
+  - Layer 3: DoD Instructions (DoDI 8310.01, 8320.02, 8320.07, 8330.01, 8500.01, 8510.01, 8110.01, 5015.02, 5200.48, 8320.04)
+  - Layer 4: DoD Manuals (DoDM 5200.01 Vol 1 & 4, 8180.01)
+  - Layer 5: DoD CIO guidance (Data Strategy, Metadata Guidance, Data Stewardship Guidebook, DISA Lifecycle)
+  - Layer 6: DAF Policy Directives (AFPD 17-1, 33-3, 90-70)
+  - Layer 7: DAF Instructions (DAFI 90-7001, AFI 33-322, 17-130, DAFMAN 17-1203, DAFI 16-1403)
+- Supports `--skip-existing`, `--only=<keyword>`, `--layer=N` flags
+- Results: 23 succeeded, 8 skipped (already existed), 1 failed (AFPD 33-3). ~1,243 new chunks.
+- Fixed 44 USC §3502 → §3520 (Chief Data Officers) per user correction
+- Backfilled descriptions for all 31 Tier 1 sources (PDF crawls don't return meta descriptions)
+
+#### 2. Source Card UX Improvements
+- Made SourceList cards fully clickable — changed `<div>` to `<Link href={/sources/${id}}>` wrapper
+- Removed separate "View Source" and "Details" buttons
+- Removed `line-clamp-2` so full descriptions are visible on browse pages
+
+#### 3. Standards Brain First-Message Bug Fix
+- **Bug**: Type question → press Enter → text disappears, no query sent
+- **Root cause**: `useChat({ id: conversationId || "standards-brain" })` — when first message auto-creates a conversation, `setConversationId(newId)` changes the hook's `id`, causing `useChat` to reinitialize and drop the in-flight request
+- **Fix**: Changed to stable `id: "standards-brain"` so hook identity never changes
+
+#### 4. Admin Panel File Upload
+- Added `ingestFile()` to `pipeline.ts` — processes uploaded files directly (skips crawl step)
+- Created `/api/ingest/upload` route — handles multipart FormData
+- Added drag-and-drop upload zone to admin sources page
+- Supports PDF, TXT, MD, CSV, XML, XSD, SCH, JSON
+- Fixed tier select values (`tier-1` → `1`, etc.)
+
+#### 5. Upload Edge Cases Fixed
+- **Vercel 413 error**: Added client-side 4.5 MB size check, handle non-JSON responses
+- **pdf-parse ENOENT**: `pdf-parse` v1.1.1 tries to load test fixture in serverless — fixed by importing `pdf-parse/lib/pdf-parse` directly
+- **Multiple file support**: Changed from single-file to sequential multi-file processing
+- **Large PDFs (>4.5 MB)**: Client-side PDF text extraction via `pdfjs-dist` (dynamic import to avoid SSR `DOMMatrix` error), sends as lightweight `.txt`
+
+#### 6. Content-Based Deduplication
+- SHA-256 hash of file buffer computed on upload
+- Hash stored in source `metadata.content_hash`
+- On upload, checks Supabase for matching `metadata->>content_hash` before processing
+- Returns "Duplicate content — already ingested as ..." if found
+
+### Files Created
+- `scripts/ingest-tier1-guidance.ts` — Tier 1 bulk ingestion script
+- `src/app/api/ingest/upload/route.ts` — File upload API endpoint
+
+### Files Modified
+- `src/lib/ingest/pipeline.ts` — Added `IngestFileOptions`, `ingestFile()`, SHA-256 content hash dedup
+- `src/lib/ingest/extractors/pdf.ts` — Import `pdf-parse/lib/pdf-parse` to bypass test fixture
+- `src/app/admin/sources/page.tsx` — Upload zone, client-side PDF extraction, tier fix
+- `src/app/standards-brain/page.tsx` — Stable `useChat` id
+- `src/components/SourceList.tsx` — Fully clickable cards with Link wrapper
+
+### Status at End
+- ~148 sources, ~31,157 chunks in Supabase
+- 31 Tier 1 guidance sources across 7 authority layers
+- Admin upload functional with drag-and-drop
+- Standards Brain first-message bug fixed
+- Deployed to Vercel
+
+---
+
+## Session 19 — 2026-03-04
+**Focus**: Upload UI improvements, pdfjs-dist fixes, ISO 11179 ingestion
+
+### Accomplished
+
+#### 1. pdfjs-dist Worker Version Fix
+- `pdfjs-dist` auto-updated to v5.5.207 but CDN worker was hardcoded to v4.10.38
+- Changed worker URL to use `pdfjsLib.version` dynamically
+- Then discovered CDN doesn't have v5.x workers at all → pinned `pdfjs-dist` to 4.10.38
+
+#### 2. Upload Queue UI
+- Replaced single-line `uploadResult` string with queue-based panel
+- New `UploadFileEntry` interface tracks per-file status: queued → extracting → uploading → success/error/cancelled
+- Panel shows all files with color-coded status icons and text
+- Cancel button: sets `cancelRef` flag, current file finishes, rest marked "Cancelled"
+- Close (×) button: dismisses panel and clears queue
+- `isUploading` derived from queue state (no separate boolean)
+
+#### 3. Error Response Parsing Fix
+- Upload errors (duplicates, server errors) returned as JSON with status 500
+- Client was reading `res.text()` for non-ok responses → showed raw JSON `{"sourceId":"..."}`
+- Fixed: always parse JSON response, extract `result.error` field for display
+
+#### 4. ISO 11179 Ingestion
+- User uploaded 15 ISO 11179 + ISO 21838 PDFs via admin panel
+- 7 succeeded: Parts 3 (215 chunks), 31 (160), 32 (112), 33 (69), 34 (74), 35 (136) + others
+- 8 caught as duplicates (content-based dedup working correctly)
+- Dedup correctly identified same content under different filenames
+
+### Files Modified
+- `src/app/admin/sources/page.tsx` — Queue-based upload UI with cancel/dismiss, dynamic worker version, JSON error parsing
+- `package.json` — Pinned pdfjs-dist to 4.10.38
+
+### Status at End
+- ~155+ sources, ~31,900+ chunks in Supabase
+- ISO 11179 parts 3/31/32/33/34/35 ingested (~766 chunks)
+- Upload queue UI with per-file tracking, cancel, dismiss
+- Content dedup confirmed working (caught 8 duplicate uploads)
+- Build passes clean, deployed to Vercel
