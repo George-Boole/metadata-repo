@@ -192,20 +192,23 @@ export default function SourcesPage() {
 
         const res = await fetch("/api/ingest/upload", { method: "POST", body: formData });
 
-        if (!res.ok) {
-          const text = await res.text();
-          updateEntry(entry.id, {
-            status: "error",
-            error: res.status === 413 ? "Too large for server" : text || res.statusText,
-          });
+        if (res.status === 413) {
+          updateEntry(entry.id, { status: "error", error: "Too large for server" });
           continue;
         }
 
-        const result = await res.json();
+        let result: { status?: string; error?: string; chunkCount?: number };
+        try {
+          result = await res.json();
+        } catch {
+          updateEntry(entry.id, { status: "error", error: res.statusText || "Unknown error" });
+          continue;
+        }
+
         if (result.status === "success") {
           updateEntry(entry.id, { status: "success", chunkCount: result.chunkCount });
         } else {
-          updateEntry(entry.id, { status: "error", error: result.error });
+          updateEntry(entry.id, { status: "error", error: result.error || "Unknown error" });
         }
       } catch (err) {
         updateEntry(entry.id, { status: "error", error: String(err) });
