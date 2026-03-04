@@ -4,7 +4,8 @@ import { useEffect, useState, useRef, useCallback } from "react";
 
 async function extractPdfTextClientSide(arrayBuffer: ArrayBuffer): Promise<string> {
   const pdfjsLib = await import("pdfjs-dist");
-  pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.worker.min.mjs`;
+  const pdfjsVersion = pdfjsLib.version;
+  pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsVersion}/pdf.worker.min.mjs`;
 
   const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
   const pages: string[] = [];
