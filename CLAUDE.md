@@ -83,10 +83,10 @@ metadata-repo/
 4. **Tier 3 — Tagging/Labeling Tools**: Tools that apply metadata standards to data (DCAMPS-C, Purview, Varonis, Collibra). NOT metadata catalog tools.
 
 ## Current State
-- **Phase**: Comprehensive ODNI ingestion complete. All IC tech specs deep-ingested. Ready for Vercel deploy and demo testing.
-- **Last Completed**: Session 16 — fixed broken IC-EDH/ISM/DDMS URLs, merged duplicate entries, comprehensive ODNI ZIP deep ingestion of ALL 67 IC tech specs (61 processed, 6 skipped as already done). 4 parallel batches, 0 errors.
+- **Phase**: RAG quality improvements complete. Graph cleaned up, fuzzy entity resolution working. Ready for Vercel deploy and demo testing.
+- **Last Completed**: Session 17 — fixed RAG quality (cross-spec relationships not surfacing). Three fixes: fuzzy entity resolution in graph-search.ts, tighter extraction prompt, graph entity consolidation (deleted 1,528 junk entities, merged 151 duplicates).
 - **Ingested Content**: 117 sources, ~29,914 chunks. 95 tier-2a sources with 29,207 chunks. All 67 ODNI IC specs with ZIP packages deep-ingested.
-- **Neo4j Graph**: Populated from all 121 sources via LLM extraction. 114 sources yielded entities/relationships. Auto-populated during ingestion.
+- **Neo4j Graph**: 7,432 entities, 9,928 RELATES_TO, 19,190 MENTIONS, 112 Source nodes. Cleaned up from 9,111/20,891/23,118. Canonical entities have rich aliases (IC-ISM: 118 aliases, IC-TDF: 53, IC-ID: 26, IC-EDH: 20).
 - **Browse Pages**: All 5 tiers query Supabase via SourceList. No JSON fallback. Fictional sources flagged via `metadata.fictional`.
 - **Data Layer**: `src/lib/data-server.ts` (Supabase queries). Static JSON deleted. `src/lib/data.ts` and `src/lib/search.ts` deleted.
 - **Graph Pipeline**: `src/lib/ingest/graph-extract.ts` (Gemini 2.5 Flash entity/relationship extraction) → `src/lib/ingest/graph-write.ts` (Neo4j MERGE write). Integrated into ingestion pipeline as step 7.5.

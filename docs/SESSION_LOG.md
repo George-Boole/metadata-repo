@@ -863,3 +863,81 @@
 - Broken IC-EDH "View Source" link fixed
 - Duplicate entries cleaned up
 - Build passes clean
+
+---
+
+## Session 17 — 2026-03-03
+**Focus**: Fix RAG quality — cross-spec relationships not being caught
+
+### Problem
+User reported RAG missing deeper answers. Example: EDH spec references ISM spec, but that relationship wasn't surfacing in chat answers.
+
+### Root Cause Analysis
+Investigation revealed **three distinct problems** (data was ingested correctly — issue was retrieval):
+
+1. **Query entity extraction too narrow**: `extractQueryEntities()` used hardcoded regex patterns only. "IC-EDH" matched (via `/\bIC-[A-Z]{2,5}\b/`) but "Enterprise Data Header", "EDH", or natural language returned **zero entities** → graph search completely skipped.
+
+2. **Entity fragmentation**: 9,111 entities with massive duplication. IC-EDH had 15+ variants ("IC-EDH", "IC-EDH.XML", "Enterprise Data Header", "Intelligence Community Enterprise Data Header"). IC-ISM had 76 variants. Many were XSD type names and filenames.
+
+3. **Relationship noise**: 20,891 RELATES_TO relationships included boilerplate sidebar links ("IC Data Strategy 2023-2025"), file references ("Rick Jelliffe's XSLT 2.0 Schematron implementation"), generic org mentions — diluting real cross-spec relationships.
+
+### Fix 1: Fuzzy Entity Resolution (graph-search.ts)
+- Replaced regex-only extraction with tiered fuzzy Neo4j search
+- Tier 1: Regex patterns + all-caps acronyms (EDH, ISM, TDF) → search Neo4j by name/alias CONTAINS
+- Tier 2: Multi-word phrases (e.g., "Enterprise Data Header") → preserving domain terms (Data, Information) that were previously stripped as stopwords
+- Tier 3: Individual long words (fallback only if nothing found above)
+- Added two-level stopword system: PHRASE_BREAKERS (pure function words) for phrase extraction, SEARCH_STOPWORDS (broader) for individual words
+- Capped relationships at 30 and entities at 10 for prompt size management
+- Added reverse-direction deduplication for relationships
+
+### Fix 2: Tighter Extraction Prompt (graph-extract.ts)
+- Added explicit DO NOT extract list: filenames (*.xsd, *.sch), XSD element/type names, namespace URIs, version numbers, Schematron rule IDs, sidebar content, generic terms
+- Capped at max 15 entities per extraction
+- Emphasized canonical short names over long descriptive names
+
+### Fix 3: Graph Entity Consolidation (scripts/consolidate-graph-entities.ts)
+- Phase 1: Deleted 1,528 junk entities matching file patterns (.xsd, .sch, .xml, .pdf), CVEnum* files, XSD types, namespace URIs, Schematron rule IDs
+- Phase 2: Merged 151 duplicate entities into canonical names:
+  - IC-ISM: absorbed 69 variants (118 aliases)
+  - IC-TDF: absorbed 25 variants (53 aliases)
+  - IC-ID: absorbed 14 variants (26 aliases)
+  - IC-EDH: absorbed 11 variants (20 aliases)
+  - GENC: absorbed 9 variants
+  - IC-NTK: absorbed 8 variants
+  - Others: DDMS (5), IC-ARH (5), Dublin Core (3), NIEM (2)
+- Phase 2b: Deleted 5 self-referential relationships
+
+### Results
+
+| Metric | Before | After | Change |
+|--------|--------|-------|--------|
+| Entities | 9,111 | 7,432 | -18% |
+| MENTIONS | 23,118 | 19,190 | -17% |
+| RELATES_TO | 20,891 | 9,928 | -52% |
+
+Query resolution improvements:
+
+| Query | Before (entities found) | After (entities found) |
+|-------|------------------------|----------------------|
+| "IC-EDH" | IC-EDH (regex) | IC-EDH (regex) |
+| "Enterprise Data Header" | nothing | IC-EDH (phrase match) |
+| "EDH" | nothing | IC-EDH (acronym) |
+| "tell me about EDH and ISM" | nothing | IC-EDH + IC-ISM |
+| "Information Security Marking" | nothing | IC-ISM (alias match) |
+| "Trusted Data Format" | nothing | IC-TDF (alias match) |
+
+Key relationship `IC-EDH —[REFERENCES]→ IC-ISM` now surfaces for all query phrasings.
+
+### Files Modified
+- `src/lib/rag/graph-search.ts` — Tiered fuzzy entity resolution with phrase-aware search
+- `src/lib/ingest/graph-extract.ts` — Tighter prompt with DO NOT extract list
+
+### Files Created
+- `scripts/consolidate-graph-entities.ts` — Graph cleanup: junk deletion + entity dedup
+
+### Status at End
+- 117 sources, ~29,914 chunks in Supabase
+- Neo4j: 7,432 entities, 9,928 relationships, 19,190 mentions, 112 sources
+- Graph search now resolves natural language queries to correct entities
+- Cross-spec relationships (EDH→ISM, TDF→ISM, etc.) surface in RAG answers
+- Build passes clean
