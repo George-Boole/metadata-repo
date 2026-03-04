@@ -95,12 +95,12 @@ export default function SourcesPage() {
     }
   }
 
-  const handleFileUpload = useCallback(async (file: File) => {
-    // Vercel Hobby has a 4.5 MB body limit for serverless functions
+  const handleFiles = useCallback(async (files: File[]) => {
     const MAX_UPLOAD_SIZE = 4.5 * 1024 * 1024;
-    if (file.size > MAX_UPLOAD_SIZE) {
+    const oversized = files.filter((f) => f.size > MAX_UPLOAD_SIZE);
+    if (oversized.length > 0) {
       setUploadResult(
-        `Error: File is ${(file.size / (1024 * 1024)).toFixed(1)} MB — exceeds the 4.5 MB upload limit. Try a smaller file or ingest via URL instead.`
+        `Error: ${oversized.map((f) => `${f.name} (${(f.size / (1024 * 1024)).toFixed(1)} MB)`).join(", ")} exceed the 4.5 MB limit.`
       );
       return;
     }
@@ -108,44 +108,62 @@ export default function SourcesPage() {
     setUploading(true);
     setUploadResult(null);
 
-    const formData = new FormData();
-    formData.append("file", file);
-    if (uploadTier) formData.append("tier", uploadTier);
-    formData.append("source_type", uploadType);
+    let succeeded = 0;
+    let failed = 0;
+    const errors: string[] = [];
 
-    try {
-      const res = await fetch("/api/ingest/upload", {
-        method: "POST",
-        body: formData,
-      });
+    for (const file of files) {
+      setUploadResult(`Processing ${file.name}... (${succeeded + failed + 1}/${files.length})`);
 
-      if (!res.ok) {
-        const text = await res.text();
-        setUploadResult(`Error: ${res.status === 413 ? "File too large for server" : text || res.statusText}`);
-        return;
+      const formData = new FormData();
+      formData.append("file", file);
+      if (uploadTier) formData.append("tier", uploadTier);
+      formData.append("source_type", uploadType);
+
+      try {
+        const res = await fetch("/api/ingest/upload", {
+          method: "POST",
+          body: formData,
+        });
+
+        if (!res.ok) {
+          const text = await res.text();
+          errors.push(`${file.name}: ${res.status === 413 ? "too large" : text || res.statusText}`);
+          failed++;
+          continue;
+        }
+
+        const result = await res.json();
+        if (result.status === "success") {
+          succeeded++;
+        } else {
+          errors.push(`${file.name}: ${result.error}`);
+          failed++;
+        }
+      } catch (err) {
+        errors.push(`${file.name}: ${err}`);
+        failed++;
       }
-
-      const result = await res.json();
-      if (result.status === "success") {
-        setUploadResult(
-          `Ingested "${result.title}" \u2014 ${result.chunkCount} chunks`
-        );
-        loadSources();
-      } else {
-        setUploadResult(`Error: ${result.error}`);
-      }
-    } catch (err) {
-      setUploadResult(`Error: ${err}`);
-    } finally {
-      setUploading(false);
     }
+
+    loadSources();
+
+    if (failed === 0) {
+      setUploadResult(`Ingested ${succeeded} file${succeeded !== 1 ? "s" : ""} successfully`);
+    } else {
+      setUploadResult(
+        `${succeeded} succeeded, ${failed} failed: ${errors.join("; ")}`
+      );
+    }
+
+    setUploading(false);
   }, [uploadTier, uploadType]);
 
   function handleDrop(e: React.DragEvent) {
     e.preventDefault();
     setDragOver(false);
-    const file = e.dataTransfer.files[0];
-    if (file) handleFileUpload(file);
+    const files = Array.from(e.dataTransfer.files);
+    if (files.length > 0) handleFiles(files);
   }
 
   function handleDragOver(e: React.DragEvent) {
@@ -159,9 +177,8 @@ export default function SourcesPage() {
   }
 
   function handleFileSelect(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
-    if (file) handleFileUpload(file);
-    // Reset so the same file can be re-selected
+    const files = Array.from(e.target.files || []);
+    if (files.length > 0) handleFiles(files);
     if (fileInputRef.current) fileInputRef.current.value = "";
   }
 
@@ -322,6 +339,7 @@ export default function SourcesPage() {
                 ref={fileInputRef}
                 type="file"
                 accept=".pdf,.txt,.md,.csv,.xml,.xsd,.sch,.json"
+                multiple
                 onChange={handleFileSelect}
                 className="hidden"
               />
@@ -340,7 +358,7 @@ export default function SourcesPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
                   </svg>
                   <p className="text-sm font-medium text-gray-700">
-                    Drop a file here or click to browse
+                    Drop files here or click to browse
                   </p>
                   <p className="mt-1 text-xs text-gray-500">
                     PDF, TXT, MD, CSV, XML, XSD, JSON &mdash; up to 4.5 MB
