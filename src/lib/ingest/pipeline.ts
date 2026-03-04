@@ -1,3 +1,4 @@
+import { createHash } from "crypto";
 import { crawlUrl, CrawlEngine } from "./crawl";
 import { chunkMarkdown } from "./chunker";
 import { embedTexts } from "../embeddings";
@@ -219,6 +220,26 @@ export async function ingestFile(options: IngestFileOptions): Promise<IngestResu
   // Use upload:// pseudo-URL so the source is unique per filename
   const url = `upload://${options.filename}`;
 
+  // Content-based deduplication: hash the file and check for existing source
+  const contentHash = createHash("sha256").update(options.buffer).digest("hex");
+  const { data: existingByHash } = await supabase
+    .from("sources")
+    .select("id, title, chunk_count")
+    .eq("metadata->>content_hash", contentHash)
+    .limit(1);
+
+  if (existingByHash && existingByHash.length > 0) {
+    const dup = existingByHash[0];
+    return {
+      sourceId: dup.id,
+      url,
+      title: dup.title,
+      chunkCount: dup.chunk_count,
+      status: "error",
+      error: `Duplicate content — already ingested as "${dup.title}" (${dup.chunk_count} chunks)`,
+    };
+  }
+
   try {
     // 1. Extract text based on file type
     let markdown = "";
@@ -293,7 +314,7 @@ export async function ingestFile(options: IngestFileOptions): Promise<IngestResu
           status: "active",
           chunk_count: chunks.length,
           error_message: null,
-          metadata: { description: options.description || null, uploaded_file: options.filename },
+          metadata: { description: options.description || null, uploaded_file: options.filename, content_hash: contentHash },
         },
         { onConflict: "url" }
       )
