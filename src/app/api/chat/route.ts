@@ -4,6 +4,7 @@ import { resolveActiveModel } from "@/lib/rag/model-resolver";
 import { getSystemPrompt, buildHybridContextPrompt } from "@/lib/rag/prompt-builder";
 import { chatLimiter, getClientId, rateLimitResponse } from "@/lib/rate-limit";
 import { getSupabaseServer } from "@/lib/supabase";
+import { logActivity, getUserFromRequest } from "@/lib/activity-log";
 
 export const maxDuration = 60;
 
@@ -50,6 +51,13 @@ export async function POST(request: Request) {
         { status: 400, headers: { "Content-Type": "application/json" } }
       );
     }
+
+    // Log chat activity
+    const username = getUserFromRequest(request);
+    logActivity(username, "chat", "/api/chat", {
+      query_length: queryText.length,
+      conversation_id: conversationId,
+    });
 
     // Save user message to conversation (non-blocking, don't fail if tables don't exist)
     if (conversationId) {

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { ingestUrl } from "@/lib/ingest/pipeline";
 import { ingestLimiter, getClientId, rateLimitResponse } from "@/lib/rate-limit";
+import { logActivity, getUserFromRequest } from "@/lib/activity-log";
 
 const IngestRequestSchema = z.object({
   url: z.string().url(),
@@ -19,6 +20,12 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const parsed = IngestRequestSchema.parse(body);
+
+    const username = getUserFromRequest(request);
+    logActivity(username, "ingest_url", "/api/ingest", {
+      url: parsed.url,
+      tier: parsed.tier,
+    });
 
     const result = await ingestUrl({
       url: parsed.url,

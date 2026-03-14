@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseServer } from "@/lib/supabase";
 import { adminLimiter, getClientId, rateLimitResponse } from "@/lib/rate-limit";
+import { logActivity, getUserFromRequest } from "@/lib/activity-log";
 
 export async function DELETE(
   request: NextRequest,
@@ -22,6 +23,9 @@ export async function DELETE(
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
+
+  const actor = getUserFromRequest(request);
+  logActivity(actor, "admin_delete_source", `/api/admin/sources/${id}`, { source_id: id });
 
   return NextResponse.json({ success: true });
 }

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseServer } from "@/lib/supabase";
 import { adminLimiter, getClientId, rateLimitResponse } from "@/lib/rate-limit";
+import { logActivity, getUserFromRequest } from "@/lib/activity-log";
 
 export async function GET(request: NextRequest) {
   const clientId = getClientId(request);
@@ -76,6 +77,11 @@ export async function PATCH(request: NextRequest) {
         );
       }
     }
+
+    const actor = getUserFromRequest(request);
+    logActivity(actor, "admin_update_settings", "/api/admin/settings", {
+      updated_keys: updates.map((u) => u.key),
+    });
 
     return NextResponse.json({ success: true });
   } catch (error) {

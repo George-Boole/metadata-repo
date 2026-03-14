@@ -8,6 +8,8 @@ interface User {
   role: string;
   display_name: string | null;
   created_at: string;
+  last_login_at: string | null;
+  login_count: number;
 }
 
 export default function UsersPage() {
@@ -253,6 +255,8 @@ export default function UsersPage() {
                   <th className="hidden sm:table-cell px-4 py-3">Display Name</th>
                   <th className="px-4 py-3">Role</th>
                   <th className="hidden sm:table-cell px-4 py-3">Created</th>
+                  <th className="hidden md:table-cell px-4 py-3">Last Login</th>
+                  <th className="hidden md:table-cell px-4 py-3">Logins</th>
                   <th className="px-4 py-3" />
                 </tr>
               </thead>
@@ -260,7 +264,7 @@ export default function UsersPage() {
                 {users.map((user) => (
                   <tr key={user.id} className="hover:bg-gray-50">
                     {editingId === user.id ? (
-                      <td colSpan={5} className="px-4 py-3">
+                      <td colSpan={7} className="px-4 py-3">
                         <form
                           onSubmit={(e) => handleEdit(e, user.id)}
                           className="space-y-3"
@@ -352,6 +356,19 @@ export default function UsersPage() {
                         </td>
                         <td className="hidden sm:table-cell px-4 py-3 text-gray-400 text-xs whitespace-nowrap">
                           {new Date(user.created_at).toLocaleDateString()}
+                        </td>
+                        <td className="hidden md:table-cell px-4 py-3 text-gray-400 text-xs whitespace-nowrap">
+                          {user.last_login_at
+                            ? new Date(user.last_login_at).toLocaleDateString("en-US", {
+                                month: "short",
+                                day: "numeric",
+                                hour: "numeric",
+                                minute: "2-digit",
+                              })
+                            : "\u2014"}
+                        </td>
+                        <td className="hidden md:table-cell px-4 py-3 text-gray-500 text-xs text-center">
+                          {user.login_count ?? 0}
                         </td>
                         <td className="px-4 py-3 text-right whitespace-nowrap">
                           <button

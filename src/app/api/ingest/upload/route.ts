@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { ingestFile } from "@/lib/ingest/pipeline";
 import { ingestLimiter, getClientId, rateLimitResponse } from "@/lib/rate-limit";
+import { logActivity, getUserFromRequest } from "@/lib/activity-log";
 
 const MAX_FILE_SIZE = 4.5 * 1024 * 1024; // 4.5 MB (Vercel Hobby limit)
 const ALLOWED_EXTENSIONS = ["pdf", "txt", "md", "csv", "xml", "xsd", "sch", "json"];
@@ -33,6 +34,13 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
+
+    const username = getUserFromRequest(request);
+    logActivity(username, "ingest_upload", "/api/ingest/upload", {
+      filename: file.name,
+      size: file.size,
+      tier,
+    });
 
     const buffer = Buffer.from(await file.arrayBuffer());
 

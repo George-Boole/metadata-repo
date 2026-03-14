@@ -8,6 +8,7 @@ import {
 } from "@/lib/auth";
 import { getSupabaseServer } from "@/lib/supabase";
 import { authLimiter, getClientId, rateLimitResponse } from "@/lib/rate-limit";
+import { logActivity, recordLogin } from "@/lib/activity-log";
 
 /** GET /api/auth — return current session info */
 export async function GET(request: NextRequest) {
@@ -85,6 +86,12 @@ export async function POST(request: NextRequest) {
     tokenRole = "admin";
   }
 
+  // Track login activity
+  recordLogin(tokenUsername);
+  logActivity(tokenUsername, "login", "/api/auth", {
+    method: username ? "username" : "shared_password",
+  });
+
   const token = await createToken(tokenUsername, tokenRole);
   const response = NextResponse.json({
     success: true,
@@ -103,7 +110,10 @@ export async function POST(request: NextRequest) {
   return response;
 }
 
-export async function DELETE() {
+export async function DELETE(request: NextRequest) {
+  const username = request.headers.get("x-user") || "unknown";
+  logActivity(username, "logout", "/api/auth");
+
   const response = NextResponse.json({ success: true });
   response.cookies.delete(COOKIE_NAME);
   return response;

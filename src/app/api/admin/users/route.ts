@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseServer } from "@/lib/supabase";
 import { hashPassword } from "@/lib/auth";
 import { adminLimiter, getClientId, rateLimitResponse } from "@/lib/rate-limit";
+import { logActivity, getUserFromRequest } from "@/lib/activity-log";
 
 export async function GET(request: NextRequest) {
   const clientId = getClientId(request);
@@ -11,7 +12,7 @@ export async function GET(request: NextRequest) {
   const supabase = getSupabaseServer();
   const { data, error } = await supabase
     .from("users")
-    .select("id, username, role, display_name, created_at")
+    .select("id, username, role, display_name, created_at, last_login_at, login_count")
     .order("created_at", { ascending: true });
 
   if (error) {
@@ -66,6 +67,12 @@ export async function POST(request: NextRequest) {
     }
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
+
+  const actor = getUserFromRequest(request);
+  logActivity(actor, "admin_create_user", "/api/admin/users", {
+    new_username: username,
+    role: role || "user",
+  });
 
   return NextResponse.json({ user: data }, { status: 201 });
 }
