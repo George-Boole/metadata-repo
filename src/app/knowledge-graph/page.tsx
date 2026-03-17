@@ -496,10 +496,14 @@ function PathFinderTab() {
     const escapedStart = startEntity.replace(/"/g, '\\"');
     const escapedEnd = endEntity.replace(/"/g, '\\"');
     const relBase = "https://daf-metadata.mil/ontology/rel/";
-    const pathExpr = `(<${relBase}REFERENCES>|<${relBase}IMPLEMENTS>|<${relBase}SUPPORTS>|<${relBase}PART_OF>|<${relBase}MANDATES>|<${relBase}CHILD_OF>)+`;
+    // Bidirectional: traverse relationships in both directions using ^ (inverse)
+    const rels = ["REFERENCES", "IMPLEMENTS", "SUPPORTS", "PART_OF", "MANDATES", "CHILD_OF"];
+    const fwd = rels.map((r) => `<${relBase}${r}>`).join("|");
+    const inv = rels.map((r) => `^<${relBase}${r}>`).join("|");
+    const pathExpr = `(${fwd}|${inv})+`;
     const sparql = `PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
-SELECT ?startName ?endName WHERE {
+SELECT DISTINCT ?startName ?endName WHERE {
   ?start skos:prefLabel ?startName .
   FILTER(CONTAINS(LCASE(?startName), LCASE("${escapedStart}")))
   ?start ${pathExpr} ?end .
