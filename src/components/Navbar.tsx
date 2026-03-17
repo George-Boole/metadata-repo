@@ -11,6 +11,7 @@ const NAV_LINKS = [
   { href: "/profiles", label: "Profiles" },
   { href: "/tools", label: "Tools" },
   { href: "/ontologies", label: "Ontologies" },
+  { href: "/knowledge-graph", label: "Knowledge Graph" },
   { href: "/api-explorer", label: "API Explorer" },
   { href: "/standards-brain", label: "Standards Brain" },
 ];

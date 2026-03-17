@@ -8,14 +8,29 @@ interface Stats {
   users: number;
 }
 
+interface StardogStats {
+  connected: boolean;
+  triples: number;
+  entities: number;
+  sources: number;
+  relationships: number;
+  error?: string;
+}
+
 export default function AdminDashboard() {
   const [stats, setStats] = useState<Stats | null>(null);
+  const [stardogStats, setStardogStats] = useState<StardogStats | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/api/admin/stats")
-      .then((r) => r.json())
-      .then(setStats)
+    Promise.all([
+      fetch("/api/admin/stats").then((r) => r.json()),
+      fetch("/api/admin/stardog").then((r) => r.json()).catch(() => null),
+    ])
+      .then(([s, sd]) => {
+        setStats(s);
+        setStardogStats(sd);
+      })
       .catch(console.error)
       .finally(() => setLoading(false));
   }, []);
@@ -81,6 +96,64 @@ export default function AdminDashboard() {
           </p>
         </div>
       ) : null}
+
+      {/* Stardog Integration Status */}
+      <div className="mt-8">
+        <h2 className="text-lg font-semibold text-daf-dark-gray mb-4">
+          Stardog Cloud Integration
+        </h2>
+        {stardogStats ? (
+          <div className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
+            <div className="flex items-center gap-2 mb-4">
+              <span
+                className={`h-3 w-3 rounded-full ${
+                  stardogStats.connected ? "bg-green-500" : "bg-red-500"
+                }`}
+              />
+              <span className="text-sm font-medium text-gray-700">
+                {stardogStats.connected ? "Connected" : "Disconnected"}
+              </span>
+              {stardogStats.error && (
+                <span className="text-sm text-red-500 ml-2">
+                  {stardogStats.error}
+                </span>
+              )}
+            </div>
+            {stardogStats.connected && (
+              <div className="grid gap-4 sm:grid-cols-4">
+                <div>
+                  <p className="text-xs text-gray-500">Total Triples</p>
+                  <p className="text-xl font-bold text-daf-dark-gray">
+                    {stardogStats.triples.toLocaleString()}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs text-gray-500">Entities</p>
+                  <p className="text-xl font-bold text-daf-dark-gray">
+                    {stardogStats.entities.toLocaleString()}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs text-gray-500">Sources</p>
+                  <p className="text-xl font-bold text-daf-dark-gray">
+                    {stardogStats.sources.toLocaleString()}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs text-gray-500">Relationships</p>
+                  <p className="text-xl font-bold text-daf-dark-gray">
+                    {stardogStats.relationships.toLocaleString()}
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
+        ) : (
+          <div className="rounded-lg border border-gray-200 bg-gray-50 p-5 text-sm text-gray-400">
+            Stardog status unavailable
+          </div>
+        )}
+      </div>
     </div>
   );
 }

@@ -6,6 +6,7 @@ import { getSupabaseServer } from "../supabase";
 import { runCypher } from "../neo4j";
 import { extractEntitiesAndRelationships } from "./graph-extract";
 import { writeToGraph } from "./graph-write";
+import { writeToStardog, writeStardogSourceNode } from "./stardog-write";
 
 export interface IngestOptions {
   url: string;
@@ -172,15 +173,38 @@ export async function ingestUrl(options: IngestOptions): Promise<IngestResult> {
       console.warn("Neo4j node creation failed (non-fatal):", e);
     }
 
-    // 7.5 Extract entities & relationships, write to graph (non-fatal)
+    // 7b. Create/update Stardog source node (non-fatal)
     try {
-      const extraction = await extractEntitiesAndRelationships(
+      await writeStardogSourceNode(
+        options.url,
+        title,
+        options.tier || "",
+        options.sourceType || "webpage",
+        chunks.length,
+      );
+    } catch (e) {
+      console.warn("Stardog source node creation failed (non-fatal):", e);
+    }
+
+    // 7.5 Extract entities & relationships, write to graph (non-fatal)
+    let extraction;
+    try {
+      extraction = await extractEntitiesAndRelationships(
         chunks.map((c) => c.content),
         title,
       );
       await writeToGraph(source.id, options.url, extraction);
     } catch (e) {
       console.warn("Graph extraction failed (non-fatal):", e);
+    }
+
+    // 7.6 Write extraction to Stardog (non-fatal)
+    if (extraction) {
+      try {
+        await writeToStardog(source.id, options.url, extraction);
+      } catch (e) {
+        console.warn("Stardog graph write failed (non-fatal):", e);
+      }
     }
 
     return {
@@ -361,10 +385,23 @@ export async function ingestFile(options: IngestFileOptions): Promise<IngestResu
       );
     } catch (e) { console.warn("Neo4j node creation failed (non-fatal):", e); }
 
+    // Stardog source node (non-fatal)
     try {
-      const extraction = await extractEntitiesAndRelationships(chunks.map((c) => c.content), title);
+      await writeStardogSourceNode(url, title, options.tier || "", options.sourceType || "document", chunks.length);
+    } catch (e) { console.warn("Stardog source node creation failed (non-fatal):", e); }
+
+    let extraction;
+    try {
+      extraction = await extractEntitiesAndRelationships(chunks.map((c) => c.content), title);
       await writeToGraph(source.id, url, extraction);
     } catch (e) { console.warn("Graph extraction failed (non-fatal):", e); }
+
+    // Write extraction to Stardog (non-fatal)
+    if (extraction) {
+      try {
+        await writeToStardog(source.id, url, extraction);
+      } catch (e) { console.warn("Stardog graph write failed (non-fatal):", e); }
+    }
 
     return { sourceId: source.id, url, title, chunkCount: chunks.length, status: "success" };
   } catch (e) {
@@ -481,14 +518,24 @@ export async function ingestZipContents(
     filesProcessed++;
 
     // Graph extraction on extracted content (non-fatal)
+    let extraction;
     try {
-      const extraction = await extractEntitiesAndRelationships(
+      extraction = await extractEntitiesAndRelationships(
         enrichedChunks.map((c) => c.content),
         `${sourceTitle} — ${file.filename}`,
       );
       await writeToGraph(sourceId, sourceUrl, extraction);
     } catch (e) {
       console.warn(`Graph extraction failed for ${file.filename} (non-fatal):`, e);
+    }
+
+    // Stardog graph write (non-fatal)
+    if (extraction) {
+      try {
+        await writeToStardog(sourceId, sourceUrl, extraction);
+      } catch (e) {
+        console.warn(`Stardog write failed for ${file.filename} (non-fatal):`, e);
+      }
     }
   }
 
