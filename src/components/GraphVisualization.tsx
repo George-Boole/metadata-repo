@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useCallback, useState, useMemo } from "react";
+import { useEffect, useState, useMemo } from "react";
 import Graph from "graphology";
 import { SigmaContainer, useRegisterEvents, useLoadGraph, useSigma, useSetSettings } from "@react-sigma/core";
 import { useRouter } from "next/navigation";
 import forceAtlas2 from "graphology-layout-forceatlas2";
+import { EdgeArrowProgram } from "sigma/rendering";
 import "@react-sigma/core/lib/style.css";
 
 const TYPE_COLORS: Record<string, string> = {
@@ -228,6 +229,7 @@ export default function GraphVisualization({
           labelFont: "Inter, system-ui, sans-serif",
           defaultEdgeColor: "#d1d5db",
           defaultEdgeType: "arrow",
+          edgeProgramClasses: { arrow: EdgeArrowProgram },
           minEdgeThickness: 0.5,
           zIndex: true,
           hideEdgesOnMove: true,
