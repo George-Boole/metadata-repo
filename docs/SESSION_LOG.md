@@ -1138,3 +1138,62 @@ Key relationship `IC-EDH —[REFERENCES]→ IC-ISM` now surfaces for all query p
 - 50,734 triples synced to Stardog
 - Knowledge Graph Explorer live on Vercel (Neo4j graph works, Stardog shows "not configured" until env vars added)
 - Two agents were running when paused — check `docs/CHECKPOINT.md` for resume instructions
+
+---
+
+## Session 21 — 2026-03-17
+**Focus**: Graph visualization upgrade + Stardog capabilities enhancement
+
+### Accomplished
+
+#### Graph Visualization Upgrade
+- Replaced `react-force-graph-2d` (Canvas) with **Sigma.js** (WebGL) for graph rendering
+- New `src/components/GraphVisualization.tsx` component using `@react-sigma/core` + `graphology`
+- ForceAtlas2 layout algorithm for organic clustering of entity nodes
+- **Smart label density**: Sigma controls label rendering via `labelDensity` and `labelRenderedSizeThreshold` — eliminates the "too many labels" problem
+- Node sizing proportional to connection count (hub nodes larger)
+- Hover highlighting: dims non-neighbors, highlights connected edges
+- Entity type filter buttons with counts (click to isolate Standard, Guidance, Tool, etc.)
+- Clickable nodes: graph nodes with linked sources navigate to `/sources/[id]` on click
+
+#### Graph API Enrichment
+- Both `/api/graph/neo4j/data` and `/api/graph/stardog/data` now return `sourceIds` per node
+- Batch-resolves source URLs to Supabase IDs for click-to-navigate linking
+
+#### Enhanced Stardog Capabilities
+- **Reasoning toggle**: Checkbox in SPARQL Explorer enables OWL 2 RL reasoning at query time (`reasoning: true`)
+- **Query Explain Plan**: "Explain Plan" button shows Stardog's query execution plan via `query.explain()`
+- **Path Finder tab**: New tab for multi-hop traversal using SPARQL 1.1 property paths — user enters start/end entity names and max hops
+- **Hub analysis**: Statistics tab now shows "Most Connected Entities" table via SPARQL aggregation
+- **Combined stats**: Statistics tab shows both Neo4j and Stardog metric cards side-by-side
+- **Enhanced comparison table**: Added Property Paths, Query Explain rows
+
+#### Stardog Client Enhancements
+- `runSparqlSelect()` now accepts `{ reasoning?: boolean }` option
+- Added `explainSparqlQuery()` function using `query.explain()`
+- Added `getDatabaseInfo()` for checking reasoning/search capabilities
+- `/api/graph/stardog/query` route now supports `reasoning` and `explain` parameters
+
+#### New Example Queries
+- Added "Multi-hop paths (NIEM)" and "Hub entities (most connected)" to SPARQL Explorer examples
+
+#### Documentation
+- Created `docs/STARDOG_QUICKSTART.md` — 45-minute tutorial with 8 ready-to-paste SPARQL queries
+- Updated CLAUDE.md Current State section
+
+### Files Created (2)
+- `src/components/GraphVisualization.tsx` — Sigma.js graph component
+- `docs/STARDOG_QUICKSTART.md` — Stardog Studio quick-start tutorial
+
+### Files Modified (6)
+- `src/app/knowledge-graph/page.tsx` — complete rewrite with 5 tabs (Graph, Path Finder, Comparison, SPARQL, Stats)
+- `src/app/api/graph/neo4j/data/route.ts` — enriched with source IDs
+- `src/app/api/graph/stardog/data/route.ts` — enriched with source IDs
+- `src/app/api/graph/stardog/query/route.ts` — added reasoning + explain support
+- `src/lib/stardog.ts` — added reasoning, explain, getDatabaseInfo functions
+- `package.json` — added sigma, @react-sigma/core, graphology, graphology-layout-forceatlas2; removed react-force-graph-2d
+
+### Status at End
+- Build passes, all features implemented
+- Stardog env vars added to Vercel by user, redeployed
+- Ready for production verification

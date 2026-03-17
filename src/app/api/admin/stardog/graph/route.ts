@@ -40,7 +40,7 @@ export async function GET(request: NextRequest) {
       } LIMIT 500`,
     );
 
-    // Build graph data structure for react-force-graph
+    // Build graph data structure
     const nodeSet = new Set<string>();
     const nodeTypeMap = new Map<string, string>();
 
