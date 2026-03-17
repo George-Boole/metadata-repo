@@ -60,8 +60,9 @@ export default function GraphVisualization({
 
   // Camera state for zoom/pan
   const cameraRef = useRef({ x: 0, y: 0, zoom: 1 });
-  const dragRef = useRef<{ dragging: boolean; lastX: number; lastY: number }>({
+  const dragRef = useRef<{ dragging: boolean; moved: boolean; lastX: number; lastY: number }>({
     dragging: false,
+    moved: false,
     lastX: 0,
     lastY: 0,
   });
@@ -399,26 +400,46 @@ export default function GraphVisualization({
     function onMouseDown(e: MouseEvent) {
       if (e.button === 0) {
         drag.dragging = true;
+        drag.moved = false;
         drag.lastX = e.clientX;
         drag.lastY = e.clientY;
-        canvas!.style.cursor = "grabbing";
       }
     }
 
-    function onMouseUp() {
+    function onMouseUp(e: MouseEvent) {
+      const wasDrag = drag.moved;
       drag.dragging = false;
-      canvas!.style.cursor = "default";
+      drag.moved = false;
+
+      // If mouse didn't move, treat as click
+      if (!wasDrag) {
+        const node = findNodeAt(e.clientX, e.clientY);
+        if (node) {
+          if (onNodeClick) {
+            onNodeClick(node);
+          } else if (node.sourceIds && node.sourceIds.length > 0) {
+            router.push(`/sources/${node.sourceIds[0]}`);
+          }
+        }
+      }
     }
 
     function onMouseMove(e: MouseEvent) {
       if (drag.dragging) {
-        const dx = (e.clientX - drag.lastX) / cam.zoom;
-        const dy = (e.clientY - drag.lastY) / cam.zoom;
-        cam.x += dx;
-        cam.y += dy;
-        drag.lastX = e.clientX;
-        drag.lastY = e.clientY;
-        requestRender();
+        const dx = e.clientX - drag.lastX;
+        const dy = e.clientY - drag.lastY;
+        // Only count as a drag if mouse moved more than 3px
+        if (Math.abs(dx) > 3 || Math.abs(dy) > 3) {
+          drag.moved = true;
+        }
+        if (drag.moved) {
+          cam.x += dx / cam.zoom;
+          cam.y += dy / cam.zoom;
+          drag.lastX = e.clientX;
+          drag.lastY = e.clientY;
+          canvas!.style.cursor = "grabbing";
+          requestRender();
+        }
         return;
       }
 
@@ -428,36 +449,27 @@ export default function GraphVisualization({
       canvas!.style.cursor = node
         ? node.sourceIds?.length
           ? "pointer"
-          : "grab"
+          : "default"
         : "grab";
     }
 
-    function onClick(e: MouseEvent) {
-      if (drag.dragging) return;
-      const node = findNodeAt(e.clientX, e.clientY);
-      if (node) {
-        if (onNodeClick) {
-          onNodeClick(node);
-        } else if (node.sourceIds && node.sourceIds.length > 0) {
-          router.push(`/sources/${node.sourceIds[0]}`);
-        }
-      }
+    function onMouseLeave() {
+      drag.dragging = false;
+      drag.moved = false;
     }
 
     canvas.addEventListener("wheel", onWheel, { passive: false });
     canvas.addEventListener("mousedown", onMouseDown);
     canvas.addEventListener("mousemove", onMouseMove);
     canvas.addEventListener("mouseup", onMouseUp);
-    canvas.addEventListener("mouseleave", onMouseUp);
-    canvas.addEventListener("click", onClick);
+    canvas.addEventListener("mouseleave", onMouseLeave);
 
     return () => {
       canvas.removeEventListener("wheel", onWheel);
       canvas.removeEventListener("mousedown", onMouseDown);
       canvas.removeEventListener("mousemove", onMouseMove);
       canvas.removeEventListener("mouseup", onMouseUp);
-      canvas.removeEventListener("mouseleave", onMouseUp);
-      canvas.removeEventListener("click", onClick);
+      canvas.removeEventListener("mouseleave", onMouseLeave);
     };
   }, [layoutNodes, dims, onNodeClick, router, requestRender]);
 
