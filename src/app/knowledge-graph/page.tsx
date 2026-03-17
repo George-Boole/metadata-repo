@@ -103,12 +103,27 @@ export default function KnowledgeGraphPage() {
   const [stardogStats, setStardogStats] = useState<StardogStats | null>(null);
   const [neo4jStats, setNeo4jStats] = useState<Neo4jStats | null>(null);
   const [loading, setLoading] = useState(true);
+  const [showStardog, setShowStardog] = useState(true);
 
   // SPARQL tab state
   const [sparql, setSparql] = useState(EXAMPLE_QUERIES[0].sparql);
   const [queryResults, setQueryResults] = useState<QueryResult | null>(null);
   const [queryLoading, setQueryLoading] = useState(false);
   const [queryError, setQueryError] = useState<string | null>(null);
+
+  // Fetch public settings for Stardog visibility
+  useEffect(() => {
+    fetch("/api/settings")
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.show_stardog !== undefined) {
+          setShowStardog(data.show_stardog);
+        }
+      })
+      .catch(() => {
+        // Default to showing Stardog if settings fetch fails
+      });
+  }, []);
 
   useEffect(() => {
     Promise.all([
@@ -152,12 +167,20 @@ export default function KnowledgeGraphPage() {
     }
   }
 
-  const tabs: { id: TabId; label: string }[] = [
+  // Reset to graph tab if current tab is Stardog-only and Stardog is hidden
+  useEffect(() => {
+    if (!showStardog && (activeTab === "comparison" || activeTab === "sparql")) {
+      setActiveTab("graph");
+    }
+  }, [showStardog, activeTab]);
+
+  const allTabs: { id: TabId; label: string; stardogOnly?: boolean }[] = [
     { id: "graph", label: "Graph Visualization" },
-    { id: "comparison", label: "Platform Comparison" },
-    { id: "sparql", label: "SPARQL Explorer" },
+    { id: "comparison", label: "Platform Comparison", stardogOnly: true },
+    { id: "sparql", label: "SPARQL Explorer", stardogOnly: true },
     { id: "neo4j", label: "Neo4j Stats" },
   ];
+  const tabs = allTabs.filter((tab) => showStardog || !tab.stardogOnly);
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
@@ -167,20 +190,24 @@ export default function KnowledgeGraphPage() {
             Knowledge Graph Explorer
           </h1>
           <p className="mt-2 text-gray-600">
-            Compare graph backends: Neo4j AuraDB (current) vs Stardog Cloud (evaluation)
+            {showStardog
+              ? "Compare graph backends: Neo4j AuraDB (current) vs Stardog Cloud (evaluation)"
+              : "Explore the DAF metadata knowledge graph powered by Neo4j AuraDB"}
           </p>
         </div>
-        <a
-          href={STARDOG_STUDIO_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="shrink-0 flex items-center gap-2 rounded-lg border border-blue-300 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-700 hover:bg-blue-100 transition-colors"
-        >
-          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-          </svg>
-          Open Stardog Studio
-        </a>
+        {showStardog && (
+          <a
+            href={STARDOG_STUDIO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 flex items-center gap-2 rounded-lg border border-blue-300 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-700 hover:bg-blue-100 transition-colors"
+          >
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+            </svg>
+            Open Stardog Studio
+          </a>
+        )}
       </div>
 
       {/* Tabs */}
@@ -208,7 +235,7 @@ export default function KnowledgeGraphPage() {
         </div>
       ) : (
         <>
-          {activeTab === "graph" && <GraphTab />}
+          {activeTab === "graph" && <GraphTab showStardog={showStardog} />}
           {activeTab === "comparison" && (
             <ComparisonTab stardogStats={stardogStats} neo4jStats={neo4jStats} />
           )}
@@ -229,7 +256,7 @@ export default function KnowledgeGraphPage() {
   );
 }
 
-function GraphTab() {
+function GraphTab({ showStardog }: { showStardog: boolean }) {
   const [graphSource, setGraphSource] = useState<"neo4j" | "stardog">("neo4j");
   const [graphData, setGraphData] = useState<GraphData | null>(null);
   const [graphLoading, setGraphLoading] = useState(false);
@@ -307,27 +334,34 @@ function GraphTab() {
       {/* Source toggle + legend */}
       <div className="mb-4 flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-2">
-          <span className="text-sm text-gray-500">Data source:</span>
-          <button
-            onClick={() => setGraphSource("neo4j")}
-            className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
-              graphSource === "neo4j"
-                ? "bg-green-600 text-white"
-                : "border border-gray-300 text-gray-600 hover:bg-gray-100"
-            }`}
-          >
-            Neo4j
-          </button>
-          <button
-            onClick={() => setGraphSource("stardog")}
-            className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
-              graphSource === "stardog"
-                ? "bg-blue-600 text-white"
-                : "border border-gray-300 text-gray-600 hover:bg-gray-100"
-            }`}
-          >
-            Stardog
-          </button>
+          {showStardog && (
+            <>
+              <span className="text-sm text-gray-500">Data source:</span>
+              <button
+                onClick={() => setGraphSource("neo4j")}
+                className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
+                  graphSource === "neo4j"
+                    ? "bg-green-600 text-white"
+                    : "border border-gray-300 text-gray-600 hover:bg-gray-100"
+                }`}
+              >
+                Neo4j
+              </button>
+              <button
+                onClick={() => setGraphSource("stardog")}
+                className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
+                  graphSource === "stardog"
+                    ? "bg-blue-600 text-white"
+                    : "border border-gray-300 text-gray-600 hover:bg-gray-100"
+                }`}
+              >
+                Stardog
+              </button>
+            </>
+          )}
+          {!showStardog && (
+            <span className="text-sm text-gray-500">Data source: Neo4j</span>
+          )}
         </div>
         <div className="flex flex-wrap gap-3">
           {Object.entries(TYPE_COLORS).map(([type, color]) => (
@@ -586,14 +620,6 @@ function SparqlTab({
               {queryResults.results.length} result{queryResults.results.length !== 1 ? "s" : ""}
             </span>
           )}
-          <a
-            href={STARDOG_STUDIO_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ml-auto text-sm text-blue-600 hover:text-blue-800"
-          >
-            Open in Stardog Studio
-          </a>
         </div>
       </div>
 

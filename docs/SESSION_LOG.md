@@ -1051,3 +1051,90 @@ Key relationship `IC-EDH —[REFERENCES]→ IC-ISM` now surfaces for all query p
 - Upload queue UI with per-file tracking, cancel, dismiss
 - Content dedup confirmed working (caught 8 duplicate uploads)
 - Build passes clean, deployed to Vercel
+
+## Session 20 — 2026-03-16
+**Focus**: Stardog Cloud integration as parallel graph backend
+
+### Accomplished
+
+#### Stardog Cloud Setup
+- Created Stardog Cloud Free account, provisioned free instance
+- Created `metadata-repo` database (online, Server v12.0.0)
+- Discovered portal login != instance credentials (separate auth systems)
+- Changed instance user password via Stardog Studio Security panel
+- Verified connection: 200 OK, all 3 databases visible
+
+#### Phase 1: Stardog Client & RDF Mapping
+- Installed `stardog` npm package (official JS client)
+- Created `src/lib/stardog.ts` — singleton connection, SPARQL SELECT/UPDATE helpers, `isStardogConfigured()` guard
+- Created `src/lib/ingest/stardog-write.ts` — converts ExtractionResult to RDF triples (entities → SKOS prefLabel/altLabel, relationships → custom predicates, MENTIONS → dcterms:references)
+- Created `src/lib/rag/stardog-search.ts` — SPARQL-based graph search mirroring Neo4j graph-search.ts
+
+#### Phase 2: Pipeline Integration
+- Modified `src/lib/ingest/pipeline.ts` — all 3 ingest paths (URL, file, ZIP) now auto-sync to both Neo4j and Stardog
+- All Stardog steps are non-fatal (try/catch, log warnings)
+
+#### Phase 3: Bulk Sync
+- Created `scripts/sync-to-stardog.ts` — reads all Neo4j data, converts to RDF, batch-inserts
+- Ran successfully: **50,734 triples** loaded (150 sources, 7,704 entities, 10,354 RELATES_TO, 19,679 MENTIONS)
+
+#### Phase 4: Hybrid Retriever
+- Modified `src/lib/rag/hybrid-retriever.ts` — queries Neo4j + Stardog in parallel, merges connected URLs for boosting
+
+#### Phase 5: Knowledge Graph Explorer UI
+- Created `/knowledge-graph` page with 4 tabs:
+  - **Graph Visualization**: Interactive force-directed graph (react-force-graph-2d), toggle Neo4j/Stardog data source, color-coded by entity type, hover inspection
+  - **Platform Comparison**: Side-by-side table (Neo4j vs Stardog — connection, entities, sources, relationships, capabilities)
+  - **SPARQL Explorer**: Run SPARQL queries against Stardog from within the app, 4 example queries
+  - **Neo4j Stats**: Entity/source/relationship counts
+- Created public API routes at `/api/graph/*` (not admin-gated):
+  - `/api/graph/stardog` + `/api/graph/stardog/data` + `/api/graph/stardog/query`
+  - `/api/graph/neo4j` + `/api/graph/neo4j/data`
+
+#### Phase 6: Admin Panel + Nav
+- Added Stardog connection status section to admin dashboard (triples, entities, sources, relationships)
+- Added "Knowledge Graph" link to navbar
+- Removed external "Open Stardog Studio" link (users don't have credentials)
+
+#### Infrastructure
+- Created GitHub deploy key for metadata-repo (`~/.ssh/id_ed25519_metadata`)
+- Added SSH config alias `github-metadata`
+- Switched remote from HTTPS to SSH
+- Created `.env.example` with all env var templates
+
+### Files Created (14)
+- `src/lib/stardog.ts`
+- `src/lib/ingest/stardog-write.ts`
+- `src/lib/rag/stardog-search.ts`
+- `src/app/knowledge-graph/page.tsx`
+- `src/app/api/graph/stardog/route.ts`
+- `src/app/api/graph/stardog/data/route.ts`
+- `src/app/api/graph/stardog/query/route.ts`
+- `src/app/api/graph/neo4j/route.ts`
+- `src/app/api/graph/neo4j/data/route.ts`
+- `src/app/api/admin/stardog/route.ts`
+- `src/app/api/admin/stardog/query/route.ts`
+- `src/app/api/admin/stardog/graph/route.ts`
+- `scripts/sync-to-stardog.ts`
+- `.env.example`
+
+### Files Modified (7)
+- `src/lib/ingest/pipeline.ts` — Stardog write steps in all 3 ingest paths
+- `src/lib/rag/hybrid-retriever.ts` — parallel Stardog + Neo4j search
+- `src/components/Navbar.tsx` — Knowledge Graph nav link
+- `src/app/admin/page.tsx` — Stardog status section
+- `src/app/api/setup/neo4j/route.ts` — added GET for stats
+- `package.json` / `package-lock.json` — stardog + react-force-graph-2d
+
+### Known Issues / Incomplete
+- **Stardog env vars NOT on Vercel** — must be added manually via Vercel dashboard before Stardog works on production
+- **Admin toggle for Stardog visibility** — in progress (agent was building when session paused)
+- **Graph visualization quality** — in progress (agent was improving when session paused)
+- Stardog Cloud Free limit: 25 queries/hour
+- Neo4j AuraDB Free auto-pauses after inactivity
+
+### Status at End (Paused)
+- Stardog integration fully built and working locally
+- 50,734 triples synced to Stardog
+- Knowledge Graph Explorer live on Vercel (Neo4j graph works, Stardog shows "not configured" until env vars added)
+- Two agents were running when paused — check `docs/CHECKPOINT.md` for resume instructions
