@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useState, useRef, useCallback } from "react";
-import { useRouter } from "next/navigation";
 
 const TYPE_COLORS: Record<string, string> = {
   Standard: "#3b82f6",
@@ -56,8 +55,6 @@ export default function GraphVisualization({
   const containerRef = useRef<HTMLDivElement>(null);
   const [hoveredNode, setHoveredNode] = useState<string | null>(null);
   const [dims, setDims] = useState({ width: 900, height });
-  const router = useRouter();
-
   // Camera state for zoom/pan
   const cameraRef = useRef({ x: 0, y: 0, zoom: 1 });
   const dragRef = useRef<{ dragging: boolean; moved: boolean; lastX: number; lastY: number }>({
@@ -418,7 +415,8 @@ export default function GraphVisualization({
           if (onNodeClick) {
             onNodeClick(node);
           } else if (node.sourceIds && node.sourceIds.length > 0) {
-            router.push(`/sources/${node.sourceIds[0]}`);
+            // Direct navigation is faster than router.push
+            window.location.href = `/sources/${node.sourceIds[0]}`;
           }
         }
       }
@@ -471,7 +469,7 @@ export default function GraphVisualization({
       canvas.removeEventListener("mouseup", onMouseUp);
       canvas.removeEventListener("mouseleave", onMouseLeave);
     };
-  }, [layoutNodes, dims, onNodeClick, router, requestRender]);
+  }, [layoutNodes, dims, onNodeClick, requestRender]);
 
   const hoveredInfo = hoveredNode ? nodeById.get(hoveredNode) : null;
 
