@@ -55,6 +55,9 @@ export async function PATCH(request: NextRequest) {
     if (body.system_prompt !== undefined) {
       updates.push({ key: "system_prompt", value: body.system_prompt });
     }
+    if (body.show_stardog !== undefined) {
+      updates.push({ key: "show_stardog", value: body.show_stardog });
+    }
 
     if (updates.length === 0) {
       return NextResponse.json(
@@ -66,8 +69,10 @@ export async function PATCH(request: NextRequest) {
     for (const update of updates) {
       const { error } = await supabase
         .from("app_settings")
-        .update({ value: update.value, updated_at: new Date().toISOString() })
-        .eq("key", update.key);
+        .upsert(
+          { key: update.key, value: update.value, updated_at: new Date().toISOString() },
+          { onConflict: "key" }
+        );
 
       if (error) {
         console.error("Settings PATCH error:", error);

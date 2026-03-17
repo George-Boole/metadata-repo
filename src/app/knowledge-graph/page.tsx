@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useState, useCallback, useRef, useMemo } from "react";
 
 // Dynamic import for react-force-graph-2d (needs window/canvas)
 const ForceGraph2D = dynamic(() => import("react-force-graph-2d"), {
@@ -272,6 +272,24 @@ function GraphTab({ showStardog }: { showStardog: boolean }) {
     }
   }, []);
 
+  // Pre-compute connection counts and neighbor sets for each node
+  const { connectionCounts, neighborMap } = useMemo(() => {
+    if (!graphData) return { connectionCounts: {} as Record<string, number>, neighborMap: {} as Record<string, Set<string>> };
+    const counts: Record<string, number> = {};
+    const neighbors: Record<string, Set<string>> = {};
+    for (const link of graphData.links) {
+      const sourceId = typeof link.source === "string" ? link.source : link.source.id;
+      const targetId = typeof link.target === "string" ? link.target : link.target.id;
+      counts[sourceId] = (counts[sourceId] || 0) + 1;
+      counts[targetId] = (counts[targetId] || 0) + 1;
+      if (!neighbors[sourceId]) neighbors[sourceId] = new Set();
+      if (!neighbors[targetId]) neighbors[targetId] = new Set();
+      neighbors[sourceId].add(targetId);
+      neighbors[targetId].add(sourceId);
+    }
+    return { connectionCounts: counts, neighborMap: neighbors };
+  }, [graphData]);
+
   const loadGraph = useCallback(async (source: "neo4j" | "stardog") => {
     setGraphLoading(true);
     setGraphError(null);
@@ -304,25 +322,87 @@ function GraphTab({ showStardog }: { showStardog: boolean }) {
       const fontSize = Math.max(10 / globalScale, 2);
       const color = TYPE_COLORS[type] || TYPE_COLORS.Entity;
       const isHovered = hoveredNode?.id === label;
-      const radius = isHovered ? 6 : 4;
+      const isNeighborOfHovered = hoveredNode ? neighborMap[hoveredNode.id]?.has(label) : false;
+      const isDimmed = hoveredNode !== null && !isHovered && !isNeighborOfHovered;
+      const nodeConnections = connectionCounts[label] || 0;
+      const radius = isHovered ? 8 : 5;
 
       ctx.beginPath();
       ctx.arc(node.x || 0, node.y || 0, radius, 0, 2 * Math.PI);
-      ctx.fillStyle = color;
+      ctx.fillStyle = isDimmed ? `${color}33` : color;
       ctx.fill();
 
       if (isHovered) {
         ctx.strokeStyle = "#1e3a5f";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+      } else if (isNeighborOfHovered) {
+        ctx.strokeStyle = color;
         ctx.lineWidth = 1.5;
         ctx.stroke();
       }
 
-      if (globalScale > 1.5 || isHovered) {
-        ctx.font = `${isHovered ? "bold " : ""}${fontSize}px sans-serif`;
+      const showLabel = globalScale > 1.5 || isHovered || isNeighborOfHovered || nodeConnections >= 3;
+      if (showLabel) {
+        ctx.font = `${isHovered || isNeighborOfHovered ? "bold " : ""}${fontSize}px sans-serif`;
         ctx.textAlign = "center";
         ctx.textBaseline = "top";
-        ctx.fillStyle = isHovered ? "#1e3a5f" : "#374151";
+        ctx.fillStyle = isDimmed ? "#9ca3af66" : isHovered ? "#1e3a5f" : "#374151";
         ctx.fillText(label, node.x || 0, (node.y || 0) + radius + 2);
+      }
+    },
+    [hoveredNode, connectionCounts, neighborMap],
+  );
+
+  const linkCanvasObject = useCallback(
+    (link: any, ctx: CanvasRenderingContext2D, globalScale: number) => {
+      const source = link.source;
+      const target = link.target;
+      if (!source || !target || source.x == null || target.x == null) return;
+
+      const sourceId = typeof source === "string" ? source : source.id;
+      const targetId = typeof target === "string" ? target : target.id;
+      const isConnectedToHovered = hoveredNode
+        ? hoveredNode.id === sourceId || hoveredNode.id === targetId
+        : false;
+      const isDimmed = hoveredNode !== null && !isConnectedToHovered;
+
+      // Draw link line
+      ctx.beginPath();
+      ctx.moveTo(source.x, source.y);
+      ctx.lineTo(target.x, target.y);
+      ctx.strokeStyle = isDimmed ? "#e5e7eb44" : isConnectedToHovered ? "#94a3b8" : "#d1d5db";
+      ctx.lineWidth = isDimmed ? 0.5 : isConnectedToHovered ? 2 : 1;
+      ctx.stroke();
+
+      // Draw arrow
+      const dx = target.x - source.x;
+      const dy = target.y - source.y;
+      const len = Math.sqrt(dx * dx + dy * dy);
+      if (len > 0) {
+        const arrowLen = 4;
+        const endX = target.x - (dx / len) * 5;
+        const endY = target.y - (dy / len) * 5;
+        const angle = Math.atan2(dy, dx);
+        ctx.beginPath();
+        ctx.moveTo(endX, endY);
+        ctx.lineTo(endX - arrowLen * Math.cos(angle - Math.PI / 6), endY - arrowLen * Math.sin(angle - Math.PI / 6));
+        ctx.lineTo(endX - arrowLen * Math.cos(angle + Math.PI / 6), endY - arrowLen * Math.sin(angle + Math.PI / 6));
+        ctx.closePath();
+        ctx.fillStyle = isDimmed ? "#e5e7eb44" : isConnectedToHovered ? "#94a3b8" : "#d1d5db";
+        ctx.fill();
+      }
+
+      // Draw link label when zoomed past 2x
+      if (globalScale > 2 && !isDimmed && link.type) {
+        const midX = (source.x + target.x) / 2;
+        const midY = (source.y + target.y) / 2;
+        const linkFontSize = Math.max(8 / globalScale, 1.5);
+        ctx.font = `${linkFontSize}px sans-serif`;
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillStyle = isConnectedToHovered ? "#475569" : "#9ca3af";
+        ctx.fillText(link.type, midX, midY);
       }
     },
     [hoveredNode],
@@ -379,8 +459,8 @@ function GraphTab({ showStardog }: { showStardog: boolean }) {
       {/* Graph container */}
       <div
         ref={containerRef}
-        className="rounded-lg border border-gray-200 bg-white overflow-hidden"
-        style={{ height: 500 }}
+        className="relative rounded-lg border border-gray-200 overflow-hidden"
+        style={{ height: 500, backgroundColor: "#f8fafc" }}
       >
         {graphLoading && (
           <div className="flex items-center justify-center h-full text-gray-400">
@@ -393,26 +473,38 @@ function GraphTab({ showStardog }: { showStardog: boolean }) {
           </div>
         )}
         {!graphLoading && !graphError && graphData && graphData.nodes.length > 0 && (
-          <ForceGraph2D
-            graphData={graphData}
-            width={dimensions.width}
-            height={500}
-            nodeCanvasObject={nodeCanvasObject}
-            nodePointerAreaPaint={(node: any, color: string, ctx: CanvasRenderingContext2D) => { // eslint-disable-line @typescript-eslint/no-explicit-any
-              ctx.beginPath();
-              ctx.arc(node.x || 0, node.y || 0, 6, 0, 2 * Math.PI);
-              ctx.fillStyle = color;
-              ctx.fill();
-            }}
-            linkColor={() => "#e5e7eb"}
-            linkWidth={0.5}
-            linkDirectionalArrowLength={3}
-            linkDirectionalArrowRelPos={1}
-            onNodeHover={(node: any) => setHoveredNode(node ? { id: node.id, type: node.type || "Entity" } : null)} // eslint-disable-line @typescript-eslint/no-explicit-any
-            cooldownTicks={100}
-            enableZoomInteraction={true}
-            enablePanInteraction={true}
-          />
+          <>
+            <ForceGraph2D
+              graphData={graphData}
+              width={dimensions.width}
+              height={500}
+              backgroundColor="#f8fafc"
+              nodeCanvasObject={nodeCanvasObject}
+              nodePointerAreaPaint={(node: any, color: string, ctx: CanvasRenderingContext2D) => { // eslint-disable-line @typescript-eslint/no-explicit-any
+                ctx.beginPath();
+                ctx.arc(node.x || 0, node.y || 0, 8, 0, 2 * Math.PI);
+                ctx.fillStyle = color;
+                ctx.fill();
+              }}
+              linkCanvasObject={linkCanvasObject}
+              linkColor={() => "#d1d5db"}
+              linkWidth={1}
+              onNodeHover={(node: any) => setHoveredNode(node ? { id: node.id, type: node.type || "Entity" } : null)} // eslint-disable-line @typescript-eslint/no-explicit-any
+              cooldownTicks={100}
+              enableZoomInteraction={true}
+              enablePanInteraction={true}
+            />
+            {/* Sticky stats bar at bottom of graph */}
+            <div className="absolute bottom-0 left-0 right-0 flex gap-6 px-4 py-2 text-sm text-gray-600 bg-white/90 backdrop-blur-sm border-t border-gray-200">
+              <span className="font-medium">{graphData.nodes.length} nodes</span>
+              <span className="font-medium">{graphData.links.length} relationships</span>
+              {hoveredNode && (
+                <span className="text-gray-800 font-semibold">
+                  {hoveredNode.id} ({hoveredNode.type}) &mdash; {connectionCounts[hoveredNode.id] || 0} connections
+                </span>
+              )}
+            </div>
+          </>
         )}
         {!graphLoading && !graphError && graphData && graphData.nodes.length === 0 && (
           <div className="flex items-center justify-center h-full text-gray-400 text-sm">
@@ -420,19 +512,6 @@ function GraphTab({ showStardog }: { showStardog: boolean }) {
           </div>
         )}
       </div>
-
-      {/* Stats bar */}
-      {graphData && graphData.nodes.length > 0 && (
-        <div className="mt-3 flex gap-6 text-sm text-gray-500">
-          <span>{graphData.nodes.length} nodes</span>
-          <span>{graphData.links.length} relationships</span>
-          {hoveredNode && (
-            <span className="text-gray-800 font-medium">
-              {hoveredNode.id} ({hoveredNode.type})
-            </span>
-          )}
-        </div>
-      )}
     </div>
   );
 }
@@ -467,27 +546,27 @@ function ComparisonTab({
     },
     {
       metric: "Entities",
-      neo4j: neo4jStats?.entities.toLocaleString() ?? "—",
-      stardog: stardogStats?.entities.toLocaleString() ?? "—",
+      neo4j: neo4jStats?.entities.toLocaleString() ?? "\u2014",
+      stardog: stardogStats?.entities.toLocaleString() ?? "\u2014",
     },
     {
       metric: "Sources",
-      neo4j: neo4jStats?.sources.toLocaleString() ?? "—",
-      stardog: stardogStats?.sources.toLocaleString() ?? "—",
+      neo4j: neo4jStats?.sources.toLocaleString() ?? "\u2014",
+      stardog: stardogStats?.sources.toLocaleString() ?? "\u2014",
     },
     {
       metric: "Relationships",
       neo4j: neo4jStats
         ? (neo4jStats.relatesToCount + neo4jStats.mentionsCount).toLocaleString()
-        : "—",
-      stardog: stardogStats?.relationships.toLocaleString() ?? "—",
+        : "\u2014",
+      stardog: stardogStats?.relationships.toLocaleString() ?? "\u2014",
     },
     {
       metric: "Total Triples / Edges",
       neo4j: neo4jStats
         ? (neo4jStats.relatesToCount + neo4jStats.mentionsCount).toLocaleString()
-        : "—",
-      stardog: stardogStats?.triples.toLocaleString() ?? "—",
+        : "\u2014",
+      stardog: stardogStats?.triples.toLocaleString() ?? "\u2014",
     },
     {
       metric: "Standards Support",

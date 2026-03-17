@@ -12,6 +12,7 @@ export default function SettingsPage() {
   const [activeModel, setActiveModel] = useState("");
   const [models, setModels] = useState<Record<string, ModelConfig>>({});
   const [systemPrompt, setSystemPrompt] = useState("");
+  const [showStardog, setShowStardog] = useState(true);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
@@ -23,6 +24,7 @@ export default function SettingsPage() {
         setActiveModel(data.active_model || "");
         setModels(data.models || {});
         setSystemPrompt(data.system_prompt || "");
+        setShowStardog(data.show_stardog !== undefined ? data.show_stardog : true);
       })
       .catch(console.error)
       .finally(() => setLoading(false));
@@ -39,6 +41,7 @@ export default function SettingsPage() {
         body: JSON.stringify({
           active_model: activeModel,
           system_prompt: systemPrompt,
+          show_stardog: showStardog,
         }),
       });
 
@@ -108,6 +111,34 @@ export default function SettingsPage() {
           rows={6}
           className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm font-mono focus:border-daf-blue focus:outline-none focus:ring-1 focus:ring-daf-blue"
         />
+      </div>
+
+      {/* Feature Visibility */}
+      <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+        <h2 className="mb-4 text-lg font-semibold text-daf-dark-gray">
+          Feature Visibility
+        </h2>
+        <p className="mb-3 text-sm text-gray-500">
+          Control which features are visible on the public site.
+        </p>
+        <label className="flex items-center gap-3 cursor-pointer">
+          <input
+            type="checkbox"
+            checked={showStardog}
+            onChange={(e) => setShowStardog(e.target.checked)}
+            className="h-4 w-4 rounded border-gray-300 text-daf-navy focus:ring-daf-blue"
+          />
+          <div>
+            <p className="text-sm font-medium text-daf-dark-gray">
+              Show Stardog Integration
+            </p>
+            <p className="text-xs text-gray-400">
+              When disabled, hides the Stardog toggle, Platform Comparison tab,
+              SPARQL Explorer tab, and Stardog Studio link on the public
+              Knowledge Graph page. Admin views are unaffected.
+            </p>
+          </div>
+        </label>
       </div>
 
       {/* Save */}
