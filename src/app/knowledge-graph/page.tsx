@@ -1,6 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+import { useEffect, useState, useCallback, useRef } from "react";
+
+// Dynamic import for react-force-graph-2d (needs window/canvas)
+const ForceGraph2D = dynamic(() => import("react-force-graph-2d"), {
+  ssr: false,
+  loading: () => (
+    <div className="flex items-center justify-center h-[500px] text-gray-400">
+      Loading graph visualization...
+    </div>
+  ),
+});
 
 interface StardogStats {
   connected: boolean;
@@ -18,9 +29,39 @@ interface Neo4jStats {
   mentionsCount: number;
 }
 
+interface GraphNode {
+  id: string;
+  type: string;
+  x?: number;
+  y?: number;
+}
+
+interface GraphLink {
+  source: string | GraphNode;
+  target: string | GraphNode;
+  type: string;
+}
+
+interface GraphData {
+  nodes: GraphNode[];
+  links: GraphLink[];
+}
+
 interface QueryResult {
   results: Record<string, string>[];
 }
+
+const TYPE_COLORS: Record<string, string> = {
+  Standard: "#3b82f6",
+  Guidance: "#ef4444",
+  Tool: "#f59e0b",
+  Profile: "#8b5cf6",
+  Ontology: "#10b981",
+  Organization: "#6366f1",
+  Entity: "#9ca3af",
+};
+
+const STARDOG_STUDIO_URL = "https://cloud.stardog.com/u/0/studio";
 
 const EXAMPLE_QUERIES = [
   {
@@ -55,8 +96,10 @@ const EXAMPLE_QUERIES = [
   },
 ];
 
+type TabId = "graph" | "comparison" | "sparql" | "neo4j";
+
 export default function KnowledgeGraphPage() {
-  const [activeTab, setActiveTab] = useState<"comparison" | "sparql" | "neo4j">("comparison");
+  const [activeTab, setActiveTab] = useState<TabId>("graph");
   const [stardogStats, setStardogStats] = useState<StardogStats | null>(null);
   const [neo4jStats, setNeo4jStats] = useState<Neo4jStats | null>(null);
   const [loading, setLoading] = useState(true);
@@ -69,12 +112,12 @@ export default function KnowledgeGraphPage() {
 
   useEffect(() => {
     Promise.all([
-      fetch("/api/admin/stardog").then((r) => r.json()),
-      fetch("/api/setup/neo4j").then((r) => r.json()).catch(() => null),
+      fetch("/api/graph/stardog").then((r) => r.json()).catch(() => ({ connected: false, triples: 0, entities: 0, sources: 0, relationships: 0 })),
+      fetch("/api/graph/neo4j").then((r) => r.json()).catch(() => null),
     ])
       .then(([sd, neo]) => {
         setStardogStats(sd);
-        if (neo) {
+        if (neo && !neo.error) {
           setNeo4jStats({
             entities: neo.entities ?? 0,
             sources: neo.sources ?? 0,
@@ -90,7 +133,7 @@ export default function KnowledgeGraphPage() {
     setQueryLoading(true);
     setQueryError(null);
     try {
-      const res = await fetch("/api/admin/stardog/query", {
+      const res = await fetch("/api/graph/stardog/query", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ sparql }),
@@ -109,21 +152,35 @@ export default function KnowledgeGraphPage() {
     }
   }
 
-  const tabs = [
-    { id: "comparison" as const, label: "Platform Comparison" },
-    { id: "sparql" as const, label: "SPARQL Explorer" },
-    { id: "neo4j" as const, label: "Neo4j Stats" },
+  const tabs: { id: TabId; label: string }[] = [
+    { id: "graph", label: "Graph Visualization" },
+    { id: "comparison", label: "Platform Comparison" },
+    { id: "sparql", label: "SPARQL Explorer" },
+    { id: "neo4j", label: "Neo4j Stats" },
   ];
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-daf-dark-gray">
-          Knowledge Graph Explorer
-        </h1>
-        <p className="mt-2 text-gray-600">
-          Compare graph backends: Neo4j AuraDB (current) vs Stardog Cloud (evaluation)
-        </p>
+      <div className="mb-8 flex items-start justify-between">
+        <div>
+          <h1 className="text-3xl font-bold text-daf-dark-gray">
+            Knowledge Graph Explorer
+          </h1>
+          <p className="mt-2 text-gray-600">
+            Compare graph backends: Neo4j AuraDB (current) vs Stardog Cloud (evaluation)
+          </p>
+        </div>
+        <a
+          href={STARDOG_STUDIO_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="shrink-0 flex items-center gap-2 rounded-lg border border-blue-300 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-700 hover:bg-blue-100 transition-colors"
+        >
+          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+          </svg>
+          Open Stardog Studio
+        </a>
       </div>
 
       {/* Tabs */}
@@ -145,18 +202,16 @@ export default function KnowledgeGraphPage() {
         </div>
       </div>
 
-      {loading ? (
+      {loading && activeTab !== "graph" ? (
         <div className="flex items-center justify-center py-20 text-gray-400">
           Loading graph statistics...
         </div>
       ) : (
         <>
-          {/* Comparison Tab */}
+          {activeTab === "graph" && <GraphTab />}
           {activeTab === "comparison" && (
             <ComparisonTab stardogStats={stardogStats} neo4jStats={neo4jStats} />
           )}
-
-          {/* SPARQL Explorer Tab */}
           {activeTab === "sparql" && (
             <SparqlTab
               sparql={sparql}
@@ -167,12 +222,182 @@ export default function KnowledgeGraphPage() {
               runQuery={runQuery}
             />
           )}
-
-          {/* Neo4j Tab */}
-          {activeTab === "neo4j" && (
-            <Neo4jTab stats={neo4jStats} />
-          )}
+          {activeTab === "neo4j" && <Neo4jTab stats={neo4jStats} />}
         </>
+      )}
+    </div>
+  );
+}
+
+function GraphTab() {
+  const [graphSource, setGraphSource] = useState<"neo4j" | "stardog">("neo4j");
+  const [graphData, setGraphData] = useState<GraphData | null>(null);
+  const [graphLoading, setGraphLoading] = useState(false);
+  const [graphError, setGraphError] = useState<string | null>(null);
+  const [hoveredNode, setHoveredNode] = useState<GraphNode | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [dimensions, setDimensions] = useState({ width: 900, height: 500 });
+
+  useEffect(() => {
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      setDimensions({ width: rect.width, height: 500 });
+    }
+  }, []);
+
+  const loadGraph = useCallback(async (source: "neo4j" | "stardog") => {
+    setGraphLoading(true);
+    setGraphError(null);
+    try {
+      const url = source === "neo4j" ? "/api/graph/neo4j/data" : "/api/graph/stardog/data";
+      const res = await fetch(url);
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        setGraphError(err.error || `Failed to load ${source} graph`);
+        return;
+      }
+      const data = await res.json();
+      setGraphData(data);
+    } catch {
+      setGraphError(`Failed to connect to ${source}`);
+    } finally {
+      setGraphLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    loadGraph(graphSource);
+  }, [graphSource, loadGraph]);
+
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  const nodeCanvasObject = useCallback(
+    (node: any, ctx: CanvasRenderingContext2D, globalScale: number) => {
+      const label = node.id as string;
+      const type = (node.type as string) || "Entity";
+      const fontSize = Math.max(10 / globalScale, 2);
+      const color = TYPE_COLORS[type] || TYPE_COLORS.Entity;
+      const isHovered = hoveredNode?.id === label;
+      const radius = isHovered ? 6 : 4;
+
+      ctx.beginPath();
+      ctx.arc(node.x || 0, node.y || 0, radius, 0, 2 * Math.PI);
+      ctx.fillStyle = color;
+      ctx.fill();
+
+      if (isHovered) {
+        ctx.strokeStyle = "#1e3a5f";
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+      }
+
+      if (globalScale > 1.5 || isHovered) {
+        ctx.font = `${isHovered ? "bold " : ""}${fontSize}px sans-serif`;
+        ctx.textAlign = "center";
+        ctx.textBaseline = "top";
+        ctx.fillStyle = isHovered ? "#1e3a5f" : "#374151";
+        ctx.fillText(label, node.x || 0, (node.y || 0) + radius + 2);
+      }
+    },
+    [hoveredNode],
+  );
+  /* eslint-enable @typescript-eslint/no-explicit-any */
+
+  return (
+    <div>
+      {/* Source toggle + legend */}
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-4">
+        <div className="flex items-center gap-2">
+          <span className="text-sm text-gray-500">Data source:</span>
+          <button
+            onClick={() => setGraphSource("neo4j")}
+            className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
+              graphSource === "neo4j"
+                ? "bg-green-600 text-white"
+                : "border border-gray-300 text-gray-600 hover:bg-gray-100"
+            }`}
+          >
+            Neo4j
+          </button>
+          <button
+            onClick={() => setGraphSource("stardog")}
+            className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
+              graphSource === "stardog"
+                ? "bg-blue-600 text-white"
+                : "border border-gray-300 text-gray-600 hover:bg-gray-100"
+            }`}
+          >
+            Stardog
+          </button>
+        </div>
+        <div className="flex flex-wrap gap-3">
+          {Object.entries(TYPE_COLORS).map(([type, color]) => (
+            <div key={type} className="flex items-center gap-1.5">
+              <span
+                className="h-2.5 w-2.5 rounded-full"
+                style={{ backgroundColor: color }}
+              />
+              <span className="text-xs text-gray-500">{type}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Graph container */}
+      <div
+        ref={containerRef}
+        className="rounded-lg border border-gray-200 bg-white overflow-hidden"
+        style={{ height: 500 }}
+      >
+        {graphLoading && (
+          <div className="flex items-center justify-center h-full text-gray-400">
+            Loading {graphSource} graph...
+          </div>
+        )}
+        {graphError && (
+          <div className="flex items-center justify-center h-full text-red-500 text-sm">
+            {graphError}
+          </div>
+        )}
+        {!graphLoading && !graphError && graphData && graphData.nodes.length > 0 && (
+          <ForceGraph2D
+            graphData={graphData}
+            width={dimensions.width}
+            height={500}
+            nodeCanvasObject={nodeCanvasObject}
+            nodePointerAreaPaint={(node: any, color: string, ctx: CanvasRenderingContext2D) => { // eslint-disable-line @typescript-eslint/no-explicit-any
+              ctx.beginPath();
+              ctx.arc(node.x || 0, node.y || 0, 6, 0, 2 * Math.PI);
+              ctx.fillStyle = color;
+              ctx.fill();
+            }}
+            linkColor={() => "#e5e7eb"}
+            linkWidth={0.5}
+            linkDirectionalArrowLength={3}
+            linkDirectionalArrowRelPos={1}
+            onNodeHover={(node: any) => setHoveredNode(node ? { id: node.id, type: node.type || "Entity" } : null)} // eslint-disable-line @typescript-eslint/no-explicit-any
+            cooldownTicks={100}
+            enableZoomInteraction={true}
+            enablePanInteraction={true}
+          />
+        )}
+        {!graphLoading && !graphError && graphData && graphData.nodes.length === 0 && (
+          <div className="flex items-center justify-center h-full text-gray-400 text-sm">
+            No graph data available from {graphSource}
+          </div>
+        )}
+      </div>
+
+      {/* Stats bar */}
+      {graphData && graphData.nodes.length > 0 && (
+        <div className="mt-3 flex gap-6 text-sm text-gray-500">
+          <span>{graphData.nodes.length} nodes</span>
+          <span>{graphData.links.length} relationships</span>
+          {hoveredNode && (
+            <span className="text-gray-800 font-medium">
+              {hoveredNode.id} ({hoveredNode.type})
+            </span>
+          )}
+        </div>
       )}
     </div>
   );
@@ -361,6 +586,14 @@ function SparqlTab({
               {queryResults.results.length} result{queryResults.results.length !== 1 ? "s" : ""}
             </span>
           )}
+          <a
+            href={STARDOG_STUDIO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-auto text-sm text-blue-600 hover:text-blue-800"
+          >
+            Open in Stardog Studio
+          </a>
         </div>
       </div>
 

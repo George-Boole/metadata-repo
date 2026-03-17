@@ -2,6 +2,16 @@ import { Connection, query as stardogQuery } from "stardog";
 
 let conn: Connection | null = null;
 
+/** Check if Stardog env vars are configured */
+export function isStardogConfigured(): boolean {
+  return !!(
+    process.env.STARDOG_ENDPOINT &&
+    process.env.STARDOG_USERNAME &&
+    process.env.STARDOG_PASSWORD &&
+    process.env.STARDOG_DATABASE
+  );
+}
+
 export function getStardogConnection(): Connection {
   if (conn) return conn;
 
@@ -27,6 +37,10 @@ export function getStardogDatabase(): string {
 export async function runSparqlSelect<T = Record<string, unknown>>(
   sparql: string,
 ): Promise<T[]> {
+  if (!isStardogConfigured()) {
+    throw new Error("Stardog not configured");
+  }
+
   const connection = getStardogConnection();
   const database = getStardogDatabase();
 
@@ -51,6 +65,10 @@ export async function runSparqlSelect<T = Record<string, unknown>>(
 
 /** Run a SPARQL UPDATE (INSERT/DELETE) */
 export async function runSparqlUpdate(sparql: string): Promise<void> {
+  if (!isStardogConfigured()) {
+    throw new Error("Stardog not configured");
+  }
+
   const connection = getStardogConnection();
   const database = getStardogDatabase();
 
