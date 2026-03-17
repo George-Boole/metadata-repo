@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
+import EntityAutocomplete from "@/components/EntityAutocomplete";
 
 // Dynamic import for Sigma.js (needs DOM/WebGL)
 const GraphVisualization = dynamic(
@@ -532,26 +533,18 @@ SELECT ?startName ?path ?endName WHERE {
       </p>
 
       <div className="grid gap-4 sm:grid-cols-3 mb-4">
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Start entity (partial name)</label>
-          <input
-            type="text"
-            value={startEntity}
-            onChange={(e) => setStartEntity(e.target.value)}
-            placeholder="e.g., NIEM"
-            className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">End entity (partial name)</label>
-          <input
-            type="text"
-            value={endEntity}
-            onChange={(e) => setEndEntity(e.target.value)}
-            placeholder="e.g., IC-ISM"
-            className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
-          />
-        </div>
+        <EntityAutocomplete
+          value={startEntity}
+          onChange={setStartEntity}
+          label="Start entity"
+          placeholder="e.g., NIEM"
+        />
+        <EntityAutocomplete
+          value={endEntity}
+          onChange={setEndEntity}
+          label="End entity"
+          placeholder="e.g., IC-ISM"
+        />
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Max hops</label>
           <div className="flex items-center gap-2">

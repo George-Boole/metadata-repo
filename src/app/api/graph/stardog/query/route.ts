@@ -15,8 +15,9 @@ export async function POST(request: NextRequest) {
     }
 
     // Safety: only allow read queries from the UI
-    const trimmed = sparql.trim().toUpperCase();
-    if (!trimmed.startsWith("SELECT") && !trimmed.startsWith("ASK") && !trimmed.startsWith("DESCRIBE") && !trimmed.startsWith("CONSTRUCT")) {
+    // Strip PREFIX/BASE declarations before checking the query type
+    const stripped = sparql.trim().replace(/^(\s*(PREFIX|BASE)\s+[^\n]*\n?)+/i, "").trim().toUpperCase();
+    if (!stripped.startsWith("SELECT") && !stripped.startsWith("ASK") && !stripped.startsWith("DESCRIBE") && !stripped.startsWith("CONSTRUCT")) {
       return NextResponse.json({ error: "Only read queries (SELECT/ASK/DESCRIBE/CONSTRUCT) are allowed" }, { status: 403 });
     }
 
