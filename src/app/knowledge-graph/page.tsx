@@ -493,16 +493,19 @@ function PathFinderTab() {
     setPathError(null);
     setPaths(null);
 
-    const sparql = `PREFIX daf: <https://daf-metadata.mil/ontology/>
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+    const escapedStart = startEntity.replace(/"/g, '\\"');
+    const escapedEnd = endEntity.replace(/"/g, '\\"');
+    const relBase = "https://daf-metadata.mil/ontology/rel/";
+    const pathExpr = `(<${relBase}REFERENCES>|<${relBase}IMPLEMENTS>|<${relBase}SUPPORTS>|<${relBase}PART_OF>|<${relBase}MANDATES>|<${relBase}CHILD_OF>)+`;
+    const sparql = `PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
-SELECT ?startName ?path ?endName WHERE {
+SELECT ?startName ?endName WHERE {
   ?start skos:prefLabel ?startName .
-  FILTER(CONTAINS(LCASE(?startName), LCASE("${startEntity.replace(/"/g, '\\"')}")))
-  ?start (<https://daf-metadata.mil/ontology/rel/RELATES_TO>){1,${maxHops}} ?end .
+  FILTER(CONTAINS(LCASE(?startName), LCASE("${escapedStart}")))
+  ?start ${pathExpr} ?end .
   ?end skos:prefLabel ?endName .
-  FILTER(CONTAINS(LCASE(?endName), LCASE("${endEntity.replace(/"/g, '\\"')}")))
-  BIND("RELATES_TO" AS ?path)
+  FILTER(CONTAINS(LCASE(?endName), LCASE("${escapedEnd}")))
+  FILTER(?start != ?end)
 } LIMIT 20`;
 
     try {
@@ -580,7 +583,7 @@ SELECT ?startName ?path ?endName WHERE {
             <thead className="bg-gray-50">
               <tr>
                 <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">From</th>
-                <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Relationship</th>
+                <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Path</th>
                 <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">To</th>
               </tr>
             </thead>
@@ -588,9 +591,8 @@ SELECT ?startName ?path ?endName WHERE {
               {paths.map((row, i) => (
                 <tr key={i}>
                   <td className="px-4 py-2 text-sm text-gray-800 font-medium">{row.startName}</td>
-                  <td className="px-4 py-2 text-sm text-gray-500">
-                    <span className="rounded bg-gray-100 px-2 py-0.5 text-xs font-mono">{row.path}</span>
-                    <span className="ml-1 text-xs text-gray-400">(up to {maxHops} hops)</span>
+                  <td className="px-4 py-2 text-sm text-gray-500 text-center">
+                    <span className="text-gray-400">---({maxHops} max hops)---&gt;</span>
                   </td>
                   <td className="px-4 py-2 text-sm text-gray-800 font-medium">{row.endName}</td>
                 </tr>

@@ -120,12 +120,22 @@ export default async function SourceDetailPage({
     }
   }
 
-  // Resolve source IDs for linked entities
+  // Resolve source IDs for linked entities (batch query instead of N+1)
   const relatedSourceIds: Record<string, string> = {};
-  for (const rel of graphRelations) {
-    if (rel.sourceUrl && !relatedSourceIds[rel.sourceUrl]) {
-      const relSource = await getSourceByUrl(rel.sourceUrl);
-      if (relSource) relatedSourceIds[rel.sourceUrl] = relSource.id;
+  const uniqueUrls = [...new Set(graphRelations.map((r) => r.sourceUrl).filter(Boolean))] as string[];
+  if (uniqueUrls.length > 0) {
+    try {
+      const { getSupabaseServer } = await import("@/lib/supabase");
+      const supabase = getSupabaseServer();
+      const { data } = await supabase
+        .from("sources")
+        .select("id, url")
+        .in("url", uniqueUrls.slice(0, 100));
+      if (data) {
+        for (const row of data) relatedSourceIds[row.url] = row.id;
+      }
+    } catch {
+      // Non-fatal
     }
   }
 
