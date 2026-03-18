@@ -1193,7 +1193,25 @@ Key relationship `IC-EDH —[REFERENCES]→ IC-ISM` now surfaces for all query p
 - `src/lib/stardog.ts` — added reasoning, explain, getDatabaseInfo functions
 - `package.json` — added sigma, @react-sigma/core, graphology, graphology-layout-forceatlas2; removed react-force-graph-2d
 
+#### Bug Fixes (production testing)
+- Sigma.js WebGL crashed on Vercel — replaced with custom Canvas-based renderer (no WebGL dependency)
+- Added mouse wheel zoom (0.15x-8x) and click-drag pan to graph visualization
+- Expanded layout space (2000x1400) to prevent cluster compression; isolated nodes in outer ring
+- Fixed click-vs-drag detection: 3px movement threshold, clicks handled in mouseup
+- Replaced `router.push` with `window.location.href` for faster node click navigation
+- Fixed source detail page N+1 query: batch Supabase `.in()` instead of sequential `getSourceByUrl()` — load time 3.9s -> 1.8s
+- Fixed SPARQL safety check to strip PREFIX declarations before checking query type
+- Fixed Path Finder: was using nonexistent `RELATES_TO` predicate; now uses actual predicates (REFERENCES, IMPLEMENTS, SUPPORTS, PART_OF, MANDATES, CHILD_OF)
+- Fixed Path Finder: bidirectional traversal using SPARQL `^` (inverse) operator
+- Fixed 50 misclassified entity types in Neo4j + Stardog (DoDI/DoDD -> Guidance, NIST -> Standard, etc.)
+
+#### New Files
+- `src/components/EntityAutocomplete.tsx` — debounced entity search dropdown with type-colored dots
+- `src/app/api/graph/entities/route.ts` — entity name search API (case-insensitive, matches anywhere)
+- `scripts/fix-node-types.ts` — entity type correction script for Neo4j + Stardog
+- `docs/STARDOG_CAPABILITIES.md` — 9 leveraged + 8 available capabilities reference
+
 ### Status at End
-- Build passes, all features implemented
-- Stardog env vars added to Vercel by user, redeployed
-- Ready for production verification
+- All features deployed and tested on Vercel production
+- Working tree clean, all committed and pushed
+- Known data quality issue: entity name duplication from LLM extraction (e.g., "DoDI 8320.02" vs "DoD Instruction 8320.02" are separate nodes)
