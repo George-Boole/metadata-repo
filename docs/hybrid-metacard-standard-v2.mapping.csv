@@ -1,0 +1,33 @@
+profile_field,conformance_level,source_standard,source_construct,cardinality,notes
+envelope.profile_id,L1,Profile,ORG-HYBRID-METACARD-2.0,1..1,Fixed profile id
+envelope.metacard_id,L1,Profile,UUID,1..1,Enterprise unique id
+envelope.asset_locator,L1,Profile,asset locator,1..1,URI/path/object key
+envelope.asset_fingerprint.hash,L1,Profile,hash,1..1,Immutable per metacard version
+irm.identifier,L1,IRM,irm:identifier,1..n,Primary discovery identifier(s)
+irm.title,L1,IRM,irm:title,1..n,Human-readable title(s)
+irm.creator,L1,IRM,irm:creator,1..n,Creation party
+irm.publisher,L1,IRM,irm:publisher,1..n,Publishing party
+irm.contributor,L1,IRM,irm:contributor,1..n,Contributing party
+irm.point_of_contact,L1,IRM,irm:pointOfContact,1..n,Operational/contact role
+irm.subject_coverage,L1,IRM,irm:subjectCoverage,1..n,Topical/domain coverage
+irm.metacard_info.identifier,L1,IRM,irm:metacardInfo/irm:identifier,1..n,Metacard identifier(s)
+irm.metacard_info.dates,L1,IRM,irm:metacardInfo/irm:dates,1..1,Metacard date set
+ism.classification,L1,ISM,classification attribute,1..1,Security classification baseline
+ism.owner_producer,L1,ISM,ownerProducer attribute,1..n,Owner/producer country/org
+ism.dissemination_controls,L2,ISM,disseminationControls attribute,0..n,Dissemination controls
+ism.releasable_to,L2,ISM,releasableTo attribute,0..n,Release controls
+ism.display_only_to,L2,ISM,displayOnlyTo attribute,0..n,Display constraints
+ism.non_us_controls,L2,ISM,nonUSControls attribute,0..n,Non-US restrictions
+erm.office_of_record,L1,ERM,erm:OfficeOfRecord,1..1,Responsible records office
+erm.disposition.review_indicator,L1,ERM,erm:Disposition/erm:ReviewIndicator,1..1,Disposition review required
+erm.disposition.record_control,L2,ERM,erm:Disposition/erm:RecordControl,0..1,Record control string/code
+erm.disposition.hold,L3,ERM,erm:Disposition/erm:Hold,0..n,Hold metadata collection
+edh.identifier,L2,EDH,icid:Identifier,1..1,EDH enterprise id
+edh.data_item_create_datetime,L2,EDH,edh:DataItemCreateDateTime,1..1,EDH creation time
+edh.responsible_entity,L2,EDH,edh:ResponsibleEntity,1..2,Country/org/suborg set
+tdf.object_id,L2,TDF,TrustedDataObject/@id,0..1,TDO object id
+tdf.version,L2,TDF,TrustedDataObject/@version,0..1,TDO version
+tdf.payload.uri,L2,TDF,Reference payload uri,0..1,Payload location
+tdf.payload.is_encrypted,L2,TDF,payload/@isEncrypted,0..1,Encrypted state flag
+tdf.assertions,L3,TDF,AssertionGroup,0..n,Assertion-level transport metadata
+uais.entity_type,L3,UAIS,uias:EntityType,0..1,Optional identity-context extension
