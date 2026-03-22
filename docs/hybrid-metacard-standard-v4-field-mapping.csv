@@ -1,0 +1,40 @@
+section,canonical_field,required,cardinality,taxonomy_family,extraction_method,confidence_tier,notes
+IRM,irm.desVersion,yes,1,mc_irm_discovery,metadata/header parse,Tier2,Root IRM DES version
+IRM,irm.compliesWith,yes,1..n,mc_irm_discovery,dictionary+mapping,Tier2,Profile compliance token(s)
+IRM,irm.metacardInfo.identifier,yes,1..n,mc_irm_discovery,regex+context,Tier2,Identifier for metadata card
+IRM,irm.metacardInfo.dates,yes,1,mc_irm_discovery,date parser,Tier2,Metadata-card dates
+IRM,irm.resource.identifier,yes,1..n,mc_irm_discovery,regex+context,Tier2,Identifier for described asset
+IRM,irm.resource.title,yes,1..n,mc_irm_discovery,header/property/text,Tier3,Human readable title
+IRM,irm.resource.subjectCoverage,yes,1..n,mc_irm_discovery,keyword taxonomy,Tier3,At least one category/keyword
+IRM,irm.resource.description,no,0..1,mc_irm_discovery,summary extraction,Tier3,Recommended
+IRM,irm.resource.language,no,0..n,mc_irm_discovery,dictionary/locale detect,Tier3,Recommended
+IRM,irm.resource.format.mimeType,no,0..1,mc_irm_discovery,file signature/property,Tier3,Recommended
+ISM,ism.classification,yes,1,mc_ism_marking,dictionary+context,Tier1,Human attestation recommended
+ISM,ism.ownerProducer,yes,1..n,mc_ism_marking,dictionary+context,Tier1,Human attestation recommended
+ISM,ism.compliesWith,yes,1..n,mc_ism_marking,dictionary,Tier2,Policy regime(s)
+ISM,ism.createDate,yes,1,mc_ism_marking,date parser,Tier2,Security metadata date
+ISM,ism.resourceElement,yes,1,mc_ism_marking,rule default,Tier2,Resource marking indicator
+ISM,ism.cuiBasic,no,0..n,mc_ism_marking,dictionary,Tier2,Optional CUI extension
+ISM,ism.cuiSpecified,no,0..n,mc_ism_marking,dictionary,Tier2,Optional CUI extension
+ISM,ism.disseminationControls,no,0..n,mc_ism_marking,dictionary+context,Tier2,Dissemination controls
+ISM,ism.releasableTo,no,0..n,mc_ism_marking,dictionary,Tier2,Release constraint
+ERM,erm.officeOfRecord,yes,1,mc_erm_records,header/property+dictionary,Tier2,Agency/org responsibility
+ERM,erm.disposition,yes,1,mc_erm_records,structured mapping,Tier2,Disposition container
+ERM,erm.disposition.reviewIndicator,yes,1,mc_erm_records,boolean rule,Tier2,Required by schema
+ERM,erm.disposition.recordControl,no,0..1,mc_erm_records,regex+dictionary,Tier2,Recommended
+ERM,erm.recordDesignationDate,no,0..1,mc_erm_records,date parser,Tier2,Recommended
+ERM,erm.vitalRecordsIndicator,no,0..1,mc_erm_records,boolean rule,Tier2,Recommended
+ERM,erm.foiaOpsIndicator,no,0..1,mc_erm_records,boolean rule,Tier2,Recommended
+ERM,erm.disposition.hold,no,0..n,mc_erm_records,workflow/state integration,Tier1,Legal hold context
+EDH,edh.identifier,yes,1,mc_edh_header,identifier parse,Tier2,IC-ID or equivalent canonical ID
+EDH,edh.dataItemCreateDateTime,yes,1,mc_edh_header,date-time parser,Tier2,EDH creation timestamp
+EDH,edh.responsibleEntity,yes,1..2,mc_edh_header,dictionary+context,Tier2,Must include Custodian
+EDH,edh.authorizationReference,no,0..1,mc_edh_header,pattern/property,Tier2,Optional
+TDF,tdf.version,yes,1,mc_tdf_binding,header/property parse,Tier2,Transport object version
+TDF,tdf.binding.signer,yes,1,mc_tdf_binding,certificate/property extraction,Tier2,Signer context
+TDF,tdf.binding.signature.signatureAlgorithm,yes,1,mc_tdf_binding,dictionary,Tier2,Required for signature value
+TDF,tdf.binding.signature.normalizationMethod,yes,1,mc_tdf_binding,URI parser,Tier2,Required for signature value
+TDF,tdf.referenceValuePayloadUri,no,0..1,mc_tdf_binding,URI parse,Tier2,Recommended external payload reference
+GOV,profile.name,yes,1,mc_irm_discovery,constant,Tier3,hybrid-metacard-standard
+GOV,profile.version,yes,1,mc_irm_discovery,constant,Tier3,4.0
+GOV,validationStatus,yes,1,mc_irm_discovery,validator output,Tier2,Pass/fail with reason
