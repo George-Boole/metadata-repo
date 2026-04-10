@@ -422,11 +422,14 @@ These areas are implemented correctly:
 - **SameSite=Lax**: Partial CSRF protection on cookies.
 - **Env Var Separation**: Server secrets properly server-side. Only `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` exposed to client (by design).
 - **No Hardcoded Secrets**: All credentials come from environment variables.
-- **.gitignore**: Properly excludes `.env`, `.env*.local`, `node_modules`.
+- **.gitignore**: Properly excludes `.env`, `.env*.local`, `node_modules`. Note: `.env.production` and `.env.staging` are not explicitly listed — add them for defense-in-depth.
 - **Rate Limiting**: Applied to auth (5/min), chat (20/min), ingest (10/min), admin (30/min).
 - **Activity Logging**: Good audit trail for login, ingestion, and admin operations.
 - **Zod Validation**: API inputs validated with Zod schemas.
 - **Error Boundaries**: React error boundaries at root, standards-brain, and admin levels.
+- **Strict TypeScript**: `strict: true` enabled in `tsconfig.json`, reducing type-related vulnerabilities.
+- **No Secrets in Git History**: Verified via `git log` — no `.env` files ever committed.
+- **Clean Dependency Audit**: No critical CVEs in current dependency versions (minor: `pdf-parse` v1.1.1 is outdated).
 
 ---
 
