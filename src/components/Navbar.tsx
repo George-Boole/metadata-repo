@@ -145,7 +145,7 @@ export default function Navbar() {
             </div>
             <div className="hidden sm:block">
               <div className="text-base font-semibold leading-tight">
-                Metadata Repository
+                Metadata Standards Repository
               </div>
               <div className="text-xs text-white/60 leading-tight">
                 Department of the Air Force

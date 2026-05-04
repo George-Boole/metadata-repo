@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "DAF Metadata Repository",
+  title: "DAF Metadata Standards Repository",
   description:
     "Department of the Air Force Metadata Standards Repository - Prototype",
 };

@@ -50,7 +50,7 @@ function LoginForm() {
           DAF
         </div>
         <h1 className="text-xl font-semibold text-daf-dark-gray">
-          Metadata Repository
+          Metadata Standards Repository
         </h1>
         <p className="mt-1 text-sm text-daf-gray">
           Department of the Air Force — Prototype

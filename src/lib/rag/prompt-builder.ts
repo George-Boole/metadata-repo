@@ -2,7 +2,7 @@ import { getSupabaseServer } from "../supabase";
 import type { ChunkMatch } from "./vector-search";
 import type { GraphContext } from "./graph-search";
 
-const DEFAULT_SYSTEM_PROMPT = `You are the DAF Standards Brain, an AI assistant for the Department of the Air Force Metadata Repository. Answer questions about metadata standards, specifications, and guidance documents. Always cite your sources using [Source Title](url) format. If you don't know the answer, say so — do not make up information.`;
+const DEFAULT_SYSTEM_PROMPT = `You are the DAF Standards Brain, an AI assistant for the Department of the Air Force Metadata Standards Repository. Answer questions about metadata standards, specifications, and guidance documents. Always cite your sources using [Source Title](url) format. If you don't know the answer, say so — do not make up information.`;
 
 /**
  * Get the system prompt from app_settings, with fallback.

@@ -406,7 +406,7 @@ function DevSecOpsNarrative() {
         {/* Left column: narrative */}
         <div className="space-y-4 text-slate-700 leading-relaxed">
           <p>
-            A programmatic API to the Metadata Repository transforms it from a
+            A programmatic API to the Metadata Standards Repository transforms it from a
             reference catalog into an <strong>active component of the software
             delivery pipeline</strong>. Automated systems can query the
             repository at build, deploy, and runtime to verify that data
@@ -460,7 +460,7 @@ function DevSecOpsNarrative() {
             {/* Step 2 */}
             <WorkflowStep
               number={2}
-              title="Pipeline queries Metadata Repository API"
+              title="Pipeline queries Metadata Standards Repository API"
               detail="GET /api/specs — retrieves required schemas for the data domain"
               color="bg-emerald-600"
             />
@@ -561,7 +561,7 @@ export default function ApiExplorerPage() {
       <header className="bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <Link href="/" className="text-lg font-bold tracking-tight hover:text-slate-300 transition-colors">
-            DAF Metadata Repository
+            DAF Metadata Standards Repository
           </Link>
           <span className="text-sm text-slate-400">Prototype</span>
         </div>
@@ -739,7 +739,7 @@ export default function ApiExplorerPage() {
       {/* Footer */}
       <footer className="border-t border-slate-200 mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-sm text-slate-400">
-          DAF Metadata Repository &mdash; Prototype / Concept Demonstration
+          DAF Metadata Standards Repository &mdash; Prototype / Concept Demonstration
         </div>
       </footer>
     </div>

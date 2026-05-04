@@ -72,7 +72,7 @@ const WELCOME_MESSAGE = {
   parts: [
     {
       type: "text" as const,
-      text: "Hello! I'm the Standards Brain \u2014 an AI assistant trained on the DAF Metadata Repository. Ask me about any standard, guidance document, specification, or tool, and I'll provide contextual answers with source citations.\n\nTry one of the suggested questions, or type your own!",
+      text: "Hello! I'm the Standards Brain \u2014 an AI assistant trained on the DAF Metadata Standards Repository. Ask me about any standard, guidance document, specification, or tool, and I'll provide contextual answers with source citations.\n\nTry one of the suggested questions, or type your own!",
     },
   ],
 };
