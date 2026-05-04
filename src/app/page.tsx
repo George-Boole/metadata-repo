@@ -24,7 +24,7 @@ export default async function Home() {
               Department of the Air Force
             </p>
             <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-              Metadata Repository
+              Metadata Standards Repository
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-lg text-white/80 sm:text-xl">
               Centralized catalog of metadata standards, guidance, and tooling
